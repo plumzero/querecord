@@ -1,0 +1,146 @@
+
+/**
+ * fdisk
+ * df
+ * du
+ * free
+ * uname
+ * lspci
+ * lsusb
+ * lsmod
+ * modinfo
+ * ethtool
+ * dmidecode
+ * lshw
+ */
+ 
+fdisk 的用法
+	说明:
+		此设备文件在 Linux 系统中是通过 hd*x 或 sd*x 表示的，其中"*"表示a、b、c等；x表示
+		1、2、3等；hd 是 IDE 硬盘；sd 是 SATA 硬盘、SCSI 硬盘或移动存储。
+	示例:
+	fdisk -l
+		查看当前主机上已被识别的所有磁盘存储设备及相关信息
+
+df 的用法	
+	功能: 检查文件系统磁盘占用情况
+	示例:
+	df -h
+		以可读性较好格式显示尺寸
+	df -i
+		显示inode信息而非块使用量
+	df -T
+		显示文件系统类型
+
+du 的用法
+	功能: 显示指定目录或文件所占用的磁盘空间
+	示例：
+    du -k
+        当前目录下各文件大小，以 KB 为单位
+    du -h
+        以K、M、G为单位，提高信息可读性
+    du -sm
+        当前目录文件总和，以 MB 为单位
+	
+free 的用法
+	功能：显示内存使用状态
+	示例：
+	free -t
+		列出物理内存与虚拟内存总和
+	free -m
+		以 MB 为单位显示内存状态
+		
+uname 的用法
+	功能: 显示系统信息（内核/操作系统/CPU信息）
+	示例:
+	uname -m	显示计算机类型（主机硬件架构名称）
+	uname -n	显示计算机名
+	uname -r	显示操作系统发行编号（内核发行号）
+	uname -s	显示操作系统名称（内核名称）
+	uname -v	显示系统时间
+	uname -o 	操作系统
+ 
+lspci 的用法
+	功能: 查看 pci 总线设备信息。
+	示例:
+	lspci -v
+		查看设备详细信息
+	lspci -nn
+		同时以文本和数字方式显示设备信息
+	lspci -s 0000:02:01.0
+		查看指定插口上的设备信息
+
+lsusb 的用法
+	功能: 显示本机的USB设备列表，以及USB设备的详细信息。
+	示例:
+	lsusb -v
+		查看设备详细信息
+
+lsmod 的用法
+	功能：显示linux内核中正加载的模块的状态信息
+	示例：
+	lsmod
+		第 1 列：表示模块的名称
+		第 2 列：表示模块的大小
+		第 3 列：表示依赖模块的个数
+		第 4 列：表示依赖模块的内容
+	lsmod | grep -i dpdk
+		查看是否加载 dpdk 模块
+
+modinfo 的用法
+	功能：显示一个linux内核模块的具体信息
+	示例：
+	modinfo igb
+		查看 igb 模块信息
+	modinfo -p e1000
+		显示 e1000 可用参数
+
+ethtool 的用法
+	功能：访问或控制网络驱动和硬件设置
+	示例：
+	ethtool -i eth1
+	
+dmidecode 的用法
+	功能: 获取有关硬件信息，包括BIOS、系统、主板、处理器、内存、缓存等。
+	返回的硬件信息格式示例：
+	Handle 0x0002, DMI type 2, 8 bytes.  Base Board Information
+		   Manufacturer: Intel
+		   Product Name: C440GX+
+		   Version: 727281-001
+		   Serial Number: INCY92700942
+	说明：
+		Handle: 本地唯一标识符，允许记录相互引用。例如，处理器记录通常使用其句柄引用高速缓存存储器记录。
+		DMI type: SMBIOS规范定义了构成计算的不同元素。本例中，type 2 表示记录包含 "电路基板信息"。
+		size: 每个记录有一个 4 字节的 header（其中 2 字节用作 Handle，1 字节用作 DMI type，1 字节用作 size）组成，
+		      size 的其余部分由记录数据使用。size 不考虑文本字符串（这些通常放在记录的最后），因此记录的实际长度
+			  通常会比显示的值大。
+		Decoded values: 解析出的信息取决于记录的类型。在这里可以看到的是制造商，型号，版本和序列号。
+	示例:
+	通过 KEYWORD 查看系统制造商信息（KEYWORD 有限制，具体的 KEYWORD 可用列表可以通过 dmidecode -s 查看）
+		dmidecode -s system-manufacturer
+	通过 TYPE 查看CPU信息（TYPE 有限制，具体的 TYPE 可用列表可以通过 dmidecode -t 查看）
+		dmidecode -t memory
+	查看插槽信息
+		dmidecode -t slot
+	查看服务器型号
+		dmidecode | grep 'Product Name'
+	查看主板序列号
+		dmidecode |grep 'Serial Number'
+	查看系统序列号
+		dmidecode -s system-serial-number
+		
+lshw 的用法
+	功能：列出硬件
+	示例：
+	lshw -class network -businfo
+		查看网卡对应的pci总线信息
+	lshw -c cpu -businfo
+		查看cpu对应的pci总线信息
+	lshw -c storage -businfo
+		查看存储设备的pci总线信息
+	lshw -c disk
+		查看硬盘信息
+	lshw -businfo
+		查看总线信息
+	lshw -class memory
+		查看内存信息

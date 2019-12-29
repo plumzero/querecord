@@ -1,0 +1,87 @@
+
+
+
+################################# 控制台 #################################
+
+ctrl + a          光标跳转到命令行的开始部分
+ctrl + e          光标跳转到命令行的结束部分
+
+################################# vim #################################
+
+vim配置文件 /etc/vimrc
+进行文档编辑时Vim编辑器产生混乱：Ctrl+L对屏幕刷新
+文件编辑完成，执行w!也无法退出：1）:w newfile 文件重新存盘后再退出 2）借用/tmp目录建一个新文件
+
+vim四种模式：一般模式、编辑模式（又分为插入模式和替换模式）、可视模式、命令模式
+	一般模式（部分）：
+		输入"r"然后接着输入某个字母，将替换光标所在位置字母
+		0	光标移到行首
+		$	光标移到行尾
+		H	光标移到屏幕显示第一行
+		L	光标移到屏幕显示最后一行
+		M	光标移到屏幕显示中间一行
+		复制一个单词
+			y + w
+		标记命令完成连续多行复制
+			m键+a键标记复制开始行
+			m键+b键标记复制结束行
+			m键+c键标记复制目标处前一行
+			切换命令模式下输入 'a,'b copy 'c		//将copy换成move可完成剪切操作
+		复制已知连续n行
+			光标移至起始行:n键+yy键
+			光标移至要粘贴的前一行:p键粘贴
+		指定连续行复制
+			n1,n2 copy n3	将第n1行至第n2行复制到第n3行，copy换成move则为剪切
+		删除指定字符
+			x键
+		删除连续n个字符
+			n + x
+		标记命令完成连续n行删除
+			'a,'b delete
+		删除连续n行
+			n + d
+		指定连续行删除
+			n1,n2 delete
+	编辑模式下的关键字补全：Ctrl+N 和 Ctrl+P
+	
+ASCII码	0D - 归位<CR>	0A - 换行<LF>
+	Uinx和Linux使用<LF>换行
+	Apple使用<CR换行>
+	MS-DOS和Windows使用<CR><LF>换行
+由于MS-DOS和Windows是回车＋换行来表示换行，因此在linux下用Vim查看在Windows下用VC写的代码，行尾后会出现“^M”符号。
+可以使用Notepad++实现Windows、MAC、Unix(Linux)三种格式之间的转换。
+
+以 redhat 7.5 为示例
+
+vim 配置文件
+  全局配置文件          /etc/vimrc
+  当前用户配置文件      ~/.vimrc
+
+查看当前 vim 使用配色方案
+  通过 vim 打开任意一个文本文件，在 normal 模式下输入
+    :colorscheme
+  当前配色方案为 desert.vim
+  
+查看 vim 可选配色方案
+  ls /usr/share/vim/vim74/colors/
+  
+向 vim 配置文件末尾写入下列选项更改 vim 配置
+  syntax on
+  set hlsearch
+  colorscheme desert
+  set nocompatible
+  set backspace=indent,eol,start
+  
+为了使在 SecureCRT 上生效，需要对其进行一些配置，步骤如下:
+  1. Session Options->Terminal->Emulation->Terminal(选择Xterm）并勾选后面的 ANSI Color
+  2. Session Options->Terminal->Emulation->勾选 Select an alternate keyborad emulation，然后在下拉框中选择 Xterm
+  3. 重新打开SecureCRT到centos的连接，就可以看到高亮了
+
+################################# gvim #################################
+
+参考：
+  gvim使用心得
+  https://blog.csdn.net/adam8/article/details/1688086
+
+修改vimrc_配置文件，对gvim进行一些设置
+	

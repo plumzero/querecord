@@ -1,0 +1,174 @@
+安装破产。。。。。。
+
+//	samba-4.7.5
+
+//	参考
+	源码编译安装samba
+	https://blog.csdn.net/cupidove/article/details/47756225
+	Samba-4.8.0
+	http://www.linuxfromscratch.org/blfs/view/svn/basicnet/samba.html
+	第十六章、檔案伺服器之二： SAMBA 伺服器
+	http://linux.vbird.org/linux_server/0370samba.php
+	
+//	安装
+	1.解压
+		tar -zxvf samba-4.7.5.tar.gz
+	2.进入解压目录
+		cd samba-4.7.5
+	3.检测依赖包，根据提示安装python-devel等包
+		./configure --perfix=/usr/local/samba
+	4.编译
+		make
+	5.安装
+		make install
+	6.将samba库文件加入到系统搜索目录
+		cd /etc/ld.so.conf.d/
+		vim samba.conf
+			写入 /usr/local/samba/lib64
+		ldconfig
+	7.将配置文件拷贝至库目录内，并重命名配置文件
+		cp /usr/local/samba-4.7.5/examples/smb.conf.default /usr/local/samba/lib
+		cd /usr/local/samba/lib
+		mv smb.conf.default smb.conf
+	8.配置文件内容修改
+		vim /usr/local/samba/smb.conf
+				workgroup=WORKGROUP
+				unix charset=utf8
+				dos charset=utf8
+				display charset=utf8
+			在[global]项合适处加入，将linux共享目录设置为所有人的共享目录
+				security= share
+			对[myshare]项的修改
+				path=/usr/local/share
+				public=yes
+				writable=yes
+	9.检测是否安装成功
+		/usr/local/samba/bin/testparm
+	10.添加samba用户，samba用户必须为linux系统用户
+		/usr/local/samba/bin/smbpasswd -a lb
+	11.启动samba
+		cd /usr/local/samba/sbin
+		./nmbd start
+		./smbd start
+	12.xxxx
+	
+apt-get install samba	//安装服务端
+cd /etc/init.d		//进入此目录查找smbd命令，只是确认，并不需要修改什么
+
+sudo /etc/init.d/smbd start	//启动smbd服务器
+sudo /etc/init.d/smbd stop	//关闭smbd服务器
+sudo /etc/init.d/smbd restart	//重启smbd服务器
+
+sudo /etc/init.d/nmbd start	//启动nmbd服务器
+	
+	smbd 主要用来管理共享出来的目录
+	nmbd 主要用来解析NetBIOS名
+	
+Debian安装时依赖库问题
+	apt-get install python-dev		//yum -y install python-devel
+	apt-get install gnutls*			//yum同
+		如果依赖包太多怎么办
+		Debian: apt-get install -f
+		yum:	yum groupinstall "Development Tools" "Development Libraries"
+
+安装samba时需要安装 gnutls 库
+gnutls 库又需要安装 nettle 库
+gnutls 库安装时要求gcc版本为>5
+gcc8.1安装时要求安装（安装顺序）
+	gmp-6.1.0.tar.bz2
+	mpfr-3.1.4.tar.bz2
+	mpc-1.0.3.tar.gz
+	isl-0.18.tar.bz2
+
+1.已经安装好了nettle库
+2.准备安装gnutls库，但在./configure时会报错，查看日志config.log，出错如下
+	configure:5356:gcc -V >&5
+	gcc: error: unrecognized command line option '-V'
+	gcc: fatal error: no input files
+猜测应该是与gcc版本（gcc4.8.1）太低有关，准备升级到gcc8.1
+3.下载gcc tar 包并解压，进入文件中执行
+	./contrib/download_prerequisites
+检测并自动下载相关信赖包
+	gmp-6.1.0.tar.bz2
+	mpfr-3.1.4.tar.bz2
+	mpc-1.0.3.tar.gz
+	isl-0.18.tar.bz2
+
+安装gnutls，./configure进行初始化配置时出错
+无论使用 	指定自己安装的库
+	./configure NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls
+还是		使用系统自带的库
+	./configure --prefix=/usr/local/gnutls 
+都会报下面的错误
+	Libnettle 3.1 was not found.
+解决办法：	-> 这种报错的原因有许多，下面这个方法对其他未必适用
+	apt-get install pkgconfig
+解释
+	Gnu TLS configure script does not say out loud that pkg-config is needed and other package may not even be tried if pkg-config is not installed. 
+	Installing pkg-config fixed the issue for me.
+之后又会报一些错误,根据提示,最后的配置命令如下(这里使用系统库):
+	./configure --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit
+在初始化之前最好安装 unbound autoconf		最好的办法是登录官网查看需要安装哪些依赖包	https://www.gnutls.org/download.html
+	apt-get install unbound autoconf
+	
+make时又出现了错误
+	recipe for target 'aclocal.m4' failed
+	recipe for target 'Makefile.in' failed
+解决办法:
+	在网上搜索还缺什么包,装一次,执行一次下面的命令,再make,如果不行,再搜索还缺什么包...,直到make不报错
+	autoreconf -vfi
+
+make又出现错误
+	recipe for target 'sha-x86-ssse3.lo' failed
+猜想和 sha 有关,修改配置为
+	./configure --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support
+又出现hogweed库找不到,用自己的安装库
+	./configure NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support
+继续make,出现错误
+	recipe for target 'parse-datetime.c' failed
+再加选项--enable-openssl-compatibility也不行
+再加两个参数 --enable-libopts-install --enable-local-libopts 也不行
+	./configure NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --enable-openssl-compatibility --enable-libopts-install --enable-local-libopts
+在gnutls source包中搜索parse-datetime.c文件,位于gl文件中,找到该文件中的Makefile文件,打开搜索parse-datetime,如下
+	$(top_srcdir)/src/gl/m4/parse-datetime.m4 \
+m4中没有这个文件啊,但是也没有 mktime.m4 这个文件啊,为什么能走过去?
+再仔细看报错段落,有这么一句
+	'yacc' command not found
+尝试搜索一个
+	apt-cache search yacc
+没找到,就装个bison吧
+	apt-get install bison
+重新make,不再报那个错误, "CC parse-time.lo" ,走得更远一些,但又出新错误
+	recipe for target 'psktool' failed
+./configure 上再加个选项 --disable-tools
+	./configure NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --enable-openssl-compatibility --enable-libopts-install --enable-local-libopts --disable-tools --disable-tests
+又报下面的错误...
+	undefined reference to `rsa_compute_root_tr'
+	recipe for target 'ex-client-resume' failed
+第一条错误确实不清楚,第二条错误应该是与 client 有关,在./configure 中去掉 --enable-libopts-install 选项再尝试...
+	./configure NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --enable-openssl-compatibility --enable-local-libopts --disable-tools
+不行.source包中查找 ex-client-resume ,位于 .../examples/ 中,猜测应该与test有关, 加入选项 --disable-tests
+	./configure NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --enable-openssl-compatibility --disable-tools --disable-tests --disable-valgrind-tests
+还是不行,仔细查看出错处,打开 ex-client-resume 所在包内的 Makefile ,
+	./configure CC="gcc -std=c11" NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --disable-tools
+再看第一条错误,没有在库中找到文件,是不是因为编译器选择的问题,因为gmp库是 "gcc -std=c11" 编译的,修改后
+	./configure CC="gcc -std=c11"  NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --disable-tools
+./configure 完成后,会打印出一个总结 summary ,其中有一行是这样的:
+	Library types:        Shared=yes, Static=no
+结合Makefile文件, ../../lib/libgnutls.la,尝试加入 --enable-static 选项
+	./configure CC="gcc -std=c11"  NETTLE_CFLAGS="-I/usr/local/nettle/include" NETTLE_LIBS="-L/usr/local/nettle/lib -lnettle" HOGWEED_CFLAGS="-I/usr/local/nettle/include" HOGWEED_LIBS="-L/usr/local/nettle/lib -lhogweed" GMP_CFLAGS="-I/usr/local/gcc8.1-depend/gmp/include" GMP_LIBS="-L/usr/local/gcc8.1-depend/gmp/lib lgmp" --prefix=/usr/local/gnutls --with-included-libtasn1  --with-included-unistring --without-p11-kit --enable-sha1-support --disable-tools --enable-static
+还是不行,没办法了,只能
+	make -i
+通过了,但不建议使用
+安装当然也要
+	make install -i
+
+注意:
+	如果遇到下面这种错误
+		recipe for target 'all-recursive' failed
+		recipe for target 'all' failed
+	先不用管它,先解决除上面这两个的其他类似这种的报错,解决了之后,上面的两个报错自动就会消失
+		recipe for target 'XXX' failed
+		
+		
+apt-get install libpam-dev

@@ -1,0 +1,149 @@
+
+////////////////////////////// 简单使用 //////////////////////////////
+	
+open()
+  #include <sys/stat.h>
+  #include <fcntl.h>
+  int open(const char *pathname, int flags, .../* mode_t mode */);
+    打开 pathname 所标识的文件，并返回文件描述符，用以在后续函数调用中指代打开的文件。
+    文件状态标志 flags 可指定文件的打开方式: 只读、只写亦或是读写方式
+    mode 参数指定了由 open() 调用创建文件的访问权限。非创建文件时，可以省略此参数。
+  文件状态标志 O_CLOEXEC
+    1. 为新（创建）的文件描述符设置 close-on-exec 标志(FD_CLOEXEC)。
+    2. 使用 O_CLOEXEC 标志（打开文件），可以免去程序执行 fcntl() 的 F_GETFD 和 F_SETFD 操作来设置 close-on-exec 
+    标志的额外工作。
+    3. 在多线程程序中执行 fcntl() 的 F_GETFD 和 F_SETFD 操作有可能导致竞争状态，而使用 O_CLOEXEC 标志则能够避免
+    这一点。
+
+read()
+  #include <unistd.h>
+  ssize_t read(int fd, void *buffer, size_t count);
+    从 fd 所指代的打开文件中读取至多 count 字节的数据，并存储到 buffer 中。
+    返回值为实际读取的字节数，如果无字节可读（如读取文件结束符 EOF 时），则返回 0。出错返回 -1。
+
+write()
+  #include <unistd.h>
+  ssize_t write(int fd, void *buffer, size_t count);
+    从 buffer 中读取多达 count 字节的数据写入到由 fd 所指代的已打开文件中。
+    返回值为实际写入文件中的字节数，且有可能小于 count。
+  注意：对磁盘文件执行 I/O 操作时， write() 调用成功并不能保证数据已经写入磁盘。因为为了减少磁盘活动量和加快
+  write() 系统调用，内核会缓存磁盘的 I/O 操作。
+
+close()
+  #include <unistd.h>
+  int close(int fd);
+    释放文件描述符 fd 以及与之相关的内核资源。
+
+lseek()
+  #include <unistd.h>
+  off_t lseek(int fd, off_t offset, int whence);
+    针对 fd 所指代的已打开文件，lseek() 系统调用依照 offset 和 whence 参数值调整该文件的偏移量。失败时返回 -1。
+    offset 参数: 可以为正数也可以为负数。
+    whence 参数取值:
+      SEEK_SET   将文件偏移量设置为从文件头部起始点开始的 offset 个字节。
+      SEEK_CUR   相对于当前文件偏移量，将文件偏移量调整 offset 个字节。
+      SEEK_END   将文件偏移量设置为起始于文件尾部的 offset 个字节。
+  注意：
+    lseek() 并不适用于所有类型的文件。不允许将 lseek() 应用于管道、FIFO、socket 或者终端。
+	
+ioctl()
+  #include <sys/ioctl.h>
+  int ioctl(int fd, int request, ... /* argp */);
+    通过 request 参数指定将在 fd 上执行的控制操作。具体设备的头文件定义了可传递给 request 参数的常量。
+    ioctl() 根据 request 的参数值来确定 argp 所期望的类型。通常，argp 是指向整数或结构的指针。
+	 
+////////////////////////////// 高级使用 //////////////////////////////
+	 
+原子操作和竞争状态
+  1. 以独占方式创建一个文件
+  当同时指定 O_CREAT 和 O_EXCL 作为 open() 的标志位时，如果要打开的文件已然存在，则 open() 将返回一个错误。这
+  提供了一种机制，保证进程是打开文件的创建者。
+  通过这一机制，确保了检查和创建文件的步骤属于一个单一的原子操作。
+
+fcntl()
+  #include <fcntl.h>
+  int fcntl(int fd, int cmd, ...);
+    对 fd 指代的文件执行一系列控制操作。失败时返回 -1 。
+    每三个参数可以根据 cmd 为其设置不为的类型，或者加以省略。设置类型时，内核会依据 cmd 参数的值来确定该参数的
+    数据类型。
+  1. fcntl 用途之一是获取或修改其访问模式和状态标志（这些值是通过 open() 调用的 flag 参数来设置的）。要获取这些
+  设置，应将 fcntl() 的 cmd 参数设置为 F_GETFL 。
+    flags = fcntl(fd, F_GETFL);
+    if (flag == -1) {
+        _exit(1);	  
+    }
+    if (flags & O_SYNC) {
+        printf("sync flag on\n");
+    }
+  上述代码不能写为:
+    if (fcntl(fd, F_GETFL) & O_SYNC) {
+        printf("sync flag on\n");
+    }
+  如果 fcntl 调用错误返回 -1, 其与 O_SYNC 的掩码结果仍为真。
+  2. 可以使用 fcntl() 的 F_SETFL 命令来修改打开文件的某些状态标志。允许更改的标志有 O_APPEND, O_NONBLOCK, O_ASYNC 等。
+  3. 使用 fcntl() 修改文件状态标志，适用于如下场景：
+     a. 文件不是由调用程序打开的；
+     b. 文件描述符的获取是通过 open() 之外的系统调用。如 pipe() 调用和 socket() 调用。
+  4. 修改文件状态标志位示例
+    flags = fcntl(fd, F_GETFL);
+    if (flag == -1) {
+        _exit(1);	  
+    }
+    flags |= O_APPEND;
+    if (fcntl(fd, F_SETFL, flags) == -1) {
+        _exit(1);
+	}
+
+文件描述符和打开打开文件之间的关系
+  1. 多个文件描述符可以指向同一打开文件
+
+dup()  
+  #include <unistd.h>
+  int dup(int oldfd);
+    复制一个打开的文件描述符 oldfd, 并返回一个新描述符，二者都指向同一个打开的文件句柄。失败返回 -1。
+    两个不同的文件描述符，若指向同一打开的文件句柄，将共享同一文件偏移量。
+	
+dup2()
+  #include <unistd.h>
+  int dup2(int oldfd, int newfd);
+    会为 oldfd 参数所指定的文件描述符创建副本，其编号由 newfd 参数指定。如果由 newfd 参数指定编号的文件描述符之前已经
+    打开，那么 dup2() 会首先将其关闭。
+    失败返回 -1。
+	
+非阻塞 I/O
+  1. 在打开文件时指定 O_NONBLOCK 标志，目的有二:
+     a.若 open() 调用未能立即打开文件，则返回错误，而非陷入阻塞。例外: 调用 open() 操作 FIFO 可能会陷入阻塞。
+     通常，对文件的打开应该是立即的，如果陷入阻塞，很有可能是出现了错误。
+     b.调用 open() 成功后，后续的 I/O 操作也是非阻塞的。若 I/O 系统调用未能立即完成，则可能会只传输部分数据，或者系统
+     调用失败，并返回 EAGAIN 或 EWOULDBLOCK 错误。
+  2. 应该不会给 FIFO 设置非阻塞标志。
+
+/dev/fd 目录
+  1. 对于每个进程，内核都提供有一个特殊的虚拟目录 /dev/fd。该目录中包含"/dev/fd/n"形式的文件名，其中 n 是与进程中的打
+  开文件描述符相对应的编号。
+  2. 打开 /dev/fd 目录中的一个文件等同于复制相应的文件描述符。以下两行代码是等价的:
+     fd = open("/dev/fd/1", O_WRONLY);
+     fd = dup(1);
+  在为 open() 调用设置 flag 参数时，需要注意将其设置为与原描述符相同的访问模式。如果另外引入其他标志，系统将会忽略。
+  3. /dev/fd 实际上是一个符号链接，链接到 Linux 所专有的 /proc/self/fd 目录，后者又是 Linux 特有的 /proc/PID/fd 目录族
+  的特例之一，此目录族中的每一目录都包含有符号链接，与一进程所打开的所有文件相对应。
+  4. 程序中很少会使用 /dev/fd 目录中的文件，其主要用途在 shell 中，例如:
+      cat /dev/fd/0 > /tmp/test_stdin.txt
+      ls | diff /dev/fd/0 oldfilelist
+	  
+创建临时文件
+1. 有些程序需要创建一些临时文件，仅供其在运行期间使用，程序终止后即行删除。
+2. 函数一
+mkstemp()
+  #include <stdlib.h>
+  int mkstemp(char *template);
+    生成一个唯一文件名并打开该文件，返回一个可用于 I/O 调用的文件描述符。失败返回 -1。
+    模板参数采用路径名形式，其中最后 6 个字符必须为 XXXXXX。这 6 个字符将被替换，以保证文件名唯一性，且修改后的字符串
+    通过 template 参数传回。
+    注意：因为会对传入的 template 参数进行修改，所以必须将其指定为字符数组，而非字符串常量。
+3. 使用 tmpnam(), tempnam()和 mktemp() 函数也能生成唯一的文件名，但会导致安全漏洞，应当避免。
+4. 函数二
+tmpfile()
+  #include <stdio.h>
+  FILE *tmpfile(void);
+    创建一个名称唯一的临时文件，以读写方式打开。调用成功时将返回一个文件流供 stdio 库函数使用。

@@ -1,0 +1,51 @@
+
+
+asn1c-0.9.28.tar.gz 比较容易安装，三步走就行。
+上面的包是 asn1c 官网提供的最新版本（2014-Sep-17）的库，但并没有对 oer 的编解码。
+不过好在其 github 上的版本好像更新一点，可以提供对 oer 的编解码。
+	https://github.com/vlm/asn1c
+
+下载之后为 asn1c-master.zip，解压之后并没有 configure 文件，只有 configure.ac 文件，这需要一些处理...
+
+1. 解压
+   cd /usr/local/src
+   unzip asn1c-master.zip
+   cd asn1c-master
+2. 生成 configure 文件
+   libtoolize --force
+   aclocal
+   autoconf
+   autoheader
+   automake --add-missing
+3. 生成 makefile 文件
+   ./configure --prefix=/usr/local/power-asn1c
+4. 编译安装
+   make
+   make install
+5. 链接到可搜索路径下
+   ln -s /usr/local/power-asn1c/bin/asn1c /usr/bin/pasn1c
+6. 检测是否可运行
+   以 rectangle.asn1 文件为例进行测试，内容如下：
+		RectangleModule1 DEFINITIONS ::= BEGIN
+			Rectangle ::= SEQUENCE 
+			{
+				height	INTEGER,
+				width	INTEGER
+			}
+		END
+   进行测试。
+   asn1c -no-gen-example rectangle.asn1
+   make -f converter-example.mk
+   此时会生成可执行文件 converter-example 
+   ./converter-example -h
+
+注意
+   1. 依赖库安装
+		apt-get install libtool
+   2. 步骤 2 中务必确保 automake 是最后一个执行的命令；
+   
+参考
+	源码目录下只有configure.ac文件和Makefile.am文件
+	https://blog.csdn.net/zhbpd/article/details/78179639
+	config.status: error: cannot find input file: `Makefile.in'
+	https://blog.csdn.net/qianggezhishen/article/details/48622999

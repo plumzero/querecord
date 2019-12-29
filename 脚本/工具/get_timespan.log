@@ -1,0 +1,10 @@
+2019.11.06 23:57:56 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.06 23:58:00 [INFO]  969 get signature from pc cert
+2019.11.06 23:58:09 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.06 23:58:49 [INFO] 1003 verify signature with pc pubkey
+2019.11.06 23:59:19 [INFO] 1015 get origin data from SecureMessage
+2019.11.06 23:59:59 [INFO] 1034 BSM(307 bytes) decoded and verified success, origin data(71 bytes)
+2019.11.06 00:00:09 [INFO]  910 ## verify signed data(307 bytes) and get its origin data
+2019.11.06 00:00:20 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.06 00:00:29 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.06 00:00:39 [INFO]  912 decode BSM(signed data) to SecureMessage

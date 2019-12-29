@@ -1,0 +1,79 @@
+//	nginx-1.12.2
+
+//	参考
+	linux 环境安装编译 nginx (源码安装包)
+	http://www.cnblogs.com/zoulongbin/p/6253568.html
+	Nginx源码安装
+	https://www.cnblogs.com/wazy/p/8108824.html
+
+//	安装
+	1.解压并进入解压目录
+		tar -zxvf nginx-1.12.2.tar.gz
+		cd nginx-1.12.2
+	2.检测依赖项（需要安装pcre-devel）
+		./configure --prefix=/usr/local/nginx
+	3.编译并安装
+		make && make install
+	4.启动，停止
+		/usr/local/nginx/sbin nginx
+		/usr/local/nginx/sbin nginx -s stop
+	6.补充一
+		nginx配置文件默认路径：
+			/usr/local/nginx/conf/nginx.conf
+		nginx服务启动路径：
+			/usr/local/nginx/sbin/nginx
+		nginx默认网站根目录：
+			/usr/local/nginx/html
+	7.补充二
+		为nginx命令设置软链接
+			ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+			nginx			//启动nginx服务
+			nginx -s stop	//停止nginx服务
+	8.启动服务之后开放80端口
+		iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+	
+//	设置nginx开机启动和chkconfig管理
+	1.在linux系统/etc/init.d/目录下创建nginx脚本文件
+		vim /etc/init.d/nginx
+	2.在脚本中添加以下命令，命令来源网址，拷贝粘贴即可，并修改一些东西
+		https://www.nginx.com/resources/wiki/start/topics/examples/redhatnginxinit/ 
+		nginx="/usr/sbin/nginx"		修改成		nginx="/usr/local/nginx/sbin/nginx"
+		NGINX_CONF_FILE="/usr/local/nginx/sbin/nginx"	修改成		NGINX_CONF_FILE="/usr/local/nginx/conf/nginx.conf"
+	3.设置/etc/init.d/nginx文件执行权限
+		chmod 755 /etc/init.d/nginx
+	4.测试执行Nginx停止、启动、重启命令
+		/etc/init.d/nginx stop
+		/etc/init.d/nginx start
+		/etc/init.d/nginx restart
+	5.将nginx服务加入chkconfig管理列表
+		chkconfig --add /etc/init.d/nginx
+		chkconfig --list nginx	//查询nginx服务是否添加成功
+		chkconfig nginx on		//设置nginx服务开机自启动
+		chkconfig --list nginx
+		service nginx stop		//nginx服务添加chkconfig管理列表后可以使用server停止和启动操作
+		service nginx start
+	
+//	Nginx配置通过网页指定新的访问目录
+	1.创建文件存放目录，并加入一些测试文件
+		mkdir /data/www
+		cp /usr/local/nginx/html/index.html /data/www/mak
+	2.编辑配置文件
+		vim /usr/local/nginx/conf/nginx.conf
+			将 location / {...} 中的 root html 改为 root /data/www/
+			为了支持php，为紧随其后的 index 项再添加 index.php
+	3.重新加载配置并重新启动
+		/etc/init.d/nginx reload
+		/etc/init.d/nginx restart
+		
+nginx 支持 ngx_http_ssl_module 模块
+	配置环境时增加一些选项
+		./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-openssl=/usr/local/src/openssl-1.1.0l
+	--with-openssl 是指定源文件选项，而不是编译后的二进制文件
+	编译时报错如下:
+		/usr/local/src/openssl-OpenSSL_1_1_1c/.openssl/lib/libcrypto.a(threads_pthread.o): In function `fork_once_func':
+		threads_pthread.c:(.text+0x16): undefined reference to `pthread_atfork'
+		collect2: error: ld returned 1 exit status
+		objs/Makefile:232: recipe for target 'objs/nginx' failed
+		make[1]: *** [objs/nginx] Error 1
+		make[1]: Leaving directory '/usr/local/src/nginx-1.12.2'
+	nginx-1.12.2 不支持大于 openssl-1.1.1 的版本，使用 openssl-1.1.0l

@@ -1,0 +1,44 @@
+
+版本：debian-8.0.0-amd64-CD-1
+
+设置通过 ssh 连接 debian 虚拟机
+
+环境:
+  虚拟机环境
+  确保 debian 可以 ping 通外网，即网络正常
+  
+说明:
+  服务通过端口标识，服务如果未开通，也就无法检测出端口的状态
+  
+查看是否安装 sshd 服务:
+  which sshd
+  进入 /etc/ssh/ 目录下查看有没有 sshd 相关的配置，如 sshd_config
+  
+安装 sshd 服务:
+  可以通过 apt-get 进行安装 sshd 服务
+    apt-get install openssh-server
+	
+修改 sshd 配置:
+  进入 /etc/ssh 目录，打开 sshd_config ，改写下列配置选项:
+    PasswordAuthentication   将 no 改为 yes
+    PermitRootLogin          将 without-password 改为 yes
+	
+重启 sshd 服务生效（可以使用下列几种）:
+  1. service sshd restart
+  2. systemctl restart sshd
+  3. /etc/init.d/ssh restart
+
+查看 22 端口是否正在监听:
+  netstat -ant | grep 22  
+
+查看 sshd 服务状态:
+  service sshd status         查看服务状态。显示结果会因服务种类不同而有多有少
+  
+问题：
+1. ping 不通内网和外网
+   现象:
+     connect: Network is unreachable
+   解决办法:
+     设置虚拟机为桥接模式
+2. 确保 apt 源可用，以下载相关软件，如 openssh-server
+   apt 配置见 yum_apt.txt

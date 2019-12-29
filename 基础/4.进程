@@ -1,0 +1,12 @@
+
+getpid()
+  #include <unistd.h>
+  pid_t getpid(void);
+	返回调用进程的进程号。
+    该系统调用总是成功。
+
+getppid()
+  #include <unistd.h>
+  pid_t getppid(void);
+	检索父进程的进程号。
+	该系统调用总是成功。

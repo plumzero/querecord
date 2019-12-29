@@ -1,0 +1,561 @@
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:42 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:42 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:42 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:42 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:42 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:42 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:42 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:42 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:42 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:42 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:42 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:42 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:42 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:42 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:42 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:42 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:42 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:42 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:42 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:42 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:42 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:42 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:42 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:42 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:42 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:42 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:42 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:42 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:42 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:42 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:42 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:42 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:42 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:42 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:42 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:43 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:43 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:43 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:43 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:43 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:43 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:43 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:43 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:43 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:43 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:43 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:43 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:43 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:43 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:43 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:43 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:43 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:43 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:43 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:43 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:43 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:43 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:43 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:43 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:43 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:43 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:43 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:43 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:43 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:43 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:43 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:43 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:43 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:43 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:43 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:43 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:43 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:43 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:43 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:43 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:43 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:43 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:43 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:43 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:43 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:43 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:43 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:43 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:43 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:43 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:43 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:44 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:44 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:44 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:44 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:44 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:44 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:44 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:44 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:44 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:44 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:44 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:44 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:44 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:44 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:44 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:44 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:44 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:44 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:44 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:44 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:44 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:44 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:44 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:44 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:44 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:44 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:44 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:44 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:44 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:44 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:44 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:44 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:44 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:44 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:44 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:44 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:44 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:44 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:44 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:44 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:44 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:44 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:44 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:44 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:44 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:44 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:44 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:44 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:44 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:44 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:44 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:45 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:45 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:45 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:45 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:45 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:45 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:45 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:45 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:45 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:45 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:45 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:45 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:45 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:45 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:45 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:45 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:45 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:45 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:45 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:45 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:45 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:45 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:45 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:45 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:45 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:45 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:45 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:45 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:45 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:45 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:45 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:45 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:45 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:45 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:45 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:45 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:45 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:45 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:45 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:45 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:45 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:45 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:45 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:45 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:45 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:45 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:45 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:45 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:45 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:45 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:45 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:46 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:46 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:46 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:46 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:46 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:46 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:46 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:46 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:46 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:46 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:46 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:46 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:46 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:46 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:46 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:46 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:46 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:46 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:46 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:46 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:46 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:46 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:46 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:46 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:46 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:46 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:46 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:46 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:46 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:46 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:46 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:46 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:46 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:46 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:46 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:46 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:46 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:46 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:46 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:46 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:46 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:46 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:46 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:46 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:46 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:46 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:46 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:46 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:46 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:46 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:46 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:47 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:47 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:47 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:47 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:47 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:47 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:47 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:47 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:47 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:47 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:47 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:47 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:47 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:47 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:47 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:47 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:47 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:47 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:47 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:47 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:47 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:47 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:47 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:47 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:47 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:47 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:47 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:47 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:47 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:47 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:47 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:47 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:47 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:47 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:47 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:47 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:47 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:47 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:47 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:47 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:47 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:47 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:47 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:47 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:47 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:47 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:47 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:47 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:47 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:47 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:47 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(118 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(643 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 643 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(643 bytes) decoded and verified success, origin data(405 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(236 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [ERRO]  914 decoded SecureMessage failed
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(473 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 473 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(473 bytes) decoded and verified success, origin data(236 bytes)
+2019.11.08 00:04:48 [INFO]  910 ## verify signed data(441 bytes) and get its origin data
+2019.11.08 00:04:48 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:48 [INFO]  915 consumed 441 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:48 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:48 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:48 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:48 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:48 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:48 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:48 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:48 [INFO] 1034 BSM(441 bytes) decoded and verified success, origin data(204 bytes)
+2019.11.08 00:04:49 [INFO]  910 ## verify signed data(354 bytes) and get its origin data
+2019.11.08 00:04:49 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:49 [INFO]  915 consumed 354 bytes, and decoded to SecureMessage ok
+2019.11.08 00:04:49 [INFO]  921 check time expired ? (not check)
+2019.11.08 00:04:49 [INFO]  932 get pc cert from SecureMessage and check pc cert
+2019.11.08 00:04:49 [INFO]  943 get pubkey(uncompressed format) from pc cert
+2019.11.08 00:04:49 [INFO]  969 get signature from pc cert
+2019.11.08 00:04:49 [INFO]  973 recover sign plain(hash(hash(TBSDat)||hash(SignerInfo))) for verifing
+2019.11.08 00:04:49 [INFO] 1003 verify signature with pc pubkey
+2019.11.08 00:04:49 [INFO] 1015 get origin data from SecureMessage
+2019.11.08 00:04:49 [INFO] 1034 BSM(354 bytes) decoded and verified success, origin data(118 bytes)
+2019.11.08 00:04:49 [INFO]  910 ## verify signed data(80 bytes) and get its origin data
+2019.11.08 00:04:49 [INFO]  912 decode BSM(signed data) to SecureMessage
+2019.11.08 00:04:49 [ERRO]  914 decoded SecureMessage failed

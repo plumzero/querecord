@@ -1,0 +1,228 @@
+177765:04:09:17.034 [DBG] Recv Data len : 307
+177766:04:09:17.034 [DBG] DSM aid is : 60
+177767:04:09:17.034 [DBG] USE SECURE MODE
+177768:04:09:17.034 [DBG] start verify, type : ST_HW_RSU
+177769:04:09:17.034 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177770:04:09:17.034 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008fd227fe168aaeebc4f762d4d0cf86bc84c5b99914f9f1f291b59f876dd9932c9e|
+177772:04:09:17.035 [ERR] ERROR function V2xVerifyData return 404
+177773:04:09:17.069 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177778:04:09:17.080 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 80036672
+177779:04:09:17.080 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177780:04:09:17.080 [VER] Locoal->Heading = -82.199707 
+177781:04:09:17.080 [VER] curve_manager->delta_heading = 0.000000 
+177782:04:09:17.080 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177783:04:09:17.080 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177784:04:09:17.080 [DBG] road_heading is 0.000000,vector heading is -14964
+177786:04:09:17.080 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177787:04:09:17.080 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177788:04:09:17.080 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.1
+177789:04:09:17.080 [DBG] iterator all remote vehicles, count: 0
+177790:04:09:17.080 [VER] run command to cli failed with error code: 2
+177791:04:09:17.134 [DBG] Recv Data len : 307
+177792:04:09:17.134 [DBG] DSM aid is : 60
+177793:04:09:17.134 [DBG] USE SECURE MODE
+177794:04:09:17.134 [DBG] start verify, type : ST_HW_RSU
+177795:04:09:17.134 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177796:04:09:17.134 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008b36c962534059083172b75419d2fb9f2043a4c9a86d904ebbf3717ee2e3d1e6c7|
+177798:04:09:17.134 [ERR] ERROR function V2xVerifyData return 404
+177799:04:09:17.169 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177804:04:09:17.180 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 180036185
+177805:04:09:17.180 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177806:04:09:17.180 [VER] Locoal->Heading = -82.199707 
+177807:04:09:17.180 [VER] curve_manager->delta_heading = 0.000000 
+177808:04:09:17.180 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177809:04:09:17.180 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177810:04:09:17.180 [DBG] road_heading is 0.000000,vector heading is -14964
+177812:04:09:17.180 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177813:04:09:17.180 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177814:04:09:17.180 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.2
+177815:04:09:17.180 [DBG] iterator all remote vehicles, count: 0
+177816:04:09:17.180 [VER] run command to cli failed with error code: 2
+177817:04:09:17.238 [DBG] Recv Data len : 307
+177818:04:09:17.238 [DBG] DSM aid is : 60
+177819:04:09:17.238 [DBG] USE SECURE MODE
+177820:04:09:17.238 [DBG] start verify, type : ST_HW_RSU
+177821:04:09:17.238 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177822:04:09:17.238 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008b711a3d952245aa2adb022539340dd2062d37f154681cca7d59838645a7da45c2|
+177824:04:09:17.239 [ERR] ERROR function V2xVerifyData return 404
+177825:04:09:17.270 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177830:04:09:17.280 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 280036114
+177831:04:09:17.280 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177832:04:09:17.280 [VER] Locoal->Heading = -82.199707 
+177833:04:09:17.280 [VER] curve_manager->delta_heading = 0.000000 
+177834:04:09:17.280 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177835:04:09:17.280 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177836:04:09:17.280 [DBG] road_heading is 0.000000,vector heading is -14964
+177838:04:09:17.280 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177839:04:09:17.280 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177840:04:09:17.280 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.3
+177841:04:09:17.280 [DBG] iterator all remote vehicles, count: 0
+177842:04:09:17.280 [VER] run command to cli failed with error code: 2
+177843:04:09:17.338 [DBG] Recv Data len : 307
+177844:04:09:17.338 [DBG] DSM aid is : 60
+177845:04:09:17.338 [DBG] USE SECURE MODE
+177846:04:09:17.338 [DBG] start verify, type : ST_HW_RSU
+177847:04:09:17.338 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177848:04:09:17.338 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008d277dea0def3ad6e1a516cb59d31b5ac9da887f050f29230c8dbcf14e7dcd68da|
+177850:04:09:17.338 [ERR] ERROR function V2xVerifyData return 404
+177851:04:09:17.368 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177856:04:09:17.380 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 380045268
+177857:04:09:17.380 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177858:04:09:17.380 [VER] Locoal->Heading = -82.199707 
+177859:04:09:17.380 [VER] curve_manager->delta_heading = 0.000000 
+177860:04:09:17.380 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177861:04:09:17.380 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177862:04:09:17.380 [DBG] road_heading is 0.000000,vector heading is -14964
+177864:04:09:17.380 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177865:04:09:17.380 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177866:04:09:17.380 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.4
+177867:04:09:17.380 [DBG] iterator all remote vehicles, count: 0
+177868:04:09:17.380 [VER] run command to cli failed with error code: 2
+177869:04:09:17.398 [DBG] Recv Data len : 550
+177870:04:09:17.398 [DBG] DSM aid is : 5
+177871:04:09:17.398 [DBG] USE SECURE MODE
+177872:04:09:17.398 [DBG] start verify, type : ST_HW_RSU
+177873:04:09:17.398 [VER] [RX signed data:HEX DUMP]buffer length is 550
+177874:04:09:17.399 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080008033800000c4300080243c460c000200490004050c070242e3c0348003009040b07070800060009058305c0a900000120a090e0709002c00020a000581209080324000404020e0b05860003000002404120948086809031107000000160009058305c090b03029200080a090e0585c68089000601208170624000404020e0b05860083000002404120c0e020149000505000b02412100048000809050c008b259eb101405e0a2ac6ed95f17448856a94de81e97586332377cc2fa6ce3d2386|
+177876:04:09:17.399 [ERR] ERROR function V2xVerifyData return 404
+177877:04:09:17.405 [DBG] Recv Data len : 630
+177878:04:09:17.405 [DBG] DSM aid is : 7
+177879:04:09:17.405 [DBG] USE SECURE MODE
+177880:04:09:17.405 [DBG] start verify, type : ST_HW_RSU
+177881:04:09:17.405 [VER] [RX signed data:HEX DUMP]buffer length is 630
+177882:04:09:17.406 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb9620800080810000002266cc1d48081851a3010009586ecd22c1d70810d286eaa229ad70170d8c080c040c863037067ebf5491de6303406d6bf4a91c661000006125f31407a398db8bdf5f2540683987a8b4640400a0d400000d14bf2591eb6300d0646bf3391c3630c706f48b06020ca000d14bf2691e3630e3063cbf3691cc630b306d88081851ad01000c186e5622f1d70470d2c6e70222ed709b0d50080c040486309e06d8bf3d91806308c0664bf3b919864000007025f14c03f3987f8b5e5f104043398d58bfd08b9f257b260e0071243dc5cbb3b840d57c95c73dc0ec719acdf0cc512b20a22174|
+177884:04:09:17.406 [ERR] ERROR function V2xVerifyData return 404
+177885:04:09:17.437 [DBG] Recv Data len : 307
+177886:04:09:17.437 [DBG] DSM aid is : 60
+177887:04:09:17.437 [DBG] USE SECURE MODE
+177888:04:09:17.437 [DBG] start verify, type : ST_HW_RSU
+177889:04:09:17.437 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177890:04:09:17.438 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008466a11910c4a43bcca75696d49fed84a67ac9cc53771c2183691915e61d3dfd41|
+177892:04:09:17.438 [ERR] ERROR function V2xVerifyData return 404
+177893:04:09:17.467 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177898:04:09:17.480 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 480039046
+177899:04:09:17.480 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177900:04:09:17.480 [VER] Locoal->Heading = -82.199707 
+177901:04:09:17.480 [VER] curve_manager->delta_heading = 0.000000 
+177902:04:09:17.480 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177903:04:09:17.480 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177904:04:09:17.480 [DBG] road_heading is 0.000000,vector heading is -14964
+177906:04:09:17.480 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177907:04:09:17.480 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177908:04:09:17.480 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.5
+177909:04:09:17.480 [DBG] iterator all remote vehicles, count: 0
+177910:04:09:17.480 [VER] run command to cli failed with error code: 2
+177911:04:09:17.539 [DBG] Recv Data len : 307
+177912:04:09:17.539 [DBG] DSM aid is : 60
+177913:04:09:17.539 [DBG] USE SECURE MODE
+177914:04:09:17.539 [DBG] start verify, type : ST_HW_RSU
+177915:04:09:17.539 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177916:04:09:17.539 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008230457046a4c66b294f4ea19737eb40ffcf87700e16e7695fcfeaf8233f75c2ed|
+177918:04:09:17.540 [ERR] ERROR function V2xVerifyData return 404
+177919:04:09:17.547 [DBG] Recv Data len : 525
+177920:04:09:17.547 [DBG] DSM aid is : 5
+177921:04:09:17.547 [DBG] USE SECURE MODE
+177922:04:09:17.547 [DBG] start verify, type : ST_HW_RSU
+177923:04:09:17.547 [VER] [RX signed data:HEX DUMP]buffer length is 525
+177924:04:09:17.547 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080008013800600c4300010240c140c000400490f0e0500000240e0c0348084409000707000100060103058000c0a9000880830009024122c0c0307004900080509000242c2a084800240908070292000e0a030005828240490008812000f0e0103002c07070a00008120f0e06a40e2a0400030109000e039200010a020105848440e90004812011e0e0103011c00040a0488000815bb73584b97fa2962d58bc80897f614e0fbcbecc0201b3a612b346738486c4d0|
+177926:04:09:17.548 [ERR] ERROR function V2xVerifyData return 404
+177927:04:09:17.566 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177932:04:09:17.580 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 580038144
+177933:04:09:17.580 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177934:04:09:17.580 [VER] Locoal->Heading = -82.199707 
+177935:04:09:17.580 [VER] curve_manager->delta_heading = 0.000000 
+177936:04:09:17.580 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177937:04:09:17.580 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177938:04:09:17.580 [DBG] road_heading is 0.000000,vector heading is -14964
+177940:04:09:17.580 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177941:04:09:17.580 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177942:04:09:17.580 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.6
+177943:04:09:17.580 [DBG] iterator all remote vehicles, count: 0
+177944:04:09:17.580 [VER] run command to cli failed with error code: 2
+177945:04:09:17.639 [DBG] Recv Data len : 307
+177946:04:09:17.639 [DBG] DSM aid is : 60
+177947:04:09:17.639 [DBG] USE SECURE MODE
+177948:04:09:17.639 [DBG] start verify, type : ST_HW_RSU
+177949:04:09:17.639 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177950:04:09:17.639 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae070080c642e12c56b34edb72a6f62e3d0dea5687347748e8eaa9bc800ab50dad378802|
+177952:04:09:17.639 [ERR] ERROR function V2xVerifyData return 404
+177953:04:09:17.665 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177958:04:09:17.680 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 680037325
+177959:04:09:17.680 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177960:04:09:17.680 [VER] Locoal->Heading = -82.199707 
+177961:04:09:17.680 [VER] curve_manager->delta_heading = 0.000000 
+177962:04:09:17.680 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177963:04:09:17.680 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177964:04:09:17.680 [DBG] road_heading is 0.000000,vector heading is -14964
+177966:04:09:17.680 [VER] local curve_flag =0, Turn_Angle_mean = 0
+177967:04:09:17.680 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+177968:04:09:17.680 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.7
+177969:04:09:17.680 [DBG] iterator all remote vehicles, count: 0
+177970:04:09:17.680 [VER] run command to cli failed with error code: 2
+177971:04:09:17.717 [DBG] Recv Data len : 346
+177972:04:09:17.717 [DBG] DSM aid is : 7
+177973:04:09:17.717 [DBG] USE SECURE MODE
+177974:04:09:17.717 [DBG] start verify, type : ST_HW_RSU
+177975:04:09:17.717 [VER] [RX signed data:HEX DUMP]buffer length is 346
+177976:04:09:17.717 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb96208000610000062252cc3e08081050a3010009186ee322f1d70090e586e062229d713b0e40040c040c46302a0698bf7491006305c07bcbf899123083489346e93a4397ca7ffafb36234d9efcce67b813bdeebb04ded5d88edd694543|
+177978:04:09:17.718 [ERR] ERROR function V2xVerifyData return 404
+177979:04:09:17.740 [DBG] Recv Data len : 307
+177980:04:09:17.740 [DBG] DSM aid is : 60
+177981:04:09:17.740 [DBG] USE SECURE MODE
+177982:04:09:17.740 [DBG] start verify, type : ST_HW_RSU
+177983:04:09:17.740 [VER] [RX signed data:HEX DUMP]buffer length is 307
+177984:04:09:17.741 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae070089238c3f28a97f9a5fb933123afae011bb954a29669a65566dcc5771353ca80938|
+177986:04:09:17.741 [ERR] ERROR function V2xVerifyData return 404
+177987:04:09:17.769 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+177992:04:09:17.780 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 780038167
+177993:04:09:17.780 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+177994:04:09:17.780 [VER] Locoal->Heading = -82.199707 
+177995:04:09:17.780 [VER] curve_manager->delta_heading = 0.000000 
+177996:04:09:17.780 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+177997:04:09:17.780 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+177998:04:09:17.780 [DBG] road_heading is 0.000000,vector heading is -14964
+178000:04:09:17.780 [VER] local curve_flag =0, Turn_Angle_mean = 0
+178001:04:09:17.780 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+178002:04:09:17.780 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.8
+178003:04:09:17.780 [DBG] iterator all remote vehicles, count: 0
+178004:04:09:17.780 [VER] run command to cli failed with error code: 2
+178005:04:09:17.869 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+178010:04:09:17.880 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 880036018
+178011:04:09:17.880 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+178012:04:09:17.880 [VER] Locoal->Heading = -82.199707 
+178013:04:09:17.880 [VER] curve_manager->delta_heading = 0.000000 
+178014:04:09:17.880 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+178015:04:09:17.880 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+178016:04:09:17.880 [DBG] road_heading is 0.000000,vector heading is -14964
+178018:04:09:17.880 [VER] local curve_flag =0, Turn_Angle_mean = 0
+178019:04:09:17.880 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+178020:04:09:17.880 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:17.9
+178021:04:09:17.880 [DBG] iterator all remote vehicles, count: 0
+178022:04:09:17.880 [VER] run command to cli failed with error code: 2
+178023:04:09:17.911 [DBG] Recv Data len : 307
+178024:04:09:17.911 [DBG] DSM aid is : 60
+178025:04:09:17.911 [DBG] USE SECURE MODE
+178026:04:09:17.911 [DBG] start verify, type : ST_HW_RSU
+178027:04:09:17.911 [VER] [RX signed data:HEX DUMP]buffer length is 307
+178028:04:09:17.912 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae0700856dedfa49fcc48efebdda403e032037190d42bddadf9617d40bea354f1e5658e6|
+178030:04:09:17.912 [ERR] ERROR function V2xVerifyData return 404
+178031:04:09:17.939 [DBG] Recv Data len : 307
+178032:04:09:17.940 [DBG] DSM aid is : 60
+178033:04:09:17.940 [DBG] USE SECURE MODE
+178034:04:09:17.940 [DBG] start verify, type : ST_HW_RSU
+178035:04:09:17.940 [VER] [RX signed data:HEX DUMP]buffer length is 307
+178036:04:09:17.940 [VER] [RX signed data:HEX DUMP]:|0880805d33db7800767756008b861a99b2f10ef7906a75fe4fd5bddcfe38dcea8743cc30d7770b5f46c1166f508186a189a0825a21787fa88c905bde2dd5b0772f01ca07cdaf84538f22a24b25a8d3abb962080034456666666670e469759f6f76d1b6bc80dbfc8e0d36ce453b981c15490549057583ae07008093a4e0dc16e82b06b7a22c2f307fc010ad2488a1118bea298f680a68ac4c6f27|
+178038:04:09:17.940 [ERR] ERROR function V2xVerifyData return 404
+178039:04:09:17.969 [VER] outside gnss data, lat is 308721378, lon is 1218870753
+178044:04:09:17.980 [VER] tc_TP_UpdateLocal : now_time.tv_sec = 1573186157 , now_time.tv_nsec = 980037277
+178045:04:09:17.980 [VER] curve_manager->Angle_Add_count = 50 ,  pConf->AngleAddcount_Limit = 50
+178046:04:09:17.980 [VER] Locoal->Heading = -82.199707 
+178047:04:09:17.980 [VER] curve_manager->delta_heading = 0.000000 
+178048:04:09:17.980 [VER] curve_manager->Turn_Angle = 0.000000 ,pConf->TurnAngle_Limit_deg = 10.000000
+178049:04:09:17.980 [VER] curve_manager->Angle_Add = 0.000000 , pConf->AngleAdd_Limit_deg = 5.000000
+178050:04:09:17.980 [DBG] road_heading is 0.000000,vector heading is -14964
+178052:04:09:17.980 [VER] local curve_flag =0, Turn_Angle_mean = 0
+178053:04:09:17.980 [VER] !!!!! curve_manager.HV_STAT = 0 !!!!!!
+178054:04:09:17.980 [INF] <<LOCAL>> [L] lat:30.872138 lon:121.887075 ele:9.5 heading:-82.2 speed:0.0 lonacc:-0.006000 latacc:0.000000 radious:0.0 t:18.0
+178055:04:09:17.980 [DBG] iterator all remote vehicles, count: 0
+178056:04:09:17.980 [VER] run command to cli failed with error code: 2

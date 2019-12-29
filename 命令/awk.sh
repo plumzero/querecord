@@ -1,0 +1,77 @@
+#!/usr/bin/awk
+
+###
+# 需要使用转义字符
+# " [ ]
+#
+# 不需要使用转义字符
+#  = >
+#
+###
+
+### 获取 ip 地址
+ifconfig enp0s3 | awk 'BEGIN{FS="[[:space:]]+";} NR==2{ print $3; }'
+
+### 以 : 和 / 作为分隔符查找
+awk 'BEGIN{ FS="[:/]+"; } { print $1 " " $(NF); }' /etc/passwd
+
+### 查看文件第 5 行到第 10 行的内容
+awk '{ if (NR >= 5 && NR <= 10 ){ print $1; } }' /etc/passwd
+
+### 简单匹配
+awk '/^root/{print "I am root"}/^daemon/{print "I am daemon"}{print "I am other"}' /etc/passwd
+
+### 查看服务器所有的连接状态并汇总
+netstat -an | awk '/^tcp/{ ++s[$NF]; } END{ for (a in s) print a, s[a]; }'
+
+### 找到以 s 开头的用户，打印完整用户名，否则打印 It is no match!、
+awk 'BEGIN{ FS=":"; } { print ($0 ~ /^s/) ? $1 : "It is not match!"; }' /etc/passwd
+
+### 打印偶数行
+awk 'NR%2==1{ next; } { print $0; }' /etc/passwd
+
+### 若记录以 web 开头，T 保存此记录，跳出当前记录执行下一行；
+### 若下一行不以 web 开头，则执行 { print T":\t"$0; }，T是之前保存的变量
+awk '/^web/{ T=$0; next; } { print T":\t"$0; }' web.txt
+
+### 查看进程是否存在
+ps -ef | grep "stunnel" | awk '$0 !~ /grep/ && $8 ~ /stunnel\>/{ print $0; }'
+
+### 杀掉指定进程
+ps -ef | grep stunnel | awk '$0 !~ /grep/{ print $2; }' | xargs kill -9
+
+### 杀掉一串进程
+ps -ef | grep xxx | awk '{ print $1; }' | xargs -I {} kill -9 {}
+
+### 内存占用检查
+free | awk '/Mem/{printf("RAM Usage: %.2f %%\n"), $3 / $2 * 100}'
+
+### 匹配以空格分隔的第 3 个字段，且该字段以 V2x 开头，但不以 url 结尾
+  nm test.so | cut -d" " -f3 | awk '$0 ~ /\<V2x/ && $0 !~ /url\>/{ print $0; }'
+
+### 一次性匹配文件中的多个行
+awk '/^sslVersion/ || /^output/ || /^pid/ || /^cert/ || /^key/ { print "    "$0; }' test.conf
+
+### 行处理文件
+  awk '$0 ~ /DUMP/{ print $0; }' test.log | cut -d: -f 3 | sed 's/|//g'| sed 'N;N;N;N;s/\n//g'
+  
+### 打印当前目录下按规定排序后的常规总文件数量的除后面 180 个文件的前面的文件
+ls -al | grep '^-'  | awk '{ print $(NF); }' | sort -r | head -n $(($(ls -al | grep '^-' | wc -l) - 180))
+
+### 只保留当前目录下按规定排序后的前 160 个常规文件
+ls -al './v2x/log' | grep '^-'  | awk '{ print $(NF) }' | sort -r | tail -n +161 | xargs -I {} rm -rf {}
+
+### 打印证书的公钥部分，并合并成一行字符串
+openssl x509 -text -noout -in rsa.crt | awk 'BEGIN{ pubkey=""; flag=0; } { if($0 ~ /\<Modulus:/){ flag=1; }else if($0 ~ /\<Exponent:/){ flag=0;}else if(flag==1){ pubkey=pubkey""$0; } } END{ print pubkey; }'| sed 's/\s*//g'
+
+### 查看当前路径下所有普通文件的编码格式
+find . | xargs -I {} ls -al {} | grep "^-" | awk '{ print $NF; }' | xargs -I {} file -i {} | grep "charset"
+
+### 将该目录下所有常规文件转为 unix 格式
+find . | xargs -I {} ls -al {} | grep "^-" | awk '{ print $NF; }' | xargs -I {} dos2unix {}
+
+### 去掉空格，输出以 "title" 或 "url" 开头的行
+sed 's/^\s*//' bookmarks.json | awk '/^\"title\"|^\"uri\"/{ print $0; }'
+
+### 找出包含 Signed data 的行，以 : 分隔成两部分，提取第二部分，去掉所有空格，打印之后的长度与内容
+awk '/Signed data/{ print $0; }' test.txt | cut -d: -f2 | sed 's/\s*//g' | awk '{ print length($0)"\n"$0; }'
