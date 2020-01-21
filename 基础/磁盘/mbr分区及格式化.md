@@ -2,7 +2,6 @@
 ## 参考
 [Linux下的磁盘分区和逻辑卷](https://www.cnblogs.com/lbole/p/8904298.html)
 
-
 ## 关于 MBR 分区
 
 - MBR 分区类说明
@@ -514,5 +513,3 @@
 	none            488M  144K  488M   1% /run/shm
 	none            100M   32K  100M   1% /run/user
   ```
-  
-## 关于 UUID
