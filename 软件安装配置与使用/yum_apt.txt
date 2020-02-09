@@ -59,7 +59,7 @@ yum 的配置文件
 
 源的更新
 RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多个镜像网站获取，这里从163镜像 和 RedHat 为例
-1. 卸载 yum && subscription-manager && rhn	Centos 可以只卸载 yum
+1. 卸载 yum && subscription-manager && rhn    Centos 可以只卸载 yum
    rpm -qa | grep yum | xargs rpm -e --nodeps
    rpm -qa | grep subscription-manager | xargs rpm -e --nodeps
    rpm -qa | grep rhn | xargs rpm -e --nodeps
@@ -99,11 +99,22 @@ RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多
 5. 更新源
    yum clean all
    根据提示 rm -rf /var/cache/yum
-   yum makecache		// 如果出错根据错误提示修改 .repo 文件
+   yum makecache        // 如果出错根据错误提示修改 .repo 文件
 6. 其他
    1) 官网的 centos 源，设置方式相同
       http://mirror.centos.org/centos/
    2) 163 的 repo 文件不可用，请使用本目录中 '配置文件参考' 目录下的 repo 文件
+7. 比较坑的是
+   如果使用外部的 CentOS 源(比如163镜像源)，其源地址会随 Linux 发行版本更新而改变地址，所以在某个时刻
+   执行 yum install xxx_package 时可能会发现，安装不了了。这是因为地址更新了。
+   比如 [base] 选项中的 baseurl 之前是:
+    baseurl=http://mirrors.163.com/centos/7.5.1804/os/$basearch/
+   随着 Linux 发行版本的更新，原来的 baseurl 失效，新的变成是:
+    baseurl=http://mirrors.163.com/centos/7.7.1908/os/$basearch/
+   以后可能还会变。
+   所以在每次 yum makecache 时，如果失败的话，很可能是这个原因。
+   具体应该改成哪个 url, 需要查看 163 开源镜像站当前的 url。
+    [http://mirrors.163.com/](163开源镜像站)
    
 ######################################### apt-get #########################################
 
