@@ -3,6 +3,8 @@
 ## 说明
 - 相对来说， yum 源的配置比 apt-get 源更麻烦一些
 
+----
+
 # yum
 
 ## yum 的配置文件
@@ -106,6 +108,8 @@ RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多
 - 所以在每次 yum makecache 时，如果失败的话，很可能是这个原因。
   具体应该改成哪个 url, 需要查看[163开源镜像站](http://mirrors.163.com/)。
 
+----
+  
 # apt-get
 
 ## 源list
