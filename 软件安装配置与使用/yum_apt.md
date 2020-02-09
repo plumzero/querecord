@@ -34,9 +34,8 @@ RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多
     rpm -ivh yum-3.4.3-158.el7.centos.noarch.rpm 
     rpm -ivh yum-plugin-fastestmirror-1.1.31-45.el7.noarch.rpm
   ```
-- 修改 .repo 文件
-  打开[http://mirrors.163.com/](镜像网站)
-   阅读[http://mirrors.163.com/.help/centos.html](帮助), 下载 .repo 文件，这里是 
+- 修改 .repo 文件。打开[镜像网站](http://mirrors.163.com/)，阅读
+  [帮助](http://mirrors.163.com/.help/centos.html), 下载 .repo 文件，这里是 
    CentOS7-Base-163.repo，名称随意。
    根据镜像网站中相关 rpm 目录，修改 .repo 文件，这里如下:
    ```shell
@@ -105,7 +104,7 @@ RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多
   ```
   以后可能还会变。
 - 所以在每次 yum makecache 时，如果失败的话，很可能是这个原因。
-  具体应该改成哪个 url, 需要查看[http://mirrors.163.com/](163开源镜像站)。
+  具体应该改成哪个 url, 需要查看[163开源镜像站](http://mirrors.163.com/)。
 
 # apt-get
 
