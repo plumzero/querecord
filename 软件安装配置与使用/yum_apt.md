@@ -109,7 +109,7 @@ RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多
   具体应该改成哪个 url, 需要查看[163开源镜像站](http://mirrors.163.com/)。
 
 ----
-  
+
 # apt-get
 
 ## 源list
