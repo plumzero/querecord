@@ -37,6 +37,10 @@ void *transaction_read(void *arg)
     return NULL;
 }
 
+/**
+ * 写线程会紧跟着上一次的写对 shared 变量进行写；
+ * 读线程会读取最新的 shared 变量；
+ */
 int main(int argc, char *argv[])
 {
     int ret = -1;
