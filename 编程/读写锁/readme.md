@@ -1,6 +1,4 @@
 
-## 参考
-- [pthread_rwlock_init 和 pthread_rwlock_destroy 函数调用失败的可能原因及处理](https://linux.die.net/man/3/pthread_rwlock_init  Errors)
 
 ## 主要函数调用
 - int pthread_rwlock_init(pthread_rwlock_t *restrict rwlock, const pthread_rwlockattr_t *restrict attr);
