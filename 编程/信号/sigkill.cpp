@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 
 /**
- * 向子进程发送 SIGABRT 信号
+ * 发送信号示意: 向子进程发送 SIGABRT 信号
  */
 
 int main()
