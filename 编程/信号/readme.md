@@ -37,20 +37,20 @@
   
 ## 对信号集操作相关的函数
 - 常用函数
-	+ sigfillset
-	+ sigdelset
-	+ sigemptyset
-	+ sigaddset
-	+ sigismember
-	+ sigprocmask
-	+ sigwait
+    + sigfillset
+    + sigdelset
+    + sigemptyset
+    + sigaddset
+    + sigismember
+    + sigprocmask
+    + sigwait
 - sigwait 函数说明
-	+ 定义
-	  ```c
-		int sigwait(const sigset_t *set, int *sig);
-	  ```
-	+ 监听信号集中所包含的信号，并将其中触发的信号记入 sig 中；
-	+ sigwait 对信号集的操作是只读的
+    + 定义
+      ```c
+        int sigwait(const sigset_t *set, int *sig);
+      ```
+    + 监听信号集中所包含的信号，并将其中触发的信号记入 sig 中；
+    + sigwait 对信号集的操作是只读的
 
 ## ANSI C 信号处理句柄
 - 定义
