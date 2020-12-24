@@ -19,14 +19,15 @@
 
 make 时报找不到库错误:
 ```
-	/gcc/cc1: error while loading shared libraries: libisl.so.15: cannot open sh
+    /gcc/cc1: error while loading shared libraries: libisl.so.15: cannot open sh
 ```
 
 解决办法是动态指定库路径编译:
 ```shell
-	LD_LIBRARY_PATH=/usr/local/gcc8-depend/isl/lib make
+    LD_LIBRARY_PATH=/usr/local/gcc8-depend/isl/lib make
 ```
 
+(非并行)编译时长大约 1.5 个小时。
 
 #### 测试
 
@@ -36,6 +37,11 @@ make 时报找不到库错误:
     ulimit -s 32768
     make -k test
 ```
+好吧，也可以不用那么严肃。因为一些原因，暂时先不测了。
 
 
 #### 安装
+
+```shell
+    make install
+```
