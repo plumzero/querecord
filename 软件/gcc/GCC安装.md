@@ -29,6 +29,23 @@ make 时报找不到库错误:
 
 (非并行)编译时长大约 1.5 个小时。
 
+在有些机器上编译时可能还会出现类似于如下的错误:
+```
+    configure: error: source directory already configured; run "make distclean" there first
+    make[1]: *** [configure-mpfr] Error 1
+    make[1]: Leaving directory `/usr/local/src/gcc8-build'
+    make: *** [all] Error 2
+    
+    configure: error: source directory already configured; run "make distclean" there first
+    make[1]: *** [configure-isl] Error 1
+    make[1]: Leaving directory `/usr/local/src/gcc8-build'
+    make: *** [all] Error 2
+```
+这个不妨将 `/usr/local/src/gcc-8.4.0` 中的文件清理一下(如删除 mpfr, isl 等)，或者直接还原回原来的状态，再试一下。
+
+其他错误可以从 config.log 中查看原因分析。
+
+
 #### 测试
 
 在安装之前，请务必进行测试，GCC 作为底层软件，必须要保证其执行的可靠性。
