@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <pqxx/pqxx>
 
-int main(int, char *argv[])
+int main()
 {
     const char* sql = NULL;
     

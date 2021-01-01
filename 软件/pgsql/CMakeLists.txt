@@ -64,15 +64,17 @@ get_filename_component(pgsql_LIBRARY_PATH ${pgsql_LIBRARY} PATH)
 get_filename_component(pgsql_LIBRARY_NAME ${pgsql_LIBRARY} NAME_WE)
 string(REGEX REPLACE "^lib" "" pgsql_LIBRARY_NAME ${pgsql_LIBRARY_NAME})
 
+get_filename_component(pq_LIBRARY_PATH ${pq_LIBRARY} PATH)
+get_filename_component(pq_LIBRARY_NAME ${pq_LIBRARY} NAME_WE)
+string(REGEX REPLACE "^lib" "" pq_LIBRARY_NAME ${pq_LIBRARY_NAME})
+
 #
 # include and link
 #
-include_directories(pgsql_INCLUDE)
-include_directories(pq_INCLUDE)
-link_directories(pgsql_LIBRARY)
+include_directories(SYSTEM ${pgsql_INCLUDE})
+include_directories(SYSTEM ${pq_INCLUDE})
 
-message("pgsql_LIBRARY_NAME=" ${pgsql_LIBRARY_NAME})
-message("pq_LIBRARY_NAME=" ${pq_LIBRARY_NAME})
-message("pq_LIBRARY=" ${pq_LIBRARY})
+link_directories(${pq_LIBRARY_PATH})
+link_directories(${pgsql_LIBRARY_PATH})
 
 add_subdirectory(tests)
