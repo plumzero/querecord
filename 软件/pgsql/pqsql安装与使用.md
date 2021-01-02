@@ -68,6 +68,8 @@ postgresql-13.1
 
 #### 测试
 
+人工在 pqsql 操作台输入 sql 语句进行测试。
+
 创建数据库
 ```sh
     postgres$ /usr/local/pgsql/bin/createdb testdb
@@ -77,3 +79,30 @@ postgresql-13.1
 ```sh
     postgres$ /usr/local/pgsql/bin/psql testdb
 ```
+执行完之后会进入 pqsql 操作台，如下:
+```sh
+    testdb=# 
+```
+
+建表操作:
+```sh
+    testdb=# create table myfirst(id INT PRIMARY KEY NOT NULL, name TEXT NOT NULL);
+    CREATE TABLE
+```
+
+插入操作:
+```sh   
+    testdb=# insert into myfirst(id,name) values (1, 'Paul'),(2,'Allen');
+    INSERT 0 2
+```
+
+读取操作:
+```sh   
+    testdb=# select * from myfirst;
+     id | name  
+    ----+-------
+      1 | Paul
+      2 | Allen
+    (2 rows)
+```
+
