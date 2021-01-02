@@ -1,0 +1,78 @@
+
+cmake_minimum_required(VERSION 3.0.2)
+
+project("pqxx" CXX)
+
+include(CheckCXXCompilerFlag)
+
+#
+# Color Configuration
+#
+string(ASCII 27 Esc)
+set(Reset   "${Esc}[m"  )
+set(Red     "${Esc}[31m")
+set(Blue    "${Esc}[34m")
+set(Green   "${Esc}[32m")
+set(Yellow  "${Esc}[33m")
+
+#
+# Compile Mode
+#
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -Wall -W")
+else()
+    string(REPLACE "-O3" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -Wall -W")
+endif()
+
+#
+# PostgreSql
+#
+find_library(pgsql_LIBRARY pq HINTS "/usr/local/pgsql/lib" NO_DEFAULT_PATH)
+find_path(pgsql_INCLUDE pgtypes.h HINTS "/usr/local/pgsql/include" NO_DEFAULT_PATH)
+
+if (pgsql_LIBRARY AND pgsql_INCLUDE)
+    set(PGSQL_FOUND TRUE)
+    message(STATUS "${Green}Found pgsql library at: ${pgsql_LIBRARY}${Reset}")
+    message(STATUS "${Green}Found pgsql include at: ${pgsql_INCLUDE}${Reset}")
+else()
+    message(FATAL_ERROR "${Red}Failed to locate pgsql.${Reset}" )
+endif()
+
+#
+# libpqxx
+#
+find_library(pq_LIBRARY libpqxx.a HINTS "/usr/local/pqxx/lib" NO_DEFAULT_PATH)
+find_path(pq_INCLUDE pqxx/pqxx HINTS "/usr/local/pqxx/include" NO_DEFAULT_PATH)
+
+if (pq_LIBRARY AND pq_INCLUDE)
+    set(PQXX_FOUND TRUE)
+    message(STATUS "${Green}Found pqxx library at: ${pq_LIBRARY}${Reset}")
+    message(STATUS "${Green}Found pqxx include at: ${pq_INCLUDE}${Reset}")
+else()
+    message(FATAL_ERROR "${Red}Failed to locate pqxx.${Reset}" )
+endif()
+
+#
+# Library PATH and NAME
+#
+get_filename_component(pgsql_LIBRARY_PATH ${pgsql_LIBRARY} PATH)
+get_filename_component(pgsql_LIBRARY_NAME ${pgsql_LIBRARY} NAME_WE)
+string(REGEX REPLACE "^lib" "" pgsql_LIBRARY_NAME ${pgsql_LIBRARY_NAME})
+
+#
+# include and link
+#
+include_directories(pgsql_INCLUDE)
+include_directories(pq_INCLUDE)
+link_directories(pgsql_LIBRARY)
+
+message("pgsql_LIBRARY_NAME=" ${pgsql_LIBRARY_NAME})
+message("pq_LIBRARY_NAME=" ${pq_LIBRARY_NAME})
+message("pq_LIBRARY=" ${pq_LIBRARY})
+
+add_subdirectory(tests)
