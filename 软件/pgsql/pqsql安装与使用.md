@@ -15,13 +15,19 @@ postgresql-13.1
 软件安装目录: `/usr/local/pgsql`
 
 
+#### 依赖
+```
+	apt-get install libreadline-dev
+```
+
+
 #### 安装
 
 解压 配置
 ```sh
     tar -zxvf postgresql-13.1.tar.gz
     cd postgresql-13.1
-    ./configure --prefix=/usr/local/pgsql --
+    ./configure --prefix=/usr/local/pgsql
 ```
 
 编译 安装
@@ -52,17 +58,17 @@ postgresql-13.1
 
 后台启动 postgres server
 ```sh
-    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data start
+    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile start
 ```
 
 后台重启
 ```sh
-    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data restart
+    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile restart
 ```
 
 如果需要关闭，执行如下命令:
 ```sh
-    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data stop
+    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile stop
 ```
 
 

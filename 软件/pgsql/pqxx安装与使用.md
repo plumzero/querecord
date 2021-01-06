@@ -27,8 +27,10 @@ libpqxx-6.X 已经开始支持 C++14 了，libpqxx-7.X 已经开始支持 C++17 
     
     unzip libpqxx-5.1.zip
     cd libpqxx-5.1
-    ./configure --prefix=/usr/local/pqxx --disable-documentation
+    ./configure --prefix=/usr/local/pqxx --disable-documentation --enable-shared
 ```
+因为 C++ 的名称修饰问题，这里建议编译成动态库形式。
+
 
 编译 安装
 ```sh

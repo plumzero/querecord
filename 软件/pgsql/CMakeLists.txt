@@ -46,13 +46,13 @@ endif()
 #
 # libpqxx
 #
-find_library(pq_LIBRARY libpqxx.a HINTS "/usr/local/pqxx/lib" NO_DEFAULT_PATH)
-find_path(pq_INCLUDE pqxx/pqxx HINTS "/usr/local/pqxx/include" NO_DEFAULT_PATH)
+find_library(pqxx_LIBRARY pqxx HINTS "/usr/local/pqxx/lib" NO_DEFAULT_PATH)
+find_path(pqxx_INCLUDE pqxx/pqxx HINTS "/usr/local/pqxx/include" NO_DEFAULT_PATH)
 
-if (pq_LIBRARY AND pq_INCLUDE)
+if (pqxx_LIBRARY AND pqxx_INCLUDE)
     set(PQXX_FOUND TRUE)
-    message(STATUS "${Green}Found pqxx library at: ${pq_LIBRARY}${Reset}")
-    message(STATUS "${Green}Found pqxx include at: ${pq_INCLUDE}${Reset}")
+    message(STATUS "${Green}Found pqxx library at: ${pqxx_LIBRARY}${Reset}")
+    message(STATUS "${Green}Found pqxx include at: ${pqxx_INCLUDE}${Reset}")
 else()
     message(FATAL_ERROR "${Red}Failed to locate pqxx.${Reset}" )
 endif()
@@ -64,17 +64,17 @@ get_filename_component(pgsql_LIBRARY_PATH ${pgsql_LIBRARY} PATH)
 get_filename_component(pgsql_LIBRARY_NAME ${pgsql_LIBRARY} NAME_WE)
 string(REGEX REPLACE "^lib" "" pgsql_LIBRARY_NAME ${pgsql_LIBRARY_NAME})
 
-get_filename_component(pq_LIBRARY_PATH ${pq_LIBRARY} PATH)
-get_filename_component(pq_LIBRARY_NAME ${pq_LIBRARY} NAME_WE)
-string(REGEX REPLACE "^lib" "" pq_LIBRARY_NAME ${pq_LIBRARY_NAME})
+get_filename_component(pqxx_LIBRARY_PATH ${pqxx_LIBRARY} PATH)
+get_filename_component(pqxx_LIBRARY_NAME ${pqxx_LIBRARY} NAME_WE)
+string(REGEX REPLACE "^lib" "" pqxx_LIBRARY_NAME ${pqxx_LIBRARY_NAME})
 
 #
 # include and link
 #
 include_directories(SYSTEM ${pgsql_INCLUDE})
-include_directories(SYSTEM ${pq_INCLUDE})
+include_directories(SYSTEM ${pqxx_INCLUDE})
 
-link_directories(${pq_LIBRARY_PATH})
+link_directories(${pqxx_LIBRARY_PATH})
 link_directories(${pgsql_LIBRARY_PATH})
 
 add_subdirectory(tests)
