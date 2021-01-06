@@ -83,7 +83,12 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
 
 [示例程序](json/object_new.pl)
 
-> 为对象设置属性
+> property
+
+获取属性标志。
+```pl
+	$settings = $json->property();
+```
 
 每种属性一般都有设置/获得两种方法。
 

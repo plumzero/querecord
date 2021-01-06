@@ -16,8 +16,4 @@ my %rec_hash = (
 
 my $json = encode_json(\%rec_hash);
 
-my $json_text = JSON->new->utf8->encode(\%rec_hash);
-
 printf("%s\n", $json);
-
-printf("%s\n", $json_text);
