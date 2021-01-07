@@ -87,7 +87,7 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
 
 获取属性标志。
 ```pl
-	$settings = $json->property();
+    $settings = $json->property();
 ```
 
 每种属性一般都有设置/获得两种方法。
@@ -104,4 +104,8 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
 
 [示例程序](json/object_attribute.pl)
 
+[类对象的json化](json/object_json.pl)
 
+[复杂结构的json序列化](json/object_serilize.pl)
+
+[复杂结构的json结构化](json/object_structure.pl)
