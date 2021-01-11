@@ -1,8 +1,8 @@
 
-#!/usr/bin/env perl
+#!/usr/bin/env perl -w
 
-$PATH = "hello perl";
+system("date");
+system 'date';
 
-system('echo $PATH');		# $PATH 作为 shell 环境变量
-system("echo $PATH");		# $PATH 作为 perl 变量
-system("echo \$PATH");		# 转义 $
+system("ls -l \$HOME");
+system 'ls -l $HOME';
