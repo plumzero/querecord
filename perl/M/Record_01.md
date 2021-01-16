@@ -51,7 +51,7 @@ perl/ 目录结构层次为:
 ```pl
     #!/usr/bin/env perl -w
 
-    BEGIN{push(@INC,"/jingle/ATS/tools/perl/5.22.1")};
+    BEGIN{push(@INC,"/path/to/module/perl/5.22.1")};
 
     use strict;
 
