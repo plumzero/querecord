@@ -1,5 +1,6 @@
 
-#### 包
+
+### 包
 
 perl 中的包可以理解为 C++ 语言中的名字空间。语法格式如下:
 ```pl
@@ -29,7 +30,7 @@ perl 中的包可以理解为 C++ 语言中的名字空间。语法格式如下:
 ```
 
 
-#### BEGIN 和 END 模块
+### BEGIN 和 END 模块
 
 perl 提供了 BEGIN 和 END 关键字，它们可以包含一组脚本，用于程序体运行前或者运行后的执行。
 
@@ -53,64 +54,27 @@ perl 提供了 BEGIN 和 END 关键字，它们可以包含一组脚本，用于
 ```
 
 
-#### 模块
-
-perl 5 中有包来创建模块。
+### 模块与包
 
 perl 模块是一个可重复使用的包，模块的名字与包名相同，定义的文件后缀为 .pm 。
 
 定义一个名字为 Foo.pm 的模块作为示例进行说明:
 ```pl
-	#!/usr/bin/perl
-	
-	package Foo;
-	
-	sub bar {
-		print "Hello $_[0]\n";
-	}
-	
-	sub blat {
-		print "World $_[0]\n";
-	}
-	1;
+    #!/usr/bin/perl
+    
+    package Foo;
+    
+    sub bar {
+        print "Hello $_[0]\n";
+    }
+    
+    sub blat {
+        print "World $_[0]\n";
+    }
+    1;
 ```
 perl 中关于模块需要注意以下几点:
 - 函数 require 和 use 将载入一个模块
 - @INC 是 perl 内置的一个特殊数组，它包含指向库例程所在位置的目录路径
 - require 和 use 函数调用 eval 函数来执行代码
 - 末尾的 "1;" 表示执行返回 TRUE,是必须的，否则返回错误
-
-#### 模块的调用
-
-使用 require 或 use 进行模块的调用。
-
-```pl
-	#!/usr/bin/perl
-	
-	require Foo;
-	
-	Foo::bar("a");
-	Foo::blat("b");
-```
-
-上述代码中，也可以将 require 替换为 use，如下:
-```pl
-	#!/usr/bin/perl
-	
-	use Foo;
-	
-	bar("a");
-	blat("b");
-```
-可以看到，相比 require ，使用 use 不需要使用包名指定函数。
-
-require 和 use 的区别:
-- require用于载入module或perl程序(.pm后缀可以省略，但.pl必须有)
-- use 语句是编译时引入的，require 是运行时引入的
-- use 引入模块的同时，也引入了模块的子模块。而 require 则不能引入，要在重新声明
-- use 是在当前默认的 @INC 里面去寻找,一旦模块不在 @INC 中的话,用 use 是不可以引入的，但是 require 可以指定路径
-- use 引用模块时，如果模块名称中包含::双冒号，该双冒号将作为路径分隔符，相当于Unix下的/或者Windows下的\
-
-#### 创建并安装 perl 模块
-
-[示例](创建并安装perl模块.md)

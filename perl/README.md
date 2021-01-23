@@ -59,25 +59,16 @@
 
 [套接字编程](abc/套接字编程.md)
 
-[包和模块](abc/包和模块.md)
+[模块](abc/模块.md)
 
 [数据库编程](abc/数据库编程.md)
 
 [perl常用系统函数](F/常用函数.md)
 
+
 ### 问题记录
 
 [Global symbol "$file" requires explicit package name at...](Q/01.md)
 
-[标量格式化为字符串以适用于正则匹配](Q/02.md)
+[标量变量格式化为字符串以适用于正则匹配](Q/02.md)
 
-
-### 模块
-
-有的时候，不得不考虑在安装某个模块之前是否还要安装其他的依赖模块，所以这里有必要作一下记录。
-
-[在异常简陋的环境上安装模块记录](M/Record_01.md)
-
-[DBI-DBD-PG](M/DBI-DBD-PG.md)
-
-[JSON](M/JSON.md)

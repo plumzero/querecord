@@ -1,7 +1,9 @@
 
 [perl模块代码](../tests/Foo.pm)
 
-#### 创建模块
+### 创建模块
+
+perl 5 中用包来创建模块。
 
 在 Foo.pm 文件所在目录下执行如下命令:
 ```sh
@@ -31,7 +33,7 @@ Foo 目录下新增文件说明如下:
 之后，可以使用 tar 命令将以上目录打包，比如 Foo.tar.gz 。
 
 
-#### 安装模块
+### 安装模块
 
 对刚才的压缩包 Foo.tar.gz 进行解压安装，执行步骤如下:
 ```pl
@@ -48,13 +50,43 @@ perl 模块需要编译，从侧面可以说明，虽然是脚本，但运行速
 
 运行 `make install` 会将库文件安装到系统目录。
 
-#### 测试文件
+
+### 模块的调用
+
+使用 require 或 use 进行模块的调用。
+
+```pl
+    #!/usr/bin/perl
+    
+    require Foo;
+    
+    Foo::bar("a");
+    Foo::blat("b");
+```
+
+上述代码中，也可以将 require 替换为 use，如下:
+```pl
+    #!/usr/bin/perl
+    
+    use Foo;
+    
+    bar("a");
+    blat("b");
+```
+可以看到，相比 require ，使用 use 不需要使用包名指定函数。
+
+require 和 use 的区别:
+- require用于载入module或perl程序(.pm后缀可以省略，但.pl必须有)
+- use 语句是编译时引入的，require 是运行时引入的
+- use 引入模块的同时，也引入了模块的子模块。而 require 则不能引入，要在重新声明
+- use 是在当前默认的 @INC 里面去寻找,一旦模块不在 @INC 中的话,用 use 是不可以引入的，但是 require 可以指定路径
+- use 引用模块时，如果模块名称中包含::双冒号，该双冒号将作为路径分隔符，相当于Unix下的/或者Windows下的\
+
+
+### 测试文件
 
 [use测试](../tests/use.pl)
 
 [require测试](../tests/require.pl)
 
 为了防止污染系统目录，所以这里并没有安装及测试。
-
- 
-

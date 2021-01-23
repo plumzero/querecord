@@ -1,0 +1,130 @@
+
+Perl 是一种可扩展的脚本语言。
+
+Perl 提供模块支持各类扩展功能，模块来源有两种，一种是随 Perl 发行版本一同打包的，另一种需要从 CPAN 或直接下载压缩包安装。
+
+
+### 寻找模块
+
+在寻找模块之前，需要先检查一下系统上是否已经安装。如查看 Perl 自带的 CGI.pm 模块:
+```
+    perldoc CGI
+```
+如果已经安装，则会显示其使用文档。
+
+如果模块在系统中不存在，则会看到一条错误信息:
+```pl
+    $ perldoc Llamas
+    No documentation found for "Llamas".
+```
+当然，前提是模块本身提供原始文档。
+
+
+### 安装模块
+
+以压缩包安装示例。
+
+模块一般使用 MakeMaker 封装，可以用下面的流程安装:
+```pl
+    perl Makefile.PL
+    make
+    make install
+```
+缺省时会安装到某个系统路径下。
+
+如果需要指定路径，可以通过 `INSTALL_BASE` 指定:
+```pl
+    perl Makefile.PL INSTALL_BASE=/path/to/install
+```
+
+
+### 使用模块
+
+可以通过 use 来引入模块。比如获取一个文件路径的基名或目录名:
+```pl
+    use File::Basename;
+    
+    my $name = "/usr/local/bin/perl";
+    my $basename = basename $name;
+    my $dirname = dirname $name;
+```
+
+为了不污染名字空间，也可以只导入模块的某个部分:
+```pl
+    use File::Basename qw/ basename /;
+```
+或者引入模块时不导入任何函数名称，只在具体使用时通过模块指定:
+```pl
+    use File::Basename qw/ /;
+    my $name = "/usr/local/bin/perl";
+    my $dirname = File::Basename::dirname $name;
+```
+
+[示例程序](../M/file.pl)
+
+
+### 其他模块
+
+> CGI.pm 模块
+
+CGI.pm 模块是 Perl 5 自带的模块，它提供两种风格的接口，面向函数和面向对象。
+
+[面向函数风格接口示例](../M/cgi.pl)
+
+> 数据库和DBI模块
+
+不管哪种常见的数据库，DBI都可以通过相同的接口对其进行操作。
+
+DBI模块需要自己安装。安装完DBI之后，还需要安装DBD(数据库驱动程序，对应具体的数据库类型，如 pgsql,mysql 等)。
+
+[以pgsql为示例](../M/DBI-DBD-PG.md)
+
+> JSON 模块
+
+[参考](../M/JSON.md)
+
+> 处理日期和时间的模块 DateTime
+
+最常见的是把系统中以秒数表示的当前时间(或者新纪元时间)转换成 DateTime 对象:
+```pl
+    my $dt = DateTime->from_epoch( epoch => time );
+```
+此后通过各种对象方法，即可获取该日期的相关信息:
+```pl
+    printf '%4d%02d%02d', $dt->year, $dt->month, $dt->day;
+```
+该模块还有格式化输出的时间字符串的方法:
+```pl
+    print $dt->ymd;         # 2021-01-23
+    print $dt->ymd('/');    # 2021/01/23
+    print $dt->ymd('');     # 20210123
+```
+
+也可以对两个 DateTime 对象进行计算，获取时间间隔:
+```pl
+    my $dt1 = DateTime->new(
+            year   => 1987,
+            month  => 12,
+            day    => 18,
+        );
+    my $dt2 = DateTime->new(
+            year   => 2011,
+            month  => 5,
+            day    => 1,
+        );
+    
+    my $duration = $dt2 - $dt1;
+```
+把一个间隔时间转化成可读的日期:
+```pl
+    my @units = $duration->in_units( qw(year month day) );
+    print '$d years, %d months, and %d days', @units;
+```
+
+当然，也可以把一个间隔时间加到某个日期对象上。比如要求得到 $dt2 之后的第 5 天:
+```pl
+    my $duration = DateTime::Duration->new( days => 5 );
+    my $dt3 = $dt2 + $duration;
+    print $dt3->ymd;
+```
+
