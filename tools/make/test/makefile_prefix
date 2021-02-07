@@ -1,0 +1,18 @@
+
+# 前缀 无
+noprefix:
+	echo "no prefix"
+	cat this_is_not_exist
+	echo "command after error"
+
+# 前缀 @
+atprefix:
+	@echo "have prefix @"
+	@cat this_file_not_exist
+	@echo "command after error"
+	
+# 前缀 -
+lnprefix:
+	-echo "have prefix -"
+	-cat this_file_not_exist
+	-echo "command after error"

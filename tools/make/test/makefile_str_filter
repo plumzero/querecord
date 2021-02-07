@@ -1,0 +1,10 @@
+
+# 过滤函数	 $(filter <pattern...>,<text>)
+
+# 每个 pattern 之间用空格分隔
+
+VAL := "program.c program.o program.a"
+
+all:
+	@echo $(filter %.o %.a,$(VAL))
+	@echo $(filter %.o %.a,program.c program.o program.a)

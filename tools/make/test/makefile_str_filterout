@@ -1,0 +1,11 @@
+
+# 反过滤函数  $(filter-out <pattern...>,<text>)
+
+# 每个 pattern 之间用空格分隔
+# 使用 VAL 不能达到预期效果
+
+VAL := "program.c program.o program.a"
+
+all:
+	@echo $(filter-out %.o%.a,$(VAL))
+	@echo $(filter-out %.o %.a,program.c program.o program.a)

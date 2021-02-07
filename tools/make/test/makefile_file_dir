@@ -1,0 +1,5 @@
+
+# 取目录函数	$(dir <names...>)
+
+all:
+	@echo $(dir /home/a.c ./bb.c ../c.c d.c)

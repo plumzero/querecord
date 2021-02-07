@@ -1,0 +1,11 @@
+
+# for
+
+# 引用shell变量需使用$$作为开头，但shell变量不需括号
+
+LIST = one two three
+
+all:
+	for i in $(LIST); do \
+		echo $$i;	\
+	done

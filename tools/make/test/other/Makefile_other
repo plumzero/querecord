@@ -1,0 +1,4 @@
+
+other-all:
+	@echo "other Makefile begin"
+	@echo "other Makefile end"

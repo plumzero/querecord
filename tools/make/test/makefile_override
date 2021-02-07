@@ -1,0 +1,20 @@
+
+# 变量的覆盖
+
+SRCS := programA.c programB.c programC.c
+
+all:
+	@echo "SRCS: " $(SRCS)
+
+# 运行 make SRCS=nothing
+
+######################################
+
+# 将上面的注释，并打开下面的代码
+
+# override SRCS := programA.c programB.c programC.c
+
+# all:
+#	@echo "SRCS: " $(SRCS)
+
+# 运行 make SRCS=nothing

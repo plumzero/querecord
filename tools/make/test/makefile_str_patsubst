@@ -1,0 +1,7 @@
+
+# 模式字符串替换函数		$(patsubst <pattern>,<replacement>,<text>)
+
+# 最后的字符串不要使用 "" 或 '' 起来
+
+all:
+	@echo $(patsubst %.c,%.o,programA.c programC.c)

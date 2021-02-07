@@ -1,0 +1,8 @@
+
+# 查找字符串函数 $(findstring <find>,<in>)
+
+VAL := "      aa bb cc    "
+
+all:
+	@echo $(findstring aa,$(VAL))
+	@echo $(findstring ab,$(VAL))

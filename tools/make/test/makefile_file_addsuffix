@@ -1,0 +1,5 @@
+
+# 加后缀函数	$(addsuffix <suffix>, <names...>)
+
+all:
+	@echo $(addsuffix .c,/home/a b ./c.o ../d.c)

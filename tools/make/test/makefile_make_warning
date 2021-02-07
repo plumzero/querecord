@@ -1,0 +1,6 @@
+
+# warning
+
+all:
+	$(warning there is an warning!)
+	@echo "will execute here"

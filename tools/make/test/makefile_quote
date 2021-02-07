@@ -1,0 +1,9 @@
+
+# 引用其他的 Makefile
+
+all:
+	@echo "master Makefile begin"
+	@make other-all
+	@echo "master Makefile end"
+
+include ./other/Makefile

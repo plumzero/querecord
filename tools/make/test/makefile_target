@@ -1,0 +1,15 @@
+
+# 目标变量
+
+SRCS := programA.c programB.c programC.c
+
+target1: TARGET1-SRCS := programD.c
+target1:
+	@echo "target1 SRCS: " $(SRCS)
+	@echo "target1 SRCS: " $(TARGET1-SRCS)
+	
+target2:
+	@echo "target2 SRCS: " $(SRCS)
+	@echo "target2 SRCS: " $(TARGET1-SRCS)
+	
+# 分别执行 make target1 和 make target2

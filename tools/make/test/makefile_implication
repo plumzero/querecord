@@ -1,0 +1,6 @@
+
+# 隐含规则：自动推导
+
+main : hello.o
+	g++ -g -std=c++11 -o hello hello.o
+

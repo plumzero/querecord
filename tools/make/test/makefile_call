@@ -1,0 +1,7 @@
+
+# call
+
+log = "====debug====" $(1) "====end===="
+
+all:
+	@echo $(call log, "正在 Make")

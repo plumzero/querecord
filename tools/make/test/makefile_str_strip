@@ -1,0 +1,10 @@
+
+# 去空格函数 $(strip <string>)
+
+# 最后的字符串不要使用 "" 或 '' 起来
+
+VAL := "      aa bb cc    "
+
+all:
+	@echo "去除空格前: " $(VAL)
+	@echo "去除空格后: " $(strip $(VAL))

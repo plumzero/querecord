@@ -1,0 +1,5 @@
+
+# 取文件函数	$(notdir <names...>)
+
+all:
+	@echo $(notdir /home/a.c ./bb.c ../c.c d.c)

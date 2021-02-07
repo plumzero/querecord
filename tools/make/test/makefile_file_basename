@@ -1,0 +1,5 @@
+
+# 取前缀函数	$(basename <name...>)
+
+all:
+	@echo $(basename /home/a.c ./b.o ../c.a /home/.d .e)

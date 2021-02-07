@@ -1,0 +1,6 @@
+
+# error
+
+all:
+	$(error an error occured!)
+	@echo "won't execute here"

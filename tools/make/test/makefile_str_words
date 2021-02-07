@@ -1,0 +1,7 @@
+
+# 单词个数统计函数	$(words <text>)
+
+all:
+	@echo $(words aa bb cc dd)
+	@echo $(words aabbccdd)
+	@echo $(words )

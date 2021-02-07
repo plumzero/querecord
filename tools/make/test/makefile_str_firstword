@@ -1,0 +1,7 @@
+
+# 首单词函数	$(firstword <text>)
+
+all:
+	@echo $(firstword aa bb cc dd)
+	@echo $(firstword aabbccdd)
+	@echo $(firstword )

@@ -1,0 +1,11 @@
+
+# 定义命令包
+
+define run-hello-makefile
+@echo -n "Hello"
+@echo " Makefile!"
+@echo "execute more than one command"
+endef
+
+all:
+	$(run-hello-makefile)

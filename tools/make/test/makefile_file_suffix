@@ -1,0 +1,5 @@
+
+# 取后缀函数	$(suffix <names...>)
+
+all:
+	@echo $(suffix /home/a.c ./b.o ../c.a d)

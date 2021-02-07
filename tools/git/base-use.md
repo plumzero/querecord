@@ -1,0 +1,254 @@
+
+### 配置
+- 使用 git config 进行配置
+    + `git config --system`     使对应配置针对系统内所有的用户有效
+    + `git config --global`     使对应配置针对当前系统用户的所有仓库有效
+    + `git config --local`      使对应配置只针对当前仓库有效
+- 初始化配置
+  当安装 git 后首先要做的事情是设置用户名称和 e-mail 地址，进行初始化配置:
+  ```shell
+    git config --global user.name "mygit"
+    git config --global user.email "xxx@email.com"
+  ```
+- 查看配置信息
+  ```shell
+    git config --system --list
+    git config --global --list
+    git config --local --list
+    git config --list
+    git config user.name
+  ```
+
+### 创建本地仓库
+- 本地创建仓库的方式有两种，一种是在某个目录下通过指定名称创建一个仓库:
+  ```shell
+    git init test
+  ```
+  另一种是进入某个目录下，将其初始化为一个仓库:
+  ```shell
+    git init
+  ```
+
+### 添加
+- 添加就是将变更的文件从工作空间添加到索引的过程。
+- 索引保存工作空间的快照，并且将该快照作为下一次提交的内容。对工作空间中的文件进行修改后，
+  若想要将其提交到本地仓库，必须先要执行如下命令添加到索引:
+  ```shell
+    git add -A          # 将全部修改添加到索引
+  ```
+- git add 命令可以在提交之前多次执行，因此如果希望随后的更改包含在下一次的提交中，那么必
+  须再次执行 git add 命令将新的修改添加到索引。
+  
+### 提交
+- 提交就是将文件快照从索引区提交到本地仓库的过程。
+- 通过 git commit 命令可以将索引的当前内容以及描述更改的用户和日志消息提交到本地仓库中。
+  ```shell
+    git commit -m "init commit"
+  ```
+
+### 克隆远程仓库
+- 将远程仓库 master 分支克隆到本地
+  ```shell
+    git clone git@github.com:libeio/test -b master      # 克隆指定分支
+  ```
+- 将远程仓库克隆到本地并重命名为 myrepo
+  ```shell
+    git clone git@github.com:libeio/test myrepo
+  ```
+- 将远程仓库克隆到本地并重命名为 myrepo
+  ```shell
+    git clone git@github.com:libeio/test myrepo
+  ```
+
+### 查看状态
+- 通过下列命令可以查看工作空间和索引的状态，也即是显示索引文件与当前 HEAD 提交之间的差异。
+  ```shell
+    git status
+  ```
+  使用此命令能看到哪些文件被暂存、哪些文件被修改、哪些文件没有被跟踪。
+- git status 命令不会显示已经提交到本地仓库中的信息，查看这些信息可以使用 git log 命令。
+
+### 查看历史提交日志信息
+- 显示最近三次的提交
+  ```shell
+    git log -3
+  ```
+- 根据提交 id 查询日志
+  ```shell
+    git log 2779f72
+  ```
+- 查询提交 id1 和提交 id2 之间的记录，包括 id1 和 id2
+  ```shell
+    git log id1 id2
+  ```
+- 查询最后一次提交的父提交之前(包含)的历史记录
+  ```shell
+    git log HEAD~1
+  ```
+- 查看某个提交者的提交记录
+  ```shell
+    git log --author=libeio
+  ```
+  
+### 比较差异
+- 如果某个文件没有纳入历史版本控制(即之前没有提交到本地仓库)，则无法通过 git diff 比较。
+- 通过 git diff 可以比较工作空间与索引区，以及索引区与本地仓库之间的差异。
+- 比较本地仓库中的历史版本文件在**当前工作空间与索引区之间的差异**:
+  ```shell
+    git diff                    # 比较工作空间与索引区之间的差异
+    git diff --stat             # 比较工作空间与索引区之间的差异统计信息
+    git diff 2779f72            # 比较工作空间与 2779f72 提交之间的差异
+  ```
+- 比较本地仓库中的历史版本文件在**当前索引与本地仓库之间的差异**
+  ```shell
+    git diff --cached           # 比较索引与最后一次历史版本提交之间的差异
+    git diff HEAD               # 相当于 git diff --cached
+    git diff --cached HEAD~1    # 比较索引区与最后一次历史版本父提交之间的差异
+    git diff HEAD~1             # 相当于 git diff --cached HEAD~1
+    git diff --cached 2779f72   # 比较索引区与 2779f72 提交之间的差异
+  ```
+
+### 删除文件
+- 只删除索引区中的文件:
+  ```shell
+    git rm --cached test.txt        # 删除索引区中的 test.txt 文件
+  ```
+- 只删除工作空间中的文件
+  ```shell
+    git rm test.txt                 # 删除工作空间中的 test.txt 文件
+  ```
+- 同时删除索引区和工作空间中的文件:
+  ```shell
+    git rm -f test.txt              # 删除索引区与工作空间的 test.txt 文件
+  ```
+
+### 分支操作
+- 创建本地分支
+  ```shell
+    git branch alpha                # 创建 alpha 分支
+    git checkout -b beta            # 创建 beta 分支并切换到新分支
+  ```
+- 切换分支
+  ```shell
+    git checkout alpha              # 切换到 alpha 分支
+  ```
+- 查看分支
+  ```shell
+    git branch -a                   # 查看本地和远程分支
+    git branch -r                   # 查看远程分支
+  ```
+- 将本地分支推到远程分支
+  ```shell
+    git push origin beta:beta       # 将本地 beta 分支提交到远端
+    git push origin beta:gamma      # 将本地 beta 分支提交到远端并重新命名为 gamma
+  ```
+- 将远程分支拉到本地
+  ```shell
+    git pull origin gamma:gamma     # 将远程分支 gamma 拉到本地
+    git pull origin gamma:sigma     # 将远程分支 gamma 拉到本地并重新命名为 sigma
+    git pull origin gamma:master    # 将远程分支 gamma 取回，并与本地的 master 分支合并
+  ```
+  取回远程分支并与本地分支合并不建议使用 git pull, 应该使用如下操作:
+  ```shell
+    git fetch origin gamma
+    git checkout master
+    git merge gamma
+  ```
+- 直接指定源推送或拉取
+  ```shell
+    git push git@192.168.10.84:/qa/autotest/selenium libei:libei
+    git pull git@192.168.10.84:/qa/autotest/selenium libei:libei
+  ```
+- 删除本地分支
+  ```shell
+    git branch -d alpha             # 删除 alpha 分支
+  ```
+- 删除远程分支
+  ```shell
+    git push origin :gamma          # 删除远程分支 gamma
+    git push origin --delete gamma  # 删除远程分支 gamma
+  ```
+- 修改分支的名字
+  ```shell
+    git branch -m oldname newname   # 将名字为 oldname 的分支修改为 newname
+  ```  
+- 开发分支与主分支的互更新
+    + 开发分支(dev)上的代码合并到 master 分支
+      ```shell
+        git checkout dev
+        git pull origin dev
+        git checkout master
+        git merge dev
+        git push -u origin master
+      ```
+    + master 分支更新到开发分支(dev)
+      ```shell
+        git checkout master
+        git pull origin master
+        git checkout dev
+        git merge master
+        git push -u origin dev
+      ```
+      
+### 恢复工作区文件
+- 从索引中恢复误删文件
+  ```shell
+    git checkout master
+    rm -f test.txt
+    git checkout -- test.txt
+  ```
+- 检出索引中所有的 .c 文件
+  ```shell
+    git checkout -- '*.c'
+  ```
+
+### 在历史版本与当前分支之间切换
+- 从当前分支(这里是 master)分支切换到某个历史提交版本
+  ```shell
+    git checkout master
+    git checkout 96507d4
+  ```
+- 从过去版本切换回当前分支(这里是 master)下
+  ```shell
+    git checkout master
+  ```
+
+### 对版本库的提交进行删除
+- 删除最近一次提交
+  ```shell
+    git reset --hard HEAD^1
+  ```
+- 删除最近三次提交
+  ```shell
+    git reset --hard HEAD^3
+  ```
+- 删除某个提交id(不包含这次提交)之后的提交
+  ```shell
+    git reset --hard bcac929
+  ```
+
+### 标签操作
+- 标记当前 HEAD 指针并提交(如果要标记特定提交，则使用相应的 COMMIT ID 代替 HEAD)
+  ```shell
+    git tag -a 'Release_1_0' -m 'Tagged basic string operation code' HEAD
+    git push origin tag Release_1_0
+  ```
+- 查看所有可用标签
+  ```shell
+    git tag -l
+  ```
+- 查看某个标签的相关信息
+  ```shell
+    git show Release_1_0
+  ```
+- 删除标签并推送到远程仓库
+  ```shell
+    git tag -d Release_1_0
+    git push origin :Release_1_0
+  ```
+  
+### 远程仓库地址变动
+- 修改远程仓库地址
+  ```shell
+    git remote set-url origin https://github.com/libeio/tcw
+  ```

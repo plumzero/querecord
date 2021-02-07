@@ -1,0 +1,5 @@
+
+# 加前缀函数	$(addprefix <prefix>,<names...>)
+
+all:
+	@echo $(addprefix test_,/home/a.c b.c ./d.c)

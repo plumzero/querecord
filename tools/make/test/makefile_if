@@ -1,0 +1,17 @@
+
+# 条件判断的关键字主要有  ifeq ifneq ifdef ifndef
+
+SRCS := program.c
+
+all:
+ifeq ("aa", "bb")
+	@echo "equal"
+else
+	@echo "not equal"
+endif
+
+ifdef SRCS
+	@echo $(SRCS)
+else
+	@echo "no SRCS"
+endif

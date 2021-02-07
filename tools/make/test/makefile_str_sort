@@ -1,0 +1,5 @@
+
+# 排序函数	$(sort <list>)
+
+all:
+	@echo $(sort bac abc acb cab)

@@ -1,0 +1,15 @@
+	
+# 向引用的 Makefile 传递参数
+# 用 export 传递参数
+
+export VALUE1 := export.c
+VALUE2 := no-export.c
+
+all:
+	@echo "master Makefile begin"
+	@cd ./other && make
+	@echo "master Makefile end"
+	
+
+
+

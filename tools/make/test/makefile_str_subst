@@ -1,0 +1,10 @@
+
+# 字符串替换函数  $(subst<from>,<to>,<text>)
+
+# subst 中 , 号之后不要使用空格
+
+STR := "There is horse"
+
+all:
+	@echo "before: " $(STR)
+	@echo "after:  " $(subst horse,house,$(STR))
