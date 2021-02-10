@@ -1,0 +1,67 @@
+
+
+## 匿名空间
+- 一直以来，对 C++ 的匿名名字空间都感觉很不理解。这里通过一些示例感受一下。
+
+## 测试过程
+- 如何调用匿名空间定义的函数:
+  ```c++
+    namespace {
+        void print()
+        {
+            std::cout << "in anonymous space" << std::endl;
+        }
+    };
+  ```
+  对于上面定义的位于匿名名字空间中的 print 函数，分别通过以下两种方法调用均能成功:
+  ```c++
+    print();
+    ::print();
+  ```
+  打印结果相同:
+  ```shell
+    in anonymous space
+  ```
+- 这时再添加一个与匿名名字空间中的 print **同名同参数同返回**的全局函数，如下:
+  ```c++
+    namespace {
+        void print()
+        {
+            std::cout << "in anonymous space" << std::endl;
+        }
+    };
+    
+    void print()
+    {
+        std::cout << "not in anonymous space" << std::endl;
+    }
+  ```
+  如果使用下列方法调用时:
+  ```c++
+    print();
+  ```
+  编译时会报错，如下:
+  ```shell
+    test.cpp:18:8: error: call of overloaded ‘print()’ is ambiguous
+      print();
+            ^
+    test.cpp:11:6: note: candidate: void print()
+     void print()
+          ^~~~~
+    test.cpp:5:7: note: candidate: void {anonymous}::print()
+      void print()
+           ^~~~~
+  ```
+  看起来是两个函数冲突了。如果使用下列方法调用时，编译成功:
+  ```c++
+    ::print();
+  ```
+  打印如下:
+  ```c++
+    not in anonymous space
+  ```
+  看来匿名名字空间中的 print 函数并不在全局作用域中。不过即使如此，在没有冲突的情况下，程
+  序员仍可以像使用全局成员的方式一样使用匿名名字空间中的成员。
+
+## 可能结论
+- 匿名名字空间告诉程序员，这里面的变量，可以像全局成员一样使用，但它们并不是全局成员。
