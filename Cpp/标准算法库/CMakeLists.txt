@@ -6,6 +6,7 @@ include(CheckCXXCompilerFlag)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -Wall -W")
 
+add_executable(accumulate       accumulate.cpp)
 add_executable(adjacent_find    adjacent_find.cpp)
 add_executable(all_of           all_of.cpp)
 add_executable(any_of           any_of.cpp)
