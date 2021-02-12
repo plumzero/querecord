@@ -1,5 +1,2 @@
 
-*我希望你自始至终都是一个理想主义者。*
-
-
-还是先...只记录一些概念吧。
+* I hope u are an idealist all the time. *
