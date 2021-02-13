@@ -1,13 +1,18 @@
 
-## 参考
+### 参考
+
 [Lambda Expressions in C++](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=vs-2017)
 
-## 关键字
+
+### 关键字
+
 - capture clause                捕获从句
 - lambda-introducer             引入符
 - body of lambda expression     式体
 
-## 概念和基本用法
+
+### 概念和基本用法
+
 - lambda 表达式提供了定义一个匿名函数对象(功能闭包)的简单方法，它能够捕获作用域中的一些变量。
 - lambda 表达式是纯右值表达式，其类型是独有的无名非联合非聚合类类型，被称为闭包类型，它声明于含有该 lambda 表达式的最小块作用域、类作用域或命名空间作用域。
 - lambda 的语法形式如下:
@@ -36,7 +41,9 @@
         auto f1 = [] { return 1; }
       ```
 
-## 捕获列表
+
+### 捕获列表
+
 - lambda 表达式可以通过捕获列表捕获一定范围内的变量：
     + `[]`        不捕获任何变量；
     + `[&]`       捕获外部作用域中所有变量，并作为引用在函数体中使用(按引用捕获);
@@ -98,7 +105,9 @@
     std::function<int(void)> f2 = std::bind([](int a) { return a; }, 123);
   ```
 
-## 常见应用场景
+
+### 常见应用场景
+
 - 应用于标准算法库对容器的操作，如 std::find_if, std::for_each 等。
   
   返回第一个大于 10 的元素:
@@ -146,9 +155,7 @@
     std::for_each(threads.begin(), threads.end(), std::mem_fn(&std::thread::join));
   ```
 
-- 作为可调用函数对象使用
-
-  作为工具独立使用:
+- 作为工具独立使用:
   ```c++
     // 可以作为全局(就是放在 main 函数外面)可调用函数对象使用
     
@@ -166,7 +173,24 @@
     }
     std::cout << std::boolalpha << isOdd(3) << std::endl;
   ```
-  作为函数的入参使用，一般回调居多:
+  
+- 作为函数的入参使用，一般回调居多，简单的:
+  ```c++
+    template<typename ForwardIter, typename F>
+    void change(ForwardIter first, ForwardIter last, F fun)
+    {
+        for (auto iter = first; iter != last; ++iter)
+            *iter = fun(*iter);
+    }
+  ```
+  形参 fun 接受任何适合的 lambda 表达式，也接受函数对象或普通的函数指针。编译器在这里并没有处理模板，而是在需要实例化一个模板时才会处理它。这里给出一个示例:
+  ```c++
+    int data[] { 1, 2, 3, 4 };
+    change(std::begin(data), std::end(data), [](int value) { return value * value; })
+  ```
+  第二条语句会将 data 数组的元素全部替换为它们的平方值。
+
+- 作为回调，复杂的:
   ```c++
     using FuncCallback = std::function<void(void)>;
     
@@ -183,30 +207,4 @@
     handler(cb_i, 123);
     handler(cb_d, 5.89);
     handler(cb_i, 123, 5.89);
-  ```
-  其他:
-  ```c++
-    std::stringstream ss;
-    
-    typedef size_t (*CURL_WRITEFUNCTION_PTR)(void *, size_t, size_t, void *);
-
-    auto curl_callback = [](void *ptr, size_t size, size_t nmemb,
-                          void *stream) -> size_t {
-        auto ss = static_cast<std::stringstream *>(stream);
-        ss->write(static_cast<char *>(ptr), size * nmemb);
-        return size * nmemb;
-    };
-
-    std::string url = "http://localhost:80";
-    CURLcode res = CURLE_FAILED_INIT;
-    CURL *curl = curl_easy_init();
-    if (curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, static_cast<CURL_WRITEFUNCTION_PTR>(curl_callback));
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &ss);
-        
-        res = curl_easy_perform(curl);
-        
-        curl_easy_cleanup(curl);
-    }
   ```
