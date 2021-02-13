@@ -1,4 +1,13 @@
 
+### 说明
+
+unique_ptr<T> 对象就像一个指向类型 T 的指针，而且 unique_ptr<T> 是排他的，这意味着不可能有其他的 unique_ptr<T> 指向同一个地址。
+
+不能指定或复制一个 unique_ptr<T> 对象。可以通过使用一个定义在 utility 头文件中的 std::move() 函数来移出一个 unique_ptr<T> 对象存储的地址。在进行这个操作之后，之前的 unique_ptr<T> 变为无效。
+
+在使用的时候，不能以传值的方式将一个 unique_ptr<T> 对象传入函数中，因为它们不支持拷贝，必须使用引用的方式。在容器中存放 unique_ptr<T> 对象，也只能通过移动或生成它们的方式。
+
+
 ### 构造函数(重点)
 
 unique_ptr 支持缺省构造、自定义构造以及移动构造和移动拷贝构造。
@@ -40,15 +49,54 @@ unique_ptr 允许对象所有权的转移，这可以通过 std::move 来将一�
 [示例程序](01_unique_ptr/up_construct.cpp)
 
 
-### 对指向对象所有权的释放
+### get 函数
 
-unique_ptr 通过成员函数 release 来实现对指向对象所有权的释放。
+获取指向管理对象的原生指针。
+
+```c++
+    pointer get() const noexcept;
+```
+原 unique_ptr 仍保有对该对象的管理权，也就是说获取的 pointer 指针并不能用来创建另外的 unique_ptr。
+
+
+### reset 函数
+
+reset 的使用总是伴随着对象的析构与内存的释放。
+
+> 析构指向对象及释放内存
+
+当智能指针析构时，unique_ptr<T> 对象所指向的对象也会被析构。
+
+调用一个无参 unique_ptr<T> 对象的 reset() 函数可以析构它所指向的对象，而 unique_ptr<T> 对象中的原生指针将会被替换为空指针。
+```c++
+    auto pname = std::make_unique<std::string>("Algernon");
+    ...
+    pname.reset();      // Release memory for string object
+```
+
+> 使用 reset 重置指向对象
+
+也可以将一个新生成的 T 对象的地址值传给 reset() 函数。智能指针之前所指向的对象会被析构，然后它的地址值被替换为新对象的地址值:
+```c++
+    pname.reset(new std::string("Fred"));
+```
+执行之后，pname 之前所指向的字符串对象的内存将会被释放，在内存中生成一个新的字符串对象"Fred"，然后其地址被 pname 保存。
+
+注意: 不要将其他 unique_ptr<T> 所指向的一个对象的地址值传给 reset()，或者去生成一个新的 unique_ptr<T> 对象。第一个 unique_ptr<T> 的析构会释放它所指向的对象的内存，第二个智能指针析构时，将会试图再次释放已经释放的内存。
+
+[示例程序](01_unique_ptr/up_reset.cpp)
+
+
+### release 函数
+
+release 函数会释放一个 unique_ptr<T> 所指向的对象，它可以在不释放对象内存的前提下，将指向它的 unique_ptr<T> 内部的原生指针设为空指针。
+
 ```c++
     pointer release() noexcept;
 ```
-release 函数释放 unique_ptr 对一个对象的所有权，并返回一个指向该对象的朴素指针(pointer)，而 unique_ptr 将置空(null pointer)。
+release 函数释放 unique_ptr 对一个对象的所有权，并返回一个指向该对象的原生指针，而 unique_ptr 将置空。
 
-**此函数并不销毁所管理的对象**，只是 unique_ptr 自此不再对这个对象负责。也就是调用 release 后，该对象由程序员接管进行处理
+**此函数并不销毁所管理的对象**，只是 unique_ptr 自此不再对这个对象内存负责。也就是调用 release 后，该对象由程序员接管进行处理
 ```c++
     std::unique_ptr<int> u1 (new int);
     int * p;
@@ -65,38 +113,27 @@ release 函数释放 unique_ptr 对一个对象的所有权，并返回一个指
         u2.reset(p);    // *u2 == 10
     }
 ```
+
 [示例程序](01_unique_ptr/up_release.cpp)
 
 
-### 对指向对象所有权的转移
+### 比较和检查 unique_ptr<T> 对象
 
+比较两个 unique_ptr<T> 对象也就是比较它们两个的成员函数 get() 返回的地址值，比较一个 unique_ptr<T> 对象和空指针也就是将智能指针的成员函数 get() 返回的地址值和空指针作比较。
+
+unique_ptr<T> 可以隐式地转换为布尔值。如果一个对象包含一个空指针，将会被转换为 false，否则转换为 true 。这就意味着可以使用 if 语句来检查一个非空的 unique_ptr<T> 对象:
 ```c++
-    void reset(pointer p = pointer()) noexcept;
+    auto up_name = std::make_unique<std::string>("Algernon");
+    std::unique_ptr<std::string> up_new(up_name.release());
+    if (up_new) {       // true if not nullptr
+        std::cout << "The name is " << *up_new << std::endl;
+    }
+    if (! up_name) {    // true if not nullptr
+        std::cout << "The unique pointer is nullptr" << std::endl;
+    }
 ```
-reset 函数将 unique_ptr 所管理的当前对象销毁，之后该 unique_ptr 将接管朴素指针 p 指向的对象。
 
-如果 p 是一个空指针，则 unique_ptr 处于释放状态(相当于调用 release 后的状态)，此时可以用该 unique_ptr 去接管其他对象。
-```c++
-    std::unique_ptr<int> u1;
-
-    u1.reset (new int);             // 接管
-    *u1 = 5;                        // *u1 == 5
-
-    u1.reset (new int);             // 销毁原来的对象，接管新对象。此时 u1 != nullptr, *u1 == 0
-
-    *u1 = 10;                       // *u1 == 10
-
-    u1.reset();                     // 销毁对象
-```
-[示例程序](01_unique_ptr/up_reset.cpp)
-
-
-### 获取指向管理对象的指针
-
-```c++
-    pointer get() const noexcept;
-```
-原 unique_ptr 仍保有对该对象的管理权，也就是说获取的 pointer 指针并不能用来创建另外的 unique_ptr。
+当对一个 unque_ptr 指针对象调用 reset() 或 release() 时，需要先做这种检查，因为在解引用一个指针时，需要保证它是一个非空的 unique_ptr<T> 指针。
 
 
 ### 删除器(deleter)

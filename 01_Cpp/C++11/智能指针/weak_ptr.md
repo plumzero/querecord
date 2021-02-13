@@ -1,7 +1,9 @@
 
 ### 说明
 
-弱引用指针 weak_ptr 的构造不会增加引用计数，其析构也不会减少引用计数，纯粹是作为一个旁观者来监视 shared_ptr 中管理的资源是否存在。
+weak_ptr<T> 对象只能从一个 shared_ptr<T> 对象创建，它们指向相同的地址。
+
+创建一个 weak_ptr<T> 不会增加 shared_ptr<T> 对象的引用计数，所以它会阻止指向的对象销毁。
 
 weak_ptr 可以用来返回 this 指针和解决循环引用的问题。
 
@@ -55,36 +57,5 @@ weak_ptr 可以用来返回 this 指针和解决循环引用的问题。
   ```c++
     42
     gw is expired
-  ```
-
-### weak_ptr 解决循环引用问题
-- 示例
-  ```c++
-    struct A;
-    struct B;
-    
-    struct A {
-        std::shared_ptr<B> bptr;
-        ~A() { std::cout << "A is deleted!" << std::endl; }
-    };
-    
-    struct B {
-        std::weak_ptr<A> aptr;
-        ~B() { std::cout << "B is deleted!" << std::endl; }
-    };
-    void TestPtr()
-    {
-        {
-            std::shared_ptr<A> ap(new A);
-            std::shared_ptr<B> bp(new B);
-            ap->bptr = bp;
-            bp->aptr = ap;
-        }
-    }
-  ```
-  运行 TestPtr, 输出结果如下:
-  ```c++
-    A is deleted!
-    B is deleted!
   ```
   

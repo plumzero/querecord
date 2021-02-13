@@ -1,33 +1,47 @@
 
 ### 说明
 
-shared_ptr 使用引用计数，每一个 shared_ptr 的拷贝都指向相同的内存。在最后一个 shared_ptr 析构的时候，内存才会被释放。
+shared_ptr<T> 对象就像一个指向类型 T 的指针，和 unique_ptr<T> 不同的是，多个 shared_ptr<T> 可以指向同一个地址，因此 shared_ptr<T> 允许共享一个对象的所有权。
 
-如果共享指针的引用计数(use_count)是 0,(比如 shared_ptr 没有管理对象)，其他 shared_ptr 共享它时，引用计数不变。
+引用计数保存了指向给定地址的 shared_ptr<T> 的数量，每当一个新的 shared_ptr<T> 指针指向一个特定堆地址时，引用计数就会加 1 。当一个 shared_ptr<T> 被释放或者指向了新的地址时，引用计数就会减 1 。当没有 shared_ptr<T> 指向这个地址时，引用计数将会变成 0，在堆上为这个对象分配的内存就会自动释放。
 
 [示例程序](02_shared_ptr/sp_use_count.cpp)
+
 
 ### 构造与初始化
 
 shared_ptr 支持所有构造，支持指针构造。
 
-除了通过构造函数创建 shared_ptr 外，C++11 还提供了 std::make_shared 辅助函数和 reset 方法来初始化 shared_ptr:
+shared_ptr 不能通过直接将原始指针赋值来初始化，需要通过构造函数和辅助方法初始化。
+
+通过构造函数与赋值构造函数初始化:
 ```c++
     std::shared_ptr<int> p(new int(1));
     std::shared_ptr<int> p2 = p;
-    
-    std::shared_ptr<int> p3 = std::make_shared<int>(12);
-    
-    std::shared_ptr<int> ptr;
-    ptr.rest(new int(1));   
 ```
-shared_ptr 不能通过直接将原始指针赋值来初始化，需要通过构造函数和辅助方法初始化。
-
-对于一个未初始化的智能指针，可以通过 reset 方法初始化，当智能指针中有值的时候，调用 reset 会使引用计数减 1。
 
 [示例程序-构造](02_shared_ptr/sp_construct.cpp)
 
+除了通过构造函数创建 shared_ptr 外，C++11 还提供了更有效率的 std::make_shared 辅助函数来初始化 shared_ptr:
+```c++
+    std::shared_ptr<int> p3 = std::make_shared<int>(12);
+```
+
+对于一个未初始化的智能指针，可以通过 reset 方法初始化，当智能指针中有值的时候，调用 reset 会使引用计数减 1。
+```c++
+    std::shared_ptr<int> ptr;
+    ptr.rest(new int(1));
+```
+
 [示例程序-reset](02_shared_ptr/sp_reset.cpp)
+
+注意: 只能通过拷贝构造函数或赋值运算符去复制一个 shared_ptr<T> 对象，通过一个由其他指针的 get() 函数返回的原生指针，来生成一个 shared_ptr<T> 指针，这可能会导致一些意想不到的问题。
+
+如果将一个空指针赋给一个 shared_ptr<T> 对象，那么它的地址值将会变为空，同样也会使指针所指向对象的引用计数减 1 。例如:
+```c++
+    auto pname = std::make_shared<std::string>("Charles Dickens");
+    pname = nullptr;        // Reset pname to nullptr
+```
 
 
 ### 获取原始指针
@@ -38,11 +52,22 @@ shared_ptr 不能通过直接将原始指针赋值来初始化，需要通过构
     int* p = ptr.get();
 ```
 
-- 运行时绑定
-- use_count 大于 1 时，仅会递减引用计数； use_count 等于 1 时，释放管理对象并递减引用计数； use_count 等
-  于 0 时，不会进行任何操作。
+可以通过 unique 方法检查 shared_ptr<T> 对象是否有任何副本:
+```c++
+    auto pname = std::make_shared<std::string>("Charles Dickens");
+    if (pname.unique()) {
+        .. there is only one ...
+    } else {
+        .. there is more than one ...
+    }
+```
+如果对象的实例数是 1, unique() 成员函数返回 true, 否则返回 false。
+
+通过 use_count() 成员函数也可以知道当前有多少个实例。
+
 
 ### 指定删除器
+
 删除器在运行时绑定。智能指针初始化时可以指定删除器:
 ```c++
     void DeleteIntPtr(int* p)
@@ -153,33 +178,9 @@ bool 操作符
   A 对象会被析构，不会出现 A 对象被析构两次的问题。
 
 - 要避免循环引用。智能指针最大的一个陷阱是循环引用，循环引用会导致内存泄露。
-  下例是一个典型循环引用的场景:
-  ```c++
-    struct A;
-    struct B;
-    
-    struct A {
-        std::shared_ptr<B> bptr;
-        ~A() { std::cout << "A is deleted!" << std::endl; }
-    };
-    
-    struct B {
-        std::shared_ptr<A> aptr;
-        ~B() { std::cout << "B is deleted!" << std::endl; }
-    };
-    void TestPtr()
-    {
-        {
-            std::shared_ptr<A> ap(new A);
-            std::shared_ptr<B> bp(new B);
-            ap->bptr = bp;
-            bp->aptr = ap;
-        }
-    }
-  ```
-  测试结果是两个指针 A 和 B 都不会被删除，存在内存泄露。循环引用导致 ap 和 bp 的引用计数为 2, 在离开作用域之后， ap 和 bp 的引用计数减为 1，并不会减为 0，导致两个指针都不会被析构，产生了内存泄漏。
   
-  解决办法是把 A 和 B 任何一个成员变量改为 weak_ptr。
+  具体见[这里](循环引用.md)
+
 
 ### 应用
 
