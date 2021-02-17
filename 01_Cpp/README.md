@@ -1,5 +1,5 @@
 
-## C++ 无限，持续施工中...
+C++ 无限，持续施工中...
 
 
 ## C++ 相关(包含C++11特性)
@@ -9,7 +9,7 @@
 
 - [容器](容器/README.md)
 - [迭代器](迭代器/README.md)
-- [标准算法库](标准算法库/README.md)
+- [算法与函数对象](算法与函数对象/README.md)
 
 - [其他](其他/README.md)
 
@@ -50,4 +50,4 @@
 
 - [正则匹配](C++11/正则匹配/README.md)
 
-- [chrono的使用](便利工具/chrono/README.md)
+- [chrono的使用](其他/chrono/README.md)
