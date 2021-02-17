@@ -1,26 +1,13 @@
 
 
-> 01_initialize.cpp
+[构造与初始化](01_initialize.cpp)
 
-构造与初始化
+[访问测试](02_access.cpp)
 
+[判空测试](03_empty.cpp)
 
-> 02_access.cpp
+[编译期指定索引访问元素](04_get_n.cpp)
 
-访问测试
+[迭代](05_iterator.cpp)
 
-> 03_empty.cpp
-
-判空测试
-
-> 04_get_n.cpp
-
-编译期指定索引访问元素
-
-> 05_iterator.cpp
-
-迭代
-
-> 06_compare.cpp
-
-关系运算
+[关系运算](06_compare.cpp)

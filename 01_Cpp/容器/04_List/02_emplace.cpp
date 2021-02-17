@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <deque>
+#include <list>
 #include <string>
 #include <algorithm>
 #include <iterator>
@@ -9,7 +9,7 @@ int main()
 {
     // emplace_back
     {
-        std::deque<std::string> words;
+        std::list<std::string> words;
         
         std::string str { "alleged" };
         
@@ -20,7 +20,7 @@ int main()
     
     // emplace_front
     {
-        std::deque<std::string> words{ "first", "second" };
+        std::list<std::string> words{ "first", "second" };
         
         words.emplace_front("zero");
         
@@ -31,7 +31,7 @@ int main()
     
     // emplace
     {
-        std::deque<std::string> words{ "first", "second" };
+        std::list<std::string> words{ "first", "second" };
         
         auto iter = words.emplace(++std::begin(words), 5, 'A');
         words.emplace(++iter, "$$$$");
