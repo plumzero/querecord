@@ -11,3 +11,6 @@ add_subdirectory(02_Vector)
 add_subdirectory(03_Deque)
 add_subdirectory(04_List)
 add_subdirectory(05_Forward_list)
+
+add_subdirectory(06_Stack)
+add_subdirectory(07_Queue)

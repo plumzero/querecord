@@ -1,5 +1,6 @@
 
-### 堆栈 stack
+stack 容器适配器的模板参数有两个，第一个参数是存储对象的类型，第二个参数是底层容器的类型。其定义如下:
+
 ```c++
     template <class T, class C = deque<T> > 
     class std::stack
@@ -23,4 +24,11 @@
         void pop() { c.pop_back(); }
     };
 ```
-堆栈也可以采用任何提供了 back()、push_back() 和 pop_back() 的序列作为保存自己元素的容器。
+stack<T> 的底层容器默认是 deque<T> 容器。通过第二个模板类型参数，也可以使用其他底层容器，只要它们支持 back()、push_back()、pop_back()、empty()、size() 这些操作。
+
+如使用 list 作为底层容器:
+```c++
+    std::stack<std::string, std::list<std::string>> list_stack;
+```
+
+[将cad格式文件转为json格式](06_Stack/01_cad2json.cpp)
