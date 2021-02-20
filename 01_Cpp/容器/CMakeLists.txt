@@ -14,3 +14,11 @@ add_subdirectory(05_Forward_list)
 
 add_subdirectory(06_Stack)
 add_subdirectory(07_Queue)
+add_subdirectory(08_Priority_queue)
+
+add_subdirectory(09_String)
+
+add_subdirectory(10_SC_Heap)
+add_subdirectory(10_SC_RelationalOperators)
+add_subdirectory(10_SC_SmartPointer)
+
