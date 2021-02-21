@@ -22,3 +22,4 @@ add_subdirectory(10_SC_Heap)
 add_subdirectory(10_SC_RelationalOperators)
 add_subdirectory(10_SC_SmartPointer)
 
+add_subdirectory(12_Map)
