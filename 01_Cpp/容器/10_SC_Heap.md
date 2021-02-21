@@ -7,7 +7,7 @@ make_heap()对随机访问迭代器指定的一段元素重新排列，生成一
 
 make_heap()的重载版本可以用来指定一个比较函数，用于堆的排序。
 
-[创建示例](10_SC_Heap/01_make_heap.md)
+[创建示例](10_SC_Heap/01_make_heap.cpp)
 
 
 > priority_queue 与 make_heap 创建的堆比较
@@ -38,7 +38,7 @@ priority_queue 底层也是一个堆，与 make_heap() 创建的堆相比，prio
 
 在对通过指定比较函数创建的堆调用 push_heap 函数时，也必须传入该比较函数。
 
-[添加示例](10_SC_Heap/02_push_heap.md)
+[添加示例](10_SC_Heap/02_push_heap.cpp)
 
 
 ### 从堆中弹出元素
@@ -57,7 +57,7 @@ priority_queue 底层也是一个堆，与 make_heap() 创建的堆相比，prio
 
 在对通过指定比较函数创建的堆调用 pop_heap 函数时，也必须传入该比较函数。
 
-[弹出示例](10_SC_Heap/03_pop_heap.md)
+[弹出示例](10_SC_Heap/03_pop_heap.cpp)
 
 
 ### 判断是否成堆
