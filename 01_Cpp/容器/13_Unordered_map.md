@@ -14,7 +14,7 @@
 
 如果想要用自定义的对象作为键，那就必须为它定义一个哈希函数。如果还需要比较两个对象键，还需要定义一个恒等运算符。
 
-[程序示例](18_Unordered_map/01_construct.cpp)
+[程序示例](13_Unordered_map/01_construct.cpp)
 
 
 ### 哈希函数
@@ -27,13 +27,13 @@ hash<K> 实例的成员函数 operator()() 接受 K 类型的单个参数，然�
 
 所以对于以 POD 为键的哈希表，应该使用缺省的哈希函数(不需要程序员定义)。
 
-[程序示例](18_Unordered_map/02_hash_key.cpp)
+[程序示例](13_Unordered_map/02_hash_key.cpp)
 
 但如果键并不是 POD 类型呢？程序员就需要自己定义哈希函数，也就是要**对 std::hash 偏特化**。
 
 注意: 对模板类 std::hash 的特化使用要放在名字空间 std 中进行。
 
-[程序示例](18_Unordered_map/03_hash_function.cpp)
+[程序示例](13_Unordered_map/03_hash_function.cpp)
 
 
 ### 哈希表长度与负载因子
@@ -48,7 +48,7 @@ C++11 中最大负载因子默认为 1.0，可以通过成员函数 max_load_fac
 
 在创建哈希表之后，一般会通过成员函数 rehash() 事先定义哈希表长度。
 
-[程序示例](18_Unordered_map/04_rehash.cpp)
+[程序示例](13_Unordered_map/04_rehash.cpp)
 
 
 ### 访问 Bucket
@@ -66,7 +66,7 @@ C++11 中最大负载因子默认为 1.0，可以通过成员函数 max_load_fac
 
 成员函数 bucket_size() 返回索引参数指定的桶中的元素个数，其参数是 bucket() 返回的索引值。
 
-[程序示例](18_Unordered_map/05_bucket.cpp)
+[程序示例](13_Unordered_map/05_bucket.cpp)
 
 
 ### 插入与生成元素
