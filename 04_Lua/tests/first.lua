@@ -8,4 +8,3 @@ urtable = mytable;
 
 urtable[1] = "Lua";
 print(mytable[1]);
-
