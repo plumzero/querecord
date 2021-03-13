@@ -26,6 +26,8 @@ add_subdirectory(11_Map)
 add_subdirectory(12_Multimap)
 add_subdirectory(13_Unordered_map)
 
+add_subdirectory(14_Set)
+
 add_subdirectory(17_RC_KeyCompare)
 
 add_subdirectory(18_Tuple)
