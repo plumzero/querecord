@@ -54,4 +54,9 @@ STL 中的分布是一个函数对象: 一个表示特定分布的类的实例�
 [更多分布](01_random_distribution.md)
 
 
+### 随机数生成引擎和生成器
+
+除了默认的 default_random_engine 生成器类型之外，还有 9 个更进一步的生成器类型，可以自定义引擎来实现生成随机序列的已知可靠算法。
+
+[其他随机数生成器使用示例](01_random/18_other_random_engine.cpp)
 
