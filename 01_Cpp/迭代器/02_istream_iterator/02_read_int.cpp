@@ -8,7 +8,7 @@
 
 int main ()
 {
-    std::ifstream ifs("istream_iterator.txt", std::ifstream::in | std::ifstream::binary);
+    std::ifstream ifs("read.txt", std::ifstream::in | std::ifstream::binary);
     assert(ifs.is_open());
     
     std::vector<int> values;
