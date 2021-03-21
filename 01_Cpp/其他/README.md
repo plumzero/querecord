@@ -1,8 +1,6 @@
 
 ### 内容
 
-[chrono](chrono/README.md)
-
 [bitset](bitset/README.md)
 
 [typeinfo](typeinfo/README.md)
