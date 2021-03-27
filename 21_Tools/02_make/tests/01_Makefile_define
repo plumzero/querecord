@@ -1,0 +1,13 @@
+
+
+### 两种变量定义方法的测试 = 和 :=
+
+OBJS2 = $(OBJS1) programC.o
+OBJS1 = programA.o programB.o
+
+OBJS4 := $(OBJS3) programC.o
+OBJS3 := programA.o programB.o
+
+all:
+	@echo $(OBJS2)
+	@echo $(OBJS4)
