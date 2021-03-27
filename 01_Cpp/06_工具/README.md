@@ -8,3 +8,7 @@
 [保存和操作数值](03_valarray.md)
 
 [时序模板](04_chrono.md)
+
+[bitset](05_bitset.md)
+
+[typeinfo](06_typeinfo.md)

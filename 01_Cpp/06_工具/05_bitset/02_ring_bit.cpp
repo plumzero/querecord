@@ -35,7 +35,7 @@ public:
     
 public:
     std::bitset<N> mask;
-	int cur;
+    int cur;
 };
 
 int main()
@@ -44,18 +44,18 @@ int main()
     
     bits.set();
     std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
-	
-    bits.set();
-    std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
-	
-    bits.unset();
-    std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
-	
+    
     bits.set();
     std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
     
     bits.unset();
     std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
-	
+    
+    bits.set();
+    std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
+    
+    bits.unset();
+    std::cout << "bits=" << bits.mask.to_string() << ", ratio=" << bits.ratio() << std::endl;
+    
     return 0;
 }

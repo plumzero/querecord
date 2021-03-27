@@ -64,3 +64,7 @@ bitset 并不是一个容器，从其定义就可以看出。也因此并不能�
 - std::string to_string() const;
 
 - unsigned long to_ulong() const;
+
+[示例一](05_bitset/01_bitset.cpp)
+
+[示例二](05_bitset/02_ring_bit.cpp)

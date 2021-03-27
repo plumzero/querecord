@@ -4,4 +4,5 @@ include(CheckCXXCompilerFlag)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0 -Wall -W")
 
-add_executable(typeinfo typeinfo.cpp)
+add_executable(01_bitset         01_bitset.cpp)
+add_executable(02_ring_bit       02_ring_bit.cpp)
