@@ -6,11 +6,12 @@ import (
 )
 
 func main() {
-    var j int = 5
+    var j int = 5           // j 是外部变量
     
     a := func() (func()) {
-        var i int = 10
+        var i int = 10      // i 是自由变量
         return func() {
+            i++
             fmt.Printf("i, j: %d, %d\n", i, j);
         }
     }()
