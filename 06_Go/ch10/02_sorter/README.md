@@ -1,7 +1,5 @@
 此示例为一个排序算法的比较程序，从命令行指定输入的数据文件和输出的数据文件，并指定对应的排序算法。
 
-[sorterproj工程项目代码目录](sorterproj)
-
 该程序的用法如下所示:
 ```go
     USAGE: sorter -i <in> -o <out> -a <qsort|bubblesort>
@@ -13,7 +11,7 @@
 
 工程目录组织形式如下:
 ```sh
-    sorterproj
+    sorter
     ├── bin
     │   └── unsorted.dat
     ├── pkg
@@ -32,8 +30,8 @@
 
 设置 GOPATH 路径，并构建工程
 ```shell
-    export GOPATH=$GOPATH:/path/to/sorterproj
-    cd /path/to/sorterproj/bin
+    export GOPATH=$GOPATH:/path/to/sorter
+    cd /path/to/sorter/bin
     go build sorter
 ```
 

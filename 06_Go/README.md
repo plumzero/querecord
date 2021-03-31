@@ -35,3 +35,14 @@
    * [排序程序](ch10/02_sorter.md)
 
 * 分布式系统
+
+
+### 体验
+
+[pkg使用参考](https://docs.studygolang.com/pkg/)
+
+* [文件I/O操作](ex01/01_file.md)
+* [有缓冲的I/O](ex01/02_bufio.md)
+
+* [字符串相关](ex02/01_strings.md)
+
