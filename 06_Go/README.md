@@ -31,8 +31,9 @@
 * Web编程
 
 * [工程管理](ch10/README.md)
-   * [简单计算器](ch10/01_calc.md)
-   * [排序程序](ch10/02_sorter.md)
+   * [简单计算器](ch10/01_calc)
+   * [排序程序](ch10/02_sorter)
+   * [简单播放器](ch10/03_musicplayer)
 
 * 分布式系统
 
