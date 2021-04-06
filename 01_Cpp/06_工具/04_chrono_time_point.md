@@ -19,6 +19,8 @@ st::chrono::time_point 类模板定义了 time_point 类型:
 
 [参考](04_chrono/06_time_point_duration.cpp)
 
+[计算两个时间点的间隔](04_chrono/06_time_point_timediff.cpp)
+
 
 ### 比较时间点
 
