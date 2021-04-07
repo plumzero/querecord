@@ -63,6 +63,8 @@
 
 [Notepad++支持Go语法亮](doc/01_Notepad++.md)
 
+[代码书写规范](doc/02_GoCodeStyle.md)
+
 
 ### 体验
 

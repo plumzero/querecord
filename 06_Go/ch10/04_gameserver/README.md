@@ -29,7 +29,7 @@
 
 运行
 ```shell
-    # go run cgss.go
+    # go run cgss
     Casual Game Server Solution
     A new session has been created successfully.
 
