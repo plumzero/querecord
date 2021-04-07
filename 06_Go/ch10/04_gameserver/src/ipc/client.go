@@ -15,7 +15,7 @@ func NewIpcClient(server * IpcServer) * IpcClient {
 	return &IpcClient{c}
 }
 
-func (client * IpcClient) Call(method, params string)(resp * Response) {
+func (client * IpcClient) Call(method, params string)(resp * Response, err error) {
 	req := &Request{method, params}
 
 	var b []byte

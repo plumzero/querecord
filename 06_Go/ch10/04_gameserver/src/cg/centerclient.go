@@ -8,7 +8,7 @@ import (
 	"ipc"
 )
 
-type CenterClinet struct {
+type CenterClient struct {
 	*ipc.IpcClient
 }
 
@@ -29,7 +29,7 @@ func (client * CenterClient) AddPlayer(player * Player) error {
 func (client * CenterClient) RemovePlayer(name string) error {
 	ret, _ := client.Call("removeplayer", name)
 	if ret.Code == "200" {
-		return nibl
+		return nil
 	}
 
 	return errors.New(ret.Code)
@@ -47,7 +47,7 @@ func (client * CenterClient) ListPlayer(params string)(ps []*Player, err error) 
 }
 
 func (client* CenterClient) Broadcast(message string) error {
-	m := &Message(Content:message)
+	m := &Message{Content:message}
 
 	b, err := json.Marshal(m)
 	if err != nil {

@@ -16,10 +16,9 @@
 ```
 其中 `mplayer.go` 是主程序。
 
-设置 GOPATH 路径，并运行工程
+设置 GOPATH 路径
 ```shell
     export GOPATH=$GOPATH:/path/to/musicplayer
-    go run mplayer
 ```
 
 测试

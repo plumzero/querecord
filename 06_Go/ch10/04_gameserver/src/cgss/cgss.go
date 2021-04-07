@@ -15,7 +15,7 @@ import (
 var centerClient * cg.CenterClient
 
 func startCenterService() error {
-	server := ipc.NewIpcServer(&cg.CenterServer)
+	server := ipc.NewIpcServer(&cg.CenterServer{})
 	client := ipc.NewIpcClient(server)
 	centerClient = &cg.CenterClient{client}
 
@@ -71,7 +71,7 @@ func Login(args []string) int {
 	player := cg.NewPlayer()
 	player.Name = args[1]
 	player.Level = level
-	player.Exp = Exp
+	player.Exp = exp
 
 	err = centerClient.AddPlayer(player)
 	if err != nil {
@@ -95,7 +95,7 @@ func ListPlayer(args []string) int {
 }
 
 func Send(args []string) int {
-	message := string.Join(args[1:], " ")
+	message := strings.Join(args[1:], " ")
 	
 	err := centerClient.Broadcast(message)
 	if err != nil {
@@ -135,14 +135,14 @@ func main() {
 		line := string(b)
 
 		tokens := strings.Split(line, " ")
-
-		if handler, ok != handlers[tokens[0]]; ok {
+		
+		if handler, ok := handlers[tokens[0]]; ok {
 			ret := handler(tokens)
 			if ret != 0 {
 				break
-			} else {
-				fmt.Println("Unknown command:", tokens[0])
 			}
+		} else {
+			fmt.Println("Unknown command:", tokens[0])
 		}
 	}
 }

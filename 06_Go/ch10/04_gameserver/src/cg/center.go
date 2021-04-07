@@ -19,8 +19,8 @@ type Message struct {
 
 type CenterServer struct {
 	servers map[string] ipc.Server
-	players []*player
-	rooms []*Rooms
+	players []*Player
+	// rooms []*Room
 	mutex sync.RWMutex
 }
 
@@ -34,7 +34,7 @@ func NewCenterServer() * CenterServer {
 func (server * CenterServer) addPlayer(params string) error {
 	player := NewPlayer()
 
-	err := json.Unmarshal([]byte(params) &player)
+	err := json.Unmarshal([]byte(params), &player)
 	if err != nil {
 		return err
 	}
@@ -60,7 +60,7 @@ func (server * CenterServer) removePlayer(params string) error {
 			} else if i == 0 {
 				server.players = server.players[1:]
 			} else {
-				server.players = append(server.players[:i - 1],
+				server.players = append(server.players[: i - 1],
 										server.players[: i + 1]...)
 			}
 			return nil
@@ -128,9 +128,9 @@ func (server * CenterServer)Handle(method, params string) *ipc.Response {
 			if err != nil {
 				return &ipc.Response{Code:err.Error()}
 			}
-			return &ipc.ResponseP{"200"}
+			return &ipc.Response{"200", "ok"}
 		default:
-			return &ipc.ResponseP{Code:"404", Body:method + ":" + params}
+			return &ipc.Response{Code:"404", Body:method + ":" + params}
 	}
 
 	return &ipc.Response{Code:"200"}

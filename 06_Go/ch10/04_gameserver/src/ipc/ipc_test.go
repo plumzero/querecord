@@ -9,8 +9,8 @@ type EchoServer struct {
 
 }
 
-func (server * EchoServer) Handle(request string) string {
-	return "ECHO:" + request
+func (server * EchoServer) Handle(method, params string) *Response {
+	return &Response{Code:method, Body:params}
 }
 
 func (server * EchoServer) Name() string {
@@ -23,11 +23,11 @@ func TestIpc(t * testing.T) {
 	client1 := NewIpcClient(server)
 	client2 := NewIpcClient(server)
 
-	resp1 := client1.Call("From Client1")
-	resp2 := client2.Call("From Client2")
-	
-	if resp1 != "ECHO:From Client1" || resp2 != "ECHO:From Client2" {
-		t.Error("IpcClient.Call failed. resp1:", resp1, "resp2:", resp2)
+	resp1, _ := client1.Call("ECHO", "From Client1")
+	resp2, _ := client2.Call("ECHO", "From Client2")
+
+	if resp1.Code != "ECHO" || resp1.Body != "From Client1" || resp2.Code != "ECHO" || resp2.Body != "From Client2" {
+		t.Error("IpcClient.Call failed. resp1:", resp1, "resp2", resp2)
 	}
 
 	client1.Close()
