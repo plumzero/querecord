@@ -17,9 +17,6 @@
 ```
 其中 `cgss.go` 是主程序。
 
-业务架构示意图:
-图片
-
 测试
 ```shell
     go test ipc

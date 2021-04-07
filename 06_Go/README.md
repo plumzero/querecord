@@ -61,6 +61,8 @@
 
 [GMP模型](https://www.cnblogs.com/sunsky303/p/9705727.html)
 
+[Notepad++支持Go语法亮](doc/01_Notepad++.md)
+
 
 ### 体验
 
