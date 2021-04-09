@@ -42,10 +42,12 @@ func main() {
 
 		personDB["4"] = PersonInfo{"4", "Jim",   "Room 102,..."}
 
-		_, ok := personDB["2"]
+		v, ok := personDB["2"]
 		if ok {
 			delete(personDB, "2")
 		}
+
+		fmt.Println("------------------>", v)
 
 		fmt.Println("lenOfMap=", len(personDB))
 		for k,v := range personDB {

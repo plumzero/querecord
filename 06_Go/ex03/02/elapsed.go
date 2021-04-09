@@ -16,7 +16,12 @@ func main() {
 
 	elapsed := end.Sub(start)
 
-	var count int64 = elapsed.Milliseconds()
+	var ticks int64 = elapsed.Milliseconds()
+	fmt.Println(ticks)
 
-	fmt.Println(count)
+	// 再休眠一会
+	timeleft := 3000 - ticks
+	if timeleft > 0 {
+		time.Sleep(time.Duration(timeleft) * time.Millisecond)
+	}
 }
