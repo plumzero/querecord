@@ -30,11 +30,13 @@ ElementType 指定这个 channel 所能传递的元素类型。
 
 通过读写阻塞，channel 实现了类似锁的功能，进而可以保证所有 goroutine 完成后主函数才返回。
 
-[发送int测试](t/03_channel_int.go)
+[传递int类型测试](t/03_channel_int.go)
 
-[发送map测试](t/03_channel_map.go)
+[传递map类型测试](t/03_channel_map.go)
 
-[发送struct测试](t/03_channel_struct.go)
+[传递struct类型测试](t/03_channel_struct.go)
+
+[channel地址打印测试](t/03_channel_addr.go)
 
 
 ### select
