@@ -1,4 +1,5 @@
-#!/bin/bash
+
+#!/usr/bin/env bash
 
 a=192
 b=168

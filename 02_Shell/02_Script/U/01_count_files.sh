@@ -1,4 +1,5 @@
-#!/bin/bash
+
+#!/usr/bin/env bash
 
 #统计给定目录下的文件个数
 

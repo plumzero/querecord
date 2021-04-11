@@ -1,4 +1,5 @@
-#!/bin/bash
+
+#!/usr/bin/env bash
 
 # 查看套接字（状态、数量变化、变化时间）
 # 只统计 LISTEN ESTABLISHED TIME_WAIT 三种状态

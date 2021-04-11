@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 pid=`ps -ef | awk '$0 ~ /diasmpugnss/ && $0 !~ /grep/ { print $2; }'`

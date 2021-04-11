@@ -1,8 +1,7 @@
-#!/bin/bash
 
+#!/usr/bin/env bash
 
-# 暂只适用于 Redhat 系列
-# ip与网络适配器
+## ip与网络适配器
 
 ## 获取所有网络接口的IP地址，如果没有参数，则默认获取网络接口lo的IP地址
 get_ipaddr()
@@ -50,11 +49,6 @@ get_gateway_ip()
 	echo $default_gw
 }
 
-##只在Redhat系统上进行测试
-if [[ ! -e /etc/redhat-release ]] ; then
-	echo "Only test in Redhat, comment it if wanna continue"
-	exit
-fi
 
 echo "获取所有的局域网地址："
 get_localip_all

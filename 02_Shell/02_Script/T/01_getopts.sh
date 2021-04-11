@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# getopt ÓÃ·¨Ê¾Àý
-
 usage()
 {
 	echo "Usage:"
