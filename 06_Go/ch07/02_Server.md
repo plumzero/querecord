@@ -18,6 +18,8 @@
     log.Fatal(http.ListenAndServe(":8080", nil))
 ```
 
+http.HandleFunc() 方法用于分发请求，即针对某一路径请求将其映射到指定的业务逻辑处理方法中。该方法接受两个参数，第一个参数是 HTTP 请求的目标路径，该参数可以是普通字符串，也可以是正则表达式字符串，第二个参数指定具体的回调方法。
+
 如果想更多的控制服务端的行为，可以自定义 http.Server，代码如下:
 ```go
     s := &http.Server {
@@ -29,6 +31,8 @@
     }
     log.Fatal(s.ListenAndServer())
 ```
+
+[程序示例](t/02_hello.go)
 
 
 ### 处理 HTTPS 请求
