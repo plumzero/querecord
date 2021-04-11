@@ -80,6 +80,6 @@
 ```
 
 
-[写测试](02/WriteBuf.go)
+[写测试](01/WriteBuf.go)
 
-[读测试](02/ReadBuf.go)
+[读测试](01/ReadBuf.go)

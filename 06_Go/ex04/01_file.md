@@ -73,10 +73,10 @@ whence 的可取值有: `io.SeekStart`, `io.SeekCurrent`, `io.SeekEnd` 。
     func (f * File) Close() error
 ```
 
-[创建测试](01/Create.go)
+[创建测试](01/file_Create.go)
 
-[读测试](01/Read.go)
+[读测试](01/file_Read.go)
 
-[写测试](01/Write.go)
+[写测试](01/file_Write.go)
 
-[偏移测试](01/Seek.go)
+[偏移测试](01/file_Seek.go)

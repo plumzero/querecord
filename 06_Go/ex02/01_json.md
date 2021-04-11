@@ -23,7 +23,7 @@ Go 语言的大多数数据类型都可以转化为有效的 JSON 文本，但 c
 - 结构体会转化为 JSON 对象，并且只有结构体里边以大写字母开头的可被导出的字段才会被转化输出，而这些可导出的字段会作为 JSON 对象的字符串索引
 - 编码一个 map 类型的数据结构时，该数据的类型必须是 map[string]T 形式，其中 T 可以是 encoding/json 包支持的任意数据类型
 
-[编码示例](03/Marshal.go)
+[编码示例](01/json_Marshal.go)
 
 
 ### JSON 解码
@@ -45,7 +45,7 @@ Go 语言的大多数数据类型都可以转化为有效的 JSON 文本，但 c
 - JSON对象被解码为 map[string]interface{} 类型
 - null 被解码为 nil
 
-[解码未知结构JSON数据示例](03/UnmarshalUnknown.go)
+[解码未知结构JSON数据示例](01/json_UnmarshalUnknown.go)
 
 
 ### JSON 的流式读写
@@ -56,4 +56,4 @@ Go encoding/json 包还提供 Decoder 和 Encoder 两个类型，用于支持 JS
     func NewEncoder(w io.Writer) *Encoder
 ```
 
-[流式读写示例](03/streamIO.go)
+[流式读写示例](01/json_streamIO.go)

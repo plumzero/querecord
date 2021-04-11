@@ -4,3 +4,5 @@
 * ShuangYuan 双猿
 
 * 阿鲁伊黛摩，阿鲁伊黛摩...
+
+* power cloaked in simplicity.

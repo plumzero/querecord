@@ -6,7 +6,7 @@
     func Compare(a, b string) int
 ```
 
-[程序示例](01/Compare.go)
+[程序示例](03/Compare.go)
 
 
 ### Contains
@@ -21,7 +21,7 @@
     func ContainsAny(s, chars string) bool
 ```
 
-[程序示例](01/Contains.go)
+[程序示例](03/Contains.go)
 
 
 ### Count
@@ -32,7 +32,7 @@
 ```
 如果 substr 为空，则返回 len(s) + 1 。
 
-[程序示例](01/Count.go)
+[程序示例](03/Count.go)
 
 
 ### Fields
@@ -47,7 +47,7 @@
     func FieldsFunc(s string, f func(rune) bool) []string
 ```
 
-[程序示例](01/Fields.go)
+[程序示例](03/Fields.go)
 
 
 ### Join
@@ -57,4 +57,4 @@
     func Join(elems []string, sep string) string
 ```
 
-[程序示例](01/Join.go)
+[程序示例](03/Join.go)

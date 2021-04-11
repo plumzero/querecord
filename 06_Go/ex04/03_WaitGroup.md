@@ -9,4 +9,4 @@
     func (wg * WaitGroup) Wait()
 ```
 
-[程序示例](01/WaitGroup.go)
+[程序示例](03/WaitGroup.go)
