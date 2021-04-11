@@ -36,8 +36,6 @@
    * [客户端](ch07/01_Clinet.md)
    * [服务端](ch07/02_Server.md)
 
-* JSON处理
-
 * RPC编程
 
 * Web编程
@@ -77,6 +75,7 @@
 
 * [操作字符串](ex02/01_strings.md)
 * [缓冲字节bytes](ex02/02_bytes.md)
+* [JSON编解码](ex02/03_json.md)
 
 * [WaitGroup](ex03/01_WaitGroup.md)
 * [时间相关](ex03/02_time.md)
