@@ -37,5 +37,5 @@ Windows 下使用 POSIX 环境，需要使用 Cygwin 。
     * [readelf](ch05/03_readelf)
     * [hexdump](ch05/04_hexdump)
 
-* [程序编码](ch06)
+* [代码程序](ch06)
     * [Emmet](ch06/01_Emmet)
