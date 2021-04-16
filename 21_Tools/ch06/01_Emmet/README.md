@@ -76,12 +76,13 @@ vscode 插件，搜索 `Emmet`, 找到 `Mithril Emmet` 安装即可。
 | table>.row>.col | [click me!](t/table_row_col.html) | 隐式标签自动联想 |
 | div.test1.test2.test3 | `<div class="test1 test2 test3"></div>` | 绑定多个类名 |
 | a[href='#' data-title='customer' target='_blank'] | `<a href="#" data-title="customer" target="_blank"></a>` | |
+| form[method='POST' action='/upload' enctype='multipart/form-data']{Choose an image to upload: }>input[type='image' value='file']+input[type="submit" value="Upload"] | [click me!](t/form_input_input.html) |
 
 嵌套操作符
 
 | 表达式示例    | 内容 |
 |:-------------|:-----|
-| div#pageId>ul>li " [click me!](t/div_ul_li.html) |
+| div#pageId>ul>li | [click me!](t/div_ul_li.html) |
 | div#pageId+div.child | [click me!](t/div_div_child.html) |
 | div>p.parent>span.child^ul.brother>li | [click me!](t/div_p_span_ul_li.html) |
 
