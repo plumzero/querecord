@@ -10,36 +10,32 @@ Windows 下使用 POSIX 环境，需要使用 Cygwin 。
 
 ### 内容
 
-[cmake](01_cmake/README.md)
+* [管理构建](ch01)
+    * [cmake](ch01/01_cmake)
+    * [make](ch01/02_make)
+    * [git](ch01/03_git)
+    * [pkg-config](ch01/04_pkg-config)
+    * [ar](ch01/05_ar)
 
-[make](02_make/README.md)
+* [编译调试](ch02)
+    * [gcc](ch02/01_gcc)
+    * [gdb](ch02/02_gdb)
+    * [valgrind](ch02/03_valgrind)
 
-[git](03_git/README.md)
+* [程序测试](ch03)
+    * [strace](ch03/01_strace)
+    * [gcov](ch03/02_gcov)
+    * [gprof](ch03/03_gprof)
 
-[gdb](04_gdb/README.md)
+* [进程访问](ch04)
+    * [curl](ch04/01_curl)
+    * [telnet](ch04/02_telnet)
 
-[gcc](05_gcc/README.md)
+* [信息输出](ch05)
+    * [nm](ch05/01_nm)
+    * [objdump](ch05/02_objdump)
+    * [readelf](ch05/03_readelf)
+    * [hexdump](ch05/04_hexdump)
 
-[valgrind](06_valgrind/README.md)
-
-[curl](07_curl/README.md)
-
-[strace](08_strace/README.md)
-
-[pkg-config](09_pkg-config/README.md)
-
-[readelf](10_readelf/README.md)
-
-[nm](11_nm/README.md)
-
-[objdump](12_objdump/README.md)
-
-[hexdump](13_hexdump/README.md)
-
-[ar](14_ar/README.md)
-
-[telnet](15_telnet/README.md)
-
-[gprof](16_gprof/README.md)
-
-[gcov](17_gcov/README.md)
+* [程序编码](ch06)
+    * [Emmet](ch06/01_Emmet)
