@@ -58,3 +58,43 @@
 ```
 
 [程序示例](03/Join.go)
+
+
+### Index
+
+子串 sep 在字符串 s 中第一次出现的位置，不存在则返回 -1
+```go
+    func Index(s, sep string) int
+```
+
+[程序示例](03/Index.go)
+
+
+### Repeat
+
+返回 count 个 s 串联的字符串
+```go
+    func Repeat(s string, count int) string
+```
+
+[程序示例](03/Repeat.go)
+
+
+### Replace
+
+返回将 s 中前 n 个不重叠 old 子串都替换为 new 的新字符串，如果 n < 0 则替换所有 old 子串。
+```go
+    func Replace(s, old, new string, n int) string
+```
+
+[程序示例](03/Replace.go)
+
+
+### Split
+
+分割
+```go
+    func Split(s, sep string) []string
+```
+
+[程序示例](03/Split.go)

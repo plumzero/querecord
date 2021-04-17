@@ -1,6 +1,4 @@
 
-* 山河无对错，回首是兹乡
-
 ### 内容
 
 * [关于 Go](ch01)
@@ -72,9 +70,9 @@
 [pkg使用参考](https://docs.studygolang.com/pkg/)
       
 * [输入输出](ex01)
-   * [bufio](ex01/01_bufio.md)
-   * [fmt](ex01/02_fmt.md)
-   * [io](ex01/03_io.md)
+   * [fmt](ex01/01_fmt.md)
+   * [io](ex01/02_io.md)
+   * [bufio](ex01/03_bufio.md)
    * [log](ex01/04_log.md)
    * [flag](ex01/05_flag.md)
 
