@@ -5,6 +5,7 @@
 
 * [关于 Go](ch01)
    * [运行Go程序](ch01/01_运行Go程序.md)
+   * [包及其导入](ch01/02_包及其导入.md)
 
 * [面向过程编程](ch02)
    * [变量](ch02/01_变量.md)
@@ -63,40 +64,44 @@
 
 [代码书写规范](doc/02_GoCodeStyle.md)
 
+[必须要了解的 go env](doc/03_go_env.md)
+
 
 ### 体验
 
 [pkg使用参考](https://docs.studygolang.com/pkg/)
-
+      
 * [输入输出](ex01)
-   * [bufio](01_bufio.md)
-   * [fmt](02_fmt.md)
-   * [io](03_io.md)
-   * [log](04_log.md)
-   * [flag](05_flag.md)
+   * [bufio](ex01/01_bufio.md)
+   * [fmt](ex01/02_fmt.md)
+   * [io](ex01/03_io.md)
+   * [log](ex01/04_log.md)
+   * [flag](ex01/05_flag.md)
 
 * [文本处理](ex02)
    * encoding
-      * [json](01_json.md)
-   * [bytes](02_bytes.md)
-   * [strings](03_strings.md)
-   * [strconv](04_strconv.md)
-   * [text](05_text.md)
-   * [mime](06_mime.md)
-   * [unicode](07_unicode.md)
-   * [regexp](08_regexp.md)
-   * [index](09_index.md)
-   * [path](10_path.md)
+      * [json](ex02/01_json.md)
+   * [bytes](ex02/02_bytes.md)
+   * [strings](ex02/03_strings.md)
+   * [strconv](ex02/04_strconv.md)
+   * [text](ex02/05_text.md)
+   * [mime](ex02/06_mime.md)
+   * [unicode](ex02/07_unicode.md)
+   * [regexp](ex02/08_regexp.md)
+   * [index](ex02/09_index.md)
+   * [path](ex02/10_path.md)
 
 * [网络](ex03)
-   * [net](01_net.md)
-   * [http](02_http.md)
-   * [expvar](03_expvar.md)
+   * [net](ex03/01_net.md)
+   * [http](ex03/02_http.md)
+   * [expvar](ex03/03_expvar.md)
 
 * [系统](ex04)
-   * [os](01_os.md)
-   * [syscall](02_syscall.md)
-   * sync
-      * [WaitGroup](03_WaitGroup.md)
-   * [time](04_time.md)
-   * [unsafe](05_unsafe.md)
+   * [os](ex04/01_os.md)
+      * [File](ex04/01_file.md)
+      * [signal](ex04/01_signal.md)
+   * [syscall](ex04/02_syscall.md)
+   * [sync](ex04/03_sync.md)
+      * [WaitGroup](ex04/03_WaitGroup.md)
+   * [time](ex04/04_time.md)
+   * [unsafe](ex04/05_unsafe.md)
