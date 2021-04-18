@@ -12,6 +12,7 @@
    * [流程控制](ch02/04_流程控制.md)
    * [函数](ch02/05_函数.md)
    * [错误处理](ch02/06_错误处理.md)
+   * [异常处理](ch02/07_异常处理.md)
 
 * [面向对象编程](ch03)
    * [类型系统](ch03/01_类型系统.md)
@@ -104,5 +105,6 @@
    * [syscall](ex04/02_syscall.md)
    * [sync](ex04/03_sync.md)
       * [WaitGroup](ex04/03_WaitGroup.md)
+      * [Cond](ex04/03_Cond.md)
    * [time](ex04/04_time.md)
    * [unsafe](ex04/05_unsafe.md)

@@ -4,6 +4,7 @@ package main
 import (
 	"log"
 	"os"
+	"io"
 	"fmt"
 )
 
@@ -21,7 +22,7 @@ func main() {
 
 	data := make([]byte, 100)
 	count, err := file.Read(data)
-	if err != nil {
+	if err != nil && err != io.EOF {
 		log.Fatal(err)
 	}
 	fmt.Printf("read %d bytes: %s\n", count, data[:count])

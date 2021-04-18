@@ -55,6 +55,8 @@ select 用法与 switch 类似，不过有许多限制，其中最大的一条�
     }
 ```
 
+虽然 default 语句可以防止程序发生不必要的错误，介是 default 语句的使用还是需要慎重。因为 channel 的操作经常会涉及协程，但是协程的调用和初始化需要一定的时间，所以通常 channel 操作还没有来得及开始，程序就已经执行 default 结束运行了。
+
 [随机向channel写入数据测试](t/03_select.go)
 
 
@@ -74,7 +76,7 @@ select 用法与 switch 类似，不过有许多限制，其中最大的一条�
     }
 ```
 
-[示例程序](t/03_channel_int.go)
+[缓冲channel示例](t/03_channel_buffer.go)
 
 
 ### 超时机制
@@ -120,7 +122,7 @@ channel 支持单向 channel 和双向 channel 之间的类型转换，示例如
 
 ### 关闭 channel
 
-可以使用 Go 语言内置函数 close() 关闭 channel。
+可以使用 Go 语言内置函数 close() 关闭 channel。只有发送者可以关闭 channel 。
 
 关闭 channel 很有必要。发送者发送完毕数据之后，接收者此时有必要了解到这种情况以停止不必要的等待。
 
