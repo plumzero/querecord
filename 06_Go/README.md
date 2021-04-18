@@ -82,7 +82,9 @@
 
 * [文本处理](ex02)
    * encoding
+      * [base64](ex02/01_base64.md)
       * [json](ex02/01_json.md)
+      * [hex](ex02/01_hex.md)
    * [bytes](ex02/02_bytes.md)
    * [strings](ex02/03_strings.md)
    * [strconv](ex02/04_strconv.md)
