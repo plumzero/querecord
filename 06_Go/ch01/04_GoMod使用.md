@@ -11,23 +11,23 @@
         └── computeAdd.go
 ```
 
-进入 calculator 目录下，执行 `go mod init calculator`，控制台会有如下输出:
+进入 calculator 目录下，执行 `go mod init calcmodule`，控制台会有如下输出:
 ```shell
-    go: creating new go.mod: module calculator
+    go: creating new go.mod: module calcmodule
 ```
 同时在执行目录下会生成一个 `go.mod` 文件，这里的内容如下:
 ```shell
-    module calculator
+    module calcmodule
 
     go 1.13
 ```
 描述了模块和 Go 版本。
 
-再根据模块名称 `calculator` 对 main.go 的 import 路径进行修改，如下:
+再根据模块名称 `calcmodule` 对 main.go 的 import 路径进行修改，如下:
 ```go
     import (
         "fmt"
-        "calculator/simplemath"
+        "calcmodule/simplemath"
     )
 ```
 
