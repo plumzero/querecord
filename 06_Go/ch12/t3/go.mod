@@ -1,4 +1,4 @@
-module mypro.com
+module ipc.com
 
 go 1.13
 

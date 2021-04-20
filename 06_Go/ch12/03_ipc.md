@@ -7,23 +7,25 @@
 
 ### 根据 .proto 生成相应 .go 文件
 
-[.proto 文件](t2/msgdata.proto)
+[.proto 文件](t3/msgdata.proto)
 
 执行如下命令生成 .go 文件:
 ```shell
     protoc --go_out=. *.proto
 ```
 
+
 ### 引入 go mod 进行包管理
 
-进入这个[路径](t2)下执行如下命令，生成 `go.mod` 文件:
+进入这个[路径](t3)下执行如下命令，生成 `go.mod` 文件:
 ```shell
     go mod init ipc.com
 ```
 
+
 ### 创建服务端与客户端入口文件
 
-根据上面创建的包管理，创建[服务端](t2/server.go)和[客户端](t2/client.go)文件。
+根据上面创建的包管理，创建[服务端](t3/server.go)和[客户端](t3/client.go)文件。
 
 在一个 shell 会话中开启服务端:
 ```shell
