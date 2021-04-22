@@ -34,7 +34,7 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
     $json_text = encode_json($perl_scalar);
 ```
 
-[示例程序](json/encode.pl)
+[示例程序](t/json/encode.pl)
 
 > decode_json
 
@@ -43,7 +43,7 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
     $perl_scalar = decode_json($json_text);
 ```
 
-[示例程序](json/decode.pl)
+[示例程序](t/json/decode.pl)
 
 > to_json
 
@@ -52,7 +52,7 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
     $json_text = to_json($perl_scalar[, $optional_hashref])
 ```
 
-[示例程序](json/to_json.pl)
+[示例程序](t/json/to_json.pl)
 
 > from_json
 
@@ -61,7 +61,7 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
     $perl_scalar = from_json($json_text[, $optional_hashref])
 ```
 
-[示例程序](json/from_json.pl)
+[示例程序](t/json/from_json.pl)
 
 > JSON::is_bool
 
@@ -81,7 +81,7 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
     $json = JSON->new();
 ```
 
-[示例程序](json/object_new.pl)
+[示例程序](t/json/object_new.pl)
 
 > property
 
@@ -102,10 +102,10 @@ JSON::XS 并不兼容较高版本的的 perl (version 5.22)。
     $enabled = $json->get_utf8();
 ```
 
-[示例程序](json/object_attribute.pl)
+[示例程序](t/json/object_attribute.pl)
 
-[类对象的json化](json/object_json.pl)
+[类对象的json化](t/json/object_json.pl)
 
-[复杂结构的json序列化](json/object_serilize.pl)
+[复杂结构的json序列化](t/json/object_serilize.pl)
 
-[复杂结构的json结构化](json/object_structure.pl)
+[复杂结构的json结构化](t/json/object_structure.pl)
