@@ -8,7 +8,7 @@
 # Author:
 # E-mail:
 # *******************************************
-# Description: 读取 INFO 日志，统计平仓信息
+# Description: 读取 INFO 日志，统计相关信息
 # *******************************************
 # Usage:
 #   perl get_close_positions.pl
