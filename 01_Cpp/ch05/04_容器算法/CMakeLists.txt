@@ -23,17 +23,16 @@ add_executable(04_03_adjacent_find       04_03_adjacent_find.cpp)
 add_executable(04_03_find_end            04_03_find_end.cpp)
 
 add_executable(04_03_search              04_03_search.cpp)
-add_executable(04_03_search_n            04_03_search_n.cpp)
 
 ## 分区
 add_executable(04_04_partition           04_04_partition.cpp)
 add_executable(04_04_partition_copy      04_04_partition_copy.cpp)
 add_executable(04_04_partition_point     04_04_partition_point.cpp)
-add_executable(04_04_is_partition        04_04_is_partition.cpp)
+add_executable(04_04_is_partitioned      04_04_is_partitioned.cpp)
 
 ## 有序查找
 add_executable(04_05_binary_search       04_05_binary_search.cpp)
 add_executable(04_05_lower_upper         04_05_lower_upper.cpp)
 add_executable(04_05_equal_range         04_05_equal_range.cpp)
-add_executable(04_05_equal_range_1       04_05_equal_range_1.cpp)
 add_executable(04_05_equal_range_2       04_05_equal_range_2.cpp)
+add_executable(04_05_equal_range_3       04_05_equal_range_3.cpp)

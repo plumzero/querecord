@@ -14,7 +14,7 @@
 
 如果想要用自定义的对象作为键，那就必须为它定义一个哈希函数。如果还需要比较两个对象键，还需要定义一个恒等运算符。
 
-[程序示例](13_Unordered_map/01_construct.cpp)
+[程序示例](13_Unordered_map/01_um_construct.cpp)
 
 
 ### 哈希函数

@@ -1,7 +1,7 @@
 
-1.[迭代器使用](01_iterator.cpp)
+1.[迭代器使用](01_string_iterator.cpp)
 
-2.[利用string存储字符](02_initialize.cpp)
+2.[利用string存储字符](02_string_initialize.cpp)
 
 C++11 支持通过列表初始化构造 std::string, 可以像构造数组一样构造 std::string 。
 数组构造形式如下:

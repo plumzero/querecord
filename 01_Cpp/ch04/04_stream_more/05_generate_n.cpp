@@ -10,7 +10,7 @@ using ULL = unsigned long long;
 
 int main ()
 {
-    std::fstream iofs("finonacci.txt", std::iofstream::out | std::iofstream::binary);
+    std::fstream iofs("finonacci.txt", std::fstream::out | std::fstream::binary);
     assert(iofs.is_open());
     
     ULL first {0}, second {1};

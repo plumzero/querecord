@@ -29,6 +29,6 @@ priority_queue 模板有 3 个模板参数，第一个参数存储对象的类�
 
 ### 使用
 
-1.[初始化](08_Priority_queue/01_initialize.cpp)
+1.[初始化](08_Priority_queue/01_pq_initialize.cpp)
 
 priority_queue 的操作可以参考 queue

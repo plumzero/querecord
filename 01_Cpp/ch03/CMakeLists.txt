@@ -31,3 +31,4 @@ add_subdirectory(14_Set)
 add_subdirectory(17_RC_KeyCompare)
 
 add_subdirectory(18_Tuple)
+add_subdirectory(19_Set_operation)

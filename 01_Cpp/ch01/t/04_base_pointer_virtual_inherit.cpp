@@ -7,7 +7,7 @@ protected:
 public:
     virtual ~Polygon(){}    // 方法1
     void set_value(int a, int b) { width = a; height = b; }
-    virtual int area() {}   // 方法2
+    virtual int area() { return 0; }   // 方法2
 };
 
 class Rectangle : public Polygon

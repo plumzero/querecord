@@ -1,9 +1,9 @@
 
-1.[初始化](01_initialize.cpp)
+1.[初始化](01_vector_initialize.cpp)
 
-2.[容量增加造成内存重分配测试](02_reserve.cpp)
+2.[容量增加造成内存重分配测试](02_vector_reserve.cpp)
 
-3.[改变容器大小](03_resize.cpp)
+3.[改变容器大小](03_vector_resize.cpp)
 
 通过调用成员函数 resize() 可以改变容器大小，这也可能导致容量的增加。
 
@@ -13,9 +13,9 @@
 
 也可以看出，resize 会涉及到赋值，因而大量的 resize 操作会影响效率。
 
-4.[元素访问](04_access.cpp)
+4.[元素访问](04_vector_access.cpp)
 
-5.[在容器中生成对象](05_emplace.cpp)
+5.[在容器中生成对象](05_vector_emplace.cpp)
 
 利用成员函数 emplace_back emplace 可以在容器中直接生成对象，而不是先单独生成对象，然后再把它作为参数传入。
 

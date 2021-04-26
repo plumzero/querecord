@@ -7,7 +7,7 @@ protected:
     int width, height;
 public:
     void set_value(int a, int b) { width = a; height = b; }
-    int area() {}
+    int area() { return 0; }
 };
 
 class Rectangle : public Polygon

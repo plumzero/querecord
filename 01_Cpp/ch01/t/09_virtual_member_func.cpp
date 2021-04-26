@@ -19,7 +19,7 @@ class Triangle : public Polygon
 {
 public:
     int area() { return (width * height) / 2; }
-    int just_for_triangle() { std::cout << "Triangle" << std::endl; }
+    void just_for_triangle() { std::cout << "Triangle" << std::endl; }
 };
 
 int main()

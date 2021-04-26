@@ -11,7 +11,7 @@ struct Pair {
 std::vector<Pair> pairs;
 
 double& value(const std::string& s) {
-    int i = 0;
+    size_t i = 0;
     for (i = 0; i < pairs.size(); i++)
         if (s == pairs[i].name) return pairs[i].val;
     Pair p = { s, 0 };
