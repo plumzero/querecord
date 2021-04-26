@@ -28,6 +28,6 @@ queue 容器适配器的模板参数有两个，第一个参数是存储对象�
     };
 ```
 
-queue<T> 的底层容器默认是 deque<T> 容器。通过第二个模板类型参数，也可以使用其他底层容器，只要它们支持 front()、back()、push_back()、pop_front()、empty()、size() 这些操作。
+`queue<T>` 的底层容器默认是 `deque<T>` 容器。通过第二个模板类型参数，也可以使用其他底层容器，只要它们支持 front()、back()、push_back()、pop_front()、empty()、size() 这些操作。
 
 [消息队列示例](07_Queue/01_message_queue.cpp)

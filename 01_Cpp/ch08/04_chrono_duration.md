@@ -1,7 +1,7 @@
 
 ### duration 的使用
 
-std::chrono::duration<T,P> 模板类型表示 duration，其声明如下:
+`std::chrono::duration<T,P>` 模板类型表示 duration，其声明如下:
 ```c++
     template <class T, class P = ratio<1>>
     class duration;
@@ -10,7 +10,7 @@ std::chrono::duration<T,P> 模板类型表示 duration，其声明如下:
 
 为了方便叙述，这里将时间间隔称为滴答(tick) 。
 
-duration<T,P> 的基本使用:
+`duration<T,P>` 的基本使用:
 ```c++
     // 1 秒 1 次滴答，共 60 次滴答(1 分钟)
     std::chrono::duration<int> minute { 60 };
@@ -95,7 +95,7 @@ interget_type 为整型类型，具体类型取决于系统。
     auto total = tiny + small;  // total 13
 ```
 
-算术运算符也可以用不同类型的 std::chrono::duration<T,P> 模板实例，模板的两个参数都可以不同。对于 duration<T1,P1> 和 duration<T2,P2> 类型的参数，返回值为 duration<T3,P3>。T3 是 T1 和 T2 的共有类型，P3 是 P1 和 P2 的最大公因数。
+算术运算符也可以用不同类型的 `std::chrono::duration<T,P>` 模板实例，模板的两个参数都可以不同。对于 `duration<T1,P1>` 和 `duration<T2,P2>` 类型的参数，返回值为 `duration<T3,P3>`。T3 是 T1 和 T2 的共有类型，P3 是 P1 和 P2 的最大公因数。
 ```c++
     std::chrono::milliseconds ten_minutes { 600000 };
     std::chrono::minutes half_hour { 30 };

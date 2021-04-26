@@ -24,13 +24,13 @@ my_tuple 对象是 `tuple<Name, int, string>` 类型。如果提供给 make_tupl
 
 ### 获取 tuple 对象中的元素
 
-函数模板 get<>() 可以返回 tuple 中的一个元素。第一个模板参数是 tuple 中元素的索引，从 0 开始。
+函数模板 `get<>()` 可以返回 tuple 中的一个元素。第一个模板参数是 tuple 中元素的索引，从 0 开始。
 
-也可以基于类型的 get<>() 从 tuple 获取元素，但要求 tuple 中只有一个这种类型的元素。
+也可以基于类型的 `get<>()` 从 tuple 获取元素，但要求 tuple 中只有一个这种类型的元素。
 
 [利用get获取元素示例](18_Tuple/03_get.cpp)
 
-tie<>() 函数提供了另一种访问 tuple 元素的方式。这个函数可以把 tuple 中的元素值通过赋值运算符"="转换为可以绑定到 tie<>() 的左值集合。
+`tie<>()` 函数提供了另一种访问 tuple 元素的方式。这个函数可以把 tuple 中的元素值通过赋值运算符"="转换为可以绑定到 `tie<>()` 的左值集合。
 
 [利用tie获取元素示例](18_Tuple/04_tie.cpp)
 
@@ -45,7 +45,7 @@ tie<>() 函数提供了另一种访问 tuple 元素的方式。这个函数可�
 ```c++
     const auto & c = std::forward_as_tuple(1, 2);
 ```
-这里 c 的类型是 tuple<int&, int&> 。
+这里 c 的类型是 `tuple<int&, int&>` 。
 
 也可以利用 forward_as_tuple() 构造 pair 对象。
 

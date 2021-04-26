@@ -24,7 +24,7 @@ stack 容器适配器的模板参数有两个，第一个参数是存储对象�
         void pop() { c.pop_back(); }
     };
 ```
-stack<T> 的底层容器默认是 deque<T> 容器。通过第二个模板类型参数，也可以使用其他底层容器，只要它们支持 back()、push_back()、pop_back()、empty()、size() 这些操作。
+`stack<T>` 的底层容器默认是 `deque<T>` 容器。通过第二个模板类型参数，也可以使用其他底层容器，只要它们支持 back()、push_back()、pop_back()、empty()、size() 这些操作。
 
 如使用 list 作为底层容器:
 ```c++

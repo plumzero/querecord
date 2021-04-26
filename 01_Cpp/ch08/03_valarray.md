@@ -40,7 +40,7 @@ valarray 定义了许多来自于 cmath 头文件的函数重载版本。这里�
 
 有 4 个可以应用到 valarray 对象的一元运算符: `+` `-` `~` `!` 。效果是将运算符应用到数组的每个元素上，并返回一个新的 valarray 对象作为结果，不改变原对象。
 
-`!` 运算符得到的新元素总为布尔类型，所以这个运算的结果是一个 valarray<bool> 类型的对象。
+`!` 运算符得到的新元素总为布尔类型，所以这个运算的结果是一个 `valarray<bool>` 类型的对象。
 
 `~` 运算符是位的 NOT(位的取反)或 1 的补码。
 
@@ -67,9 +67,9 @@ valarray 定义了许多来自于 cmath 头文件的函数重载版本。这里�
 - 逻辑运算符: `&&` `||`
 - 比较运算符: `==` `!=` `<` `<=` `>` `>=`
 
-这些运算符有不同的版本，可以应用到一个 valarray<T> 对象和一个 T 类型对象上、一个 T 类型对象和一个 valarray<T> 对象上，或者应用到两个 valarray<T> 对象上。应用到两个 valarray<T> 对象上要求它们有相同个数的同类型元素。
+这些运算符有不同的版本，可以应用到一个 `valarray<T>` 对象和一个 T 类型对象上、一个 T 类型对象和一个 `valarray<T>` 对象上，或者应用到两个 `valarray<T>` 对象上。应用到两个 `valarray<T>` 对象上要求它们有相同个数的同类型元素。
 
-逻辑运算符和比较运算符会返回一个和 valarray 操作数相同个数元素的 valarray<bool> 对象。
+逻辑运算符和比较运算符会返回一个和 valarray 操作数相同个数元素的 `valarray<bool>` 对象。
 
 [二元运算符示例](03_valarray/05_binary_operation.cpp)
 
@@ -95,7 +95,7 @@ std::slice 对象可以作为索引传递给 valarray 对象的下标运算符�
 
 [切片示例](03_valarray/07_slice.cpp)
 
-在用 slice 对象作为下标时，slice_array<T> 对象是从 valarray<T> 对象选择的子集的代理。
+在用 slice 对象作为下标时，`slice_array<T>` 对象是从 `valarray<T>` 对象选择的子集的代理。
 ```c++
     data[std::slice{0, 5, 1}] = 99;
 ```
@@ -117,6 +117,6 @@ slice_array 对象适用以下运算符:
 
 ### 有条件地选择元素
 
-使用 valarray<bool> 对象作为下标的结果是得到一个 mask_array<T> 对象，数组中正在访问的就是 T 类型的值。
+使用 `valarray<bool>` 对象作为下标的结果是得到一个 `mask_array<T>` 对象，数组中正在访问的就是 T 类型的值。
 
 [示例](03_valarray/09_mask_array.cpp)
