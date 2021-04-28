@@ -1,8 +1,7 @@
 
 
 ## OSI 七层模型
-- OSI(pen System Interconnection)开放系统互连参考模型是国际标准化组织(ISO)制定的一个用于计
-  算机或通信系统间互联的标准体系。
+- OSI(pen System Interconnection)开放系统互连参考模型是国际标准化组织(ISO)制定的一个用于计算机或通信系统间互联的标准体系。
 <h1 align="center">
     <img width="1071" height="759" src="img/OSI七层模型图例.png">
 </h1>
