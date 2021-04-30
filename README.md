@@ -1,8 +1,12 @@
 
 * I hope u being an idealist all the time.
 
-* ShuangYuan 双猿
+* ShuangYuan
 
-* 阿鲁伊黛摩，阿鲁伊黛摩...
+* a lu yi dei mo, a lu yi dei mo...
 
 * power cloaked in simplicity.
+
+* one can do more.
+
+* root in earth, heart to heaven.
