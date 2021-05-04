@@ -31,4 +31,7 @@
     * [HTTP的缺点](ch06/01_HTTP的缺点.md)
     * [SSL与HTTP](ch06/02_SSL与HTTP.md)
 * [用户身份认证](ch07)
-    * 
+    * [BASIC认证](ch07/01_BASIC认证.md)
+    * [DIGEST认证](ch07/02_DIGEST认证.md)
+    * [SSL客户端认证](ch07/03_SSL客户端认证.md)
+    * [基于表单认证](ch07/04_基于表单认证.md)
