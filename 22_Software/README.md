@@ -23,7 +23,7 @@
     * [redis](ch04/02_redis)
 * [基础服务](ch05)
     * [curl](ch05/01_curl)
-    * [ntp](ch05/03_ntp)
+    * [ntp](ch05/02_ntp)
     * [dpdk](ch05/03_dpdk) 
 * [应用服务](ch06)
     * [nginx](ch06/01_nginx)
