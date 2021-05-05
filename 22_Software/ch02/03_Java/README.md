@@ -1,6 +1,4 @@
 
-
-
 Linux 安装 JDK 开发环境
 
 ### 提前告知
@@ -36,6 +34,7 @@ Linux 安装 JDK 开发环境
 ```sh
     java -version
 ```
+
 
 ### 编写程序测试
 

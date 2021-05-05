@@ -1,0 +1,33 @@
+
+应用工具或服务的安装或部署，可能也会包含一些使用方法。
+
+### 内容
+
+* [常用工具](ch01)
+    * [包管理 apt](ch01/01_apt.md)
+    * [包管理 yum](ch01/02_yum.md)
+    * [编辑器 vim](ch01/03_vim.md)
+    * [远程访问 ssh](ch01/04_ssh.md)
+* [语言](ch02)
+    * [Lua](ch02/01_Lua)
+    * [Python](ch02/02_Python)
+    * [Java](ch02/03_Java)
+* [编译构建测试](ch03)
+    * [gcc](ch03/01_gcc)
+    * [cmake](ch03/02_cmake)
+    * [meson](ch03/03_meson)
+    * [gtest](ch03/04_gtest)
+    * [selenium](ch03/05_selenium)
+* [数据库](ch04)
+    * [pgsql](ch04/01_pgsql)
+    * [redis](ch04/02_redis)
+* [基础服务](ch05)
+    * [curl](ch05/01_curl)
+    * [ntp](ch05/03_ntp)
+    * [dpdk](ch05/03_dpdk) 
+* [应用服务](ch06)
+    * [nginx](ch06/01_nginx)
+    * [php](ch06/02_php)
+    * [etcd](ch06/03_etcd)
+    * [apisix](ch06/04_apisix)
+    * [ElasticSearch](ch06/05_ElasticSearch)

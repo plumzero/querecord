@@ -1,15 +1,8 @@
 
+### yum 的配置文件 /etc/yum.conf 详解
 
-## 说明
-- 相对来说， yum 源的配置比 apt-get 源更麻烦一些
-
-----
-
-# yum
-
-## yum 的配置文件 /etc/yum.conf 详解
-- /etc/yum.conf 文件是 yum 主配置文件
-  ```shell
+`/etc/yum.conf` 文件是 yum 主配置文件。其内容格式如下:
+```shell
     [main]
     // 使用 yum 下载 rpm 软件包的缓存目录
     cachedir=/var/cache/yum/$basearch/$releasever
@@ -30,13 +23,18 @@
     plugins=1
     // 允许保留多少个内核包
     installonly_limit=3
-  ```
+```
+该配置文件一般很少改动。
 
-## yum 软件仓库配置文件
-- 软件仓库配置文件默认存储在 /etc/yum.repos.d 目录中，以 .repo 文件命名；
-- 一个 repo 文件可以定义一个或者多个软件仓库的细节内容，.repo 文件中的设置内容将被 yum 读取和应用；
-- yum 软件仓库配置文件的格式内容如下:
-  ```shell
+
+### yum 软件仓库配置文件
+
+软件仓库配置文件默认存储在 `/etc/yum.repos.d` 目录中，以 .repo 文件命名。
+
+一个 repo 文件可以定义一个或者多个软件仓库的细节内容，.repo 文件中的设置内容将被 yum 读取和应用。
+
+yum 软件仓库配置文件的格式内容如下:
+```shell
     // 方括号里面的是软件源的名称，会被 yum 识别
     [rhel-source]
     // name 定义了软件仓库的名称，通常是为了方便阅读配置文件， $releasever 变量定义了发行版本，
@@ -51,36 +49,49 @@
     gpgcheck=1
     // 定义用于校验的 GPG 密钥
     gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-  ```
-## 关于 $basearch 和 $releasever
-- 通过 yum 配置文件 yum.conf 的 cachedir 选项
-  ```shell
+```
+
+
+### 关于 $basearch 和 $releasever
+
+通过 yum 配置文件 yum.conf 的 cachedir 选项
+```shell
     cachedir=/var/cache/yum/$basearch/$releasever
-  ```
-- 通过实际查找目录发现
-  ```shell  
+```
+
+通过实际查找目录发现
+```shell  
     $basearch = x86_64
     $releasever = 6
-  ```
+```
 
-## 源的更新操作
-RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多个镜像网站获取，这里从 163 镜像
-和 RedHat 为例。
-- 卸载 yum && subscription-manager && rhn    Centos 可以只卸载 yum
-  ```shell
+
+### 源的更新操作
+
+RedHat 和 Centos 使用同一个源，均使用 [Centos源](http://mirror.centos.org/centos/)。源可以从多个镜像网站获取，这里以从 163 镜像和 RedHat 为例。
+
+RedHat 需要对注册进行破解，所以需要删除原有 yum 以跳过注册机制。本目录也保存了适用于 RHEL7.5 的[注册破解包](rhel7.7)。
+
+1. 更新 yum 。 
+  
+   卸载 yum && subscription-manager && rhn    Centos 可以只卸载 yum
+   ```shell
     rpm -qa | grep yum | xargs rpm -e --nodeps
     rpm -qa | grep subscription-manager | xargs rpm -e --nodeps
     rpm -qa | grep rhn | xargs rpm -e --nodeps
-  ```
-- 重新安装 yum 包
-  ```shell
+   ```
+
+   重新安装 yum 包
+   ```shell
     rpm -ivh yum-metadata-parser-1.1.4-10.el7.x86_64.rpm 
     rpm -ivh yum-3.4.3-158.el7.centos.noarch.rpm 
     rpm -ivh yum-plugin-fastestmirror-1.1.31-45.el7.noarch.rpm
-  ```
-- 修改 .repo 文件。打开[镜像网站](http://mirrors.163.com/)，阅读
-  [帮助](http://mirrors.163.com/.help/centos.html), 下载 .repo 文件，这里是 
-   CentOS7-Base-163.repo，名称随意。
+   ```
+
+2. 修改 .repo 文件。
+
+   打开[镜像网站](http://mirrors.163.com/)，阅读[帮助](http://mirrors.163.com/.help/centos.html), 下载 .repo 文件，这里是 CentOS7-Base-163.repo，名称随意。
+   
    根据镜像网站中相关 rpm 目录，修改 .repo 文件，这里如下:
    ```shell
     [base]
@@ -105,88 +116,38 @@ RedHat 和 Centos 使用同一个源，均使用 Centos 的源，源可以从多
     enabled=0                                                        // 为 0 时表示 repositry 不可被获取
     gpgkey=http://mirrors.163.com/centos/7.5.1804/os/x86_64/RPM-GPG-KEY-CentOS-7
    ```
-- 放置 .repo 文件
-  ```shell
-   cd /etc/yum.repos.d/
-  ```
-  对此目录下文件备份
-  将前面设置好的 .repo 文件放在此目录下
-- 更新源
-  ```shell
+
+3. 放置 .repo 文件。
+   ```shell
+    cd /etc/yum.repos.d/
+   ```
+  对此目录下文件备份。并将前面设置好的 .repo 文件放在此目录下
+
+4. 更新源。
+   ```shell
     yum clean all
-  ```
-  根据提示执行:
-  ```shell
+   ```
+   根据提示执行:
+   ```shell
     rm -rf /var/cache/yum
-  ```
-  更新源:
-  ```shell
+   ```
+   更新源:
+   ```shell
     yum makecache        // 如果出错根据错误提示修改 .repo 文件
-  ```
+   ```
 
-## 其他
-+ 官网的 centos 源，设置方式相同
-  ```shell
-    http://mirror.centos.org/centos/
-  ```
-+ 163 的 repo 文件不可用，请使用本目录中 '配置文件参考' 目录下的 repo 文件
 
-## 需要注意
-- 如果使用外部的 CentOS 源(比如163镜像源)，其源地址会随 Linux 发行版本更新而改变地址，所以
-  在某个时刻执行
-  ```shell
-    yum install xxx_package
-  ```
-  时可能会发现，安装不了了。这是因为地址更新了。
-- 比如 [base] 选项中的 baseurl 之前是:
-  ```shell
+### 需要注意
+
+如果使用外部的 CentOS 源(比如163镜像源)，其源地址会随 Linux 发行版本更新而改变地址，所以在某个时刻执行 `yum install xxx_package` 时可能会发现，安装不了了，这很可能是因为地址更新了。
+
+比如 [base] 选项中的 baseurl 之前是:
+```shell
     baseurl=http://mirrors.163.com/centos/7.5.1804/os/$basearch/
-  ```
-  随着 Linux 发行版本的更新，原来的 baseurl 失效，新的变成是:
-  ```shell
+```
+随着 Linux 发行版本的更新，原来的 baseurl 失效，新的变成是:
+```shell
     baseurl=http://mirrors.163.com/centos/7.7.1908/os/$basearch/
-  ```
-  以后可能还会变。
-- 所以在每次 yum makecache 时，如果失败的话，很可能是这个原因。
-  具体应该改成哪个 url, 需要查看[163开源镜像站](http://mirrors.163.com/)。
-
-----
-
-# apt-get
-
-## 源list
-```shell
-    /etc/apt/sources.list
 ```
-## 将下列内容写入 源list 中
-```shell
-    deb http://mirrors.163.com/debian/ jessie main non-free contrib
-    deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-    deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-    deb-src http://mirrors.163.com/debian/ jessie main non-free contrib
-    deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-    deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-    deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
-    deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
-```
-## 更新源
-```shell
-    apt-get update
-```
-## 其他
-- 从源中搜索要下载的软件(可能会出现很多，选择自己需要的种类或版本)，如:
-  ```shell
-    apt-cache search sshd
-  ```
 
-----
-
-# rpm
-
-## rpm 软件包文件命名方式
-- 以 crontabs-1.11-6.20121102git.el7.noarch.rpm
-    + 软件包名称: crontabs
-    + 软件包版本号码: 1.11
-    + 发行号(版本修改次数): 6.20121102git
-    + 系统版本: el7
-    + 体系结构: noarch
+所以在每次 `yum makecache` 时，如果失败的话，很可能是这个原因。具体应该改成哪个 url, 需要查看[163开源镜像站](http://mirrors.163.com/)。

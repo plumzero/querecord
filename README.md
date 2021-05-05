@@ -9,4 +9,3 @@
 
 * one can do more.
 
-* root in earth, heart to heaven.

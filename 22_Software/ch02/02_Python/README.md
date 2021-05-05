@@ -1,5 +1,5 @@
 
-## 安装 python3
+### 安装 python3
 
 - 安装环境
 
@@ -31,7 +31,8 @@
     ln -s /usr/local/python/bin/python3.8 /usr/bin/python3
   ```
 
-## 为 python3 安装 pip3(Python Package Installer)
+
+### 为 python3 安装 pip3(Python Package Installer)
 
 也可以通过 `yum install python3-pip` 来安装 pip3，这是源安装完成之后才发现的...
 
