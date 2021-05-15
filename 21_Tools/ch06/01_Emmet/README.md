@@ -92,3 +92,4 @@ vscode 插件，搜索 `Emmet`, 找到 `Mithril Emmet` 安装即可。
 |:-------------|:-----|
 | div>(ul>li+span)>a | [click me!](t/div_li_span_a.html) |
 | ul>li*3      | [click me!](t/ul_li_3.html) |
+| tr*5>(td{&nbsp})*5 | [click me!](t/tr_5_td_space_5.html)
