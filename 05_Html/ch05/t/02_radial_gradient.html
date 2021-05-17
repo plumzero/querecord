@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放射状渐变色</title>
+</head>
+<body>
+    <h3 align="center">放射状渐变色</h3>
+    <hr>
+    <canvas id="myc1" width="800" height="600" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        var myg = ctx.createRadialGradient(130,200,10,130,200,90);
+        myg.addColorStop(0, "white");
+        myg.addColorStop(0.5, "red");
+        myg.addColorStop(1, "orange");
+        ctx.fillStyle = myg;
+        ctx.arc(130,200,100,0,Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        var myg1 = ctx.createRadialGradient(550,250,50,550,250,200);
+        myg1.addColorStop(0, "blue");
+        myg1.addColorStop(0.6, "green");
+        myg1.addColorStop(1, "red");
+        ctx.fillStyle= myg1;
+        ctx.font = "50px 黑体";
+        ctx.fillText("放射状渐变文字", 350, 200);
+    </script>
+</body>
+</html>

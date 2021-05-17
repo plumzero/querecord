@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线段的样式</title>
+</head>
+<body>
+    <h3 align="center">线段的样式</h3>
+    <hr>
+    <canvas id="myc1" width="700" height="300" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "red";
+        ctx.moveTo(300, 30);
+        ctx.lineTo(300, 180);
+        ctx.lineTo(500, 180);
+        ctx.stroke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制圆和圆弧</title>
+</head>
+<body>
+    <h3 align="center">绘制圆和圆弧</h3>
+    <hr>
+    <canvas id="myc1" width="700" height="300" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        ctx.arc(100,60,50,0,Math.PI*2,true);    // 绘制圆
+        ctx.stroke();
+        ctx.beginPath();                        // 绘制带有样式的圆
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = "red";
+        ctx.arc(260,60,50,0,Math.PI*2,true);
+        ctx.stroke();
+        ctx.beginPath();                        // 绘制带有填充的圆
+        ctx.fillStyle = "green";
+        ctx.arc(390,60,50,0,Math.PI*2,true);
+        ctx.fill();
+        ctx.beginPath();                        // 绘制既有填充也有边框样式的圆
+        ctx.lineWidth = 15;
+        ctx.strokeStyle = "blue";
+        ctx.fillStyle = "red";
+        ctx.arc(530,60,50,0,Math.PI*2,true);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();                        // 绘制圆弧
+        ctx.arc(100,200,50,0,Math.PI,true);
+        ctx.stroke();
+        ctx.beginPath();                        // 绘制带有填充的圆弧
+        ctx.arc(260,200,50,0,Math.PI,true);
+        ctx.fill();
+        ctx.beginPath();                        // 绘制带有边框和填充的圆弧
+        ctx.arc(390,200,50,0,Math.PI,true);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();                        // 绘制同心圆弧
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "red";
+        ctx.arc(530,200,50,0,Math.PI,true);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(530,200,30,0,Math.PI,true);
+        ctx.stroke();
+    </script>
+</body>
+</html>

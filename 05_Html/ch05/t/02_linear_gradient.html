@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线性渐变色</title>
+</head>
+<body>
+    <h3 align="center">线性渐变色</h3>
+    <hr>
+    <canvas id="myc1" width="800" height="600" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        var myg = ctx.createLinearGradient(10,10,200,10);   // 水平渐变色
+        myg.addColorStop(0, "red");
+        myg.addColorStop(1, "orange");
+        ctx.fillStyle = myg;
+        ctx.fillRect(10,10,200,200);
+        ctx.beginPath();
+        var myg1 = ctx.createLinearGradient(350,10,350,210); // 垂直渐变色
+        myg1.addColorStop(0, "red");
+        myg1.addColorStop(0.6, "pink");
+        myg1.addColorStop(1, "orange");
+        ctx.fillStyle = myg1;
+        ctx.fillRect(350,10,200,200);
+        ctx.beginPath();
+        var myg2 = ctx.createLinearGradient(50,250,50,350); // 圆形填充垂直渐变色
+        myg2.addColorStop(0, "green");
+        myg2.addColorStop(0.6, "white");
+        myg2.addColorStop(1, "orange");
+        ctx.fillStyle = myg2;
+        ctx.arc(100,300,50,0,Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        var myg3 = ctx.createLinearGradient(350,300,650,300);   // 文本填充水平渐变色
+        myg3.addColorStop(0, "blue");
+        myg3.addColorStop(0.6, "green");
+        myg3.addColorStop(1, "red");
+        ctx.fillStyle = myg3;
+        ctx.font = "60px 黑体";
+        ctx.fillText("渐变色文字", 350, 300);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用图像填充图形</title>
+</head>
+<body>
+    <h3>利用图像填充图形</h3>
+    <hr>
+    <img src="my1.jpg" id="lamp" hidden>
+    <canvas id="myCanvas" width="320" height="180" style="background:yellow;border:3px solid"></canvas>
+    <br>
+    <button onclick="draw('repeat')">重复</button>
+    <button onclick="draw('repeat-x')">重复 -x</button>
+    <button onclick="draw('repeat-y')">重复 -y</button>
+    <button onclick="draw('no-repeat')">不重复</button>
+    <script>
+        function draw(direction)    // 自定义 draw 函数
+        {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0,0,c.width,c.height);        // 清空画布
+            var img = document.getElementById("lamp");
+            var pat = ctx.createPattern(img, direction);
+            ctx.rect(0,0,320,180);
+            ctx.fillStyle = pat;
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

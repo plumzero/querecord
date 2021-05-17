@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制矩形</title>
+</head>
+<body>
+    <h3 align="center">绘制矩形</h3>
+    <hr>
+    <canvas id="myc1" width="700" height="300" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        ctx.rect(40,30,100,60);
+        ctx.stroke();
+        ctx.beginPath();    // 开始新的路径
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = "red";
+        ctx.rect(160,30,50,120);
+        ctx.stroke();
+        ctx.beginPath();    // 开始新的路径
+        ctx.fillRect(240,30,100,120);
+        ctx.stroke();
+        ctx.beginPath();    // 开始新的路径
+        ctx.fillStyle = "green";
+        ctx.fillRect(380,30,100,120);
+        ctx.stroke();
+    </script>
+</body>
+</html>

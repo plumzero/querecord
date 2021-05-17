@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制文本</title>
+</head>
+<body>
+    <h3 align="center">绘制文本</h3>
+    <hr>
+    <canvas id="myc1" width="800" height="600" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        ctx.font = "60px 黑体";
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "red";
+        ctx.fillStyle = "blue";
+        ctx.strokeText("利用canvas绘制文本", 100, 100); // 只有边框的文本
+        ctx.fillText("利用canvas绘制文本", 100, 200);   // 只有填充色的文本
+        ctx.strokeText("利用canvas绘制文本", 100, 300); // 既有边框又有填充色的文本
+        ctx.fillText("利用canvas绘制文本", 100, 300);
+    </script>
+</body>
+</html>

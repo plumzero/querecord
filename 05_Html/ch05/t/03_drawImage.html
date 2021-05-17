@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制图像</title>
+    <!-- 隐藏图像 -->
+    <img src="1.gif" alt="" id="scream" hidden>
+</head>
+<body>
+    <h3 align="center">绘制图像</h3>
+    <hr>
+    <canvas id="myc1" width="800" height="600" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        var img = document.getElementById("scream");
+        img.onload = function()
+        {
+            ctx.drawImage(img, 30, 30);             // 图像原大小
+            ctx.drawImage(img, 200, 30, 60, 60);    // 缩小图像
+            ctx.drawImage(img, 460, 30, 260, 260);  // 放大图像
+            ctx.drawImage(img, 50, 50, 30, 30, 30, 230, 80, 80);    // 剪切图像
+        }
+    </script>
+</body>
+</html>

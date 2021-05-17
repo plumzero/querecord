@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制扇面</title>
+</head>
+<body>
+    <h3 align="center">绘制扇面</h3>
+    <hr>
+    <canvas id="myc1" width="800" height="600" style="background: yellow"></canvas>
+    <script type="text/javascript">
+        var myc = document.getElementById("myc1");
+        var ctx = myc.getContext("2d");
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "red";
+        ctx.fillStyle = "pink";
+        ctx.moveTo(400,400);
+        ctx.arc(400,400,300,Math.PI*7/6,Math.PI*1.5,false);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(400,400);
+        ctx.arc(400,400,300,Math.PI*11/6,Math.PI*1.5,true);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.fillStyle = "yellow";
+        ctx.moveTo(400,400);
+        ctx.arc(400,400,150,Math.PI*7/6,Math.PI*1.5,false);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(400,400);
+        ctx.arc(400,400,150,Math.PI*11/6,Math.PI*1.5,true);
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+</html>
