@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义按钮实现视频的控制操作</title>
+</head>
+<body>
+    <h3 align="center">自定义按钮实现视频的控制操作</h3>
+    <hr>
+    <p align="center">
+        <button onclick="playPause()">播放/暂停</button>
+        <button onclick="makeBig()">放大</button>
+        <button onclick="makeSmall()">缩小</button>
+        <button onclick="makeNormal()">正常</button>
+        <br><br>
+        <video src="my2.mp4" id="video1" width="540" height="960"></video>
+    </p>
+    <script>
+        var myVideo = document.getElementById("video1");
+        function playPause()
+        {
+            if (myVideo.paused)
+                myVideo.play();
+            else
+                myVideo.pause();
+        }
+        function makeBig()
+        {
+            myVideo.width = 810;
+            myVideo.height = 1440;
+        }
+        function makeSmall()
+        {
+            myVideo.width = 270;
+            myVideo.height = 480;
+        }
+        function makeNormal()
+        {
+            myVideo.width = 540;
+            myVideo.height = 960;
+        }
+    </script>
+</body>
+</html>
