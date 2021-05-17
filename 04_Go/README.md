@@ -61,6 +61,7 @@
    * [排序程序](ch10/02_sorter)
    * [简单播放器](ch10/03_musicplayer)
    * [游戏服务器](ch10/04_gameserver)
+   * [代理转发微服务](ch10/06_agent)
 
 * 分布式系统
 
