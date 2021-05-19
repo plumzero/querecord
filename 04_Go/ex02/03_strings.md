@@ -98,3 +98,13 @@
 ```
 
 [程序示例](03/Split.go)
+
+
+### IndexByte
+
+返回首次出现 c 的索引，如果没有返回 -1。
+```go
+    func IndexByte(s string, c byte) int
+```
+
+[程序示例](03/IndexByte.go)

@@ -69,8 +69,15 @@ whence 的可取值有: `io.SeekStart`, `io.SeekCurrent`, `io.SeekEnd` 。
 ### Close
 
 关闭文件
-```
+```go
     func (f * File) Close() error
+```
+
+### IsNotExist
+
+如果文件不存在，返回 true 。
+```go
+    func IsNotExist(err error) bool
 ```
 
 [创建测试](01/file_Create.go)
@@ -80,3 +87,5 @@ whence 的可取值有: `io.SeekStart`, `io.SeekCurrent`, `io.SeekEnd` 。
 [写测试](01/file_Write.go)
 
 [偏移测试](01/file_Seek.go)
+
+[判断不存在文件测试](01/file_IsNotExist.go)

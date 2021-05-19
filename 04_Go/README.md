@@ -86,7 +86,6 @@
    * [bufio](ex01/03_bufio.md)
    * [log](ex01/04_log.md)
    * [flag](ex01/05_flag.md)
-
 * [文本处理](ex02)
    * encoding
       * [base64](ex02/01_base64.md)
@@ -101,12 +100,10 @@
    * [regexp](ex02/08_regexp.md)
    * [index](ex02/09_index.md)
    * [path](ex02/10_path.md)
-
 * [网络](ex03)
    * [net](ex03/01_net.md)
    * [http](ex03/02_http.md)
    * [expvar](ex03/03_expvar.md)
-
 * [系统](ex04)
    * [os](ex04/01_os.md)
       * [File](ex04/01_file.md)
