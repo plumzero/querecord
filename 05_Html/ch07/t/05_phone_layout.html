@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maxinum-scale=1.0, mininum-scale=1.0, user-scalable=0, width=device-width, initial-scale=1.0">
+    <title>手机端的HTML网页</title>
+    <style type="text/css">
+        body{margin:0px;}
+        header{width:100%; height:50px; background:rgb(200,150,0);}
+        aside{width:20%; height:500px; background:rgb(100,150,200); float:left;}
+        section{width:80%; height:500px; background:rgb(100,200,150); float:left; overflow:auto;}
+        footer{width:100%; height:50px; background:rgb(200,200,200); float:left;}
+        h3{display:inline; padding:6px; color:blue;}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="aa.png" width="60px" height="40px">
+        <h3>我的收藏</h3>
+    </header>
+    <aside>
+        <p align="center">
+            <a href="#my1">图像</a><br>
+            <a href="#my2">动画</a><br>
+            <a href="#my3">音乐</a><br>
+        </p>
+    </aside>
+    <section>
+        <figure id="my1">
+            <figcaption>我喜欢的图像</figcaption>
+            <img src="like1.jpg" width="80%" height="100"><br><br>
+            <img src="like2.jpg" width="80%" height="100">
+        </figure>
+        <figure id="my2">
+            <figcaption>我喜欢的动画</figcaption>
+            <img src="1.gif" width="80%" height="100"><br><br>
+            <img src="2.jpg" width="80%" height="100">
+        </figure>
+        <figure id="my3">
+            <figcaption>我喜欢的MP3音乐</figcaption>
+            花海飞歌: <audio src="花海飞歌.mp3" controls></audio><br><br>
+            时间都去哪儿了: <audio src="时间都去哪儿了.mp3" controls></audio>
+        </figure>
+    </section>
+    <footer>
+        <address>
+            网页制作: libeio &nbsp&nbsp 网页设计: ISBN 978-7-113-26416-1 
+        </address>
+        <time datetime="2021-05-19" pubdate="pubdate">网页制作于 2021 年 5 月 19 日</time>
+    </footer>
+</body>
+</html>
