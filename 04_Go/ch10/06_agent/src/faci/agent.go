@@ -10,8 +10,10 @@ type Agent struct {
     name string
     ch chan interface{}
     userdata interface{}
-    // timeout int32           // 微秒超时: <0 永久阻塞, >0 超时, =0 不实现非阻塞,为 0 时使用默认超时 3000ms
-    interval int64          // 微秒 | 读代理任务间隔 | 合法值 >0, <= 0 时使用默认 3000ms
+    running bool
+    // timeout int32            // 微秒超时: <0 永久阻塞, >0 超时, =0 不实现非阻塞,为 0 时使用默认超时 3000ms
+    interval int64              // 微秒 | 读代理任务间隔 | 合法值 >0, <= 0 时使用默认 3000ms
+    timestamp string            // 记录上一次调用的时间戳
 }
 
 func NewAgent(name string, interval int64) *Agent {
@@ -51,12 +53,18 @@ func (agent * Agent) Run(cells * Cells,
 
     agent.ch = ch
     agent.userdata = userdata
+    agent.running = true
 
     if sendcb != nil {
         go func() {
+            time.Sleep(200 * time.Millisecond)
             for {
-                b := time.Now()
+                if agent.running == false {
+                    break
+                }
 
+                b := time.Now()
+                
                 data, err := sendcb(agent.userdata)
                 if err != nil {
                     fmt.Printf("[%s] failed at read callback\n", agent.name)
@@ -84,6 +92,9 @@ func (agent * Agent) Run(cells * Cells,
     if recvcb != nil {
         go func() {
             for {
+                if agent.running == false {
+                    break
+                }
                 // block it for writing
                 data := <- agent.ch
                 if data != nil {
@@ -110,9 +121,23 @@ func (agent * Agent) Stop(cells * Cells) {
         return
     }
 
+    agent.running = false
+
     fmt.Printf("[%s] logout from [%s] success\n", agent.name, cells.Name())
 }
 
 func (agent *Agent) Name() string {
     return agent.name
+}
+
+func (agent *Agent) Interval() int64 {
+    return agent.interval
+}
+
+func (agent *Agent) Timestamp() string {
+    return agent.timestamp
+}
+
+func (agent *Agent) SetTimestamp(t string) {
+    agent.timestamp = t
 }
