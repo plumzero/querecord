@@ -1,0 +1,41 @@
+{   
+    "log" : {
+        "path" : "",
+        "name" : "test.log"
+    },
+
+    "cells" : {
+        "name" : "Bumblebee"
+    },
+
+    "httpAlarm": {
+        "ip": "192.168.2.104:8001",
+        "path": "/forward/exception/add"
+    },
+
+    "redis-LimitedPriceData" : [
+        {
+            "name" : "test",
+            "addr" : "192.168.2.104:6379",
+            "password" : "Life123"
+        },
+        {
+            "name" : "dev",
+            "addr" : "192.168.2.28:26379",
+            "password" : "Life123"
+        }
+    ],
+
+    "redis-LatestPriceData" : [
+        {
+            "name" : "test",
+            "addr" : "192.168.2.104:6379",
+            "password" : "Life123"
+        },
+        {
+            "name" : "dev",
+            "addr" : "192.168.2.28:26379",
+            "password" : "Life123"
+        }
+    ]
+}
