@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation动画</title>
+    <style type="text/css">
+        h1{text-shadow:5px 5px 5px red}
+        .myc{
+            width:120px;
+            height:120px;
+            margin:20px;
+            border-radius:15px;
+            color:yellow;
+            text-align:center;
+            padding:5px;
+            background-color:red;
+            border:15px yellow groove;
+            animation-name:move;
+            animation-duration:2s;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+        }
+        @keyframes move {
+            0% {
+                transform: translate3d(0px,0px,0px);
+                border-radius:15px;
+            }
+            25% {
+                transform: translate3d(500px,0px,0px);
+                border-radius:50px;
+                background-color:orange;
+            }
+            50% {
+                transform: translate3d(500px,300px,0px);
+                border-radius:0px;
+                background-color:green;
+            }
+            75% {
+                transform: translate3d(0px,300px,0px);
+                border-radius:50px;
+                background-color:blue;
+            }
+            100% {
+                transform: translate3d(0px,0px,0px);
+                border-radius:15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">animation动画</h1>
+    <hr>
+    <div class="myc">关键帧动画</div>
+</body>
+</html>

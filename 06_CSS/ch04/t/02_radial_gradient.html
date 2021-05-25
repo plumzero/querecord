@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>径向渐变色</title>
+    <style type="text/css">
+        #a{margin:15px; width:250px; height:200px; background:radial-gradient(red,yellow,green); float:left;}
+        #b{margin:15px; width:150px; height:200px; background:radial-gradient(red 15%,yellow 30%,green 80%); float:left;}
+        #c{margin:15px; width:200px; height:200px; background:radial-gradient(circle,red 5%,yellow 60%,green 70%); float:left;}
+        #d{margin:15px; width:250px; height:200px; background:radial-gradient(closest-side, red,yellow,green); float:left;}
+        #e{margin:15px; width:150px; height:200px; background:radial-gradient(farthest-side, red,yellow,green); float:left;}
+        #f{margin:15px; width:200px; height:200px; background:repeating-radial-gradient(red,yellow 10%,green 20%); float:left;}
+    </style>
+</head>
+<body>
+    <div id="a">颜色均匀分布的径向渐变</div>
+    <div id="b">颜色不均匀分布的径向渐变</div>
+    <div id="c">径向渐变的图形是圆形</div>
+    <div id="d">指定径向渐变的半径长度为从圆心到离圆心最近的边</div>
+    <div id="e">指定径向渐变的半径长度为从圆心到离圆心最远的边</div>
+    <div id="f">重复径向渐变</div>
+</body>
+</html>

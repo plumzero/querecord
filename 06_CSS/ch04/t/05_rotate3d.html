@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D旋转动画效果</title>
+    <style type="text/css">
+        h1{text-shadow:5px 5px 5px red}
+        .myimage{
+            width:100px;
+            height:100px;
+            margin:30px;
+            perspective:40px;
+        }
+        img{
+            transition-property:all;
+            transition-duration:5s;
+            transition-timing-function:ease;
+            transition-delay:0s;
+        }
+        .myimage:hover img{
+            /* transform:rotate3d(1,0,0,360deg); */   /* 沿 X 轴旋转 */
+            /* transform:rotate3d(0,1,0,360deg); */   /* 沿 Y 轴旋转 */
+            transform:rotate3d(0,0,1,360deg);    /* 沿 Z 轴旋转 */
+        }
+    </style>
+</head>
+<body>
+    <h1>3D旋转动画效果</h1>
+    <hr>
+    <div class="myimage">
+        <img src="b.png">
+    </div>
+</body>
+</html>
