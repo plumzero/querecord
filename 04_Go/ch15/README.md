@@ -39,4 +39,4 @@ Go 命令行工具消除了 C/C++ 中工程文件的概念，完全采用目录�
 
 ### 服务插件化
 
-目的: 了解 go mod 的使用以及第三方项目 dullgiulio/pingo 的简单使用。
+目的: 了解 go mod 的使用，Makefile 在 go 中的使用，及第三方项目 dullgiulio/pingo 的简单使用。
