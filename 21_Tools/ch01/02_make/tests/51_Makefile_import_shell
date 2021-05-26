@@ -1,0 +1,18 @@
+
+MODULES := common module main
+
+DIR := /tmp/abc
+
+all:
+	@echo "========== test begin =========="
+
+	@for dir in $(MODULES); \
+	do \
+		echo $$dir; \
+	done
+	
+	@if [ ! -e $(DIR) ]; then \
+		echo $(DIR) "not exist"; \
+	fi
+
+	@echo "========== test end =========="
