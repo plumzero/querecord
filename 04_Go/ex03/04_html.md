@@ -1,7 +1,9 @@
 
-[无拓展解析](04/ParseFiles_1th.go)
+[hello,暂时还有点问题](04/ParseFiles_hello.go)
 
-[示例一模板解析](04/ParseFiles_2th.go)
+[无拓展解析](04/ParseFiles_upload.go)
+
+[示例一模板解析](04/ParseFiles_list.go)
 ```html
     <ol>
         {{range $.images}}
