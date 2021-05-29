@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace() 方法的应用</title>
+</head>
+<body>
+    <h3>replace() 方法的应用</h3>
+    <hr>
+    <script type="text/javascript">
+        var beforeString = "JavaScript is powerful and javascript is very easy!";
+        var regex = /javascript/ig;
+        document.write("替换前的字符串为: " + beforeString + "<br><br>");
+        var afterString = beforeString.replace(regex, "JAVASCRIPT");
+        document.write("替换后的字符串为: " + afterString + "<br>");
+    </script>
+</body>
+</html>

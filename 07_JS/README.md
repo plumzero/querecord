@@ -39,5 +39,5 @@ JavaScript 是一种基于(Object)和事件驱动(Event Driven)并具有安全�
    * [认识jQuery](ch08/01_认识jQuery.md)
    * [jQuery常用事件方法](ch08/02_jQuery常用事件方法.md)
    * [jQuery的动画效果](ch08/03_jQuery的动画效果.md)
-* [其他]
-   * [正则表达式]
+* [其他](ch09)
+   * [正则表达式](ch09/01_正则表达式.md)
