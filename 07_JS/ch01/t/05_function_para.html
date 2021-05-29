@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数的值传递</title>
+    <script type="text/javascript">
+        function resume(xm, xb, nl, zy, ah)
+        {
+            document.write("<br>姓名:", xm, "&nbsp&nbsp");
+            document.write("  性别:", xb, "&nbsp&nbsp");
+            document.write("  年龄:", nl, "&nbsp&nbsp");
+            document.write("  职业:", zy, "&nbsp&nbsp");
+            document.write("  爱好:", ah, "&nbsp&nbsp");
+        }
+    </script>
+</head>
+<body>
+    <h3>函数参数的值传递</h3>
+    <hr>
+    <script type="text/javascript">
+        var name, sex, age, profession, interest;
+        name = "张三";
+        sex = "男";
+        age = 28;
+        profession = "教师";
+        interest = "足球";
+        resume(name, sex, age, profession, interest);
+        name = "王五";
+        profession = "工人";
+        resume("李四", "女", 25, "记者", "音乐");
+        resume(name, "男", 32, profession, "读书");
+    </script>
+</body>
+</html>
