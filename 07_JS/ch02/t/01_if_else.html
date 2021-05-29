@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任意输入两个数字，显示较大的数字</title>
+</head>
+<body>
+    <h3>任意输入两个数字，显示较大的数字</h3>
+    <hr>
+    <script type="text/javascript">
+        var x1, y1, x, y;
+        x1 = prompt("请输入一个数字: ", "");
+        y1 = prompt("请输入另一个数字: ", "");
+        x = parseFloat(x1);
+        y = parseFloat(y1);
+        if (x > y) {
+            document.write("x=", x, "<br>");
+            document.write("y=", y, "<br>");
+            document.write("x大于y!<br>");
+        } else {
+            document.write("x=", x, "<br>");
+            document.write("y=", y, "<br>");
+            document.write("x小于等于y!<br>");
+        }
+    </script>
+</body>
+</html>

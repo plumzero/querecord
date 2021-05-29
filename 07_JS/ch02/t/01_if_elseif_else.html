@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每周计划系统</title>
+</head>
+<body>
+    <h3>每周计划系统</h3>
+    <hr>
+    <script type="text/javascript">
+        var myday;
+        myday = parseInt(prompt("请输入今天星期几: ", ""));
+        if (myday == 1) {
+            document.write("新的一周开始，开始努力工作!<br>");
+        } else if (myday >= 2 && myday <= 5) {
+            document.write("努力工作中!<br>");
+        } else if (myday == 6 || myday == 7) {
+            document.write("双休，也要学习!<br>");
+        } else {
+            document.write("非法!<br>");
+        }
+    </script>
+</body>
+</html>

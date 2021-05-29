@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本数据类型转换</title>
+</head>
+<body>
+    <h3>基本数据类型转换</h3>
+    <hr>
+    <script type="text/javascript">
+        var num1 = "120";
+        var num2 = "160";
+        document.write("num1='120' num2='160'");
+        var result = Number(num1) + Number(num2);
+        document.write("<br>数值的运算结果: ", result)
+        var st = String(num1);
+        result = st + 200;
+        document.write("<br>字符串与数字的运算结果: ", result);
+        var bo = Boolean(num1);
+        result = bo + num2;
+        document.write("<br>字符串与布尔值的运算结果: ", result);
+        result = bo + 200;
+        document.write("<br>数值与布尔值的运算结果: ", result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for...in语句</title>
+</head>
+<body>
+    <h3>for...in语句</h3>
+    <hr>
+    <script type="text/javascript">
+        var x;
+        var mycars = new Array();
+        mycars[0] = "张平";
+        mycars[1] = "李亮";
+        mycars[2] = "周涛";
+        mycars[3] = "赵杰";
+        mycars[4] = "李红波";
+        mycars[5] = "王可儿";
+        for (x in mycars) {
+            document.write(mycars[x] + "<br>");
+        }
+    </script>
+</body>
+</html>

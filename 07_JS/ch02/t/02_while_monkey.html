@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猴子吃桃问题</title>
+</head>
+<body>
+    <h3>猴子吃桃问题</h3>
+    <hr>
+    <script type="text/javascript">
+        var day, x1, x2;
+        x1 = 0;
+        x2 = 1;
+        day = 9;
+        document.write("第10天的桃子数量是: 1<br>");
+        while (day > 0) {
+            x1 = (x2 + 1) * 2;
+            x2 = x1;
+            document.write("第", day, "天的桃数为:", x1, "<br>");
+            day--;
+        }
+    </script>
+</body>
+</html>

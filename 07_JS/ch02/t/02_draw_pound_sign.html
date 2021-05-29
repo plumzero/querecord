@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制 # 号的菱形</title>
+</head>
+<body>
+    <h3>绘制 # 号的菱形</h3>
+    <hr>
+    <script type="text/javascript">
+        var i, j, k;
+        for (i = 0; i <= 10; i++) {
+            for (j = 0; j <= 9 - i; j++) {
+                document.write("&nbsp&nbsp");
+            }
+            for (k = 0; k <= 2 * i; k++) {
+                document.write("#");
+            }
+            document.write("<br>");
+        }
+        for (i = 0; i <= 9; i++) {
+            for (j = 0; j <= i; j++) {
+                document.write("&nbsp&nbsp");
+            }
+            for (k = 0; k <= 18 - 2 * i; k++) {
+                document.write("#");
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
