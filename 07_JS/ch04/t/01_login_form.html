@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>用户登录界面</title>
+	<script type="text/javascript">
+		function alert_info()
+		{
+			window.alert("提交信息如下: \n" + "用户名: " + document.forms[0].myname.value
+								    + "\n" + "密码: " + document.myf.pwd.value);
+		}
+	</script>
+</head>
+<body>
+	<h2 align="center">用户登录界面</h2>
+	<hr><br><br>
+	<!-- 当表单提交时，调用 alert_info() 函数 -->
+	<form method="post" name="myf" onSubmit="alert_info()">
+		<p align="center">用户名: &nbsp&nbsp<input type="text" name="myname"></p>
+		<p align="center">密&nbsp&nbsp码: &nbsp&nbsp <input type="password" name="pwd" maxlength="12"></p>
+		<p align="center"><input type="submit" name="b1">&nbsp&nbsp&nbsp&nbsp<input type="reset" name="b2"></p>
+	</form>
+</body>
+</html>

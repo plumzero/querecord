@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息统计</title>
+    <script type="text/javascript">
+        function myshow() {
+            var text = "";
+            if (document.myform.cb1.checked)
+                { text = text + document.myform.cb1.value + " "; }
+            if (document.myform.cb2.checked)
+                { text = text + document.myform.cb2.value + " "; }
+            if (document.myform.cb3.checked)
+                { text = text + document.myform.cb3.value + " "; }
+            if (document.myform.cb4.checked)
+                { text = text + document.myform.cb4.value + " "; }
+            window.alert("提交信息如下:" + "\n用户名: " + document.myform.myname.value
+                                        + "\n性别"     + document.myform.mysex.value
+                                        + "\n爱好: "   + text);
+        }
+    </script>
+</head>
+<body>
+    <h2 align="center">个人信息统计</h2>
+    <hr>
+    <table align="center" cellspacing="20">
+        <form method="post" name="myform" onSubmit="myshow()">
+            <tr>
+                <td>用户名: </td><td align="center"><input type="text" name="myname" size="10"></td>
+            </tr>
+            <tr>
+                <td>性&nbsp&nbsp&nbsp别: </td><td align="center"><input type="radio" name="mysex" value="男">男
+                                                                 <input type="radio" name="mysex" value="女">女</td>
+            </tr>
+            <tr>
+                <td>爱&nbsp&nbsp&nbsp好: </td>
+                <td>
+                    <input type="checkbox" name="cb1" value="足球" checked>足球
+                    <input type="checkbox" name="cb2" value="篮球">篮球
+                    <br>
+                    <input type="checkbox" name="cb3" value="计算机">计算机
+                    <input type="checkbox" name="cb4" value="看书">看书
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="b1">&nbsp&nbsp&nbsp&nbsp<input type="reset" name="b2"></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
