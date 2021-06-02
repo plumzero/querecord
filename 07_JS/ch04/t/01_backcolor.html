@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用JavaScript改变网页的背景色</title>
+    <script type="text/javascript">
+        function bgc(myc) {
+            document.bgColor = myc;
+        }
+    </script>
+</head>
+<body>
+    <h3>利用JavaScript改变网页的背景色</h3>
+    <hr>
+    <form>
+        利用JavaScript改变网页的背景色<br><br>
+        <input type="button" value="红色" onclick="bgc('red')">
+        <input type="button" value="黄色" onclick="bgc('yellow')">
+        <input type="button" value="绿色" onclick="bgc('green')">
+        <input type="button" value="重置" onclick="bgc('white')">
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子邮箱控件</title>
+    <script type="text/javascript">
+        function myshow() {
+            var address = document.myemail.mye.value;
+            if ((address == "") || (address.indexOf('@') == -1) || (address.indexOf('.') == -1)) {
+                window.alert("电子邮件地址不正确，请重新输入!");
+            } else {
+                window.alert("电子邮件: " + document.myemail.mye.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3 align="center">电子邮箱控件</h3>
+    <hr>
+    <form method="post" name="myemail">
+        <p align="center">电子邮件: <input type="email" name="mye" required></p>
+        <p align="center"><input type="image" src="b1.png" name="b1" onclick="myshow()"></p>
+    </form>
+</body>
+</html>
