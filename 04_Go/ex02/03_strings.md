@@ -108,3 +108,12 @@
 ```
 
 [程序示例](03/IndexByte.go)
+
+
+### IndexRune
+
+```go
+    func IndexRune(s string, r rune) int
+```
+
+[程序示例](03/IndexRune.go)

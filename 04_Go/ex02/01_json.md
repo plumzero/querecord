@@ -57,3 +57,5 @@ Go encoding/json 包还提供 Decoder 和 Encoder 两个类型，用于支持 JS
 ```
 
 [流式读写示例](01/json_streamIO.go)
+
+[将JSON数据映射到结构体](01/json_struct.go)
