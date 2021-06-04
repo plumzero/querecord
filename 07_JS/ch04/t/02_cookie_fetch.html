@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie的获取</title>
+</head>
+<body>
+    <h3>Cookie的获取</h3>
+    <hr>
+    <script type="text/javascript">
+        document.cookie = encodeURI("username=admin");
+        document.cookie = encodeURI("userpwd=qd123456");
+        var d = new Date();
+        d.setTime(d.getTime() + 15);
+        var expires = "expires=" + d.toGMTString();
+        document.cookie=encodeURI(expires);
+        document.cookie=encodeURI("domain=.js.com");
+        document.cookie=encodeURI("path=d:/www");
+        var myc = decodeURI(document.cookie);
+        document.write(myc + "<hr>");
+        document.write("利用for循环分别显示cookie各属性值:<br>");
+        var arr = myc.split(";");
+        for (var i = 0; i < arr.length; i++) {
+            document.write(arr[i] + "<br>");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户名和密码存储到cookie中</title>
+    <script type="text/javascript">
+        function mycheck() {
+            var time = new Date();
+            time.setDate(time.getDate() + 30);
+            if (document.myf.myname.value != "" && document.myf.mypwd.value != "") {
+                document.cookie = encodeURI("user=" + docuemnt.myf.myname.value) + "; expires=" + time.toUTCString();
+                document.cookie = encodeURI("pass=" + document.myf.mypwd.value) + "; expires=" + time.toUTCString();
+                window.alert("用户名和密码存储到 cookie 中!");
+            } else {
+                window.alert("没有输入姓名或者密码!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>用户名和密码存储到cookie中</h3>
+    <hr>
+    <form name="myf" method="post" onsubmit="mycheck()">
+        姓名: <input type="text" value="" name="myname"><br>
+        密码: <input type="password" value="" name="mypwd"><br><br>
+        &nbsp&nbsp&nbsp&nbsp <input type="submit" name="b1">
+        &nbsp&nbsp&nbsp&nbsp <input type="reset" name="b2">
+    </form>
+</body>
+</html>
