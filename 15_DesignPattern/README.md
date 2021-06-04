@@ -6,7 +6,7 @@
 ### 设计模式轮廓
 
 对设计模式的描述一般都遵循一种相当标准的轮廓，这个轮廓则下面这些项组成:
-* 模式名，用来标识该模式，绍 Singleton 或 Reactor
+* 模式名，用来标识该模式，如 Singleton 或 Reactor
 * 模式的结构图解，使用 UML 图
 * 模式所属的分类，例如创建型(creational)、动作型(behavioral)或结构型(structural)
 * 设计问题的图表描述，提供使用这个模式的动机
@@ -15,45 +15,39 @@
 * 对于模式如何支持其目标的描述
 * 模式实现的例子和规定的准则
 
-### 设计模式分类一览
+### 设计模式内容
 
 创建型模式
-
-| 模式名            |  中文名   | 说明  |
-|:-----------------|:----------|:------|
-| Abstract factory | 抽象工厂   | 创建几个类家族的一个实例 |
-| Builder          | 创建者     | 允许相同结构的过程创建不同的实现 |
-| Factory method   | 工厂       | 创建几个可能的衍生类的一个实例 |
-| Prototype        | 原型       | 要被克隆的一个类 |
-| Singleton        | 单例       | 限制一个类的实例化只能为一个实例 |
+* [Singleton模式](01_Singleton)
+* [Builder模式](02_Builder)
+* [Prototype模式](03_Prototype)
+* [Factory Method模式](04_Factory_Method)
+* [Abstract Factory模式](05_Abstract_Factory)
 
 动作型模式
-
-| 模式名            |  中文名   | 说明  |
-|:-----------------|:----------|:------|
-| Chain-of-responsibility | 责任链 | 通过类链来处理申请的方式 |
-| Command          | 命令      | 在类中封装一个行为 |
-| Interpreter      | 解释器    | 应用特定语言元素的方式 |
-| Iterator         | 迭代器    | 频繁地访问集合元素 |
-| Mediator         | 中介者    | 为一组接口提供统一的接口 |
-| Memento          | 快照      | 捕获并存储对象的内部状态 |
-| Observer         | 观察者    | 允许在运行时观察对象的状态 |
-| State            | 状态      | 允许在运行时动态选择算法 |
-| Template method  | 模板方法  | 将算法在实现延迟到子类中 |
-| Visitor          | 访问者    | 不改变类的情况下给类添加新的操作 |
+* [Iterator模式](06_Iterator)
+* [Template Method模式](07_Template_Method)
+* [Mediator模式](08_Mediator)
+* [Observer模式](09_Observer)
+* [Visitor模式](10_Visitor)
+* [Chain-of-Responsibility模式](11_Chain_of_Responsibility)
+* [State模式](12_State)
+* [Memento模式](13_Memento)
+* [Command模式](14_Command)
+* [Interpreter模式](15_Interpreter)
 
 结构型模式
+* [Facade模式](16_Facade)
+* [Adapter模式](17_Adapter)
+* [Bridge模式](18_Bridge)
+* [Composite模式](19_Composite)
+* [Decorator模式](20_Decorator)
+* [Flyweight模式](21_Flyweight)
+* [Proxy模式](22_Proxy)
+* [Strategy模式](23_Strategy)
 
-| 模式名            |  中文名   | 说明  |
-|:-----------------|:----------|:------|
-| Adapter          | 适配器    | 适配不同类的接口 |
-| Bridge           | 桥接      | 从实现中分离出抽象 |
-| Composite        | 合成器    | 相似类的合成类 |
-| Decorator        | 装饰器    | 允许给类动态地添加额外的特性 |
-| Facade           | 窗口      | 提供简化接口的单类 |
-| Flyweight        | 享元      | 用共享机制来有效地支持大量细粒度类 |
-| Proxy            | 代理      | 起到接口功能的类 |
-
-### 内容
-
-...
+池模式
+* [线程池模式](24_Thread_Pool)
+* [连接池模式](25_Connect_Pool)
+* [内存池模式](26_Memory_Pool)
+* [对象池模式](27_Object_Pool)
