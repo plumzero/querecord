@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字的跑马灯效果</title>
+    <script type="text/javascript">
+        var id, pause = 0, position = 0;
+        function banner()
+        {
+            var i, k;
+            var m1 = "    欢迎学习 javascript!";
+            var m2 = "    文字的跑马灯效果!";
+            var msg = m1 + m2;
+            var speed = 20;
+            document.isnform.mytext.value = msg.substring(position, position + 160);
+            if (position++ == msg.length) {
+                position = 0;
+            }
+            id = setTimeout("banner()", 2000 / speed)   // 隔 2000 / speed 时间后重新调用  banner() 函数
+        }
+    </script>
+</head>
+<body onload="banner()">
+    <h3>文字的跑马灯效果</h3>
+    <hr>
+    <form method="post" name="isnform">
+        <input type="text" size="48" maxlength="256" name="mytext">
+    </form>
+</body>
+</html>
