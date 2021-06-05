@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>询问对话框的应用</title>
+    <script type="text/javascript">
+        function myq()
+        {
+            var myt = window.confirm("请确定要登录本网站吗?");
+            if (myt) {
+                window.alert("单击了'确定'按钮，欢迎你登录本网站!");
+            } else {
+                window.alert("单击了'取消'按钮");
+                window.close();
+            }
+        }
+    </script>
+</head>
+<body onload="myq()">
+    <h3>询问对话框的应用</h3>
+    <hr>
+    询问对话框是利用 confirm() 方法来创建的。
+</body>
+</html>

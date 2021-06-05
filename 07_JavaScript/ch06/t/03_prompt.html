@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入对话框的应用</title>
+    <script type="text/javascript">
+        function password()
+        {
+            var cishu = 1;
+            var pass = prompt('请输入密码:', '');
+            while (cishu < 3) {
+                if (! pass) {
+                    history.go(-1);
+                }
+                if (pass == "qd123456") {
+                    window.alert('密码正确，可以成功登录!');
+                    break;
+                }
+                var pass = prompt('密码错误! 请重新输入，还有 ' + (3 - cishu) + " 次机会: ");
+                cishu += 1;
+            }
+            if (pass != "qd123456" & cishu == 3) {
+                window.alert("登录失败!");
+                window.close();
+            }
+        }
+    </script>
+</head>
+<body onload="password()">
+    <h3 align="center">弹出窗口式的密码保护页</h3>
+    <hr>
+    弹出窗口式的密码保护页
+</body>
+</html>
