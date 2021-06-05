@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖动鼠标改变图像大小</title>
+    <script type="text/javascript">
+        function resizeImage(evt, name)
+        {
+            var newX = evt.x;
+            var newY = evt.y;
+            eval("document." + name + ".width=newX");
+            eval("document." + name + ".height=newY")
+        }
+    </script>
+</head>
+<body>
+    <h3>拖动鼠标改变图像大小</h3>
+    <hr>
+    <img src="like1.jpg" name="myimage" width="500" height="250" ondrag="resizeImage(event,'myimage')">
+</body>
+</html>

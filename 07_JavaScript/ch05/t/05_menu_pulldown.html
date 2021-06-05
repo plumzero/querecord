@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单特效</title>
+    <script type="text/javascript">
+        function out()
+        {
+            if (window.event.toElement.id != "menu" && window.event.toElement.id != "link") {
+                menu.style.visibility = "hidden";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>下拉菜单特效</h3>
+    <hr>
+    <div id="back" onmouseout="out()" style="position:absolute; 
+                                             top:60px; left:20px;
+                                             width:300px; height:20px;
+                                             z-index:1; visibility:visible;">
+        <span id="menubar" onmouseover="menu.style.visibility='visible'">网站导航菜单</span>
+        <div border=1 id="menu" style="position:absolute; top:21px; left:0; width:299px; height:100; z-index:2; visibility:hidden;">
+            <a href="http://www.baidu.com" id="link">百度</a><br>
+            <a href="http://sina.com" id="link">新浪网</a><br>
+            <a href="http://163.com" id="link">网易</a><br>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOSTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>来回升降的文字动画效果</title>
+    <script type="text/javascript">
+        var done = 0;
+        var step = 4;
+        function anim(yp, yk)
+        {
+            document.all["shengjiang"].style.top = yp;
+            if (yp > yk) step = -4;
+            if (yp < 20) step = 4;
+            setTimeout('anim(' + (yp + step) + ',' + yk + ')', 35);
+        }
+        function start()
+        {
+            if (done) return
+            done = 1;
+            shengjiang.style.left = 11;
+            anim(20, 100);
+        }
+        setTimeout('start()', 10);
+    </script>
+</head>
+<body>
+    <div id="shengjiang" style="position:absolute; top:-50; font-family:宋体; font-size:16pt;">
+    <p><font color="red">来回升降的文字动画效果</font></p>
+    </div>
+</body>
+</html>

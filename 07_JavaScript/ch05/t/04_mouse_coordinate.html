@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态显示鼠标的当前坐标</title>
+    <script type="text/javascript">
+        function MouseMove()
+        {
+            if (window.event.x != document.test.x.value && window.event.y != document.test.y.value) {
+                document.test.x.value = window.event.x;
+                document.test.y.value = window.event.y;
+            }
+        }
+    </script>
+</head>
+<body onmousemove="MouseMove()">
+    <h3>动态显示鼠标的当前坐标</h3>
+    <hr>
+    <form name="test">
+        鼠标的 X 坐标值: <input type="text" name="x" size="4">
+        鼠标的 Y 坐标值: <input type="text" name="y" size="4">
+    </form>
+</body>
+</html>
