@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘常用事件方法</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var i = 0;
+        $(document).ready(function() {
+            $("input").keypress(function() {
+                $("span").text(i = i + 1);
+            });
+            $("textarea").keydown(function() {
+                $("textarea").css("background-color", "yellow");
+            });
+            $("textarea").keyup(function() {
+                $("textarea").css("background-color", "pink");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>键盘常用事件方法</h3>
+    <hr>
+    姓名: <input type="text">&nbsp&nbsp按键的次数统计: <span>0</span><br>
+    留言内容: <br>
+    <textarea name="myta" cols="30" rows="10" placeholder="按下键盘上的键，背景色变成黄色;松开键盘上的键，背景色变成粉红色!"></textarea>
+</body>
+</html>

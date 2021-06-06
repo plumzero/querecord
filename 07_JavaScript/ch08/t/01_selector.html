@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本选择器</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function myf1()
+        {
+            $("div").css("color", "red");
+            $("div").css("background-color", "yellow");
+        }
+        function myf2()
+        {
+            $("#myd1").css("color", "blue");
+            $("#myd1").css("background-color", "pink");
+        }
+        function myf3()
+        {
+            $(".myc1").css("border", "10px green groove");
+        }
+        function myf4()
+        {
+            $("p,span").css("font-size", "18px");
+            $("p,span").css("font-weight", "bold");
+        }
+    </script>
+</head>
+<body>
+    <h3>基本选择器</h3>
+    <hr>
+    <div class="myc1">我是 div 元素!</div>
+    <p class="myc1">我是段落元素!</p>
+    <p>我也是段落元素!</p>
+    <span class="myc1">我是span元素!</span><br><br>
+    <span id="myd1">我也是span元素!</span><br><br>
+    <div>我也是div元素!</div>
+    <br>
+    <input type="button" name="b1" value="div样式" onclick="myf1()">
+    <input type="button" name="b1" value="id样式" onclick="myf2()">
+    <input type="button" name="b1" value="class样式" onclick="myf3()">
+    <input type="button" name="b1" value="群组选择器" onclick="myf4()">
+</body>
+</html>

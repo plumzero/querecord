@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义动画</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#myb1").click(function() {
+                $("#my1").animate({
+                    width:"100px",
+                    height:"100px"
+                }, 5000);
+            });
+            $("#myb2").click(function() {
+                $("#my1").animate({
+                    width:"150px",
+                    height:"80px",
+                    opacity:"0.5"
+                }, 5000);
+            });
+            $("#myb3").click(function() {
+                $("#my1").animate({
+                    height:"toggle"
+                }, 5000);
+            });
+            $("#myb4").click(function() {
+                var div = $("#my1");
+                div.animate({height:'200px', opacity:'0.4'}, "slow");
+                div.animate({width:'200px', opacity:'0.8'}, "slow");
+                div.animate({height:'100px', opacity:'0.4'}, "slow");
+                div.animate({width:'100px', opacity:'0.8'}, "slow");
+            });
+            $("#myb5").click(function() {
+                $("#my1").stop();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>自定义动画</h2>
+    <hr>
+    <div id="my1" style="background-color:red; width:50px; height:50px;"></div><br>
+    <input type="button" name="b1" id="myb1" value="改变图形大小动画">
+    <input type="button" name="b1" id="myb2" value="改变图形大小和透明动画">
+    <input type="button" name="b1" id="myb3" value="使用预定义的动画效果"><br><br>
+    <input type="button" name="b1" id="myb4" value="队列动画效果">
+    <input type="button" name="b1" id="myb5" value="停止">
+</body>
+</html>
