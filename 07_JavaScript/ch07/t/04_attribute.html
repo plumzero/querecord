@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对属性进行操作</title>
+</head>
+<body>
+    <table width="200" border="8">
+        <tr>
+            <td>第一单元格</td>
+            <td>第二单元格</td>
+        </tr>
+        <tr>
+            <td>第三单元格</td>
+            <td id="id1">第四单元格</td>
+        </tr>
+        <tr>
+            <td>第五单元格</td>
+            <td>第六单元格</td>
+        </tr>
+    </table>
+    <br>
+    <script type="text/javascript">
+        var table1 = document.getElementsByTagName("table").item(0);
+        var tb = table1.getAttribute("border");
+        document.write("表格起始的 border 属性值为:" + tb);
+        table1.setAttribute("border", 1);
+        document.write("<br> 表格现在的 border 属性值为:" + table1.getAttribute("border"));
+    </script>
+</body>
+</html>

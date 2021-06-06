@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById()方法</title>
+</head>
+<body>
+    <h3>getElementById()方法</h3>
+    <hr>
+    <p id="id1">getElementById() 方法可以访问 document 中的某一特定元素，是通过 id 来取得元素，只能访问设置了 id 的元素。</p>
+    <p id="id2">在 HTML 中，id 特性是唯一的，没有两个元素可以共享同一个 id，getElementById() 方法是从文档树中获取单个指定元素最快的方法。</p>
+    <script type="text/javascript">
+        document.getElementById("id1").style.backgroundColor = "yellow";
+        document.getElementById("id1").style.color = "red";
+        document.getElementById("id2").style.backgroundColor = "pink";
+        document.getElementById("id2").style.color = "blue";
+    </script>
+</body>
+</html>

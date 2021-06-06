@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appendChild()方法</title>
+</head>
+<body>
+    <h3>appendChild()方法</h3>
+    <hr>
+    <script type="text/javascript">
+        table = document.createElement("table");
+        tbody = document.createElement("tbody");
+        for (var i = 0; i < 3; i++) {
+            addtr = document.createElement("tr");
+            for (var j = 0; j < 3; j++) {
+                addtd = document.createElement("td");
+                celltext = document.createTextNode("单元格是第 " + i + " 行，第 " + j + " 列");
+                addtd.appendChild(celltext);
+                addtr.appendChild(addtd);
+            }
+            tbody.appendChild(addtr);
+        }
+        table.appendChild(tbody);
+        document.body.appendChild(table);
+        table.setAttribute("border", "2");
+    </script>
+</body>
+</html>
