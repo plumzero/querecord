@@ -1,12 +1,20 @@
 
-include $(MINIAPP)/mk/common.mk
+include $(THISPATH)/mk/common.mk
+include $(THISPATH)/mk/gin.mk
 
 .PHONY: all
 
-all: clean build
+all: deps clean build
 
-build:
-	@for gofile in $(GOFILES); do $(GO-BUILD) $$gofile; done;
+deps:
+	@if [ ! -e go.mod ]; then	     \
+		$(GO-MOD) init $(MODULENAME);   \
+	fi
+	
+	@$(GO-GET) github.com/gin-gonic/gin@v1.7.2
 
 clean:
 	@for exefile in $(EXEFILES); do $(RM) $$exefile ; done;
+
+build:
+	@for gofile in $(GOFILES); do $(GO-BUILD) $$gofile; done;

@@ -1,17 +1,18 @@
 #!/usr/bin/env make
 
-.PHONY: deps all clean
+export THISPATH=$(PWD)
+
+include $(THISPATH)/mk/common.mk
+
+.PHONY: all
+
+all: deps clean build
 
 deps:
-	@if [ ! -e go.mod ]; then	   \
-		go mod init miniapp.com;   \
-	fi
-	@go get -u github.com/gin-gonic/gin@v1.7.2
-
-
-
-all:
-	$(MAKE) -C 01_gin
+	$(MAKE) -C gin deps
 
 clean:
-	$(MAKE) -C 01_gin clean
+	$(MAKE) -C gin clean
+
+build:
+	$(MAKE) -C gin build
