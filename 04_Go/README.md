@@ -64,7 +64,6 @@
    * [游戏服务器](ch15/04_gameserver)
    * [图片Web](ch15/05_photoweb)
    * [代理转发微服务](ch15/06_agent)
-   * [服务插件化](ch15/07_plugin)
 
 
 ### 拓展

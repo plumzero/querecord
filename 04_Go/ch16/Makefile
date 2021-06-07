@@ -10,9 +10,12 @@ all: deps clean build
 
 deps:
 	$(MAKE) -C gin deps
+	$(MAKE) -C pingo deps
 
 clean:
 	$(MAKE) -C gin clean
+	$(MAKE) -C pingo clean
 
 build:
 	$(MAKE) -C gin build
+	$(MAKE) -C pingo build
