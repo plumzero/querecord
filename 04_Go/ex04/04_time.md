@@ -12,3 +12,5 @@
 [获取日期和时间](04/format_date.go)
 
 [时间戳](04/unix_timestamp.go)
+
+[星期几](04/Weekday.go)
