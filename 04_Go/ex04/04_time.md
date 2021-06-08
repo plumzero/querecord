@@ -13,4 +13,6 @@
 
 [时间戳](04/unix_timestamp.go)
 
+[日期时间转时间戳](04/datetime2stamp.go)
+
 [星期几](04/Weekday.go)
