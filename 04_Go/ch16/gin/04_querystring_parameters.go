@@ -3,9 +3,10 @@ package main
 import (
     "net/http"
     "github.com/gin-gonic/gin"
-
-	"fmt"
 )
+
+// 注意，使用 curl 测试时 url 字符串两边用引号(单引号或双引号)括起来
+// curl "http://127.0.0.1:8080/welcome?firstname=Jane&lastname=Doe"
 
 func main() {
 	router := gin.Default()
@@ -14,11 +15,7 @@ func main() {
 		firstname := c.DefaultQuery("firstname", "Guest")
 		lastname := c.Query("lastname")
 
-		fmt.Println("firstname =", firstname, " lastname =", lastname)
 		c.String(http.StatusOK, "Hello %s %s", firstname, lastname)
-
-		x := c.GetStringMapString("lastname")
-		fmt.Println("  ------------ x = ", x)
 	})
 
 	router.Run(":8080")

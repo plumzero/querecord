@@ -26,12 +26,20 @@
 [路由参数](03_parameters_in_path.go)
 
 
-### 查询字符串
+### 查询字符串参数(Querystring parameters)
+
+[简单的查询字符串参数](04_querystring_parameters.go)
+
+
+### 表单上传(Multipart/Urlencoded Form)
+
+[表单上传](05_form_post.go)
+
+[带参数的表单上传&&页面重定向](06_query_and_form_post.go)
+
 
 ### 数据测试
 
-
-### 表单测试
 
 
 ### 认证测试
