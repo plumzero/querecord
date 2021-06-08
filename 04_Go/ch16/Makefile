@@ -1,8 +1,8 @@
 #!/usr/bin/env make
 
-export THISPATH=$(PWD)
+export ENTERPATH=$(PWD)
 
-include $(THISPATH)/mk/common.mk
+include $(ENTERPATH)/mk/common.mk
 
 .PHONY: all
 

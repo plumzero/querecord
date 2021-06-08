@@ -14,11 +14,11 @@ func main() {
 
 	wg.Add(2)
 
-	p1 := pingo.NewPlugin("tcp", "plugins/hello")
+	p1 := pingo.NewPlugin("tcp", "plugins/hello/hello")
 	p1.Start()
 	defer p1.Stop()
 
-	p2 := pingo.NewPlugin("tcp", "plugins/world")
+	p2 := pingo.NewPlugin("tcp", "plugins/world/world")
 	p2.Start()
 	defer p2.Stop()
 

@@ -1,6 +1,6 @@
 
-include $(THISPATH)/mk/common.mk
-include $(THISPATH)/mk/gin.mk
+include $(ENTERPATH)/mk/common.mk
+include $(ENTERPATH)/mk/gin.mk
 
 .PHONY: all
 

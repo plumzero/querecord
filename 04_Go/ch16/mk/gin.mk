@@ -1,4 +1,4 @@
 
-PROJECTNAME=gin
+PROJECTNAME = gin
 
 MODULENAME = gintest.com
