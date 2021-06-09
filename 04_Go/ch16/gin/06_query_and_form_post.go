@@ -5,7 +5,6 @@ import (
 	"net/http"
     "github.com/gin-gonic/gin"
 	"strings"
-	"fmt"
 )
 
 // 在浏览器上输入 http://a.b.c.d:8080/form_post
@@ -22,7 +21,6 @@ func main() {
 
 	router.POST("form_post", func(c *gin.Context) {
 		if c.Query("redirect") == "" {
-			c.Request.Header.Set("Internal", "Jump")
 			referer := c.Request.Header.Get("Referer")
 			c.Redirect(http.StatusTemporaryRedirect, "/form_post" + referer[strings.IndexByte(referer, '?'):] + "&redirect=1")
 		} else {

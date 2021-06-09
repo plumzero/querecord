@@ -47,3 +47,26 @@ HTML(Hypertext Marked Language, 超文本标记语言)是一种用来制作超�
    * [hgroup、address和time元素](ch07/03_hgroup_address_time元素.md)
    * [figure和figcaption元素](ch07/04_figure和figcaption元素.md)
    * [手机端HTML网页布局](ch07/05_手机端HTML网页布局.md)
+
+
+### 速记
+
+单标签元素
+* `<br>`
+* `<hr>`
+* `<img>`
+* `<input>`
+* `<dt>`
+* `<dd>`
+
+练习一: 元素练习
+- [通过id超链接到同一页内的某个地方](ch02/t/04_a_href_a_id.html)
+- [文件下载示例](ch02/t/04_a_href_download.html)
+- [表格的合并单元格](ch03/t/01_table_td_rowspan_colspan.html)
+- [表格的更多属性](ch03/t/01_table_border_cell_rules/html)
+- [表格的表头主体和页脚](ch03/t/01_table_thead_tbody_tfoot.html)
+- [表格列的美化](ch03/t/01_table_colgroup_col.html)
+
+练习二: 表单练习
+- [text|password|submit|reset](ch04/t/01_login_ui.html)
+
