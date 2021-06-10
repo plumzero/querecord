@@ -49,6 +49,11 @@ HTML(Hypertext Marked Language, 超文本标记语言)是一种用来制作超�
    * [手机端HTML网页布局](ch07/05_手机端HTML网页布局.md)
 
 
+### 速查
+
+[标签参考](https://www.w3school.com.cn/tags/index.asp)
+
+
 ### 速记
 
 单标签元素
@@ -68,5 +73,15 @@ HTML(Hypertext Marked Language, 超文本标记语言)是一种用来制作超�
 - [表格列的美化](ch03/t/01_table_colgroup_col.html)
 
 练习二: 表单练习
-- [text|password|submit|reset](ch04/t/01_login_ui.html)
-
+- [text|password|submit|reset](ch04/t/01_text_password_submit_reset.html)
+- [radio|checkbox](ch04/t/01_radio_checkbox.html)
+- [select|datalist](ch04/t/01_select_datalist.html)
+- [email|image|url](ch04/t/02_email_image_url.html.html)
+- [number|range](ch04/t/03_number_range.html)
+- [date|time|month|week|...](ch04/t/04_date_time.html)
+- [search|color|file](ch04/t/05_search_color_file.html)
+- [textarea](ch04/t/06_textarea.html)
+- [output](ch04/t/06_output.html)
+- [progress|meter](ch04/t/07_progress_meter.html)
+- [button](ch04/t/08_label_button.html)
+- [fieldset|legend](ch04/t/09_fieldset_legend.html)
