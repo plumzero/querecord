@@ -39,36 +39,39 @@ postgresql-13.1
 
 #### 启动
 
-为 pgsql 创建用户帐户，后续 pgsql 会通过此用户运行
+创建系统用户组和用户:
 ```sh
     root# adduser postgres
+    root# id postgres
+    uid=1012(postgres) gid=1012(postgres) groups=1012(postgres)
 ```
 
-创建数据存储目录，并为其设置用户权限
+创建相关目录，修改目录属主，并修改数据目录的权限为 0700:
 ```sh
-    root# mkdir /usr/local/pgsql/data
-    root# chown postgres /usr/local/pgsql/data
+    root# mkdir -p /pgdata/10/{data,backups,scripts,archive_wals}
+    root# chown -R postgres.postgres /pgdata/10
+    root# chmod 0700 /pgdata/10/data
 ```
 
-在 postgres 账户权限下执行 initdb 命令
+在 postgres 账户权限下执行 initdb 命令(为超级用户 postgres 设置一个密码):
 ```sh
     root# su - postgres
-    postgres$ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+    postgres$ /usr/local/pgsql/bin/initdb -D /pgdata/10/data -W
 ```
 
 后台启动 postgres server
 ```sh
-    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile start
+    postgres$ /usr/local/pgsql/bin/pg_ctl -D /pgdata/10/data -l /pgdata/10/data/logfile start
 ```
 
 后台重启
 ```sh
-    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile restart
+    postgres$ /usr/local/pgsql/bin/pg_ctl -D /pgdata/10/data -l /pgdata/10/data/logfile restart
 ```
 
 如果需要关闭，执行如下命令:
 ```sh
-    postgres$ /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/data/logfile stop
+    postgres$ /usr/local/pgsql/bin/pg_ctl -D /pgdata/10/data -l /pgdata/10/data/logfile stop
 ```
 
 
