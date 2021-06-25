@@ -11,3 +11,11 @@
     * [导入导出表数据](ch02/01_导入导出表数据.md)
     * [连接数据库选项](ch02/02_连接数据库选项.md)
     * [定制维护脚本](ch02/03_定制维护脚本.md)
+* [备份与恢复](ch13)
+    * [SQL转储](ch13/01_SQL转储.md)
+
+### 参考
+
+* [代码](https://github.com/go-pg/pg/issues/1726)
+* [代码二](https://github.com/go-pg/pg/issues/1642)
+* [代码三](https://github.com/go-pg/pg/issues/1452)
