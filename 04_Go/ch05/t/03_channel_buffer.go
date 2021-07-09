@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	ch := make(chan string, 1)
+	ch := make(chan interface{}, 1)
 	
 	select {
 		case ch <- "10":		// 可以被写入，因为此处 ch 是空的

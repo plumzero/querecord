@@ -1,0 +1,71 @@
+{   
+    "log" : {
+        "path" : "",
+        "mode" : "test"
+    },
+
+    "cells" : {
+        "name" : "Bumblebee"
+    },
+
+    "httpAlarm": {
+        "ip": "192.168.2.104:8080",
+        "path": "/forward/exception/add"
+    },
+
+    "grpc-LimitedPriceData" : [
+        {
+            "name" : "newtest",
+            "addr" : "127.0.0.1:12345",
+            "receivers" : [ "redis-LimitedPriceData-test", "redis-LimitedPriceData-dev" ],
+            "weight" : 1200
+        },
+        {
+            "name" : "gwt-sz3",
+            "addr" : "192.168.10.134:55555",
+            "receivers" : [ "redis-LimitedPriceData-test", "redis-LimitedPriceData-dev" ],
+            "weight" : 1100
+        }
+    ],
+
+    "redis-LimitedPriceData" : [
+        {
+            "name" : "test",
+            "addr" : "192.168.2.104:6379",
+            "password" : "1234"
+        },
+        {
+            "name" : "dev",
+            "addr" : "192.168.2.28:6379",
+            "password" : "1234"
+        }
+    ],
+
+    "grpc-LatestPriceData" : [
+        {
+            "name" : "newtest",
+            "addr" : "127.0.0.1:12345",
+            "receivers" : [ "redis-LatestPriceData-test", "redis-LatestPriceData-dev" ],
+            "weight" : 1200
+        },
+        {
+            "name" : "gwt-sz3",
+            "addr" : "192.168.10.134:55555",
+            "receivers" : [ "redis-LatestPriceData-test", "redis-LatestPriceData-dev" ],
+            "weight" : 1100
+        }
+    ],
+
+    "redis-LatestPriceData" : [
+        {
+            "name" : "test",
+            "addr" : "192.168.2.104:6379",
+            "password" : "1234"
+        },
+        {
+            "name" : "dev",
+            "addr" : "192.168.2.28:6379",
+            "password" : "1234"
+        }
+    ]
+}
