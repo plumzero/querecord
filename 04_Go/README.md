@@ -42,6 +42,7 @@
 * [HTTP编程](ch07)
    * [客户端](ch07/01_Clinet.md)
    * [服务端](ch07/02_Server.md)
+   * [模板](ch07/03_Template.md)
 
 * RPC编程
 
