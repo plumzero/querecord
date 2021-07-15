@@ -1,7 +1,29 @@
-ENTERPATH?=..
 
-include $(ENTERPATH)/mk/common.mk
-include $(ENTERPATH)/mk/pingo.mk
+### common
+
+GO ?= go
+GO-BUILD = go build
+GO-GET = go get -u
+GO-FMT = go fmt
+GO-MOD = go mod
+
+RM ?= rm -rf
+
+GOFILES := $(shell find . -name "*.go")
+EXEFILES := $(shell find . -type f -perm /u=x,g=x,o=x)
+
+
+### special
+
+PROJECTNAME = pingo
+
+MODULENAME = pingotest.com
+
+PIN_HELLO = hello
+PIN_WORLD = world
+
+
+### do
 
 .PHONY: all
 
