@@ -16,10 +16,10 @@ Go 语言模板引擎的使用分为: 定义模板文件、解析模板文件和
 
 | 方法或函数名 | 说明 |
 |:------------|:-----|
-| func New(name string) *Template | 创建一个模板对象，并为其添加一个模板名称 |
-| func (t *Template) Parse(src string) (*Template, error) | 创建模板对象，并完成解析模板内容 |
-| func ParseFiles(filenames ...string) (*Template, error) | 解析模板文件，并返回对应的模板对象 |
-| func ParseGlob(pattern string) (*Template, error) | 批量解析文件，pattern 支持正则匹配 |
+| `func New(name string) *Template` | 创建一个模板对象，并为其添加一个模板名称 |
+| `func (t *Template) Parse(src string) (*Template, error)` | 创建模板对象，并完成解析模板内容 |
+| `func ParseFiles(filenames ...string) (*Template, error)` | 解析模板文件，并返回对应的模板对象 |
+| `func ParseGlob(pattern string) (*Template, error)` | 批量解析文件，pattern 支持正则匹配 |
 
 3.渲染模板文件: html/template 包提供了 `Execute()` 和 `ExecuteTemplate()` 方法来渲染模板，这两个方法的定义如下:
 ```go
@@ -72,3 +72,32 @@ Go 模板语法中的条件判断有以下几种:
 ```
 如果 pipeline 为空，则不改变 "." 并执行 T0，否则将 "." 设为 pipeline 的值并执行 T1 。
 
+----
+Go 语言模板支持自定义函数，它通过调用 Funcs() 方法实现，其定义如下:
+```go
+    func (t *Template) Funcs(funcMap FuncMap) *Template
+```
+`Funcs()` 方法向模板对象的函数字典里加入参数 funcMap 内的键值对。如果 funcMap 的某个键值对的值不是函数类型，或者返回值不符合要求，则会报 panic 错误，但可以对模板对象的函数列表的成员进行重写。Funcs() 方法返回模板对象以便进行链式调用。FuncMap 类型的定义如下:
+```go
+    type FuncMap map[string]interface{}
+```
+`FuncMap()` 类型定义了函数名字符串到函数的映射，每个函数都必须有 1 个或 2 个返回值。如果有 2 个返回值，则后一个必须是 error 接口类型；如果有 2 个返回值的方法返回 error 非 nil，则模板执行会中断并返回该错误给调用者。
+
+[自定义函数使用示例](t/03_tmpl_funcs.go)
+
+html/template 包支持在一个模板中嵌套其他模板。被嵌套的模板可以是单独的文件，也可以是通过 `define` 关键字定义的模板。通过 `define` 关键字可以直接在待解析内容中定义一个模板，例如定义一个名称为 name 的模板的形式如下:
+```template
+    {{ define "name" }} T {{ end }}
+```
+通过 `template` 关键字来执行模板。例如，执行名为 "name" 的模板的形式如下:
+```template
+    {{ template "name" }}
+    {{ template "name" pipeline }}
+```
+`block` 关键字等价于 `define` 关键字，其用于定义一个模板，并在有需要的地方执行这个模板。其形式如下:
+```template
+    {{ block "name" pipeline }} T {{ end }}
+```
+它等价于: 先执行 `{{ define "name" }} T {{ end }}`，再执行 `{{ template "name" pipeline }}`。
+
+[嵌套模板使用示例](t/03_tmpl_multi.go)
