@@ -54,13 +54,15 @@ Go 模板语法中的条件判断有以下几种:
     {{range pipeline}} T1 {{end}}
 ```
 
+[range使用示例](t/03_tmpl_range.go)
+
 如果 pipeline 的值其长度为 0，则不会有任何输出。中间也可以有 `{{else}}`，例如:
 ```template
     {{range pipeline}} T1 {{else}} T0 {{end}}
 ```
 如果 pipeline 的值其长度为 0，则会执行 T0 。
 
-[pipe使用示例](t/03_tmpl_range.go)
+[pipe使用示例](t/03_tmpl_pipeline.go)
 
 在 Go 的模板语法中，`with` 关键字和 if 关键字有点类似，"{{with}}" 操作仅在传递的管道不为空时有条件地执行其主体。形式如下:
 ```template
