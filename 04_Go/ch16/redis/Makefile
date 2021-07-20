@@ -18,7 +18,7 @@ deps:
 	@$(GO-GET) github.com/go-redis/redis/v8
 
 clean:
-	$(MAKE) -C String clean
+	@for exefile in $(EXEFILES); do $(RM) $$exefile ; done;
 
 build:
-	$(MAKE) -C String build
+	@for gofile in $(GOFILES); do $(GO-BUILD) $$gofile; done;

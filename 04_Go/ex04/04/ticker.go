@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	// 创建一个一个订时器，每秒钟执行一次
+	// 创建一个一个定时器，每秒钟执行一次
 	ticker := time.NewTicker(time.Second * 1)
 	go func() {
 		for t := range ticker.C {
@@ -16,6 +16,6 @@ func main() {
 	}()
 
 	time.Sleep(time.Second * 5)
-	ticker.Stop()
+	ticker.Stop()		// 停止定时器
 	fmt.Println("ticker stopped")
 }

@@ -139,3 +139,14 @@ ok 是一个 bool 值，当其为 false 时表示 ch 已经被关闭。
 另外，使用 range 也可以在 channel 关闭的时候自动跳出。
 
 [channel关闭时，接收者通过range跳出示例](t/03_close_range.go)
+
+
+### chan struct{}
+
+空结构体 `struct{}` 占用 0 字节的内存空间。其特点有两个，分别是:
+* 省内存，尤其在事件通信的时候
+* struct 零值就是本身，读取 close 的 channel 返回零值
+  
+通过 make 定义一个空结构体通道，比如 `ch := make(chan struct{})`。一般不需要往 channel 里面写数据，只有读等待，而读等待会在 channel 被关闭的时候返回。
+
+[空结构体通道示例](t/03_channel_nil_struct.go)
