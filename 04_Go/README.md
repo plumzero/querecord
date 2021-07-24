@@ -38,6 +38,7 @@
 
 * [Socket编程](ch06)
    * [Dial](ch06/01_Dial.md)
+   * [RPC](ch06/02_RPC.md)
 
 * [HTTP编程](ch07)
    * [客户端](ch07/01_Clinet.md)
@@ -49,11 +50,9 @@
    * [处理请求](ch08/02_处理请求.md)
    * [session和cookie](ch08/03_session和cookie.md)
 
-* RPC编程
-
 * 安全编程
 
-* protobuf编程
+* protobuf与grpc编程
    * [产生插件](ch12/01_产生插件.md)
    * [编码解码](ch12/02_编码解码.md)
    * [利用protobuf实现进程间通信](ch12/03_ipc.md)

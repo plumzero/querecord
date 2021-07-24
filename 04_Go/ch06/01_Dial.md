@@ -1,5 +1,5 @@
 
-Go 语言标准库对传统的 Socket 编程过程进行了抽象和封装，无论需要使用什么协议建立什么形式的连接，都只需要调用 net.Dial() 即可。
+Go 语言标准库对传统的 Socket 编程过程进行了抽象和封装，无论需要使用什么协议建立什么形式的连接，都只需要调用 `net.Dial()` 即可。
 
 
 ### Dial() 函数
@@ -32,9 +32,7 @@ ICMP链接(使用协议编号):
 
 在成功建立连接后，我们就可以进行数据的发送和接收。发送数据时，使用 conn 的 Write() 成员方法，接收数据时使用 Read() 方法。
 
-[发送ICMP测试，执行效果不佳](t/01_icmptest.go)
-
-[发送HTTP请求测试](t/02_simplehttp.go)
+[Dial使用示例](t/01_Dial.go)
 
 实际上，Dial() 函数是对 DialTCP(), DialUDP(), DialIP() 和 DialUnix() 的封装。我们也可以直接调用这些函数，其功能是一致的:
 ```go
@@ -44,4 +42,20 @@ ICMP链接(使用协议编号):
     func DialUnix(net string, laddr, raddr * UnixAddr) (c * UnixConn, err error)
 ```
 
-[发送HTTP请求测试二](t/03_simplehttp2.go)
+[DialTcp使用示例](t/01_DialTcp.go)
+
+[编写Tcp server](t/01_tcp_server.go)  [编写与之通信的Tcp client](t/01_tcp_client.go)
+
+进行 UDP Socket 编程，需要了解以下函数或方法的使用:
+```go
+    func ResolveUDPAddr(network, address string) (*UDPAddr, error)          // 创建监听地址
+    func ListenUDP(network string, laddr UDPAddr) (UDPConn, error)          // 创建监听连接
+    func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)          // 接收 UDP 数据
+    func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)      // 写出数据到 UDP
+```
+
+[编写Udp server](t/01_udp_server.go)  [编写与之通信的Udp client](t/01_udp_client.go)
+
+[并发Udp server示例](t/01_concurrent_udp_server.go)  [与之通信的并发Udp client](t/01_concurrent_udp_client.go)
+
+[tcp简易聊天服务端](t/01_chat_server.go)  [与之对应的tcp简易聊天客户端](t/01_chat_client.go)
