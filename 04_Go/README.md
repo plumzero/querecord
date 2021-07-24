@@ -51,6 +51,10 @@
    * [处理请求](ch08/02_处理请求.md)
    * [session和cookie](ch08/03_session和cookie.md)
 
+* [gin编程](ch09)
+   * [路由与控制器](ch09/01_路由与控制器.md)
+   * [处理请求参数](ch09/02_处理请求参数.md)
+
 * 安全编程
 
 * [protobuf与grpc编程](ch12)
