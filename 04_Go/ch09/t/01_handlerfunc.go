@@ -9,7 +9,7 @@ import (
 // 浏览器中输入 IP:8080/user/login
 func goLogin(c *gin.Context) {
     name := c.PostForm("name")
-    password := c.PostForm("password")
+    password := c.PostForm("pwd")
 
     c.String(http.StatusOK, "username=%s,password=%s", name, password)
 }
