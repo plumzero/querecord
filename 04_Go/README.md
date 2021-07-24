@@ -32,6 +32,7 @@
    * [goroutine](ch05/02_goroutine.md)
    * [channel](ch05/03_channel.md)
    * [同步](ch05/04_同步.md)
+   * [channel的使用](ch05/05_channel的使用.md)
    * [程序分析:传递引用](ch05/10_程序分析_传递引用.md)
    * [程序分析:早退](ch05/10_程序分析_早退.md)
    * [程序分析:死锁](ch05/10_程序分析_死锁.md)
@@ -52,7 +53,7 @@
 
 * 安全编程
 
-* protobuf与grpc编程
+* [protobuf与grpc编程](ch12)
    * [产生插件](ch12/01_产生插件.md)
    * [编码解码](ch12/02_编码解码.md)
    * [利用protobuf实现进程间通信](ch12/03_ipc.md)
@@ -116,7 +117,6 @@
       * [signal](ex04/01_signal.md)
    * [syscall](ex04/02_syscall.md)
    * [sync](ex04/03_sync.md)
-      * [WaitGroup](ex04/03_WaitGroup.md)
       * [Cond](ex04/03_Cond.md)
    * [time](ex04/04_time.md)
    * [unsafe](ex04/05_unsafe.md)
