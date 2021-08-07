@@ -19,9 +19,9 @@ DOM 利用 `getElementById` 和 `getElementsByTagName` 找到文档中的某个�
 
 ### 实践
 
-* [实现图片库](ex01)
+* [节点操作](ex01)
 * [通过挂钩分离JavaScript](ex02)
-* [节点操作](ex03)
+* [实现图片库](ex03)
 * [Ajax技术](ex04)
 * [丰富页面内容](ex05)
 * [利用JavaScript设置样式](ex06)
