@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="styles/layout.css" media="screen">
+</head>
+<body>
+    <h1>Snapshots</h1>
+    <ul>
+        <li>
+            <a href="images/cloud.jpg" title="A cloud display" onclick="showPic(this); return false;">Cloud</a>
+        </li>
+        <li>
+            <a href="images/hillside.jpg" title="A hillside display" onclick="showPic(this); return false;">Hillside</a>
+        </li>
+        <li>
+            <a href="images/rain.jpg" title="A rain display" onclick="showPic(this); return false;">Rain</a>
+        </li>
+    </ul>
+    <img id="placeholder" src="images/placeholder.gif" alt="my image gallery">
+    <p id="description">Choose an image.</p>
+    <script type="text/javascript" src="scripts/showPic.js"></script>
+</body>
+</html>
