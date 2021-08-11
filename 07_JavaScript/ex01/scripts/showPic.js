@@ -49,3 +49,45 @@ function addLoadEvent(func) {
         }
     }
 }
+
+function appendElement() {
+    var placeholder = document.createElement("img");
+    placeholder.setAttribute("id", "placeholder");
+    placeholder.setAttribute("src", "images/placeholder.gif");
+    placeholder.setAttribute("alt", "my image gallery");
+    var description = document.createElement("p");
+    description.setAttribute("id", "description");
+    var desctext = document.createTextNode("Choose an image");
+    description.appendChild(desctext);
+    document.body.appendChild(placeholder);
+    var gallery = document.getElementById("imagegallery");
+    gallery.parentNode.insertBefore(description, gallery);
+}
+
+// DOM 本身不提供类似于 insertBefore 的 insertAfter 函数，但我们可以实现一个，如下:
+function insertAfter(newElement, targetElement) {
+    var parent = targetElement.parentNode;
+    if (parent.lastChild == targetElement) {
+        parent.appendChild(newElement);
+    } else {
+        parent.insertBefore(newElement, targetElement.nextSibling);
+    }
+}
+
+function preparePlaceholder() {
+    if (! document.createElement) return false;
+    if (! document.createTextNode) return false;
+    if (! document.getElementById) return false;
+    if (! document.getElementById("imagegallery")) return false;
+    var placeholder = document.createElement("img");
+    placeholder.setAttribute("id", "placeholder");
+    placeholder.setAttribute("src", "images/placeholder.gif");
+    placeholder.setAttribute("alt", "my image gallery");
+    var description = document.createElement("p");
+    description.setAttribute("id", "description");
+    var desctext = document.createTextNode("Choose an image");
+    description.appendChild(desctext);
+    var gallery = document.getElementById("imagegallery");
+    insertAfter(placeholder, gallery);
+    insertAfter(description, placeholder);
+}
