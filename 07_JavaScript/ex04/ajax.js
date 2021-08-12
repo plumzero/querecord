@@ -27,7 +27,6 @@ function getNewContent() {
         request.onreadystatechange = function() {
             if (request.readyState == 4) {
                 var para = document.createElement("p");
-                // alert("-----", request.responseText);
                 var txt = document.createTextNode(request.responseText);
                 para.appendChild(txt);
                 document.getElementById("new").appendChild(para);
@@ -39,4 +38,18 @@ function getNewContent() {
     }
 }
 
-addLoadEvent(getNewContent);
+function getMethodTest() {
+    var xhr = new XMLHttpRequest();
+    if (xhr) {
+        xhr.open("GET", "http://192.168.2.102:8080/api/v1/red", true);
+        xhr.onreadystatechange = function() {
+            var para = document.createElement("p");
+            var txt = document.createTextNode(xhr.responseText);
+            para.appendChild(txt);
+            document.getElementById("new").appendChild(para);
+        };
+        xhr.send(null);
+    } else {
+        alert("Sorry, your browser does not support XMLHttpRequest!");
+    }
+}
