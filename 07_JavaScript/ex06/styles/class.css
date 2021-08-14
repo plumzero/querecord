@@ -1,0 +1,10 @@
+
+.intro {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: green;
+}
+
+.odd {
+    background-color: #ffc;
+}

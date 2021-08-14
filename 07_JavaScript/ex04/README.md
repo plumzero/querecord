@@ -3,6 +3,7 @@
 
 * 了解 Ajax 的概念
 * 了解 Ajax 的原理
+* 知道 XMLHttpRequest 的使用
 
 
 ### Ajax 的概念
