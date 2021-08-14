@@ -24,4 +24,5 @@ DOM 利用 `getElementById` 和 `getElementsByTagName` 找到文档中的某个�
 * [实现图片库](ex03)
 * [Ajax技术](ex04)
 * [丰富页面内容](ex05)
-* [利用JavaScript设置样式](ex06)
+* [利用DOM修改文档样式](ex06)
+* [实现动画效果](ex07)
