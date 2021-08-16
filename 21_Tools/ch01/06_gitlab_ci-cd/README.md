@@ -1,4 +1,9 @@
 
+傻瓜式地，在已经安装好了 gitlab-runner 的前提下，为一个项目配置 CI/CD 只要三步。
+1. 在项目的顶层目录创建一个 `.gitlab-ci.yml` 文件，并提交到 gitlab 中。点开 `CI/CD -> Pipelines` 界面确认一些东西。
+2. 展开 `Setting -> CI/CD -> Runners`，将 url 和 token 注册到 gitlab-runner 中。
+3. 展开 `Setting -> CI/CD -> Runners`，确认一些东西。
+
 关于 .gitlab-ci.yml 文件，它位于工程根目录下，用于配置工程 CI 活动。每次向仓库执行提交时，GitLab 都会寻找 `.gitlab-ci.yml` 文件并在 `Runners` 上运行相应的作业。
 
 这里说明一下整个 `.gitlab-ci.yml` 文件的动作过程。

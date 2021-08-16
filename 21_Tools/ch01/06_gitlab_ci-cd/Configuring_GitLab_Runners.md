@@ -33,3 +33,5 @@ Enter tags for the runner (comma-separated):
 Enter an executor: ssh, docker+machine, kubernetes, docker, docker-ssh, parallels, docker-ssh+machine, custom, shell, virtualbox:
 ```
 选定一个执行器，一般大家都使用 docker，这里选用 shell 。
+
+注意，注册之后，还要去 `Settings -> CI/CD`页面，展开 `Runners` 选项查看是否可用(为绿色)。如果不可用，可能会有 `New runner. Has not connected yet` 的提示，这个时候可以尝试重新启动 gitlab-runner，之后再查看该页面。
