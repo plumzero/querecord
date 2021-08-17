@@ -1,8 +1,5 @@
 
-JavaScript 是一种基于(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言。
-
-
-### 内容
+### JavaScript基础篇
 
 * [基础初步](ch01)
    * [基本数据类型](ch01/01_基本数据类型.md)
@@ -38,5 +35,11 @@ JavaScript 是一种基于(Object)和事件驱动(Event Driven)并具有安全�
    * [jQuery常用选择器](ch08/01_jQuery常用选择器.md)
    * [jQuery常用事件方法](ch08/02_jQuery常用事件方法.md)
    * [jQuery的动画效果](ch08/03_jQuery的动画效果.md)
-* [其他](ch09)
-   * [正则表达式](ch09/01_正则表达式.md)
+
+### Node.js篇
+
+* [异步编程](nj01)
+
+
+
+### jQuery篇
