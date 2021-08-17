@@ -23,7 +23,7 @@ header {
     border-bottom-width: 0;
 }
 header nav {
-    background-image: url(../images/header-navbar.gif);
+    background-image: url(../images/navbar.gif);
     background-position: bottom left;
     background-repeat: repeat-x;
     border-width: .1em;
@@ -59,4 +59,16 @@ article img {
     border-style: solid;
     outline-width: .1em;
     outline-style: solid;
+}
+#about header {
+    background-image: url(../images/lineup.gif);
+}
+#photos header {
+    background-image: url(../images/basshead.gif);
+}
+#live header {
+    background-image: url(../images/bassist.gif);
+}
+#contact header {
+    background-image: url(../images/drummer.gif);
 }
