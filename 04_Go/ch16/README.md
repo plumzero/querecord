@@ -10,3 +10,5 @@
 [websocket](websocket)
 
 [viper](viper)
+
+[quicktemplate](quicktemplate)
