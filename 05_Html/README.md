@@ -12,8 +12,9 @@ HTML(Hypertext Marked Language, 超文本标记语言)是一种用来制作超�
 
 ### 内容
 
-* [认识HTML](ch01)
-   * [第一个HTML](ch01/01_第一个HTML.md)
+* [页面结构](ch01)
+   * [基本标签](ch01/01_基本标签.md)
+   * [head标签](ch02/02_head.md)
 * [文本和图像](ch02)
    * [HTML中的元素](ch02/01_HTML中的元素.md)
    * [元素的属性](ch02/02_元素的属性.md)
