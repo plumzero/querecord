@@ -28,7 +28,7 @@ GOPATH 可能包含有多个路径，Go 会搜索每个路径去寻找相应的�
 
 ### GOPATH 和 Modules
 
-当使用模块(modules)时，此时 GOPATH 不再用作解析引入路径，只可用于存放下载的源码(在 `GOPATH/pkg/mod` 中)以及命令的编译(在 `GOPATH/bin` 中)。
+使用模块时，GOPATH 是无意义的，不过它还是会把下载的依赖储存在 $GOPATH/pkg/mod 中。
 
 ### 内部目录
 
