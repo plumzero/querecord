@@ -32,3 +32,4 @@
     * [apisix](ch06/04_apisix)
     * [ElasticSearch](ch06/05_ElasticSearch)
     * [airflow](ch06/06_airflow)
+    * [celery](ch06/07_celery)
