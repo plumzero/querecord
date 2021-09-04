@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid silver;
+        }
+    </style>
+    <script>
+        window.onload = function()
+        {
+            var oBtn = document.getElementsByTagName("input");
+            var oDiv = document.getElementsByTagName("div")[0];
+
+            var colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+            var timer = null;
+            var i = 0;
+
+            // 开始 按钮
+            oBtn[0].onclick = function() {
+                // 每次点击"开始"按钮，一开始就清除一次定时器
+                clearInterval(timer);
+                timer = setInterval(function() {
+                    oDiv.style.backgroundColor = colors[i];
+                    i++;
+                    i = i % colors.length;
+                }, 1000);
+            };
+            // 暂停 按钮
+            oBtn[1].onclick = function()
+            {
+                clearInterval(timer);
+            };
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="开始" />
+    <input type="button" value='暂停' />
+    <div></div>
+</body>
+</html>

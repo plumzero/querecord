@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid silver;
+        }
+    </style>
+    <script>
+        window.onload = function()
+        {
+            var oBtn = document.getElementsByTagName("input");
+            // 存放定时器
+            var timer = null;
+
+            oBtn[0].onclick = function() {
+                timer = setTimeout(function() {
+                    alert("welcome here!");
+                }, 2000);
+            };
+            oBtn[1].onclick = function() {
+                clearTimeout(timer);
+            };
+        }
+    </script>
+</head>
+<body>
+    <p>点击"开始"按钮，2秒后提示欢迎语。</p>
+    <input type="button" value="开始" />
+    <input type="button" value="暂停" />
+</body>
+</html>
