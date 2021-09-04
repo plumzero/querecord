@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style type="text/css">
+        #search {
+            color: #bbbbbb;
+        }
+    </style>
+    <script>
+        window.onload = function ()
+        {
+            var oSearch = document.getElementById("search");
+            // 获取焦点
+            oSearch.onfocus = function() {
+                if (this.value == "输入搜索内容") {
+                    this.value = "";
+                }
+            };
+            // 失去焦点
+            oSearch.onblur = function ()
+            {
+                if (this.value == "") {
+                    this.value = "输入搜索内容";
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="search" value="输入搜索内容" />
+    <input type="button" id="Button1" value="搜索" />
+</body>
+</html>

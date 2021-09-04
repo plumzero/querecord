@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function()
+        {
+            var oBtn = document.getElementById("btn");
+            var oUl = document.getElementById("list");
+
+            oBtn.onclick = function() {
+                oUl.removeChild(oUl.lastElementChild);
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+        <li>Vue.js</li>
+    </ul>
+    <input type="button" id="btn" value="删除">
+</body>
+</html>

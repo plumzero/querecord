@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style type="text/css">
+        #btn {
+            display: inline-block;
+            line-height: 24px;
+            font-family: 微软雅黑;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 3px;
+            background-color: deepskyblue;
+            color: White;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background-color: dodgerblue;
+        }
+    </style>
+    <script>
+        window.onload = function ()
+        {
+            var oDiv = document.getElementById("btn");
+            oDiv.onclick = function() {
+                alert("点击事件");
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="btn">调试代码</div>
+</body>
+</html>

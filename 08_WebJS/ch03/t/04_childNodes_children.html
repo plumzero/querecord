@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function() {
+            var oUl = document.getElementById("list");
+            var childNodesLen = oUl.childNodes.length;
+            var childrenLen = oUl.children.length;
+
+            alert("childNodes.length:" + childNodesLen + "\n" + "children.length:" + childrenLen);
+        }
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+</body>
+</html>

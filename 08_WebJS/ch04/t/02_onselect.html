@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function ()
+        {
+            var oTxt1 = document.getElementById("txt1");
+            var oTxt2 = document.getElementById("txt2");
+
+            oTxt1.onselect = function() {
+                alert("你选中了单行文本框中的内容");
+            };
+            
+            oTxt2.onselect = function() {
+                alert("你选中了多行文本框中的内容");
+            };
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1" value="一二三四五六七八九十" /><br/>
+    <textarea id="txt2" cols="20" rows="5">一二三四五六七八九十</textarea>
+</body>
+</html>

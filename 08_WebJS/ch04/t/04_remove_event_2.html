@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function()
+        {
+            var oDiv = document.getElementById("content");
+            var oBtn = document.getElementById("btn");
+
+            oDiv.onclick = changeColor;
+            
+            // 点击按钮后，为 div 解除事件
+            oBtn.addEventListener("click", function() {
+                oDiv.onclick = null;
+            }, false);
+
+            function changeColor() {
+                this.style.color = "hotpink";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="content">Hello World</p>
+    <input type="button" id="btn" value="解除" />
+</body>
+</html>

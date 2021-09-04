@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function()
+        {
+            var oList = document.getElementById("list");
+
+            oList.onchange = function() {
+                var link = this.options[this.selectedIndex].value;
+                window.open(link);
+            };
+        }
+    </script>
+</head>
+<body>
+    <select id="list">
+        <option value="http://www.baidu.com">百度</option>
+        <option value="http://www.google.com">谷歌</option>
+    </select>
+</body>
+</html>

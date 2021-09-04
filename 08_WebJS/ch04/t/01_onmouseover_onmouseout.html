@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function()
+        {
+            var oP = document.getElementById("content");
+            oP.onmouseover = function () {
+                this.style.color = "red";
+            };
+            oP.onmouseout = function () {
+                this.style.color = "black";
+            };
+        }
+    </script>
+</head>
+<body>
+    <p id="content">Hello World</p>
+</body>
+</html>

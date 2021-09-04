@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function()
+        {
+            var oSelectAll = document.getElementById("selectAll");
+            var oFruit = document.getElementsByName("fruit");
+
+            oSelectAll.onchange = function() {
+                if (this.checked) {
+                    for (var i = 0; i < oFruit.length; i++) {
+                        oFruit[i].checked = true;
+                    }
+                } else {
+                    for (var i = 0; i < oFruit.length; i++) {
+                        oFruit[i].checked = false;
+                    }
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p><label><input type="checkbox" id="selectAll" />全选/反选:</label></p>
+        <label><input type="checkbox" name="fruit" value="apple" />apple</label>
+        <label><input type="checkbox" name="fruit" value="banana" />banana</label>
+        <label><input type="checkbox" name="fruit" value="watermelon" />watermelon</label>
+    </div>
+</body>
+</html>

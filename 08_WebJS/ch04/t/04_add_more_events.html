@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function ()
+        {
+            var oBtn = document.getElementById("btn");
+
+            oBtn.addEventListener("click", function() {
+                alert("第 1 次");
+            }, false);
+            oBtn.addEventListener("click", function() {
+                alert("第 2 次");
+            }, false);
+            oBtn.addEventListener("click", function() {
+                alert("第 3 次");
+            }, false);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮" />
+</body>
+</html>
