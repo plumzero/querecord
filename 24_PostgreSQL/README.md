@@ -19,3 +19,9 @@
 * [代码](https://github.com/go-pg/pg/issues/1726)
 * [代码二](https://github.com/go-pg/pg/issues/1642)
 * [代码三](https://github.com/go-pg/pg/issues/1452)
+
+
+### 记录
+
+* [问题记录](问题记录.md)
+* [运维记录](运维记录.md)
