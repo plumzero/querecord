@@ -19,12 +19,14 @@
 
 int main(int argc, char *argv[])
 {
+	int ret = 0;
     struct addrinfo hints, *result, *rp;
-	int sfd, cfd, flag, type, maxfd, id, i, j, toplimit, ret = 0, type_len = (int)sizeof(type);
+	int sfd, cfd, flag, type, maxfd, id, i, toplimit;
+	socklen_t typelen = sizeof(type);
     struct sockaddr_storage peer_addr;				// 地址通用结构体，用于保存客户端地址
     socklen_t peer_addr_len;
     ssize_t nr;
-    unsigned char buf[BUF_SIZE];
+    char buf[BUF_SIZE];
 	char hbuf[NI_MAXHOST], sbuf[NI_MAXSERV];
 	fd_set rfds, rtfds;
 	struct timeval tv;
@@ -57,7 +59,7 @@ int main(int argc, char *argv[])
 		if ((sfd = (int)socket(rp->ai_family, rp->ai_socktype, rp->ai_protocol)) == -1)
 			continue;
 		// 确认绑定到该端口的套接字类型是TCP
-		if (getsockopt(sfd, SOL_SOCKET, SO_TYPE, (void*)&type, &type_len) != 0 || type != SOCK_STREAM) {
+		if (getsockopt(sfd, SOL_SOCKET, SO_TYPE, (void*)&type, &typelen) != 0 || type != SOCK_STREAM) {
 			close(sfd);
 			continue;
 		}
@@ -120,7 +122,6 @@ int main(int argc, char *argv[])
 		}
 		// 超时 tv 内阻塞在这里
 		if((ret = select(maxfd + 1, &rfds, NULL, NULL, &tv)) == -1) {
-			fprintf(stderr, "%d ecode(%08X): %s\n", __LINE__, errno, strerror(errno));
             ECHO(ERRO, "select: %s", strerror(errno));
 			goto cleanup;
 		} else if (ret == 0) {
@@ -131,90 +132,73 @@ int main(int argc, char *argv[])
 			if(!FD_ISSET(id, &rfds))
 				continue;
 			// 两种动作，来自新客户端的连接或已有客户端的数据
-			if (id == sfd)
-			{
+			if (id == sfd) {
 				// 接受连接
 				peer_addr_len = sizeof(struct sockaddr_storage);
-				if ((cfd = (int)accept(sfd, (struct sockaddr *)&peer_addr, &peer_addr_len) ) == -1)
-				{
-					fprintf(stderr, "%d ecode(%08X): %s\n", __LINE__, errno, strerror(errno));
+				if ((cfd = (int)accept(sfd, (struct sockaddr *)&peer_addr, &peer_addr_len) ) == -1) {
+					ECHO(ERRO, "accept: %s", strerror(errno));
 					continue;
 				}
 				// 设置连接端口非阻塞
-				if (fcntl(cfd, F_SETFL, fcntl(cfd, F_GETFL) | O_NONBLOCK) == -1)
-				{
-					fprintf(stderr, "%d ecode(%08X): %s\n", __LINE__, errno, strerror(errno));
+				if (fcntl(cfd, F_SETFL, fcntl(cfd, F_GETFL) | O_NONBLOCK) == -1) {
+					ECHO(ERRO, "fcntl: %s", strerror(errno));
 					close(cfd);
 					continue;
 				}
 				// 获取客户端的信息
 				memset(hbuf, 0, NI_MAXHOST);
 				memset(sbuf, 0, NI_MAXSERV);
-				if ((ret = getnameinfo((struct sockaddr *)&peer_addr, peer_addr_len, hbuf, NI_MAXHOST, sbuf, NI_MAXSERV, NI_NUMERICSERV)) != 0)
-				{
-					fprintf(stderr, "%d ecode(%08X): %s\n", __LINE__, ret, gai_strerror(ret));
+				if ((ret = getnameinfo((struct sockaddr *)&peer_addr, peer_addr_len, hbuf, NI_MAXHOST, sbuf, NI_MAXSERV, NI_NUMERICSERV)) != 0) {
+					ECHO(ERRO, "getnameinfo: %s", gai_strerror(ret));
 					close(cfd);
 					continue;
-				}
-				else
-				{
+				} else {
 					// 加入到总读描述符集中
-					printf("%s:%s connected.\n", hbuf, sbuf);
+					ECHO(INFO, "%s:%s connected", hbuf, sbuf);
 					FD_SET(cfd, &rtfds);
 					if (cfd > maxfd)
 						maxfd = cfd;
 				}
-			}
-			else
-			{
+			} else {
 				memset(buf, 0, BUF_SIZE);
 				slen = 0;
-				if ((nr = recv(id, buf, BUF_SIZE, 0)) == -1)
-				{
+				if ((nr = recv(id, buf, BUF_SIZE, 0)) == -1) {
 					fprintf(stderr, "%d ecode(%08X): %s\n", __LINE__, errno, strerror(errno));
 					goto cleanup;
 				}
 				if (nr == 0)
 					break;
 				// 网络序转主机序
-				if (isLittleEndian)
-				{
+				if (isLittleEndian) {
 					for (i = 0; i < 2; i++)
 						slen |= (uint16_t)buf[i] << ((2 - i - 1) << 3);
-				}
-				else
-				{
+				} else {
 					for (i = 0; i < 2; i++)
 						slen |= (uint16_t)buf[i] << (i << 3);
 				}
-				if (slen == (uint16_t)strlen(buf + 2))
-				{
-					if (slen == 1 && buf[2] == 0x04)	// 清除套接字
-					{
-						printf("Received over.\n");
+				if (slen == (uint16_t)strlen(buf + 2)) {
+					if (slen == 1 && buf[2] == 0x04) {	// 清除套接字
+						ECHO(INFO, "Received over");
 						close(id);
 						FD_CLR(id, &rtfds);
 						break;
+					} else {
+						ECHO(INFO, "RECV (%2d bytes): %s", slen, buf + 2);
 					}
-					else
-					{
-						printf("RECV (%2d bytes): %s\n", slen, buf + 2);
-					}
-				}
-				else
-				{
-					printf("Received error.\n");	// 接收错误时，暂不作处理
+				} else {
+					ECHO(ERRO, "Received error");	// 接收错误时，暂不作处理
 					continue;
 				}
 			}
 		}
 	}
+
 cleanup:
-	printf("ret (%08x)\n", ret);
 	// 释放
 	if (result) freeaddrinfo(result);
 	memset(&rfds, 0, sizeof rfds);
 	memset(&rtfds, 0, sizeof rtfds);
 	close(sfd);
+
 	return ret;
 }
