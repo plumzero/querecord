@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 {
 	int ret = 0;
     struct addrinfo hints, *result, *rp;
-	int sfd, cfd, flag, type, maxfd, id, i, toplimit;
+	int sfd, cfd, on, type, maxfd, id, i, toplimit;
 	socklen_t typelen = sizeof(type);
     struct sockaddr_storage peer_addr;				// 地址通用结构体，用于保存客户端地址
     socklen_t peer_addr_len;
@@ -64,8 +64,8 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		// 设置端口可复用。服务器因意外断开，绑定端口未释放，重启此服务器可立即再使用该端口
-		flag = 1;
-		if (setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, (const char *)&flag, sizeof(flag)) != 0) {
+		on = 1;
+		if (setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, (const char *)&on, sizeof(on)) != 0) {
 			close(sfd);
 			continue;
 		}
