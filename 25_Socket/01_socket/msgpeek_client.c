@@ -20,11 +20,9 @@ struct TestHeader
 	uint16_t	psize;				/** payload size */
 	uint8_t 	crc32[4];
 	uint32_t	pholder;			/** placeholder */
-	
-	TestHeader() :ver(0), psize(0), pholder(0) {}
 } __attribute__ ((packed));
 
-#define HBUFSIZE		sizeof(TestHeader)
+#define HBUFSIZE		sizeof(struct TestHeader)
 #define DBUFSIZE		1024
 
 #define TOTAL           100000
@@ -38,12 +36,11 @@ int main(int argc, char *argv[])
 	struct sockaddr_in ssai, csai;
 	socklen_t len;
 	char ip[32] = { 0 };
-	char hbuf[HBUFSIZE];
 	char dbuf[DBUFSIZE];
-	ssize_t nbytes, ncheck;
+	ssize_t nbytes;
 	
 	if (argc != 3) {
-		printf("Usage: %s <ip> <port>\n", argv[0]);
+		ECHO(ERRO, "Usage: %s [ip] [port]", argv[0]);
 		return -1;
 	}
 	
@@ -51,7 +48,7 @@ int main(int argc, char *argv[])
 	
 	cfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (cfd == -1) {
-		printf("socket failed\n");
+		ECHO(ERRO, "socket: %s", strerror(errno));
 		return -1;
 	}
 
@@ -61,7 +58,7 @@ int main(int argc, char *argv[])
 	ssai.sin_family = AF_INET;
 	
 	if (connect(cfd, (const struct sockaddr*)&ssai, sizeof(struct sockaddr_in)) == -1) {
-		printf("connect failed\n");
+		ECHO(ERRO, "connect: %s", strerror(errno));
 		close(cfd);
 		return -1;
 	}
@@ -69,11 +66,11 @@ int main(int argc, char *argv[])
 	len = sizeof(struct sockaddr_in);
 	ret = getsockname(cfd, (struct sockaddr *)&csai, &len);
 	if (ret != 0) {
-		printf("getsockname failed\n");
+		ECHO(ERRO, "getsockname: %s", strerror(errno));
 		close(cfd);
 		return -1;
 	}
-	printf("clinet(%s:%d)\n", inet_ntoa(csai.sin_addr), ntohs(csai.sin_port));
+	ECHO(INFO, "clinet(%s:%d)", inet_ntoa(csai.sin_addr), ntohs(csai.sin_port));
 	
 	int circle = TOTAL;
 	int count = 0;
@@ -86,11 +83,12 @@ int main(int argc, char *argv[])
 		char tbuf[1024];
 		int n = snprintf(tbuf, 1024, "========== hello world from client %d ==========", circle);
 		if (n < 0 || n >= 1024) {
-			printf("snprintf failed\n");
+			ECHO(ERRO, "snprintf: %s", strerror(errno));
 			continue;
 		}
 		/** fill header */
-		TestHeader th;
+		struct TestHeader th;
+		memset(&th, 0, sizeof(th));
 		th.ver = 1022;
 		th.psize = htons(n);
 		memcpy(th.crc32, crc32, 4);
@@ -98,23 +96,18 @@ int main(int argc, char *argv[])
 		memcpy(dbuf, &th, sizeof(th));
 		memcpy(dbuf + sizeof(th), tbuf, n);
 		
-		// DBUG("version=%d, psize=%d, crc32=[%02X %02X %02X %02X], pholder=%d", th.ver, ntohs(th.psize), 
-				// (int)th.crc32[0], (int)th.crc32[1], (int)th.crc32[2], (int)th.crc32[3], th.pholder);
-		
 		nbytes = send(cfd, dbuf, n + sizeof(th), 0);
-		if (nbytes != n + sizeof(th)) {
-			printf("send error\n");
+		if (nbytes != n + (int)sizeof(th)) {
+			ECHO(ERRO, "send: %s", strerror(errno));
 			continue;
 		}
 		++count;
-		// DBUG("(%d)send %d bytes: %s", count, n + sizeof(th), tbuf);
 		if (count == TOTAL) {
 			time_t etime = time(NULL);
-			DBUG("cost time %d seconds\n", etime - btime);
+			ECHO(INFO, "cost time %ld seconds", etime - btime);
 		}
 	}
 	
-cleanup:
 	if (cfd > 0) close(cfd);
 	
 	return 0;
