@@ -114,3 +114,50 @@ BA 认证会对用户名和密码进行 base64 编码，并将编码值放到 HT
 ### Stable API Permissions
 
 关于 Stable API 的权限，有 `endpoint` 的概念。比如上面的 `/pools` 就是一个 endpoint 的，每个 endpoint 会限定特定角色进行访问。
+
+关于 Stable API 权限，如下:
+
+| Endpoint | Method | Permissions | Minimum Role |
+|:---------|:-------|:------------|:-------------|
+| /config  | GET | Configurations.can_read | Op |
+| /connections | GET | Connections.can_read | Op |
+| /connections | POST | Connections.can_create | Op |
+| /connections/{connection_id} | DELETE | Connections.can_delete | Op |
+| /connections/{connection_id} | PATCH | Connections.can_edit | Op |
+| /connections/{connection_id} | GET | Connections.can_read | Op |
+| /dagSources/{file_token} | GET | DAG Code.can_read | Viewer |
+| /dags | GET | DAGs.can_read | Viewer |
+| /dags/{dag_id} | GET | DAGs.can_read | Viewer |
+| /dags/{dag_id} | PATCH | DAGs.can_edit | User |
+| /dags/{dag_id}/clearTaskInstances | POST | DAGs.can_read, DAG Runs.can_read, Task Instances.can_edit | User |
+| /dags/{dag_id}/details | GET | DAGs.can_read | Viewer |
+| /dags/{dag_id}/tasks | GET | DAGs.can_read, Task Instances.can_read | Viewer |
+| /dags/{dag_id}/tasks/{task_id} | GET | DAGs.can_read, Task Instances.can_read | Viewer |
+| /dags/{dag_id}/dagRuns | GET | DAGs.can_read, DAG Runs.can_read | Viewer |
+| /dags/{dag_id}/dagRuns | POST | DAGs.can_edit, DAG Runs.can_create | User | 
+| /dags/{dag_id}/dagRuns/{dag_run_id} | DELETE | DAGs.can_read, DAG Runs.can_delete | User | 
+| /dags/{dag_id}/dagRuns/{dag_run_id} | GET | DAGs.can_read, DAG Runs.can_read | Viewer |
+| /dags/~/dagRuns/list | POST | DAGs.can_read, DAG Runs.can_read | Viewer |
+| /eventLogs | GET | Audit Logs.can_read | Viewer |
+| /eventLogs/{event_log_id} | GET | Audit Logs.can_read | Viewer |
+| /importErrors | GET | ImportError.can_read | Viewer |
+| /importErrors/{import_error_id} | GET | ImportError.can_read | Viewer |
+| /health | GET | None | Public |
+| /version | GET | None | Public |
+| /pools | GET | Pool.can_read | Op |
+| /pools | POST | Pool.can_create | Op |
+| /pools/{pool_name} | DELETE | Pool.can_delete | Op |
+| /pools/{pool_name} | GET | Pool.can_read | Op |
+| /pools/{pool_name} | PATCH | Pool.can_edit | Op |
+| /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances | GET| DAGs.can_read, DAG Runs.can_read, Task Instances.can_read | Viewer |
+| /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id} | GET | DAGs.can_read, DAG Runs.can_read, Task Instances.can_read | Viewer |
+| /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/links | GET | DAGs.can_read, DAG Runs.can_read, Task Instances.can_read | Viewer |
+| /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/logs/{task_try_number} | GET | DAGs.can_read, DAG Runs.can_read, Task Instances.can_read | Viewer |
+| /dags/~/dagRuns/~/taskInstances/list | POST | DAGs.can_read, DAG Runs.can_read, Task Instances.can_read | Viewer |
+| /variables | GET | Variables.can_read | Op |
+| /variables | POST | Variables.can_create | Op |
+| /variables/{variable_key} | DELETE | Variables.can_delete | Op |
+| /variables/{variable_key} | GET | Variables.can_read | Op |
+| /variables/{variable_key} | PATCH | Variables.can_edit | Op |
+| /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries | GET | DAGs.can_read, DAG Runs.can_read, Task Instances.can_read, XComs.can_read | Viewer |
+| /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/xcomEntries/{xcom_key} | GET | DAGs.can_read, DAG Runs.can_read, Task Instances.can_read, XComs.can_read | Viewer |
