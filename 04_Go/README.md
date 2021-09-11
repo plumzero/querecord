@@ -69,6 +69,7 @@
    * [flag](ch13/05_flag.md)
    * [文件读写](ch13/06_io.md)
    * [log](ch13/07_log.md)
+   * [time](ch13/08_time.md)
 * [工程管理与项目设计](ch15)
    * [简单计算器](ch15/01_calc)
    * [排序程序](ch15/02_sorter)
