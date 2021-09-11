@@ -11,8 +11,9 @@ Go 语言提供了 html/template 包，用于生成可对抗代码注入的安�
 
 Go 语言模板引擎的使用分为: 定义模板文件、解析模板文件和渲染模板文件。
 
-1.定义模板文件: 按照相应的语法规则去定义模板文件。
-2.解析模板文件: html/template 包提供了以下方法来解析模板文件，获得模板对象。
+1. 定义模板文件: 按照相应的语法规则去定义模板文件。
+
+2. 解析模板文件: html/template 包提供了以下方法来解析模板文件，获得模板对象。
 
 | 方法或函数名 | 说明 |
 |:------------|:-----|
@@ -21,7 +22,7 @@ Go 语言模板引擎的使用分为: 定义模板文件、解析模板文件和
 | `func ParseFiles(filenames ...string) (*Template, error)` | 解析模板文件，并返回对应的模板对象 |
 | `func ParseGlob(pattern string) (*Template, error)` | 批量解析文件，pattern 支持正则匹配 |
 
-3.渲染模板文件: html/template 包提供了 `Execute()` 和 `ExecuteTemplate()` 方法来渲染模板，这两个方法的定义如下:
+3. 渲染模板文件: html/template 包提供了 `Execute()` 和 `ExecuteTemplate()` 方法来渲染模板，这两个方法的定义如下:
 ```go
     func (t *Template) Execute(wr io.Writer, date interface{}) error {}
     func (t *Template) ExecuteTemplate(wr io.Writer, name string, data interface{}) error {}
@@ -30,7 +31,7 @@ Go 语言模板引擎的使用分为: 定义模板文件、解析模板文件和
 - 使用 ParseFiles() 函数可以一次加载多个模板，此时不可以使用 Execute() 来执行数据融合，可以通过 ExecuteTemplate() 方法指定模板名称来执行数据融合。
 
 
-### 模板使用
+### 模板的简单使用
 
 模板语法都包含在 "{{" 和 "}}" 中间，其中 "{{.}}" 中的点表示当前对象。
 
@@ -38,7 +39,55 @@ Go 语言模板引擎的使用分为: 定义模板文件、解析模板文件和
 
 可以通过将模板应用于一个数据结构来执行并输出 HTML 文档。模板在执行时会遍历数据结构，根据 "." 来访问结构体的对应字段并替换。
 
-[简单结构融合示例程序](t/03_tmpl_struct.go)     [简单结构融合示例模板](t/03_tmpl_struct.tmpl)
+[结构体融合示例程序](t/03_tmpl_struct.go)     [结构体融合示例模板](t/03_tmpl_struct.tmpl)
+
+
+### 嵌入模板
+
+`ParseFiles()` 函数支持加载多个模板文件，模板对象的名字则是第一个模板文件的文件名。
+
+如果需要把数据传递到指定模板执行渲染，可以使用 `ExecuteTemplate()`，这个方法可用于执行指定名字的模板，因为在多个模板文件加载情况下，需要指定特定的模板渲染执行。
+
+比如这里有一个名为 `Layout.html.tmpl` 的模板:
+```tmpl
+    {{define "layout"}}
+
+    <!doctype html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Author" content="">
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <title>Go</title>
+    </head>
+    <body>
+        {{.}}
+
+        {{template "index"}}
+    </body>
+
+    {{end}}
+```
+如上，模板文件开头定义了模板名字 `{{define "layout"}}`。同时在模板 layout 中，通过 `{{template "index"}}` 嵌入了模板 `index`，也就是第二个模板文件 `index.html.tmpl`，其内容如下:
+```tmpl
+    {{define "index"}}
+
+    <div>
+    <b>Go Usage!</b>
+    </div>
+    {{end}}
+```
+下面的代码，通过 `ExecuteTemplate(w, "layout", "Hello World!")` 为名字为 layout 的模板传入字符串:
+```go
+    t, err := template.ParseFiles("layout.html.tmpl", "index.html.tmpl")
+    t.ExecuteTemplate(w, "layout", "Hello World!")
+```
+
+* [嵌套模板使用示例](t/03_tmpl_embed.go)
+* [嵌套模板使用示例二](t/03_tmpl_multi.go)
+
+
+### 模板语法
 
 管道是指产生数据的操作，按这个定义 "{{.}}"、"{{.Name}}" 都可以称为管道。可以在 Action 中初始化一个变量来捕获管道的执行结果，其初始化语法为: `$variable := pipeline`。声明变量的 Action 不会产生任何输出。变量可以通过 "{{$variable}}" 方式引用。
 
@@ -86,20 +135,3 @@ Go 语言模板支持自定义函数，它通过调用 Funcs() 方法实现，�
 `FuncMap()` 类型定义了函数名字符串到函数的映射，每个函数都必须有 1 个或 2 个返回值。如果有 2 个返回值，则后一个必须是 error 接口类型；如果有 2 个返回值的方法返回 error 非 nil，则模板执行会中断并返回该错误给调用者。
 
 [自定义函数使用示例](t/03_tmpl_funcs.go)
-
-html/template 包支持在一个模板中嵌套其他模板。被嵌套的模板可以是单独的文件，也可以是通过 `define` 关键字定义的模板。通过 `define` 关键字可以直接在待解析内容中定义一个模板，例如定义一个名称为 name 的模板的形式如下:
-```template
-    {{ define "name" }} T {{ end }}
-```
-通过 `template` 关键字来执行模板。例如，执行名为 "name" 的模板的形式如下:
-```template
-    {{ template "name" }}
-    {{ template "name" pipeline }}
-```
-`block` 关键字等价于 `define` 关键字，其用于定义一个模板，并在有需要的地方执行这个模板。其形式如下:
-```template
-    {{ block "name" pipeline }} T {{ end }}
-```
-它等价于: 先执行 `{{ define "name" }} T {{ end }}`，再执行 `{{ template "name" pipeline }}`。
-
-[嵌套模板使用示例](t/03_tmpl_multi.go)
