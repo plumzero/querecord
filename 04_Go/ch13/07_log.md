@@ -29,8 +29,8 @@ log 包中还有一个 `Output()` 方法用于写入输出一次日志事件。�
 
 calldepth 用于控制日志堆栈输出深度，正常情况下堆栈深度为 2 层，所以其预定义的值为 2, s 是要打印的文本，如果末尾没有换行符会默认加上。
 
-[使用Print和Fatal类型输出至logger示例](04/log_print_fatal.go)
+[使用Print和Fatal类型输出至logger示例](07/log_print_fatal.go)
 
-[使用Panic类型输出logger示例](04/log_panic.go)
+[使用Panic类型输出logger示例](07/log_panic.go)
 
-[错误处理与logger的结合示例](04/log_errors.go)
+[错误处理与logger的结合示例](07/log_errors.go)

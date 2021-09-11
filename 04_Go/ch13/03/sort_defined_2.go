@@ -45,24 +45,13 @@ func main() {
 	s5 := GrpcServer{ Name: "gwt-sh", Addr: "127.0.0.1:22334", Receivers: []string{ "redis-LimitedPriceData-real" }, Weight: 300 }
 	s6 := GrpcServer{ Name: "idc", Addr: "127.0.0.1:33445", Receivers: []string{ "redis-LimitedPriceData-real" }, Weight: 200 }
 
-	ss := []GrpcServer{ s5, s3, s2, s6, s1, s4 }
+	ss := ByWeight{ s5, s3, s2, s6, s1, s4 }
 
 	for _, e := range ss {
 		fmt.Println(e)
 	}
-	fmt.Println("---------------------")
 
-	// 默认排序: 严格弱排序
-	sort.Sort(ByWeight(ss))
-	for _, e := range ss {
-		fmt.Println(e)
-	}
-	fmt.Println("---------------------")
-
-	// 自定义排序: 从大到小
-	sort.Slice(ss, func(i, j int) bool {
-		return ss[i].Weight > ss[j].Weight
-	})
+	sort.Sort(ss)
 	for _, e := range ss {
 		fmt.Println(e)
 	}
