@@ -72,6 +72,7 @@
    * [text](ch13/10_text.md)
    * [html](ch13/11_html.md)
    * [context](ch13/12_context.md)
+   * [strings](ch13/13_strings.md)
 * [工程管理与项目设计](ch15)
    * [简单计算器](ch15/01_calc)
    * [排序程序](ch15/02_sorter)
