@@ -36,7 +36,7 @@ Go 语言通过 `SetCookie()` 函数设置 cookie，定义如下:
     func SetCookie(w ResponseWriter, cookie *Cookie)
 ```
 
-[设置cookie示例](t/03_SetCookie.go)
+[设置cookie示例](t/05_SetCookie.go)
 
 Request 对象一共有 3 个处理 cookie 的方法: 2 个获取 cookie 和 1 个添加 cookie 。
 
@@ -52,7 +52,7 @@ Request 对象一共有 3 个处理 cookie 的方法: 2 个获取 cookie 和 1 �
     func (r *Request) AddCookie(c *Cookie)
 ```
 
-[获取和添加cookie示例](t/03_Cookie_AddCookie.go)
+[获取和添加cookie示例](t/05_Cookie_AddCookie.go)
 
 
 ### Go 使用 session
@@ -72,7 +72,3 @@ Session 提供 4 种操作接口: 设置值、获取值、删除值和获取当�
 ```
 
 2.创建 session 管理器
-
-
-
-

@@ -11,7 +11,7 @@ import (
 
 func upload(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		t, _ := template.ParseFiles("02_MultipartForm.html")
+		t, _ := template.ParseFiles("03_MultipartForm.html")
 		t.Execute(w, nil)
 	}
 

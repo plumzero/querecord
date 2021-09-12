@@ -10,7 +10,7 @@ import (
 func process(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "GET" {
-		http.ServeFile(w, r, "02_Form_PostForm.html")
+		http.ServeFile(w, r, "03_Form_PostForm.html")
 	}
 
 	if r.Method == "POST" {
