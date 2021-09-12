@@ -6,12 +6,27 @@ Gin 默认使用 Go 语言内置的 html/template 包处理 HTML 模板。
 
 ### 处理静态文件
 
-在 Gin 中，如果项目中包含 JS、CSS、JPG 之类的静态文件，可以通过如下方式访问:
+一般网站开发中，会考虑把 js, css 文件以及资源图片放在一起，作为静态站点部署在 CDN，提升响应速度。静态资源可以通过如下方式加载:
+```go
+    func (group *RouterGroup) Static(relativePath, root string) IRoutes
+    func (group *RouterGroup) StaticFile(relativePath, filepath string) IRoutes
+    func (group *RouterGroup) StaticFS(relativePath string, fs http.FileSystem) IRoutes
+```
+* `StaticFile`: 用于加载单个文件。
+* `StaticFS`: 用于加载一个完整的目录资源。
+
+示例:
 ```go
     func main() {
         router := gin.Default()
+
         router.Static("/assets", "/var/www/gin/assets")
         router.Static("/favicon.ico", "./static/favicon.ico")
+        router.Static("/static", "/var/www")
+
+        router.StaticFile("/favicon.ico", "./resources/favicon.ico")
+        router.StaticFS("/public", http.Dir("/website/static"))
+
 
         router.Run(":8080")
     }
