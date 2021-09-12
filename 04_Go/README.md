@@ -41,7 +41,7 @@
    * [服务端](ch07/01_服务端.md)
    * [客户端](ch07/02_客户端.md)
    * [请求与响应处理](ch07/03_请求与响应处理.md)
-   * [中间件](ch07/04_中间件.md)
+   * [中间件与静态资源](ch09/04_中间件与静态资源.md)
    * [session和cookie](ch07/05_session和cookie.md)
 * [gin编程](ch09)
    * [路由与控制器](ch09/01_路由与控制器.md)
@@ -50,7 +50,7 @@
    * [渲染HTML模板与处理静态文件](ch09/04_渲染HTML模板与处理静态文件.md)
    * [处理cookie](ch09/05_处理cookie.md)
    * [文件上传](ch09/06_文件上传.md)
-   * [中间件与静态资源](ch09/07_中间件与静态资源.md)
+   * [中间件](ch09/07_中间件.md)
    * [处理session](ch09/08_处理session.md)
 * 安全编程
 * 分布式系统
@@ -71,6 +71,7 @@
    * [encoding](ch13/09_encoding.md)
    * [text](ch13/10_text.md)
    * [html](ch13/11_html.md)
+   * [context](ch13/12_context.md)
 * [工程管理与项目设计](ch15)
    * [简单计算器](ch15/01_calc)
    * [排序程序](ch15/02_sorter)
