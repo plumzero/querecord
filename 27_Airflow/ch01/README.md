@@ -12,8 +12,8 @@
  
   下载地址: https://www.anaconda.com/products/individual-d
 
-* airflow 2.1.3
+* Airflow 2.1.3
 
 * PostgreSQL 13.1
 
-  外部数据库。可以部署在同一机器上，也可以部署在其他机器上，但要确保 airflow 可以访问得到。
+  外部数据库。可以部署在同一机器上，也可以部署在其他机器上，但要确保 Airflow 可以访问得到。
