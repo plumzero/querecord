@@ -12,6 +12,10 @@ usage()
 
 upload="false"
 
+#
+# 后面带 : 表示后面必须带参数，如 j: 可以是 -j JAVA_DIR, 但不能是 -j
+#
+
 while getopts 'j:m:uh' OPT
 do
 	case $OPT in

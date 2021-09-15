@@ -19,16 +19,13 @@ function main()
     array=("one" "two" "three")
 
 
-    ### 打印数组长度: 方法一
+    ### 打印数组长度
     echo ${#array[*]}
-
-
-    ### 打印数组长度: 方法二
-    echo ${#array}
-
+    echo ${#array[@]}
 
     ### 打印整个数组
     echo ${array[*]}
+    echo ${array[@]}
 
 
     ### 查看数组中某个值
@@ -46,6 +43,13 @@ function main()
 
     ### 删除数组某个值
     unset array[3]
+
+    ### 测试 var 是否在数组中
+    var="five"
+    for i in ${array[@]}
+    do
+        [ "$i" == "$var" ] && echo "yes"
+    do
 
     printarray ${array[*]}
 }
