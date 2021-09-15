@@ -13,6 +13,7 @@ OP_PERMISSIONS = [
     (permissions.ACTION_CAN_READ, permissions.RESOURCE_POOL),
     (permissions.ACTION_CAN_EDIT, permissions.RESOURCE_POOL),
     (permissions.ACTION_CAN_DELETE, permissions.RESOURCE_POOL),
+    (permissions.ACTION_CAN_READ, permissions.RESOURCE_PROVIDER),
     (permissions.ACTION_CAN_CREATE, permissions.RESOURCE_VARIABLE),
     (permissions.ACTION_CAN_READ, permissions.RESOURCE_VARIABLE),
     (permissions.ACTION_CAN_EDIT, permissions.RESOURCE_VARIABLE),

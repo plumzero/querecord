@@ -1,7 +1,9 @@
 
+[参考](https://airflow.apache.org/docs/apache-airflow/2.1.3/security/flower.html)
+
 `Flower`  是一个基于 Web 的用于监控和管理 Celery 集群的工具。
 
-本主题会对 Flower 实例的安全进行配置。
+本主题会对如何安全配置 Flower 实例进行说明。
 
 ### Flower Authentication
 
