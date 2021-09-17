@@ -63,8 +63,7 @@ Airflow Pipeline 就是一个 Python 脚本，可以用来定义一个 Airflow D
         # 'trigger_rule': 'all_success'
     }
 ```
-`default_args` 也是 `BaseOperator` 的参数，BaseOperator 会。
-
+`BaseOperator` 会应用 `default_args` 的参数，其他的 Operator 会使用 BaseOperator 。
 
 关于上面每个参数的意义，看[这里](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/models/index.html)。
 
@@ -98,4 +97,120 @@ Airflow Pipeline 就是一个 Python 脚本，可以用来定义一个 Airflow D
 
 使用者可以根据自己的意图来定义不同的参数，比如区分生产环境和开发环境。
 
+
+### 实例化 DAG
+
+我们需要创建 DAG 对象来将任务(task)放到里面运行，每个 DAG 对象可以通过一个名为 `dag_id` 的字符串进行唯一标识。
+
+如下示例中，第一个参数 `tutorial` 即 dag_id 作为唯一标识，同时传入缺省参数集来定义一个执行频率为 1 天的 DAG 对象:
+
+```py
+    with DAG(
+        'tutorial',
+        default_args = default_args,            // 使用系统缺省参数集
+        # 以下是重写的参数
+        description = 'A simple tutorial DAG',
+        schedule_interval = timedelta(days=1),
+        start_date=days_ago(2),
+        tags = ['example'],
+    ) as dag:
+```
+
+
+### 任务
+
+当实例化 operator 对象时，任务(task)就会被创建。也可以这样认为 operator 就是任务的构造函数
+
+我们将上面的参数传入到 operator 中，就可以创建一个任务，而 `task_id` 会作为这个任务的唯一标识:
+```py
+    t1 = BashOperator(
+        task_id = 'print_date',
+        bash_command = 'date',
+    )
+
+    t2 = BashOperator(
+        task_id = 'sleep',
+        depends_on_past = False,
+        bash_command = 'sleep 5',
+        retries = 3,
+    )
+```
+这里在创建任务 t2 时，同时传入了一个针对于 BashOperator 的特定参数 bash_command，以及一个通用参数 retries，后者会对 default_args 中的同名参数进行重写。
+
+在构造任务时，operator 有自己的缺省参数，也可以使用 default_args 中的参数，也可以显示传入参数。这三类参数的优先使用顺序如下:
+1. 显示入参
+2. 定义在 default_args 中的参数
+3. operator 的缺省参数，如果存在的话
+
+任务必须包括或者继承 `task_id` 和 `owner` 参数，否则 Airflow 会抛出异常。
+
+
+### 使用 Jinja 模板
+
+暂略。
+
+[Jinja的使用参数](https://jinja.palletsprojects.com/en/latest/)
+
+
+### 设置依赖
+
+假定现在有 3 个任务，分别是 t1 t2 t3，开始时互不依赖。这里提供了几种方式来定义它们之间的依赖。
+
+t2 依赖 t1，用箭头表示就是 t1 指向 t2。如下两种方式都可以表述这种关系:
+```py
+    t1.set_downstream(t2)
+    t2.set_upstream(t1)
+```
+
+上面的不够直观，可以用下面的方式替代:
+```py
+    t1 >> t2
+    t2 << t1
+```
+
+其他的依赖方式示例:
+```py
+    t1 >> t2 >> t3
+    t1 >> [t2, t3]
+    [t2, t3] >> t1
+```
+
+设置依赖时，注意不要形成闭环哟！
+
+
+### 查看 DAG 文件
+
+DAG 文件可以到配置文件配置项 `core.dags_folder` 指定路径下查看，也可以通过如下命令行查看。
+
+列出活跃的 DAG:
+```sh
+    airflow dags list
+```
+
+列出 `tutorial` DAG 中的任务:
+```sh
+    airflow tasks list tutorial
+```
+
+树状形式列出 `tutorial` DAG 中的任务:
+```sh
+    airflow tasks list tutorial --tree
+```
+
+### 任务补录 backfill
+
+到现在为上，一切看起来进展的都很顺利。现在来谈一谈任务补录吧(backfill)。
+
+`backfill` 会遵照你的 Airflow 部署依赖，将日志注入文件的同时也会与数据库交互将状态进行记录保存。如果你启动了 webserver 进程服务，那么就可以在页面上追踪这些状态。
+
+如果在构造任务使用参数 `depends_on_past=True` 时，是否执行任务实例要依赖于上一个任务实例是否执行成功(也就是说，取决于上一个任务实例的`execution_date`)。如果任务实例参数为 `execution_date==start_date`，那么运行会忽略这种依赖，因为对这个实例来说，已经没有过往的任务实例可言。
+
+在使用 `depends_on_past=True` 参数时，你可能还需要考虑 `wait_for_downstream=True` 参数。`depends_on_past=True` 让(两个任务实例中的)一个实例等待上一个实例成功，`wait_for_downstream=True` 也会让任务实例等待前一个任务实例下游的所有任务实例成功。
+
+上下文环境中的日期范围以 `start_date` 和视需要选择的 `end_date` 进行定义。设定之后，DAG 对象中位于该日期范围内的任务实例都会被调度执行。
+
+示例:
+```sh
+    airflow dags backfill tutorial --start-date 2021-09-11 --end-date 2021-09-15
+```
 
