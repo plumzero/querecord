@@ -39,11 +39,3 @@
    * [简单动画效果](ch06/04_简单动画效果.md)
    * [简单网站设计](ch06/05_简单网站设计.md)
 * [Ajax相关](ch07)
-
-
-### jQuery
-
-* [框架库jQuery](ch08)
-   * [jQuery常用选择器](ch08/01_jQuery常用选择器.md)
-   * [jQuery常用事件方法](ch08/02_jQuery常用事件方法.md)
-   * [jQuery的动画效果](ch08/03_jQuery的动画效果.md)
