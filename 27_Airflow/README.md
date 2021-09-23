@@ -12,6 +12,7 @@
 * [概念](ch03)
     * [架构概述](ch03/01_架构概述.md)
     * [再看DAG](ch03/02_再看DAG.md)
+    * [任务](ch03/03_任务.md)
 
 * [操作符](ch04)
     * [BashOperator](ch04/01_BashOperator.md)
