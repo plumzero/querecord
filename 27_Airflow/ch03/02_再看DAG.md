@@ -180,16 +180,52 @@ DAG 在每次运行时会实例化为一个 DAG Run，同样地，DAG 中的 Tas
 
 1. Branching
 
-基于某种条件选择哪些任务要移动。
+基于某个条件选择下次要进行的任务。
 
-使用 Branching 方式可以告知 DAG 不要运行所有依赖的上游任务，只是选择一个或几个执行。其通过 BranchPythonOperator 实现。
+使用 Branching 方式可以告知 DAG 不用运行所有依赖的上游任务，只是选择一个或几个执行。其通过 BranchPythonOperator 实现。
 
 `BranchPythonOperator` 很像 PythonOperator，只不过它期望一个能够返回一个(或一组)`task_id` 的 `python_callable`。接下来会执行这个(或些) `task_id` 所标识的 task，其他的则被跳过。 
 
+由 Python 函数返回的 task_id 所代表的 task 将不得不作为 BranchPythonOperator 所创建的任务的直接下游。
 
+注意，当一个任务同时作为 branching operator 任务以及另一个(或多个)已选择任务的下游时，这个任务将不会被跳过。如下图示例:
 
+![](img/branch_note.png)
 
-2. Latest Only
+这里分支路径上的任务有 `branch_a`、`join` 和 `branch_b`。`join` 由于作为 `branch_a` 的下游任务存在，所以它始终会被运行，即使它没有被返回作为分支决议的其中一部分。
+
+BranchPythonOperator 也可以通过 `XComs` 使分支上下文环境基于上游任务动态决定接下来哪个任务要被运行:
+```py
+    def branch_func(ti):
+        xcom_value = int(ti.xcom_pull(task_ids='start_task'))
+        if xcom_value >= 5:
+            return 'continue_task'
+        else:
+            return 'stop_task'
+
+    start_op = BashOperator(
+        task_id='start_task',
+        bash_command="echo 5",
+        xcom_push=True,
+        dag=dag,
+    )
+
+    branch_op = BranchPythonOperator(
+        task_id='branch_task',
+        python_callable=branch_func,
+        dag=dag,
+    )
+
+    continue_op = DummyOperator(task_id='continue_task', dag=dag)
+    stop_op = DummyOperator(task_id='stop_task', dag=dag)
+
+    start_op >> branch_op >> [continue_op, stop_op]
+```
+如上，这里我们创建了 4 个任务，分别是 `start_op`、`branch_op`、`continue_op` 和 `stop_op`。start_op 作为最上游任务先被执行，之后执行 branch_op，它会执行 python_callable 类型调用 branch_func，在这个函数中会根据条件选择接下来要执行哪个任务(continue_op 或者 stop_op)。这里的分支条件是根据 start_op 任务的命令执行结果进行分支选择，这里接收到到的始终是 5，所以会一直执行 continue_op 任务。
+
+使用者可以通过继承 `BaseBranchOperator`
+
+1. Latest Only
 
 Branching 的一种特殊形式，
 
