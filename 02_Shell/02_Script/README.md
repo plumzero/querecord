@@ -18,3 +18,7 @@
 [测试脚本](61_测试脚本.md)
 
 [实用脚本](62_实用脚本.md)
+
+### 禁忌
+
+编写启动一个服务的脚本时，脚本名称尽量不要与服务名称有相似性。比如 "indicator.sh" 和 "indicator_service.sh" 就有相同的 "indicator"，这样就不好。"start.sh" 和 "indicator_service.sh"，这样就很好。
