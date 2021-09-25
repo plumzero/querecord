@@ -19,6 +19,7 @@
 
 [实用脚本](62_实用脚本.md)
 
-### 禁忌
+### 注意
 
-编写启动一个服务的脚本时，脚本名称尽量不要与服务名称有相似性。比如 "indicator.sh" 和 "indicator_service.sh" 就有相同的 "indicator"，这样就不好。"start.sh" 和 "indicator_service.sh"，这样就很好。
+编写启动一个服务的脚本时，脚本名称尽量不要与服务名称有相似性。比如 "indicator_service.sh" 和 "indicator_service" 就有相同的 "indicator_service"，这样就不好。为什么呢？设想这样一种情况下，在这个脚本中先找到对应的服务是否运行，如果运行则杀掉它，之后重启服务。假如你是通过 `ps -ef | grep indicator_service` 寻找的，那么很可能会连带 indicator_service.sh 这个脚本一起找到并杀掉，之后也就没办法执行重启了。
+
