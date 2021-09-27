@@ -24,3 +24,8 @@ a.henrylink {
     padding: 2px;
     border: 1px solid #000;
 }
+
+a.external {
+    background: #fff url(images/external.png) no-repeat 100% 2px;
+    padding-right: 16px;
+}

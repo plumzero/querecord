@@ -10,3 +10,7 @@ $(document).ready(function() {
     $('a[href$=".pdf"]').addClass('pdflink');
     $('a[href^="http"][href*="henry"]').addClass('henrylink');
 });
+
+$('a').filter(function() {
+    return this.hostname && this.hostname != location.hostname;
+}).addClass('external');
