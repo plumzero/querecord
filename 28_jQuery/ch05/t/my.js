@@ -1,6 +1,6 @@
 // 数据在 html 中
 $(document).ready(function() {
-    $('#letter-a a').click(function(event) {
+    $('#letter-a div').click(function(event) {
         event.preventDefault();
         $('#dictionary').load('a.html');
     });
@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 // 数据在 json 中
 $(document).ready(function() {
-    $('#letter-b a').click(function(event) {
+    $('#letter-b div').click(function(event) {
         event.preventDefault();
         $.getJSON('b.json', function(data) {
             var html = '';
@@ -38,15 +38,16 @@ $(document).ready(function() {
 
 // 通过 jQuery 直接加载 .js 文件
 $(document).ready(function() {
-    $('#letter-c a').click(function(event) {
+    $('#letter-c div').click(function(event) {
         event.preventDefault();
         $.getScript('c.js');
     });
 });
 
+
 // 数据在 xml 中
 $(document).ready(function() {
-    $('#letter-d a').click(function(event) {
+    $('#letter-d div').click(function(event) {
         event.preventDefault();
         $.get('d.xml', function(data) {
             $('#dictionary').empty();
@@ -82,17 +83,52 @@ $(document).ready(function() {
 
 // 通过 Ajax GET 数据
 $(document).ready(function(){
-    $('#letter-e a').click(function(event) {
+    $('#letter-e div').click(function(event) {
         $.ajax({
             type: "GET",
-            url: "http://192.168.11.42/get",
+            url: "http://192.168.11.13:8080/get",
             dataType: "json",
             success: function(data) {
-                if (data.code != 200) {
-                    return false;
-                }
+                jdata = JSON.stringify(data);
                 var html = '';
-                $.each(data, function(entryIndex, entry) {
+                $.each(JSON.parse(jdata), function(entryIndex, entry) {
+                    html += '<div class="entry">';
+                    html += '<h3 class="term">' + entry.term + '</h3>';
+                    html += '<div class="part">' + entry.part + '</div>';
+                    html += '<div class="definition">';
+                    html += entry.definition;
+                    if (entry.quote) {
+                        html += '<div class="quote">';
+                        $.each(entry.quote, function(lineIndex, line) {
+                            html += '<div class="quote-line">' + line + '</div>';
+                        });
+                        if (entry.author) {
+                            html += '<div class="quote-author">' + entry.author + '</div>';
+                        }
+                        html += '</div>';
+                    }
+                    html += '</div>';
+                    html += '</div>';
+                });
+                $('#dictionary').append(html);
+
+                return false;
+            }
+        });
+    });
+});
+
+// 通过 Ajax POST 数据
+$(document).ready(function(){
+    $('#letter-f div').click(function(event) {
+        $.ajax({
+            type: "POST",
+            url: "http://192.168.11.13:8080/post",
+            dataType: "json",
+            success: function(data) {
+                jdata = JSON.stringify(data);
+                var html = '';
+                $.each(JSON.parse(jdata), function(entryIndex, entry) {
                     html += '<div class="entry">';
                     html += '<h3 class="term">' + entry.term + '</h3>';
                     html += '<div class="part">' + entry.part + '</div>';
