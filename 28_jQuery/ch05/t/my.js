@@ -86,7 +86,7 @@ $(document).ready(function(){
     $('#letter-e div').click(function(event) {
         $.ajax({
             type: "GET",
-            url: "http://192.168.11.13:8080/get",
+            url: "/get",
             dataType: "json",
             success: function(data) {
                 jdata = JSON.stringify(data);
@@ -123,7 +123,7 @@ $(document).ready(function(){
     $('#letter-f div').click(function(event) {
         $.ajax({
             type: "POST",
-            url: "http://192.168.11.13:8080/post",
+            url: "/post",
             dataType: "json",
             data: {
                 appId: "101",
