@@ -125,6 +125,11 @@ $(document).ready(function(){
             type: "POST",
             url: "http://192.168.11.13:8080/post",
             dataType: "json",
+            data: {
+                appId: "101",
+                userId: "xiaoming",
+            },
+            contentType: "application/x-www-form-urlencoded",
             success: function(data) {
                 jdata = JSON.stringify(data);
                 var html = '';

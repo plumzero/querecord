@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"log"
 
     "github.com/gin-gonic/gin"
 )
@@ -67,6 +68,9 @@ func main() {
 	})
 	
     router.POST("/post", func(c *gin.Context) {
+		appId := c.PostForm("appId")
+		userId := c.PostForm("userId")
+		log.Printf("appId=%s,userId=%s", appId, userId)
 		c.String(http.StatusOK, string(cs))
 	})
 
