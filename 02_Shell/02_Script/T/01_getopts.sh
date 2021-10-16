@@ -30,3 +30,7 @@ done
 echo $JAVA_DIR
 echo $MAVEN_DIR
 echo $upload
+
+if [[ $upload == "true" ]]; then
+	echo 'is true'
+fi
