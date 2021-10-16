@@ -1,4 +1,8 @@
 
+* [PostgreSQL Functions](https://www.techonthenet.com/postgresql/functions/index.php)
+
+另外，也可以参考 postgresql-13 手册 PL/pgSQL 部分，具体页数为 1208 ~ 1273 。
+
 ### 变量定义与赋值
 
 变量的定义:
@@ -19,4 +23,3 @@
     a := 10;
     SELECT 100,200 INTO a,b;
 ```
-

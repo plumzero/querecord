@@ -61,6 +61,10 @@ postgresql-13.3
     * [WAL归档](ch13/02_WAL归档.md)
     * [恢复到最近时间点](ch13/66_恢复到最近时间点.md)
     * [恢复到指定时间点](ch13/67_恢复到指定时间点.md)
+* [脚本编写](ch16)
+    * [plpgsql](ch16/01_plpgsql.md)
+    * [plperl](ch16/02_plperl.md)
+    * [踩坑](ch16/03_踩坑.md)
 
 ### 参考
 
