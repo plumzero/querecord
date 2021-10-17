@@ -21,6 +21,7 @@
 * [数据库](ch04)
     * [pgsql](ch04/01_pgsql)
     * [redis](ch04/02_redis)
+    * [sqlite](ch04/03_sqlite)
 * [基础服务](ch05)
     * [curl](ch05/01_curl)
     * [ntp](ch05/02_ntp)
