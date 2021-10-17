@@ -66,14 +66,22 @@ postgresql-13.3
     * [plperl](ch16/02_plperl.md)
     * [踩坑](ch16/03_踩坑.md)
 
+### 语句
+
+测试在 PostgreSQL-13.1 下进行。
+
+* [DDL篇](ddl)
+* [DML篇](dml)
+* [DCL篇](dcl)
+
+### 记录
+
+* [问题记录](问题记录.md)
+* [运维记录](运维记录.md)
+
 ### 参考
 
 * [代码](https://github.com/go-pg/pg/issues/1726)
 * [代码二](https://github.com/go-pg/pg/issues/1642)
 * [代码三](https://github.com/go-pg/pg/issues/1452)
 
-
-### 记录
-
-* [问题记录](问题记录.md)
-* [运维记录](运维记录.md)
