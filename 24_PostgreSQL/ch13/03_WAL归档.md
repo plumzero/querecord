@@ -15,7 +15,7 @@
 | archive_mode = on | 开启归档模式 | 重启 |
 | archive_command = 'test ! -f /path/to/archivedir/%f && cp %p /path/to/archivedir/%f' | 指定归档命令，这里是将 WAL 归档到 `/path/to/archivedir` 目录下 | 重载 |
 
-关于 `/path/to/archivedir`，这里是 `/pgdata/10/archive_wals`。
+关于 `/path/to/archivedir`，这里是 `/pgdata/13/archive_wals`。
 
 参数配置完成之后，重新启动 PostgreSQL 数据库，这个时候系统会将 `data/pg_wal/` 目录下的 WAL 文件归档到 `/path/to/archivedir` 下。
 
