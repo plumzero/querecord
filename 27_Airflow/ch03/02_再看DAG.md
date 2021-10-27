@@ -288,6 +288,8 @@ DAG Runs 经常会执行到一个与当前日期不一样的日期，比如在�
 
 [完整示例程序查看](t/latest_only_with_trigger.py)
 
+[定点start_date程序示例](t/fixed_point_start.py)
+
 3.Depends On Past
 
 你可以断言一个任务只有在它前一个任务运行成功之后，它才会运行。为了实现这种需要，你可以在任务(Task)中将 `depends_on_past` 参数设置为 `True`。
