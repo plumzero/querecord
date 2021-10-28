@@ -2,12 +2,12 @@
 pgsql 安装后默认支持的语言可以通过如下方式查看:
 ```sql
     onedb=> SELECT * FROM pg_language;
-    oid  | lanname  | lanowner | lanispl | lanpltrusted | lanplcallfoid | laninline | lanvalidator | lanacl 
+      oid  | lanname  | lanowner | lanispl | lanpltrusted | lanplcallfoid | laninline | lanvalidator | lanacl 
     -------+----------+----------+---------+--------------+---------------+-----------+--------------+--------
         12 | internal |       10 | f       | f            |             0 |         0 |         2246 | 
         13 | c        |       10 | f       | f            |             0 |         0 |         2247 | 
         14 | sql      |       10 | f       | t            |             0 |         0 |         2248 | 
-    12666 | plpgsql  |       10 | t       | t            |         12663 |     12664 |        12665 | 
+     12666 | plpgsql  |       10 | t       | t            |         12663 |     12664 |        12665 | 
     (4 rows)
 ```
 
