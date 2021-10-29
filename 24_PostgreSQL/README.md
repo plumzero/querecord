@@ -65,6 +65,9 @@ postgresql-13.3
     * [plpgsql](ch16/01_plpgsql.md)
     * [plperl](ch16/02_plperl.md)
     * [踩坑](ch16/03_踩坑.md)
+* [测试](ch17)
+    * [垃圾回收](ch17/01_垃圾回收.md)
+    * [表级锁](ch17/02_表级锁.md)
 
 ### 语句
 
