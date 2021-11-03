@@ -5,6 +5,10 @@
 * [Firefox Debugger](https://mozilladevelopers.github.io/playground/debugger)
 
 
+### 参考
+
+* [类型](https://api.jquery.com/Types/)
+
 ### 内容
 
 * [选择元素](ch01)
