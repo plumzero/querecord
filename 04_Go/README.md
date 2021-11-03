@@ -88,3 +88,4 @@
 * [GMP模型](https://www.cnblogs.com/sunsky303/p/9705727.html)
 * [Notepad++支持Go语法亮](doc/01_Notepad++.md)
 * [代码书写规范](doc/02_GoCodeStyle.md)
+* [包的间接引用问题](doc/03_包间接引用问题.md)
