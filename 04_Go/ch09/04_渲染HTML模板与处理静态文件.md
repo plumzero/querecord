@@ -31,3 +31,5 @@ Gin 默认使用 Go 语言内置的 html/template 包处理 HTML 模板。
         router.Run(":8080")
     }
 ```
+
+不要想着用 Static/StaticFile/StaticFS 中的任何一个就可以一统江湖，要根据场合进行选择。
