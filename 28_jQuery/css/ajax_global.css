@@ -1,0 +1,39 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.blk {
+    border: 2px dashed #f69c55;
+    margin: 10px 0px 30px;
+    background: #EEEEEE;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    background: #2D2D2D;
+    color: #fff;
+    border: 5px #46ADF2 solid;
+}
+
+.result {
+    background: #22AAFE;
+    margin: 10px 0px;
+}
+
+.log {
+    background: #BD1FB2;
+    margin: 10px 0px;
+}
+
+#msg {
+    background: #4EEACE;
+}
+
+#loading {
+    display: none;
+    background: darkblue;
+    color: #fff;
+}
