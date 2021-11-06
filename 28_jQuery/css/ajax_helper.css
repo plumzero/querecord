@@ -1,0 +1,24 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.blk {
+    border: 2px dashed #f69c55;
+    margin: 10px 0px 30px;
+    background: #EEEEEE;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    background: #2D2D2D;
+    color: #fff;
+    border: 5px #46ADF2 solid;
+}
+
+#param1 #result {
+    background-color:#46ADF2;
+    display: table-cell;
+}

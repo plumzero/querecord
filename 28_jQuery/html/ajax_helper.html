@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="ajax_helper.css">
+    <script text="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="ajax_helper.js"></script>
+</head>
+<body>
+    <div id="param1" class="blk">
+        <button class="trigger">Trigger param 1</button>
+        <div id="result"></div>
+    </div>
+    <div id="param2" class="blk">
+        <button class="trigger">Trigger param 2</button>
+        <div id="result"></div>
+    </div>
+    <div id="serialize" class="blk">
+        <form>
+            <select name="single">
+                <option>Single</option>
+                <option>Single2</option>
+            </select>
+            <br>
+            <select name="multiple" multiple="multiple">
+                <option selected="selected">Multiple</option>
+                <option>Multiple2</option>
+                <option selected="selected">Multiple3</option>
+            </select>
+            <br>
+            <input type="checkbox" name="check" value="check1" id="ch1">
+            <label for="ch1">check1</label>
+            <input type="checkbox" name="check" value="check2" id="ch2" checked="checked">
+            <label for="ch2">check2</label>
+            <br>
+            <input type="radio" name="radio" value="radio1" id="r1" checked="checked">
+            <label for="r1">radio1</label>
+            <input type="radio" name="radio" value="radio2" id="r2">
+            <label for="r2">radio2</label>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <div id="serializeArray" class="blk">
+        <form>
+            <select name="single">
+                <option>Single</option>
+                <option>Single2</option>
+            </select>
+            <br>
+            <select name="multiple" multiple="multiple">
+                <option selected="selected">Multiple</option>
+                <option>Multiple2</option>
+                <option selected="selected">Multiple3</option>
+            </select>
+            <br>
+            <input type="checkbox" name="check" value="check1" id="ch1">
+            <label for="ch1">check1</label>
+            <input type="checkbox" name="check" value="check2" id="ch2" checked="checked">
+            <label for="ch2">check2</label>
+            <br>
+            <input type="radio" name="radio" value="radio1" id="r1" checked="checked">
+            <label for="r1">radio1</label>
+            <input type="radio" name="radio" value="radio2" id="r2">
+            <label for="r2">radio2</label>
+        </form>
+        <div id="result"></div>
+    </div>
+</body>
+</html>
