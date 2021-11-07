@@ -1,10 +1,12 @@
+
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"net/http"
+	"path"
 	"log"
-
-    "github.com/gin-gonic/gin"
+	"os"
 )
 
 var bs = []byte(
@@ -56,17 +58,44 @@ var cs = []byte(
 	]`,
 )
 
+func init() {
+	log.SetFlags(log.LstdFlags|log.Lshortfile|log.Lmicroseconds)
+}
+
 func main() {
-    router := gin.Default()
+	router := gin.Default()
 
-	router.Static("/t", "../t")
-	router.LoadHTMLGlob("*")
+	pwd, _ := os.Getwd()
 
+	hmp := path.Dir(pwd) + "/html"
+	csp := path.Dir(pwd) + "/css"
+	jsp := path.Dir(pwd) + "/js"
+
+	cssfile := "/ajax_handy.css"
+	jsfile := "/ajax_handy.js"
+
+	router.StaticFile(cssfile, csp + cssfile)
+	router.StaticFile(jsfile, jsp + jsfile)
+
+	xmlfile := "/ajax/get.xml"
+	router.StaticFile(xmlfile, pwd + xmlfile)
+	jsofile := "/ajax/getJSON.json"
+	router.StaticFile(jsofile, pwd + jsofile)
+	jstfile := "/ajax/getScript.js"
+	router.StaticFile(jstfile, pwd + jstfile)
+	hmtfile := "/ajax/load.html"
+	router.StaticFile(hmtfile, pwd + hmtfile)
+
+	router.LoadHTMLGlob(hmp + "/*")
+
+    router.GET("/", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "ajax_handy.html", nil)
+    })
 
     router.GET("/get", func(c *gin.Context) {
         c.String(http.StatusOK, string(bs))
 	})
-	
+
     router.POST("/post", func(c *gin.Context) {
 		appId := c.PostForm("appId")
 		userId := c.PostForm("userId")
@@ -74,9 +103,5 @@ func main() {
 		c.String(http.StatusOK, string(cs))
 	})
 
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
-	})
-
-    router.Run(":8080")
+	router.Run(":8080")
 }

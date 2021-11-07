@@ -1,56 +1,10 @@
-// 数据在 html 中
-$(document).ready(function() {
-    $('#letter-a div').click(function(event) {
-        event.preventDefault();
-        $('#dictionary').load('a.html');
-    });
-});
 
-// 数据在 json 中
+// $.get(): 从服务器文件(.xml)中获取数据，于 B 端解析并嵌入到页面中
 $(document).ready(function() {
-    $('#letter-b div').click(function(event) {
+    $('#get-xml .trigger').click(function(event) {
         event.preventDefault();
-        $.getJSON('b.json', function(data) {
-            var html = '';
-            $.each(data, function(entryIndex, entry) {
-                html += '<div class="entry">';
-                html += '<h3 class="term">' + entry.term + '</h3>';
-                html += '<div class="part">' + entry.part + '</div>';
-                html += '<div class="definition">';
-                html += entry.definition;
-                if (entry.quote) {
-                    html += '<div class="quote">';
-                    $.each(entry.quote, function(lineIndex, line) {
-                        html += '<div class="quote-line">' + line + '</div>';
-                    });
-                    if (entry.author) {
-                        html += '<div class="quote-author">' + entry.author + '</div>';
-                    }
-                    html += '</div>';
-                }
-                html += '</div>';
-                html += '</div>';
-            });
-            $('#dictionary').html(html);
-        });
-    });
-});
-
-// 通过 jQuery 直接加载 .js 文件
-$(document).ready(function() {
-    $('#letter-c div').click(function(event) {
-        event.preventDefault();
-        $.getScript('c.js');
-    });
-});
-
-
-// 数据在 xml 中
-$(document).ready(function() {
-    $('#letter-d div').click(function(event) {
-        event.preventDefault();
-        $.get('d.xml', function(data) {
-            $('#dictionary').empty();
+        $.get('ajax/get.xml', function(data) {
+            $('#get-xml #dictionary').empty();
             $(data).find('entry').each(function() {
                 var $entry = $(this);
                 var html = '<div class="entry">';
@@ -75,15 +29,61 @@ $(document).ready(function() {
                 }
                 html += '</div>';
                 html += '</div>';
-                $('#dictionary').append($(html));
+                $('#get-xml #dictionary').append($(html));
             });
         });
     });
 });
 
-// 通过 Ajax GET 数据
+// $.getJSON(): 从服务器文件(.json)中获取数据，于 B 端解析并嵌入到页面中
+$(document).ready(function() {
+    $('#get-json .trigger').click(function(event) {
+        event.preventDefault();
+        $.getJSON('ajax/getJSON.json', function(data) {
+            var html = '';
+            $.each(data, function(entryIndex, entry) {
+                html += '<div class="entry">';
+                html += '<h3 class="term">' + entry.term + '</h3>';
+                html += '<div class="part">' + entry.part + '</div>';
+                html += '<div class="definition">';
+                html += entry.definition;
+                if (entry.quote) {
+                    html += '<div class="quote">';
+                    $.each(entry.quote, function(lineIndex, line) {
+                        html += '<div class="quote-line">' + line + '</div>';
+                    });
+                    if (entry.author) {
+                        html += '<div class="quote-author">' + entry.author + '</div>';
+                    }
+                    html += '</div>';
+                }
+                html += '</div>';
+                html += '</div>';
+            });
+            $('#get-json #dictionary').html(html);
+        });
+    });
+});
+
+// $.getScript(): 从服务器文件(.js)中获取数据，于 B 端解析并嵌入到页面中
+$(document).ready(function() {
+    $('#get-script .trigger').click(function(event) {
+        event.preventDefault();
+        $.getScript('/ajax/getScript.js');
+    });
+});
+
+// $.load(): 从服务器文件(.html)中获取数据，并嵌入到页面中
+$(document).ready(function() {
+    $('#load .trigger').click(function(event) {
+        event.preventDefault();
+        $('#load #dictionary').load('/ajax/load.html');
+    });
+});
+
+// $.get(): 获取数据
 $(document).ready(function(){
-    $('#letter-e div').click(function(event) {
+    $('#get .trigger').click(function(event) {
         $.ajax({
             type: "GET",
             url: "/get",
@@ -110,7 +110,7 @@ $(document).ready(function(){
                     html += '</div>';
                     html += '</div>';
                 });
-                $('#dictionary').append(html);
+                $('#get #dictionary').append(html);
 
                 return false;
             }
@@ -118,9 +118,9 @@ $(document).ready(function(){
     });
 });
 
-// 通过 Ajax POST 数据
+// $.post(): 发送并获取数据
 $(document).ready(function(){
-    $('#letter-f div').click(function(event) {
+    $('#post .trigger').click(function(event) {
         $.ajax({
             type: "POST",
             url: "/post",
@@ -152,7 +152,7 @@ $(document).ready(function(){
                     html += '</div>';
                     html += '</div>';
                 });
-                $('#dictionary').append(html);
+                $('#post #dictionary').append(html);
 
                 return false;
             }

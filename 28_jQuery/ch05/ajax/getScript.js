@@ -26,4 +26,4 @@ $.each(entries, function() {
     html += '</div>';
 });
 
-$('#dictionary').html(html);
+$('#get-script #dictionary').html(html);
