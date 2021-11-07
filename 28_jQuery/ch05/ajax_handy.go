@@ -4,7 +4,6 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"path"
 	"log"
 	"os"
 )
@@ -67,9 +66,9 @@ func main() {
 
 	pwd, _ := os.Getwd()
 
-	hmp := path.Dir(pwd) + "/html"
-	csp := path.Dir(pwd) + "/css"
-	jsp := path.Dir(pwd) + "/js"
+	hmp := pwd + "/html"
+	csp := pwd + "/css"
+	jsp := pwd + "/js"
 
 	cssfile := "/ajax_handy.css"
 	jsfile := "/ajax_handy.js"
