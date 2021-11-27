@@ -126,16 +126,16 @@ void DisplayGraph(MGraph G)
     size_t i, j;
     
     printf("图具有 %lu 个顶点, %lu 条弧\n", G.vex.size(), G.arcnum);
-    printf("%8s", "");
+    printf("%16s", "");
     for (i = 0; i < G.vex.size(); i++) {    /** 输出图的顶点 */
-        printf("%8s", G.vex[i].name.c_str());
+        printf("%16s", G.vex[i].name.c_str());
     }
     printf("\n");
     
     for (i = 0; i < G.arc.size(); i++) {
-        printf("%8s", G.vex[i].name.c_str());
+        printf("%16s", G.vex[i].name.c_str());
         for (j = 0; j < G.arc[i].size(); j++) {
-            printf("%8d", G.arc[i][j].adj);
+            printf("%16lu", G.arc[i][j].adj);
         }
         printf("\n");
     }
