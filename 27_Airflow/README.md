@@ -14,31 +14,24 @@
     * [再看DAG](ch03/02_再看DAG.md)
     * [任务](ch03/03_任务.md)
     * [操作符](ch03/04_操作符.md)
-
 * [操作符](ch04)
     * [BashOperator](ch04/01_BashOperator.md)
     * [PythonOperator](ch04/02_PythonOperator.md)
     * [SimpleHttpOperator](ch04/03_SimpleHttpOperator.md)
     * [EmailOperator](ch04/04_EmailOperator.md)
-
+* [多节点部署运行](ch05)
+    * [多节点集群](ch05/01_多节点集群.md)
+    * [配置与生产](ch05/02_配置与生产.md)
+    * [理解调度系统](ch05/03_理解调度系统.md)
+    * [问题与解答](ch05/04_问题与解答.md)
+    * [常见问题](ch05/05_常见问题.md)
 * [安全](ch06)
-  * [访问控制](ch06/01_访问控制.md)
-  * [API认证](ch06/02_API认证.md)
-  * [Flower](ch06/03_Flower.md)
-  * [Webserver](ch06/04_Webserver.md)
-  * [Workload](ch06/05_Workload.md)
-
-* [模块](ch07)
-  * [模块管理](ch07/01_模块管理.md)
-
-* 杂项
-  * [多节点集群](03_多节点集群.md)
-  * [配置与生产](05_配置与生产.md)
-  * [问题与解答](06_问题与解答.md)
-  * [理解调度系统](07_理解调度系统.md)
-  * [使用注意](08_使用注意.md)
-
-### 扩展
-
-* [常用命令](11_常用命令.md)
-* [用户与角色](12_用户与角色.md)
+    * [访问控制](ch06/01_访问控制.md)
+    * [API认证](ch06/02_API认证.md)
+    * [Flower](ch06/03_Flower.md)
+    * [Webserver](ch06/04_Webserver.md)
+    * [Workload](ch06/05_Workload.md)
+* [扩展](ch07)
+    * [模块管理](ch07/01_模块管理.md)
+    * [Sensor](ch07/02_sensor.md)
+    * [用户与角色](ch07/03_用户与角色.md)
