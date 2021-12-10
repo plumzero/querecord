@@ -1,0 +1,29 @@
+
+syntax="proto3";
+package tagpro;
+
+import "gogoproto/gogo.proto";
+
+option go_package="./tagpro;tagpro";
+
+option (gogoproto.sizer_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) =  true;
+
+enum ClassName {
+    class1 = 0;
+    class2 = 1;
+    class3 = 2;
+}
+
+message Student {
+    string stu_name = 1 [(gogoproto.moretags) = "bson:\"StuName\""];
+    int32 stu_age = 2 [(gogoproto.moretags) = "bson:\"StuAge\""];
+    string address = 3 [(gogoproto.moretags) = "bson:\"Address\""];
+    ClassName cn = 4 [(gogoproto.jsontag) = "CN"];
+}
+
+message Students {
+   repeated Student person = 1;
+   string school = 2;
+}
