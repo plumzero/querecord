@@ -40,3 +40,27 @@ Symbol (符号)的用途是确保对象属性使用唯一标识符，不会发�
     let s2 = Symbol('bar');
     console.log(Symbol.keyFor(s2));
 ```
+
+
+### Symbol.iterator
+
+这个符号作为一个属性表示"一个方法，该方法返回对象默认的迭代器。由 for-of 语句使用"。
+
+for-of 循环这样的语言结构会利用这个函数执行迭代操作。循环时，它们会调用以 `Symbol.iterator` 为键的函数，并默认这个函数会返回一个实现迭代器 API 的对象。很多时候，返回的对象是实现该 API 的 Generator:
+```js
+    class Foo {
+        // 定义一个空迭代器，* 表示从地址中获得对该迭代器的引用
+        // 引用的地址通过 Symbol.iterator 标识
+        *[Symbol.iterator](){}
+    }
+
+    let f = new Foo();
+
+    console.log(f[Symbol.iterator]());
+```
+
+技术上，这个由 Symbol.iterator 函数生成的对象应该通过其 `next()` 方法陆续返回值。可以通过显式地调用 next() 方法返回，也可以隐式地通过生成器函数返回。
+
+[Symbol.iterator程序示例](t/02_Symbol.iterator.js)
+
+[关于 yield*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield*)
