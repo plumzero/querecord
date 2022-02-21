@@ -44,7 +44,7 @@ DATADB_ROLE="pguser"
 DATADB_PWD=
 REDIS_IP=
 REDIS_DB=
-REDIS_PWD="Life123"
+REDIS_PWD="enterthis"
 
 while getopts 'A:B:C:D:K:L:M:N:X:Y:ZHh' OPT
 do
