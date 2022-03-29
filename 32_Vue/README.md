@@ -20,3 +20,7 @@
 - [计算属性与侦听](ch03)
   - [计算属性](ch03/01_计算属性.md)
   - [侦听器](ch03/02_侦听器.md)
+- [Class与Style绑定](ch04)
+  - [Class绑定](ch04/01_class绑定.md)
+  - [Style绑定](ch04/02_style绑定.md)
+
