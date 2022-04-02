@@ -8,3 +8,8 @@
 - 如何快速编写一个 .gitlab-ci.yml 脚本，看[这里](Configure_Jobs.md)。
 
 运维时[常用的命令](常用命令.md)以及部署运维时可能会出现的[问题及解决办法](常见问题.md)。
+
+### 参考
+
+- [Cache 机制](https://zhuanlan.zhihu.com/p/106971627)
+- [预设变量](http://192.168.2.201/help/ci/variables/README.md#variables-expressions)

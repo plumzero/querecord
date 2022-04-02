@@ -19,6 +19,7 @@ Windows 下使用 POSIX 环境，需要使用 Cygwin 。
     * [pkg-config](ch01/04_pkg-config)
     * [ar](ch01/05_ar)
     * [GitLab CI/CD](ch01/06_gitlab_ci-cd)
+    * [GitLab](ch01/07_gitlab)
 * [编译调试](ch02)
     * [gcc](ch02/01_gcc)
     * [gdb](ch02/02_gdb)
