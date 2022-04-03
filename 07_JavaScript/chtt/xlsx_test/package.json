@@ -1,0 +1,16 @@
+{
+  "name": "xlsx_test",
+  "version": "1.0.0",
+  "description": "// npm init -y // npm install node-xlsx@0.15.1 --save",
+  "main": "build_xlsx.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-xlsx": "^0.15.1"
+  }
+}

@@ -17,11 +17,16 @@ function main() {
     let now_time = moment(moment(Number(now)).toDate().toISOString(), moment.ISO_8601).format('HHmmssSSS');
     console.log(now_time);
 
+    // utc-8 时间
+    console.log("utc-8 时间");
+    let utc_8 = moment(moment().toDate().toISOString(), moment.ISO_8601).format('YYYY-MM-DD HH:mm:ss');
+    console.log(utc_8);
+
     // utc 时间
     console.log("utc 时间");
     let utc = moment.utc().toISOString();
     console.log(utc);
-    let utc_fmt = moment.utc().format('YYYY-DD-MM HH:mm:ss');
+    let utc_fmt = moment.utc().format('YYYY-MM-DD HH:mm:ss');
     console.log(utc_fmt);
 
     // 加减时间
