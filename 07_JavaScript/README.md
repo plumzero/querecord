@@ -69,3 +69,12 @@
    * [package-lock.json文件](ch0z/04_package-lock_json文件.md)
    * [其他npm操作](ch0z/05_其他npm操作.md)
 
+
+### 工具包
+
+- [fs](chtt/fs_test)
+- [lodash](chtt/lodash_test)
+- [moment](chtt/moment_test)
+- [mongo](chtt/mongo_test)
+- [redis](chtt/redis_test)
+- [xlsx](chtt/xlsx_test)
