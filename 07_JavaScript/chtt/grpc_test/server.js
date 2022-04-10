@@ -28,7 +28,8 @@ echo_server.addService(echo_service, {
             return;
         }
         console.log('received message', call.request);
-        callback(null, call.request);
+        // callback(null, call.request);
+        callback(null, call.request = { value: 'world', value2: 5678 });
     }
 });
 

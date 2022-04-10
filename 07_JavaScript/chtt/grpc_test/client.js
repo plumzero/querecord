@@ -1,6 +1,6 @@
 
 import protoLoader from '@grpc/proto-loader';
-import anyGrpc from '@grpc/grpc-js';
+import grpc from '@grpc/grpc-js';
 
 const options = {
     keepCase: true,
@@ -10,7 +10,7 @@ const options = {
     oneofs: true
 }
 
-var insecureCreds = anyGrpc.credentials.createInsecure();
+var insecureCreds = grpc.credentials.createInsecure();
 
 const clientOptions = {
     'grpc.max_send_message_length': -1,
@@ -18,7 +18,7 @@ const clientOptions = {
 };
 
 const echoProtoDef = protoLoader.loadSync('echo_service.proto', options);
-const EchoClient = anyGrpc.loadPackageDefinition(echoProtoDef).hello.EchoService;
+const EchoClient = grpc.loadPackageDefinition(echoProtoDef).hello.EchoService;
 const client = new EchoClient('localhost:32000', insecureCreds, clientOptions);
 
 let message = {
