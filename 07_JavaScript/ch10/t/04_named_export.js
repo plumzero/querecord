@@ -1,4 +1,4 @@
 
-import haha from './named';
+import { foo } from './named.js';
 
-console.log(haha.foo);
+console.log(foo);
