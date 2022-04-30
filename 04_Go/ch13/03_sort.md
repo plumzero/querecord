@@ -30,6 +30,8 @@ sort 包原生支持 `[]int`、`[]float64`、`[]string` 三种内建数据类型
 
 [自定义数据集合的排序二](03/sort_defined_2.go)
 
+[二维数组排序](03/sort_matrix.go)
+
 
 ### sort.Slice 排序
 
