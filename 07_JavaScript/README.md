@@ -78,13 +78,19 @@
 
 ### 工具包
 
+- [axios](chtt/axios_test)
 - [babel](chtt/babel_test)
+- [events](chtt/events_test)
 - [express](chtt/express_test)
 - [fs](chtt/fs_test)
-- [imaps_test](chtt/imaps_test)
+- [imap](chtt/imap_test)
+- [imaps-simple](chtt/imaps_test)
 - [lodash](chtt/lodash_test)
+- [log4js](chtt/log4js_test)
 - [moment](chtt/moment_test)
 - [mongo](chtt/mongo_test)
+- [node-excel-export](chtt/node-excel-export_test)
 - [nodemailer](chtt/nodemailer_test)
 - [redis](chtt/redis_test)
 - [xlsx](chtt/xlsx_test)
+- [zootools](chtt/zootools)

@@ -1,0 +1,18 @@
+{
+  "name": "axios_test",
+  "version": "1.0.0",
+  "description": "axios 作为客户端，express 作为服务端进行测试。",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "express": "^4.17.1"
+  }
+}
