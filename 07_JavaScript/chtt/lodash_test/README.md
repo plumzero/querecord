@@ -6,5 +6,5 @@ lodash 的使用。
 
 基础安装:
 ```js
-    npm install --save lodash@4.17.20
+    npm install lodash@4.17.20
 ```

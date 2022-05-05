@@ -51,7 +51,7 @@ async function main() {
  
         let parts = imaps.getParts(message.attributes.struct);
 
-        parts = parts.filter((part) => {
+        parts = parts.filter((part) => {        // 筛选出带有附件的邮件
             return part.disposition && part.disposition.type.toUpperCase() === 'ATTACHMENT';
         });
         
