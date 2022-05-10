@@ -1,10 +1,10 @@
 
 恍恍惚惚蒸汽波
 
-版本 2.x
+版本 3.x
 
-- [参考](https://cn.vuejs.org/v2/guide/)
-- [API](https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE)
+- [参考](https://v3.cn.vuejs.org/guide/introduction.html)
+- [API](https://v3.cn.vuejs.org/api/)
 
 ### 内容
 
@@ -23,4 +23,6 @@
 - [Class与Style绑定](ch04)
   - [Class绑定](ch04/01_class绑定.md)
   - [Style绑定](ch04/02_style绑定.md)
-
+- [渲染](ch05)
+  - [条件渲染](ch05/01_条件渲染.md)
+  - [列表渲染](ch05/02_列表渲染.md)
