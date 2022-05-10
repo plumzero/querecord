@@ -1,24 +1,39 @@
 
 import _ from 'lodash';
 
-var saves = ['profile', 'settings'];
+var steps = [ 'profile', 'settings', 'working', 'finished' ];
  
-var done = _.after(saves.length, function() {
-  console.log('done saving!');
+var skip = _.after(steps.length, function() {
+    console.log('dont print this!');
 });
- 
-// _.forEach(saves, function(type) {
-//   asyncSave({ 'type': type, 'complete': done });
-// });
-// => Logs 'done saving!' after the two async saves have completed.
 
-// 
-var finished = () => {
-    console.log('Holy sh*t I finished it')
+console.log('第一次测试:');
+for (let step of steps) {
+    if (step === 'settings') {
+        console.log('skip:', step);
+        continue;                   // 跳过，就不完整了，不再打印
+    }
+    console.log('step:', step);
+
+    skip();
 }
+
+var done = _.after(steps.length, function() {
+    console.log('would print this!');
+});
   
-var code = _.after(3, finished);
-code(); // ...
-code(); // ...
-code(); // 'Holy sh*t I finished it'
-code(); // 'Holy sh*t I finished it'
+console.log('第二次测试:');
+for (let step of steps) {
+    console.log('step:', step);
+    done();
+}
+
+var more = _.after(steps.length, function() {
+    console.log('would print this 3 times!');
+});
+  
+console.log('第三次测试:');
+for (let i = 0; i < steps.length + 2; i++) {
+    console.log('step:', steps[i]);
+    more();
+}
