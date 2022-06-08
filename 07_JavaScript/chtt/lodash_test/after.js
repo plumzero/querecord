@@ -37,3 +37,17 @@ for (let i = 0; i < steps.length + 2; i++) {
     console.log('step:', steps[i]);
     more();
 }
+
+var done = _.after(steps.length, function() {
+    console.log('would print this!');
+});
+  
+console.log('第四次测试:');
+for (let step of steps) {
+    console.log('step:', step);
+    if (step === 'settings' || step === 'finished') {
+        done();
+    } else {
+        done();
+    }
+}
