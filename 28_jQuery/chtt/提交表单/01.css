@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  width: 200px;
+  border: 10px;
+  background: #977b7b;
+}
+
+form {
+  width: auto;
+  float: center;
+}

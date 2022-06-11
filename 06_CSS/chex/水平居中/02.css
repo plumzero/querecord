@@ -1,0 +1,12 @@
+
+div {
+	display: inline-block;
+	background-color: lightblue;
+	width: 50%;
+	height: 100px;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}

@@ -1,0 +1,18 @@
+
+.first {
+	display: inline-block;
+	background-color: red;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	z-index: 1;
+}
+
+.second {
+	display: inline-block;
+	background-color: blue;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	left: -50px;
+}

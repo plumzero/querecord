@@ -1,0 +1,22 @@
+
+div	{
+	width: 50%;
+	margin: 0 auto;
+}
+
+span {
+	
+}
+
+strong {
+	display: inline-block;
+}
+
+div, span, strong {
+	background-color: black;
+	color: white;
+}
+
+body {
+	text-align: center;
+}
