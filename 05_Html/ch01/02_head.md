@@ -2,12 +2,12 @@
 `<head></head>` 标签用于定义一些特殊的内容，如页面标题、定时刷新、外部文件等。
 
 在 HTML 中，一般来说，只有 6 个标签能放在 head 标签内:
-* title
-* meta
-* link
-* style
-* script
-* base
+- title
+- meta
+- link
+- style
+- script
+- base
 
 
 ### title
