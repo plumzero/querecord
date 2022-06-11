@@ -1,0 +1,15 @@
+
+.parent {
+	background-color: lightblue;
+	width: 200px;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.child {
+	width: 100px;
+	height: 100px;
+	background-color: lightgreen;
+}

@@ -1,0 +1,32 @@
+
+.layout {
+	border: 1px dashed lightblue;
+	background-color: #eee;
+	width: 600px;
+	height: 200px;
+	display: grid;
+	grid-template-areas: "header header header"
+						 "sidebar content content"
+						 "footer footer footer";
+	gap: 0.2em;
+}
+
+header {
+	grid-area: header;
+	background-color: lightcoral;
+}
+
+aside {
+	grid-area: sidebar;
+	background-color: lightyellow;
+}
+
+main {
+	grid-area: content;
+	background-color: lightblue
+}
+
+footer {
+	grid-area: footer;
+	background-color: lightgreen;
+}

@@ -1,0 +1,17 @@
+
+.parent {
+	border: 1px dashed lightblue;
+	width: 600px;
+	height: 200px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1em;
+	align-content: end;
+	justify-content: space-between;
+}
+
+.child {
+	background-color: lightgreen;
+	width: 100px;
+	height: 30px;
+}

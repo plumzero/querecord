@@ -1,0 +1,37 @@
+
+.dialog {
+	position: absolute;
+	display: block;
+	z-index: 101;
+	width: 360px;
+	border: 1px solid #666;
+}
+
+.dialog .title {
+	background: #333;
+	padding: 0.5em;
+	color: #fff;
+	font-weight: bold;
+}
+
+.dialog .content {
+	background: #fff;
+	padding: 2em;
+	height: 3em;
+}
+
+.dialog .content span {
+	float: left;
+	padding: 1em;
+}
+
+.dialog .bottom {
+	text-align: right;
+	padding: 0.5em;
+	background: #eee;
+}
+
+.dialog .bottom input {
+	border-radius: 0.1em;
+	margin-left: 1em;
+}
