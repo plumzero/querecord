@@ -1,0 +1,24 @@
+
+.container {
+	display: table;
+	width: 100%;
+	height: 20vh;
+}
+
+.left {
+	width: 20%;
+	display: table-cell;
+	background-color: red;
+}
+
+.right {
+	width: 20%;
+	display: table-cell;
+	background-color: blue;
+}
+
+/* 中间的元素进行自适应 */
+.main {
+	display: table-cell;
+	background-color: green;
+}

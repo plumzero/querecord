@@ -1,0 +1,26 @@
+
+.container {
+	position: relative;
+}
+
+.left {
+	position: absolute;
+	width: 20%;
+	height: 20vh;
+	background-color: red;
+	left: 0;
+}
+
+.right {
+	position: absolute;
+	width: 20%;
+	height: 20vh;
+	background-color: blue;
+	right: 0;
+}
+
+.main {
+	margin: 0 20%;
+	height: 20vh;
+	background-color: green;
+}

@@ -1,0 +1,24 @@
+
+.container {
+}
+
+.left {
+	width: 20%;
+	height: 20vh;
+	background-color: red;
+	float: left;
+}
+
+.right {
+	width: 20%;
+	height: 20vh;
+	background-color: blue;
+	float: right;
+}
+
+.main {
+	margin-left: 20%;
+	margin-right: 20%;
+	height: 20vh;
+	background-color: green;
+}

@@ -1,0 +1,23 @@
+
+.container {
+}
+
+.left {
+	width: 20%;
+	height: 20vh;
+	background-color: red;
+	float: left;
+}
+
+.right {
+	width: 20%;
+	height: 20vh;
+	background-color: blue;
+	float: right;
+}
+
+.main {
+	height: 20vh;
+	background-color: green;
+	overflow: hidden;
+}
