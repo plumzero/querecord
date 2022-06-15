@@ -1,0 +1,92 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+ul.slides {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+    overflow: hidden;       /* 清除浮动 */
+}
+
+li.slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica;
+    font-size: 150px;
+    color: #fff;
+    transition: .5s transform ease-in-out;  /* 过渡 0.5s 淡入淡出 */
+}
+
+.slide:nth-of-type(1) {
+    background-color: #f2e205;
+}
+
+.slide:nth-of-type(2) {
+    background-color: #f25c05;
+    left: 100%;
+}
+
+.slide:nth-of-type(3) {
+    background-color: #495f8c;
+    left: 200%;
+}
+
+input[type="radio"] {
+    position: relative;
+    z-index: 100;
+    display: none;  /* 不显示单选钮 */
+}
+
+.controls-visible {
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+    text-align: center;
+}
+
+.controls-visible label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 3px;
+    border: 2px solid #fff;
+}
+
+/* 当某个 radio 是已选择状态时，(通过~)找到对应的 label, 将其设置为深灰色 */
+.slides input[type="radio"]:nth-of-type(1):checked ~ .controls-visible label:nth-of-type(1),
+.slides input[type="radio"]:nth-of-type(2):checked ~ .controls-visible label:nth-of-type(2),
+.slides input[type="radio"]:nth-of-type(3):checked ~ .controls-visible label:nth-of-type(3) {
+    background-color: #333;
+}
+
+/* 当第一个 radio 是已选择状态时，(通过~)找到对应的轮播图 */
+.slides input[type="radio"]:nth-of-type(1):checked ~ .slide {
+    transform: translateX(0%);
+}
+
+.slides input[type="radio"]:nth-of-type(2):checked ~ .slide {
+    transform: translateX(-100%);
+}
+
+.slides input[type="radio"]:nth-of-type(3):checked ~ .slide {
+    transform: translateX(-200%);
+}
