@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性插值</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <h1 v-bind:class="colorName">这里是模板的内容:{{count}}次点击</h1>
+        <button v-on:click="clickButton">按钮</button>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    count: 0,
+                    colorName: 'red'
+                }
+            },
+            methods: {
+                clickButton() {
+                    this.count = this.count + 1
+                    if (this.count % 2 == 1) {
+                        this.colorName = "blue"
+                    } else {
+                        this.colorName = "red"
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for渲染对象</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+		<ul>
+			<li v-for="(value,key,index) in person">
+				{{key}}:{{value}}
+			</li>
+		</ul>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+					person: {
+						name: 'Lucy',
+						age: '12',
+						num: '151xxxxxxxx',
+						email: 'lucy@email.com'
+					}
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

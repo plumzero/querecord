@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态切换属性</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .h1 {
+            color: blue
+        }
+        #h1 {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <h1 v-bind:[prop]='name'>这里是模板的内容:{{count}}次点击</h1>
+        <button v-on:click="clickButton">按钮</button>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    count: 0,
+                    prop: 'class',
+                    name: 'h1'
+                }
+            },
+            methods: {
+                clickButton() {
+                    this.count = this.count + 1
+                    if (this.count % 2 == 1) {
+                        this.prop = 'id'
+                    } else {
+                        this.prop = 'class'
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

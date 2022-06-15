@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for处理列表</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+		<ul>
+			<li v-for="(item, index) in handle(list)">
+				<div>{{index + '.' + item.name}}</div>
+				<div>{{item.num}}</div>
+			</li>
+		</ul>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    list: [
+						{
+							name: 'Lily',
+							num: '151xxxxxxxx'
+						},
+						{
+							name: 'Lucy',
+							num: '151xxxxxxxx'
+						},
+						{
+							name: 'Jim',
+							num: '151xxxxxxxx'
+						}
+					]
+                }
+            },
+			methods: {
+				handle(l) {
+					return l.filter(item => item.name != 'Jim')
+				}
+			}
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>
