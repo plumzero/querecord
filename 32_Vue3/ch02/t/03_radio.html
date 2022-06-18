@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <input type="radio" value="男" v-model="sex"/>男
+        <input type="radio" value="女" v-model="sex"/>女
+        <p>单选框:{{sex}}</p>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    sex: ''
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

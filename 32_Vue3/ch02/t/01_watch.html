@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <input v-model="searchText"/>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    searchText: ''
+                }
+            },
+            watch: {
+                searchText(oldValue, newValue) {
+                    if (newValue.length > 3) {
+                        alert('文本太长了' + newValue)
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

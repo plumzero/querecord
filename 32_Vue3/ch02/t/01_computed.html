@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <div>{{type}}</div>
+        <button @click="add">Add</button>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+            // computed
+            computed: {
+                type() {
+                    return this.count > 10 ? '大' : '小'
+                }
+            },
+            methods: {
+                add() {
+                    this.count++
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

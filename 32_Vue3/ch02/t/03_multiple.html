@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <select v-model="selectList" multiple>
+            <option>足球</option>
+            <option>篮球</option>
+            <option>排球</option>
+        </select>
+        <p>多选列表:{{selectList}}</p>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    selectList: []
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

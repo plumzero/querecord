@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <textarea v-model="textarea"></textarea>
+        <p>多行文本框内容:{{textarea}}</p>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    textarea: ''
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

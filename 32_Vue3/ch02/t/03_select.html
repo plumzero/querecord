@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <select v-model="select">
+            <option>男</option>
+            <option>女</option>
+        </select>
+        <p>单选的选择列表:{{select}}</p>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    select: ''
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

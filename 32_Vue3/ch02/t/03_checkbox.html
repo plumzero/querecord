@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <input type="checkbox" value="足球" v-model="checkList"/>足球
+        <input type="checkbox" value="篮球" v-model="checkList"/>篮球
+        <input type="checkbox" value="排球" v-model="checkList"/>排球
+        <p>复选框:{{checkList}}</p>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    checkList: []
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>

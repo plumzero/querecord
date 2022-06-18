@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <button @click="click">按钮</button>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    throttle: false
+                }
+            },
+            methods: {
+                click() {
+                    if (! this.throttle) {
+                        console.log(Date())
+                    } else {
+                        return
+                    }
+                    this.throttle = true
+                    setTimeout(() => {
+                        this.throttle = false
+                    }, 2000)
+                }
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+    </script>
+</body>
+</html>
