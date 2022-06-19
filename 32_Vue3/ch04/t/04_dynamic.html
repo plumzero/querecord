@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <input type="radio" value="page1" v-model="page">页面1
+        <input type="radio" value="page2" v-model="page">页面2
+        <component :is="page"></component>
+    </div>
+    <script>
+        const App = Vue.createApp({
+            data() {
+                return {
+                    page: "page1"
+                }
+            }
+        })
+        const page1 = {
+            template: `<div style="color:red">页面组件1</div>`
+        }
+        const page2 = {
+            template: `<div style="color:blue">页面组件2</div>`
+        }
+        App.component('page1', page1)
+        App.component('page2', page2)
+        App.mount('#Application')
+    </script>
+</body>
+</html>

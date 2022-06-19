@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件捕获</title>
+	<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+	<div id="Application">
+		<div @click.capture="click1">
+			外层
+			<div @click.capture="click2">
+				中层
+				<div @click.capture="click3">
+					内层
+					<button @click="click">点击</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+        const App = {
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+            methods: {
+				click1() {
+					console.log('外层')
+				},
+				click2() {
+					console.log('中层')
+				},
+				click3() {
+					console.log('内层')
+				}
+            }
+        }
+        Vue.createApp(App).mount("#Application")
+	</script>
+</body>
+</html>

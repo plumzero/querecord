@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <my-container></my-container>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        const containerComponent = {
+            template: `<div style="border: 10px solid red"><slot>插槽的默认内容</slot></div>`
+        }
+        App.component('my-container', containerComponent)
+        App.mount('#Application')
+    </script>
+</body>
+</html>
