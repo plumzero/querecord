@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <comp1></comp1>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        const comp1 = {
+            template: `<div>组件1<comp2></comp2></div>`
+        }
+        const comp2 = {
+            template: `<div>组件2</div>`
+        }
+        App.component('comp1', comp1)
+        App.component('comp2', comp2)
+        App.mount('#Application')
+    </script>
+</body>
+</html>
