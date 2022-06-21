@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <my-com1 title="组件1"></my-com1>
+        <my-com2 title="组件2"></my-com2>
+        <my-com3 title="组件3"></my-com3>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        const myMixin = {
+            props: ['title']
+        }
+        const com1 = {
+            mixins: [myMixin],
+            template: `<div style="border:2px solid red;">{{title}}</div>`
+        }
+        const com2 = {
+            mixins: [myMixin],
+            template: `<div style="border:2px solid blue;">{{title}}</div>`
+        }
+        const com3 = {
+            mixins: [myMixin],
+            template: `<div style="border:2px solid green;">{{title}}</div>`
+        }
+        App.component('my-com1', com1)
+        App.component('my-com2', com2)
+        App.component('my-com3', com3)
+        App.mount('#Application')
+    </script>
+</body>
+</html>

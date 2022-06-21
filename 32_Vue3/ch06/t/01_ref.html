@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application"></div>
+    <script>
+        const App = Vue.createApp({
+            // 进行组件数据的初始化
+            setup() {
+                // 定义响应式独立值
+                let myData = Vue.ref(0)
+                // myDaa 会自动包装对象，其中定义 value 属性为原始值
+                function click() {
+                    myData.value += 1
+                    console.log(myData.value)
+                }
+                // 将数据返回
+                return {
+                    myData,
+                    click
+                }
+            },
+            // 模板中可以直接使用 setup 方法中定义的数据和函数
+            template: `<h1>测试数据: {{myData}}</h1>
+                       <button @click="click">点击</button>`
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

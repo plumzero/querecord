@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application"></div>
+    <script>
+        const App = Vue.createApp({
+            setup() {
+                let a = Vue.ref(1)
+                let b = Vue.ref(2)
+                let sum = Vue.computed(() => {
+                    return a.value + b.value
+                })
+                function click() {
+                    a.value += 1
+                    b.value += 2
+                }
+                return {
+                    sum,
+                    click
+                }
+            },
+            template: `<h1>测试数据: {{sum}}</h1>
+                       <button @click="click">点击</button>`
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application"><com></com></div>
+    <script>
+        const App = Vue.createApp({})
+        const myMixin = {
+            data() {
+                return {
+                    a: 'a',
+                    b: 'b',
+                    c: 'c'
+                }
+            }
+        }
+        const com = {
+            mixins: [myMixin],
+            data() {
+                return {
+                    c: 'C',
+                    d: 'd'
+                }
+            },
+            // 组件被创建后会调用
+            created() {
+                console.log(this.$data)
+            }
+        }
+        App.component('com', com)
+        App.mount('#Application')
+    </script>
+</body>
+</html>

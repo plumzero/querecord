@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application"></div>
+    <script>
+        const App = Vue.createApp({
+            setup() {
+                let a = Vue.reactive({
+                    data: 0
+                })
+                let b = Vue.ref(0)
+                Vue.watch(() => {
+                    // 监听 a 对象的 data 属性变化
+                    return a.data
+                }, (value, old) => {
+                    // 新值和旧值都可以获取到
+                    console.log(value, old)
+                })
+                a.data = 1
+                // 可以直接监听 ref 对象
+                Vue.watch(b, (value, old) => {
+                    // 新值和旧值都可以获取到
+                    console.log(value, old)
+                })
+                b.value = 3
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

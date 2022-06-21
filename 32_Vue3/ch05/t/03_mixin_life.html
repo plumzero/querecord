@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application"><com></com></div>
+    <script>
+        const App = Vue.createApp({})
+        const myMixin = {
+            mounted() {
+                console.log('Mixin对象中的 mounted')
+            }
+        }
+        const com = {
+            mixins: [myMixin],
+            mounted() {
+                console.log('组件本身的 mounted')
+            }
+        }
+        App.component('com', com)
+        App.mount('#Application')
+    </script>
+</body>
+</html>

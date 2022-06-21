@@ -6,6 +6,39 @@
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
-    
+    <div id="Application">
+        <my-list :count="5"></my-list>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        const listCom = {
+            props: {
+                count: Number
+            },
+            provide() {
+                return {
+                    listCount: this.count
+                }
+            },
+            template: `<div style="border:red solid 10px;"><my-item v-for="i in this.count" :index="i"></my-item></div>`
+        }
+        const itemCom = {
+            props: {
+                index: Number
+            },
+            template: `<div style="border:blue solid 10px;"><my-label :index="this.index"></my-label></div>`
+        }
+        const labelCom = {
+            props: {
+                index: Number
+            },
+            inject: ['listCount'],
+            template: `<div>{{index}}/{{this.listCount}}</div>`
+        }
+        App.component('my-list', listCom)
+        App.component('my-item', itemCom)
+        App.component('my-label', labelCom)
+        App.mount('#Application')
+    </script>
 </body>
 </html>
