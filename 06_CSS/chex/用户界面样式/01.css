@@ -1,0 +1,16 @@
+
+div ul li:nth-child(1) {
+    background-color: lightblue;
+    width: fit-content;
+}
+
+div ul li:nth-child(2) {
+    background-color: lightcoral;
+    width: fit-content;
+}
+
+div ul li:nth-child(3) {
+    background-color: lightcyan;
+    width: fit-content;
+}
+

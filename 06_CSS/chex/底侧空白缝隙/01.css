@@ -1,0 +1,10 @@
+
+div {
+    background-color: limegreen;
+    width: fit-content;
+}
+
+div img {
+    /* display: block; */
+    vertical-align: middle;
+}

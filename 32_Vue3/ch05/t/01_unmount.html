@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <sub-com v-if="show"></sub-com>
+        <button @click="changeShow">测试</button>
+    </div>
+    <script>
+        const sub = {
+            beforeCreate() {
+                console.log('组件即将创建前')
+            },
+            created() {
+                console.log('组件创建完成')
+            },
+            beforeMount() {
+                console.log('组件即将挂载前')
+            },
+            mounted() {
+                console.log('组件挂载完成')
+            },
+            beforeUnmount() {
+                console.log('组件即将被卸载前调用')
+            },
+            unmounted() {
+                console.log('组件被卸载后调用')
+            }
+        }
+        const App = Vue.createApp({
+            data() {
+                return {
+                    show: false
+                }
+            },
+            methods: {
+                changeShow() {
+                    this.show = ! this.show
+                }
+            }
+        })
+        App.component('sub-com', sub)
+        App.mount('#Application')
+    </script>
+</body>
+</html>

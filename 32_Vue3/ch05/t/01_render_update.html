@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <sub-com>
+            {{content}}
+        </sub-com>
+        <button @click="change">测试</button>
+    </div>
+    <script>
+        const sub = {
+            beforeUpdate() {
+                console.log('组件即将更新前')
+            },
+            updated() {
+                console.log('组件更新完成')
+            },
+            renderTracked(event) {
+                console.log('虚拟DOM重新渲染时调用')
+            },
+            renderTriggered(event) {
+                console.log('虚拟DOM被触发渲染时调用')
+            },
+            template: `<div><slot></slot></div>`
+        }
+        const App = Vue.createApp({
+            data() {
+                return {
+                    content: 0
+                }
+            },
+            methods: {
+                change() {
+                    this.content += 1
+                }
+            }
+        })
+        App.component('sub-com', sub)
+        App.mount('#Application')
+    </script>
+</body>
+</html>

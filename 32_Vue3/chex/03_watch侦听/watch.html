@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>侦听测试</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div>
+        <p>小宇今年{{age}}岁了</p>
+        <button @click="age++">年龄+1</button>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    age: 22
+                }
+            },
+            watch: {
+                age(newVal, oldVal) {
+                    console.log('age最新的值是: ' + newVal)
+                }
+            }
+        }
+        Vue.createApp(App).mount('div')
+    </script>
+</body>
+</html>

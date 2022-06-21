@@ -40,6 +40,7 @@
 ### 这里
 
 - [色板](doc/hexColor.html)
+- [技巧](doc/tips.md)
 
 ### 测试
 
