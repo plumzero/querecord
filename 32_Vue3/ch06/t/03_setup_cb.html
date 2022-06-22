@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <com name="组件名"></com>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        App.component("com", {
+            setup(props, context) {
+                let data = 'setup的数据'
+                return () => Vue.h('div', [data])
+            },
+            props: {
+                name: String
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

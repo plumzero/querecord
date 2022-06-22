@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <com name="组件名"></com>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        App.component("com", {
+            setup(props, context) {
+                let data = 'setup的数据'
+                // 设置的函数参数的调用时机与 mounted 一样
+                Vue.onMounted(() => {
+                    console.log('setup 定义的 mounted')
+                })
+                return () => Vue.h('div', [data])
+            },
+            props: {
+                name: String
+            },
+            mounted() {
+                console.log('组件内定义的 mounted')
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>
