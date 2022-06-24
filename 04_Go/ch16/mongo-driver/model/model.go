@@ -17,3 +17,12 @@ type LogRecord struct {
 type FindByJobName struct {
 	JobName string `bson:"jobName"`
 }
+
+// upsert 测试
+type PersonalInfo struct {
+	Name	string 	`bson:"name"`
+	Gender	string	`bson:"gender"`
+	Age		int		`bson:"age"`
+	Email	string	`bson:"email"`
+	Status	bool	`bson:"status"`
+}
