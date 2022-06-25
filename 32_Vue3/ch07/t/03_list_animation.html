@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        /* 反转元素动画 */
+        .list-move {
+            transition: transform 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application">
+        <button @click="add">添加元素</button>
+        <button @click="del">删除元素</button>
+        <button @click="rev">反转元素</button>
+        <!-- <button @dele="dele">删除元素</button> -->
+        <transition-group name="list">
+            <div v-for="item in items" :key="item">
+                元素: {{item}}
+            </div>
+        </transition-group>
+    </div>
+    <script>
+        const App = Vue.createApp({
+            data() {
+                return {
+                    items: [1, 2, 3, 4, 5]
+                }
+            },
+            methods: {
+                add() {
+                    this.items.push(this.items[this.items.length - 1] + 1)
+                },
+                del() {
+                    if (this.items.length > 0) {
+                        this.items.pop()
+                    }
+                },
+                rev() {
+                    console.log(this.items)
+                    this.items.reverse()
+                }
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

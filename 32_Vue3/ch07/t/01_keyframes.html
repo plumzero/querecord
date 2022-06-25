@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        @keyframes animation1 {
+            0% {
+                background-color: red;
+                width: 100px;
+                height: 100px;
+            }
+            25% {
+                background-color: orchid;
+                width: 200px;
+                height: 200px;
+            }
+            75% {
+                background-color: green;
+                width: 150px;
+                height: 150px;
+            }
+            100% {
+                background-color: blue;
+                width: 200px;
+                height: 200px;
+            }
+        }
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .demo-ani {
+            animation: animation1 4s linear;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application">
+        <div :class="cls" @click="run"></div>
+    </div>
+    <script>
+        const App = Vue.createApp({
+            data() {
+                return {
+                    cls: 'demo'
+                }
+            },
+            methods: {
+                run() {
+                    if (this.cls == 'demo') {
+                        this.cls = 'demo-ani'
+                    } else {
+                        this.cls = 'demo'
+                    }
+                }
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

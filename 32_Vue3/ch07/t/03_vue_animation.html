@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .ani-enter-from {
+            width: 0px;
+            height: 0px;
+            background-color: red;
+        }
+        .ani-enter-active {
+            transition: width 2s, height 2s, background-color 2s;
+        }
+        .ani-enter-to {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .ani-leave-from {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .ani-leave-active {
+            transition: width 2s, height 2s, background-color 3s;
+        }
+        .ani-leave-to {
+            width: 0px;
+            height: 0px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application">
+        <button @click="click">显示/隐藏</button>
+        <transition name="ani">
+            <div v-if="show">
+            </div>
+        </transition>
+    </div>
+    <script>
+        const App = Vue.createApp({
+            data() {
+                return {
+                    show: false
+                }
+            },
+            methods: {
+                click() {
+                    this.show = ! this.show
+                }
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

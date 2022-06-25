@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="Application">
+        <button @click="click">显示/隐藏</button>
+        <transition name="ani" :css="false"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @enter-cancelled="enterCancelled"
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave"
+        @leave-cancelled="leaveCancelled">
+            <div v-show="show" class="demo">
+            </div>
+        </transition>
+    </div>
+    <script>
+        const App = Vue.createApp({
+            data() {
+                return {
+                    show: false
+                }
+            },
+            methods: {
+                click() {
+                    this.show = ! this.show
+                },
+                // 组件插入过渡开始前
+                beforeEnter(el) {
+                    console.log('beforeEnter', el)
+                },
+                // 组件插入过渡开始
+                enter(el, done) {
+                    console.log('enter', el, done)
+                },
+                // 组件插入过渡后
+                afterEnter(el) {
+                    console.log('afterEnter')
+                },
+                // 组件插入过渡取消
+                enterCancelled(el) {
+                    console.log('enterCancelled')
+                },
+                // 组件移除过渡开始前
+                beforeLeave(el) {
+                    console.log('beforeLeave')
+                },
+                // 组件移除过渡开始
+                leave(el, done) {
+                    console.log('leave')
+                },
+                // 组件移除过渡后
+                afterLeave(el) {
+                    console.log('afterLeave')
+                },
+                // 组件移除过渡取消
+                leaveCancelled(el) {
+                    console.log('leaveCancelled')
+                }
+            }
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组合式API用户列表</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .container {
+            margin: 50px;
+        }
+        .content {
+            margin: 20px;
+        }
+        .tab {
+            width: 300px;
+            position: absolute;
+        }
+        .item {
+            border: gray 1px solid;
+            width: 148px;
+            text-align: center;
+            transition: all 0.8s ease;
+            display: inline-block;
+        }
+        .list-enter-active {
+            transition: all 1s ease;
+        }
+        .list-enter-from,
+        .list-leave-to {
+            opacity: 0;
+        }
+        .list-move {
+            transition: transform 1s ease;
+        }
+        .list-leave-active {
+            position: absolute;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application">
+    </div>
+    <script>
+        const mock = [ { name: '小王', sex: 0 }, { name: '小红', sex: 1 }, { name: '小李', sex: 1 }, { name: '小张', sex: 0 } ]
+        const App = Vue.createApp({
+            setup() {
+                // 先处理用户列表相关逻辑
+                const showDatas = Vue.ref([])
+                const queryAllData = () => {
+                    // 模拟请求过程
+                    setTimeout(() => {
+                        showDatas.value = mock
+                    }, 3000)
+                }
+                // 组件挂载时获取数据
+                Vue.onMounted(queryAllData)
+                // 处理筛选与检索逻辑
+                let sexFilter = Vue.ref(-1)
+                let searchKey = Vue.ref('')
+                let filterData = () => {
+                    searchKey.value = ''
+                    if (sexFilter.value == -1) {
+                        showDatas.value = mock
+                    } else {
+                        showDatas.value = mock.filter(item => { return item.sex == sexFilter.value })
+                    }
+                },
+                searchData = () => {
+                    sexFilter.value = -1
+                    if (searchKey.value.length == 0) {
+                        showDatas.value = mock
+                    } else {
+                        showDatas.value = mock.filter(item => { return item.name.search(searchKey.value) != -1 })
+                    }
+                }
+                // 添加侦听
+                Vue.watch(sexFilter, filterData)
+                Vue.watch(searchKey, searchData)
+                // 将模板中需要使用的数据返回
+                return {
+                    showDatas,
+                    searchKey,
+                    sexFilter
+                }
+            },
+            template: `
+                <div class="container">
+                    <div class="container">
+                        <input type="radio" :value="-1" v-model="sexFilter">全部
+                        <input type="radio" :value="0" v-model="sexFilter">男
+                        <input type="radio" :value="1" v-model="sexFilter">女
+                    </div>
+                    <div class="content">搜索: <input type="text" v-model="searchKey"></div>
+                    <div class="content">
+                        <div class="tab" width="300px">
+                            <div>
+                                <div class="item">姓名</div>
+                                <div class="item">性别</div>
+                            </div>
+                            <transition-group name="list">
+                                <div v-for="(data, index) in showDatas" :key="data.name">
+                                    <div class="item">{{data.name}}</div>
+                                    <div class="item">{{data.sex == 0 ? '男' : '女'}}</div>
+                                </div>
+                            </transition-group>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+        App.mount('#Application')
+    </script>
+</body>
+</html>
