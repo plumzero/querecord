@@ -36,3 +36,6 @@
 - [动画](ch07)
   - [CSS3实现](ch07/01_CSS3实现.md)
   - [JavaScript实现](ch07/02_JavaScript实现.md)
+- [Vue CLI](ch08)
+  - [安装运行](ch08/01_安装运行.md)
+  - [工程构建](ch08/02_工程构建.md)
