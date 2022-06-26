@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <div style="margin: 40px;"><el-tag>这里是模板的内容:{{count}}将点击</el-tag></div>
+        <div><el-button @click="clickButton">按钮</el-button></div>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+            methods: {
+                clickButton() {
+                    this.count = this.count + 1
+                }
+            }
+        }
+        let instance = Vue.createApp(App)
+        instance.use(ElementPlus)
+        instance.mount('#Application')
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+    <style>
+        .border {
+            border: 2px solid #efefef;
+        }
+        span {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <div class="border">
+            <span>尺寸(size)</span>
+            <el-button>默认按钮</el-button>
+            <el-button size="large">大型按钮</el-button>
+            <el-button size="small">小型按钮</el-button>
+        </div>
+        <div class="border">
+            <span>类型(type)</span>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary">常规按钮</el-button>
+            <el-button type="success">成功按钮</el-button>
+            <el-button type="info">信息按钮</el-button>
+            <el-button type="warning">警告按钮</el-button>
+            <el-button type="danger">危险按钮</el-button>
+        </div>
+        <div class="border">
+            <span>风格</span>
+            <el-button :plain="true">描边</el-button>
+            <el-button :round="true">圆角</el-button>
+            <el-button :circle="true">圆形</el-button>
+            <el-button :disabled="true">禁用</el-button>
+            <el-button :loading="true">加载</el-button>
+        </div>
+        <div class="border">
+            <span>图标</span>
+            <el-button icon="Search">搜索</el-button>
+            <el-button icon="Edit">编辑</el-button>
+            <el-button icon="Check">校验</el-button>
+            <el-button icon="Message">消息</el-button>
+            <el-button icon="Star">标星</el-button>
+            <el-button icon="Delete">删除</el-button>
+        </div>
+    </div>
+    <script>
+        let instance = Vue.createApp({})
+        instance.use(ElementPlus)
+        instance.mount('#Application')
+    </script>
+</body>
+</html>

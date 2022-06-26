@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+    <style>
+        .border {
+            border: 2px solid #efefef;
+        }
+        span {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <div class="border">
+            <span>标签</span>
+            <el-tag>普通标签</el-tag>
+            <el-tag :hit="true">描边标签</el-tag>
+            <el-tag color="purple">紫色背景标签</el-tag>
+        </div>
+    </div>
+    <script>
+        let instance = Vue.createApp({})
+        instance.use(ElementPlus)
+        instance.mount('#Application')
+    </script>
+</body>
+</html>

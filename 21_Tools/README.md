@@ -39,3 +39,4 @@ Windows 下使用 POSIX 环境，需要使用 Cygwin 。
 * [代码程序](ch06)
     * [Emmet](ch06/01_Emmet)
     * [ApiPost](ch06/02_ApiPost)
+    * [vscode插件](ch06/03_vscode)

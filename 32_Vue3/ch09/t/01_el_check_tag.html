@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application" style="text-align: center;">
+        <el-check-tag :checked="false">足球</el-check-tag>
+        <el-check-tag :checked="false">篮球</el-check-tag>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>
