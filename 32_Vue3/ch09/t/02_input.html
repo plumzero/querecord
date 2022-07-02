@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-input v-model="value" placeholder="请输入内容" :disabled="false" :show-password="false" :clearable="true" prefix-icon="el-icon-search" type="text">
+        </el-input>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    value: ''
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

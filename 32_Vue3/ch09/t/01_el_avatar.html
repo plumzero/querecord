@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <!-- 使用文本类型的头像 -->
+        <el-avatar style="margin:20px;">用户</el-avatar>
+        <!-- 使用图标类型的头像 -->
+        <el-avatar style="margin:20px;" icon="el-icon-user-solid"></el-avatar>
+        <!-- 使用图片类型的头像 -->
+        <el-avatar style="margin:20px;" :size="100" src="https://v3.cn.vuejs.org/logo.png"></el-avatar>
+        <el-avatar style="margin:20px;" src="https://v3.cn.vuejs.org/logo.png"></el-avatar>
+        <el-avatar style="margin:20px;" shape="square" src="https://v3.cn.vuejs.org/logo.png"></el-avatar>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

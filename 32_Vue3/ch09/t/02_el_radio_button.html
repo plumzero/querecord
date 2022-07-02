@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-radio-group v-model="city">
+            <el-radio-button label="1">北京</el-radio-button>
+            <el-radio-button label="2">上海</el-radio-button>
+            <el-radio-button label="3">广州</el-radio-button>
+            <el-radio-button label="4">深圳</el-radio-button>
+        </el-radio-group>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

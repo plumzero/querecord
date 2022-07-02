@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-skeleton :rows="1" :animated="true" :loading="loading">
+            <h1>这里是真实的页面元素</h1>
+            <p>{{msg}}</p>
+        </el-skeleton>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    msg: '',
+                    loading: true
+                }
+            },
+            // 模拟页面加载 3 秒后请求到数据
+            mounted() {
+                setTimeout(this.getData, 3000)
+            },
+            methods: {
+                getData() {
+                    this.msg = '这里是请求到的数据'
+                    this.loading = false
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

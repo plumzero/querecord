@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-checkbox-group v-model="checkBox" :min="1" :max="3">
+            <el-checkbox label="1">A</el-checkbox>
+            <el-checkbox label="2">B</el-checkbox>
+            <el-checkbox label="3">C</el-checkbox>
+            <el-checkbox label="4">D</el-checkbox>
+        </el-checkbox-group>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    checkBox: false
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

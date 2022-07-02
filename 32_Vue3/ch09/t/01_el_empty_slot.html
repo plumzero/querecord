@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <!-- <el-empty description="设置空态图的描述文案" :image-size="400"></el-empty> -->
+        <el-empty>
+            <!-- image 具名插槽用来替换默认的图片部分 -->
+            <template v-slot:image>
+                <div>这里是自定义图片位置</div>
+            </template>
+            <!-- description 具名插槽用来替换默认的描述部分 -->
+            <template v-slot:description>
+                <h3>自定义描述内容</h3>
+            </template>
+            <!-- 默认的插槽用来在空态图的尾部追加内容 -->
+            <el-button>看看其他内容</el-button>
+        </el-empty>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-radio v-model="radio" label="0">男</el-radio>
+        <el-radio v-model="radio" label="1">女</el-radio>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>
