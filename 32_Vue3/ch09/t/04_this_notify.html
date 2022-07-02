@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-button @click="notify">弹出信息提示</el-button>
+    </div>
+    <script>
+        Vue.createApp({
+            methods: {
+                notify() {
+                    this.$notify({
+                        title: '通知标题',
+                        message: '通知内容',
+                        type: 'success',
+                        duration: 3000,
+                        position: "top-right",
+                    });
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

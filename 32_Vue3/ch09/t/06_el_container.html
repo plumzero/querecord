@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-container>
+            <el-header height="80px" style="background-color:gray">Header</el-header>
+            <el-container>
+                <el-aside width="200px" style="background-color:red">Aside</el-aside>
+            </el-container>
+            <el-container>
+                <el-main>
+                    <div style="height:300px;background-color:#f1f1f1">内容</div>
+                </el-main>
+                <el-footer height="80px" style="background-color:gray">Footer</el-footer>
+            </el-container>
+        </el-container>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

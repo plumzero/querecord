@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <div>
+            <el-slider v-model="sliderValue1"></el-slider>
+        </div>
+        <div>
+            <el-slider v-model="sliderValue2" :format-tooltip="format"></el-slider>
+        </div>
+        <div>
+            <el-slider v-model="sliderValue3" :format-tooltip="format" :step="10" :show-stops="true" :show-input="true"></el-slider>
+        </div>
+        <div>
+            <el-slider v-model="sliderValue4" :range="true"></el-slider>
+        </div>
+        <div>
+            <el-slider v-model="sliderValue5" :marks="marks"></el-slider>
+        </div>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    sliderValue1: 0,
+                    sliderValue2: 0,
+                    sliderValue3: 0,
+                    sliderValue4: 0,
+                    sliderValue5: 0,
+                    marks: {
+                        0: '起点',
+                        50: '半程啦!',
+                        90: {
+                            style: {
+                                color: '#ff0000',
+                            },
+                            label: '就到终点啦'
+                        }
+                    }
+                }
+            },
+            methods: {
+                format(value) {
+                    return `${value}%`;
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

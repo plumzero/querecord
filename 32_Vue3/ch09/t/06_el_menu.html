@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-menu mode="horizontal">
+            <el-menu-item index="1">首页</el-menu-item>
+            <el-sub-menu index="2">
+                <template #title>广场</template>
+                <el-menu-item index="2-1">音乐</el-menu-item>
+                <el-menu-item index="2-2">视频</el-menu-item>
+                <el-menu-item index="2-3">游戏</el-menu-item>
+                <el-sub-menu index="2-4">
+                    <template #title>体育</template>
+                    <el-menu-item index="2-4-1">篮球</el-menu-item>
+                    <el-menu-item index="2-4-2">足球</el-menu-item>
+                    <el-menu-item index="2-4-3">排球</el-menu-item>
+                </el-sub-menu>
+            </el-sub-menu>
+            <el-menu-item index="3" :disabled="true">个人中心</el-menu-item>
+            <el-menu-item index="4">设置</el-menu-item>
+        </el-menu>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

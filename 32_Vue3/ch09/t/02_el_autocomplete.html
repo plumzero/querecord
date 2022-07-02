@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-autocomplete v-model="value" :fetch-suggestions="queryData" placeholder="请输入内容" @select="selected" :highlight-first-item="true">
+        </el-autocomplete>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    inputValue: ''
+                }
+            },
+            methods: {
+                queryData(queryString, callback) {
+                    let array = []
+                    if (queryString.length > 0) {
+                        array.push({value:queryString})
+                    }
+                    array.push(...[{value:'衣服'},{value:'裤子'},{value:'帽子'},{value:'鞋子'}])
+                    callback(array)
+                },
+                selected(obj) {
+                    alert(obj.value)
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

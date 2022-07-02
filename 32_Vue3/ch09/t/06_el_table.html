@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-table :data="tableData">
+            <el-table-column prop="name" label="姓名"></el-table-column>
+            <el-table-column prop="age" label="年龄"></el-table-column>
+            <el-table-column prop="subject" label="科目"></el-table-column>
+        </el-table>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    tableData: [
+                        {name:'小王', age:29, subject:'Java'},
+                        {name:'小李', age:30, subject:'C++'},
+                        {name:'小张', age:28, subject:'JavaScript'}
+                    ]
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

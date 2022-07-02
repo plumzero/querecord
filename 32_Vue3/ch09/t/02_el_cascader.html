@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-cascader v-model="value" :options="datas" :props="{expandTrigger: 'hover'}"></el-cascader>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    value: '',
+                    datas: [{
+                        value:'父1',label:'运动',children:[{value:'子1',label:'足球'},{value:'子2',label:'篮球'}]
+                    },{
+                        value:'父2',label:'休闲',children:[{value:'子1',label:'游戏'},{value:'子2',label:'魔方'}]
+                    }]
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <div style="margin:300px">
+            <el-button @click="drawer = true" type="primary">点我打开抽屉</el-button>
+        </div>
+        <el-drawer title="抽屉面板的标题" v-model="drawer" direction="rtl" size="50%">抽屉面板的内容</el-drawer>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    drawer: ''
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

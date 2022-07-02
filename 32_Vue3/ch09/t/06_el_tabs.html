@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-tabs type="border-card">
+            <el-tab-pane label="页面1" name="1">页面1</el-tab-pane>
+            <el-tab-pane label="页面2" name="2">页面2</el-tab-pane>
+            <el-tab-pane label="页面3" name="3">页面3</el-tab-pane>
+            <el-tab-pane label="页面4" name="4">页面4</el-tab-pane>
+        </el-tabs>
+    </div>
+    <script>
+        Vue.createApp({}).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

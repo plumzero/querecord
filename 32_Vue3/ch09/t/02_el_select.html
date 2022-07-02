@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-select :multiple="true" :clearable="true" v-model="value">
+            <el-option v-for="item in options" :value="item.value" :label="item.label" :key="item.value">
+            </el-option>
+        </el-select>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    value: '',
+                    options: [{value:'选项1',label:'足球'},{value:'选项2',label:'篮球',disabled:true},{value:'选项3',label:'排球'},{value:'选项4',label:'乒乓球'},{value:'选项5',label:'排球'}]
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>

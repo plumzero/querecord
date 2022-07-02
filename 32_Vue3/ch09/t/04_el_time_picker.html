@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+    <div id="Application">
+        <el-time-picker :is-range="true" v-model="time" range-separator="~" :arrow-control="true" start-placeholder="开始时间" end-placeholder="结束时间"></el-time-picker>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    time: ''
+                }
+            }
+        }).use(ElementPlus).mount("#Application")
+    </script>
+</body>
+</html>
