@@ -255,8 +255,8 @@ int main()
         scene.set_iams_nes("Oo");
         scene.set_iams_ness("Grok It");
 
-        scene.set_iams_in_symbol("li_bei");
-        scene.set_iams_nin_symbol("li-bei");
+        scene.set_iams_in_symbol("lu_mian");
+        scene.set_iams_nin_symbol("lu-mian");
 
         show(scene);
     }

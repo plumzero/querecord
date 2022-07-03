@@ -15,7 +15,7 @@
 int main(const int, const char**)
 {
     auto request = std::make_shared<restbed::Request>(
-                restbed::Uri("http://127.0.0.1:1984/resource/libeio"));
+                restbed::Uri("http://127.0.0.1:1984/resource/fangyi"));
     request->set_header("Connection", "keep-alive");
     request->set_method("POST");
 

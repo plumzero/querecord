@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-// http://192.168.2.102:3000/get?name=libei
+// http://192.168.2.102:3000/get?name=lumian
 app.get('/get', function(req, res) {
     let message = {};
     message.msg = 'get the world';

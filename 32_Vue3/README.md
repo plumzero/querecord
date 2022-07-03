@@ -5,6 +5,7 @@
 
 - [参考](https://v3.cn.vuejs.org/guide/introduction.html)
 - [API](https://v3.cn.vuejs.org/api/)
+- [问题](problems.md)
 
 ### 内容
 
@@ -47,4 +48,4 @@
   - [提示类组件](ch09/05_提示类组件.md)
   - [数据承载相关组件](ch09/06_数据承载相关组件.md)
   - [vue示例](ch09/07_示例.md)
-
+- [Vue路由管理](ch10)

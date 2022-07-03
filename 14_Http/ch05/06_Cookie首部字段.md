@@ -13,7 +13,7 @@ Cookie 的工作机制是用户识别及状态管理。Web 网站为了管理用
 
 示例:
 ```shell
-    Set-Cookie: status=enable; expires=Tue, 04 May 2021 10:53:56 GMT; path=/; domain=libeio.com;
+    Set-Cookie: status=enable; expires=Tue, 04 May 2021 10:53:56 GMT; path=/; domain=fangyi.com;
 ```
 当服务器准备开始管理客户端的状态时，会事先像上面这样告知客户端各种信息。
 

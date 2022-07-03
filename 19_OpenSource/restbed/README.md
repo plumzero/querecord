@@ -16,7 +16,7 @@
     + 服务端返回 Content, 客户端收到后取出
     + 也可以通过下列命令单独对 getserver 测试；
       ```shell
-        curl -w'\n' -v -X GET http://localhost:1984/resource/libeio
+        curl -w'\n' -v -X GET http://localhost:1984/resource/fangyi
       ```
 
 02.POST 方法测试

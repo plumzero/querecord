@@ -19,16 +19,6 @@ npm run serve
 - 利用 vue.config.js 配置跨域
 - 注意: 配置跨域后重启开发服务器才能生效
 
-### Problems
-
-```sh
-    Watchpack Error (watcher): Error: ENOSPC: System limit for number of file watchers reached,
-```
-
-在 shell 会话中执行如下命令:
-```sh
-    sysctl fs.inotify.max_user_watches=524288
-```
 
 ### About vue-axios
 

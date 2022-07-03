@@ -7,8 +7,8 @@ echo *******************************************
 echo Script: SysInfo.bat
 echo Creation Data: 2019/1/3
 echo Last Modified: 2019/1/3
-echo Author: LB
-echo E-mail: ytmrlimei@163.com
+echo Author: SC
+echo E-mail: shencheng@email.com
 echo *******************************************
 echo Description: use ECHO control the display
 echo *******************************************
@@ -17,8 +17,8 @@ echo *******************************************
 :: Script: SysInfo.bat
 :: Creation Data: 2019/1/3
 :: Last Modified: 2019/1/3
-:: Author: LB
-:: E-mail: ytmrlimei@163.com
+:: Author: SC
+:: E-mail: shencheng@email.com
 :: *******************************************
 :: Description: Displays system configuration information
 :: 				including system name. IP configuration

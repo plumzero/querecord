@@ -9,7 +9,7 @@ DIGEST 认证同样使用质询/响应(challenge/response)的方式，但不会�
 1. 发送请求
   ```http
     GET /private/ HTTP/1.1
-    Host: libeio.com
+    Host: fangyi.com
   ```
 
 2. 发送临时的质询码(随机数, nonce)以及告知需要认证的状态码 401
@@ -22,7 +22,7 @@ DIGEST 认证同样使用质询/响应(challenge/response)的方式，但不会�
 3. 发送摘要以及由质询计算出的响应码(response)
    ```http
     GET /digest/ HTTP/1.1
-    Host: libeio.com
+    Host: fangyi.com
     Authorization: Digest username="guest",realm="DIGEST",nonce="MOSQZ0itBAA=44abb6784cc9cbfc605a5b0893d36f23de95fcff",uri="/digest/",algorithm=MD5,response="df56389ba3f7c52e9d7551115d67472f",qop=auth,nc=000000001,cnonce="082c875dcb2ca740"
    ```
 

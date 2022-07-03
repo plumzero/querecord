@@ -31,8 +31,8 @@ title Script Infomation
 %INFO% Script: SystemInfo. bat
 %INFO% Creation Date: 1/4/2019
 %INFO% Last Modified: 1/4/2019
-%INFO% Author: LB
-%INFO% E-mail: libeioando@gmail.com
+%INFO% Author: SC
+%INFO% E-mail: fangyi@email.com
 %INFO% Description: SET useage
 %INFO% **************************************
 %INFO% Files: Stores output in C

@@ -4,7 +4,7 @@
 1. 发送请求
   ```http
     GET /private/ HTTP/1.1
-    Host: libeio.com
+    Host: fangyi.com
   ```
 
 2. 服务端返回状态码 401 以告知客户端需要进行认证
@@ -18,7 +18,7 @@
 3. 用户 ID 和密码以 Base64 方式编码后发送
    ```http
     GET /private/ HTTP/1.1
-    Host: libeio.com
+    Host: fangyi.com
     Authorization: Basic Z3Vic3Q6Z3Vic3Q
    ```
 

@@ -68,16 +68,16 @@ PostgreSQL 支持两种 JSON 数据类: `json` 和 `jsonb`，两种类型在使�
 
 另外，jsonb 类型会去掉输入数据中键值的空格，json 则不会:
 ```sql
-    testdb=> SELECT ' {"id":1,    "name":"libeio"  }  '::jsonb;
+    testdb=> SELECT ' {"id":1,    "name":"fangyi"  }  '::jsonb;
                 jsonb            
     -----------------------------
-    {"id": 1, "name": "libeio"}
+    {"id": 1, "name": "fangyi"}
     (1 row)
 
-    testdb=> SELECT ' {"id":1,    "name":"libeio"  }  '::json;
+    testdb=> SELECT ' {"id":1,    "name":"fangyi"  }  '::json;
                 json                
     -----------------------------------
-    {"id":1,    "name":"libeio"  }  
+    {"id":1,    "name":"fangyi"  }  
     (1 row)
 ```
 

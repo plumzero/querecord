@@ -17,8 +17,8 @@
 
 这里以创建一个 `Admin` 角色用户和一个 `Viewer` 角色用户作为示例:
 ```sh
-    airflow$ airflow users create --username libei --firstname li --lastname bei --email libei@email.com --role Admin --password admin123
-    Admin user libei created
+    airflow$ airflow users create --username lumian --firstname lu --lastname mian --email lumian@email.com --role Admin --password admin123
+    Admin user lumian created
 
     airflow$ airflow users create --username 郭靖 --firstname 郭 --lastname 靖 --email song@email.com --role Viewer --password viewer123
     Viewer user 郭靖 created
@@ -30,7 +30,7 @@
     airflow=> select id, first_name, last_name, username, changed_on, active, email, created_on from ab_user;
     id | first_name | last_name | username |         changed_on         | active |      email      |         created_on         
     ----+------------+-----------+----------+----------------------------+--------+-----------------+----------------------------
-    1 | li         | bei       | libei    | 2021-08-31 22:43:21.98106  | t      | libei@email.com | 2021-08-31 22:43:21.981051
+    1 | lu         | mian       | lumian    | 2021-08-31 22:43:21.98106  | t      | lumian@email.com | 2021-08-31 22:43:21.981051
     2 | 郭         | 靖        | 郭靖     | 2021-08-31 22:52:36.196941 | t      | song@email.com  | 2021-08-31 22:52:36.196932
     (2 rows)
 

@@ -7,8 +7,8 @@ echo *******************************************
 echo Script: helloworld.bat
 echo Creation Data: 2020/12/05
 echo Last Modified: 2020/12/05
-echo Author: libeio
-echo E-mail: ytmrlimei@163.com
+echo Author: fangyi
+echo E-mail: shencheng@email.com
 echo *******************************************
 echo Description: display system information
 echo *******************************************

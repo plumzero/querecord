@@ -47,7 +47,7 @@ BA 认证会对用户名和密码进行 base64 编码，并将编码值放到 HT
 
 1. deny_all 认证下发送下面的请求:
    ```sh
-    curl -X GET --user "libei:admin123" http://192.168.3.40:8080/api/v1/pools
+    curl -X GET --user "lumian:admin123" http://192.168.3.40:8080/api/v1/pools
    ```
    输出结果如下:
    ```sh
@@ -92,7 +92,7 @@ BA 认证会对用户名和密码进行 base64 编码，并将编码值放到 HT
    可以看到，这次不是认证不通过，而不权限禁止。即 Viewer 角色用户无法访问这个接口资源。
 4. 事实上，上面带有 `/api/v1` 形式的 URL 就是所谓的试验性 API。如果将 `/api/v1` 去掉，比如将上面的 `/api/v1/pools` 变成 `/pools`，就变成了所谓的 `stable REST API`。
    ```sh
-    curl -X GET --user "libei:admin123" http://192.168.3.40:8080/pools
+    curl -X GET --user "lumian:admin123" http://192.168.3.40:8080/pools
    ```
    输出结果如下:
    ```html
