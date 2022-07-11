@@ -28,6 +28,8 @@ Windows 下使用 POSIX 环境，需要使用 Cygwin 。
     * [strace](ch03/01_strace)
     * [gcov](ch03/02_gcov)
     * [gprof](ch03/03_gprof)
+    * [iperf](ch03/04_iperf)
+    * [FlameGraph](ch03/05_flameGraph)
 * [进程访问](ch04)
     * [curl](ch04/01_curl)
     * [telnet](ch04/02_telnet)

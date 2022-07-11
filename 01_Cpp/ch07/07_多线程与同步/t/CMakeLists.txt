@@ -20,3 +20,6 @@ target_link_libraries(02_lock_guard pthread)
 
 add_executable(02_unique_lock     02_unique_lock.cpp)
 target_link_libraries(02_unique_lock pthread)
+
+add_executable(04_atomic     04_atomic.cpp)
+target_link_libraries(04_atomic pthread)
