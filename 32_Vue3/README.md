@@ -6,6 +6,7 @@
 - [参考](https://v3.cn.vuejs.org/guide/introduction.html)
 - [API](https://v3.cn.vuejs.org/api/)
 - [问题](problems.md)
+- [笔记](notes.md)
 
 ### 内容
 
