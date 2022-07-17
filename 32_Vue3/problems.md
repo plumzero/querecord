@@ -14,4 +14,17 @@
 
 ### P2
 
-`.vue` 组件命名时，这样命名 `Demo1.vue` 是错误的，这样命名 `DemoName` 是正确的。
+```sh
+error  Component name "Home" should always be multi-word  vue/multi-word-component-names
+```
+
+`.vue` 组件命名时，这样命名 `Home.vue` 是错误的，这样命名 `MyHome` 是正确的。
+
+或者在 vue.config.js 配置中添加 `lintOnSave: false`，变为:
+```js
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
+  transpileDependencies: true,
+  lintOnSave: false
+})
+```
