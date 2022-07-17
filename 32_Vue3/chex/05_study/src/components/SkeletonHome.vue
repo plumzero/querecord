@@ -5,7 +5,7 @@
       <Header :items="navItems" v-on:selected="changeSelected"></Header>
     </el-header>
     <el-main>
-      <Body :items="bodyItems"></Body>
+      <Body :items="bodyItems" :topic="navItems[currentTopicIndex].title"></Body>
     </el-main>
     <el-footer>
       <div id="footer">{{desc}}</div>

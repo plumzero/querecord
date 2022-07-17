@@ -8,6 +8,7 @@
         text-color="#777777"
         active-text-color="#000000"
         default-active="0"
+        @select="selectItem"
       >
         <el-menu-item
           v-for="item in items"
@@ -19,14 +20,50 @@
       </el-menu>
     </el-aside>
     <el-main>
+      <MarkDown :content="content"></MarkDown>
     </el-main>
   </el-container>
 </template>
 
 <script>
+import MarkDown from './MarkDown.vue'
+import FileManager from '../tools/FileManager.js'
 export default {
-  props: ["items"],
+  mounted() {
+    FileManager.getPostContent(this.topic, this.items[this.currentIndex].title).then((res) => {
+      this.content = res.data
+    })
+  },
+  props: ['items', 'topic'],
   components: {
+    MarkDown: MarkDown
+  },
+  data() {
+    return {
+      // 在侧边栏上选中当前的文章
+      currentIndex: 0,
+      // 文档的 Markdown 内容
+      content: ''
+    }
+  },
+  methods: {
+    selectItem(index) {
+      this.currentIndex = index
+    }
+  },
+  watch: {
+    // 监听选中的文章变化
+    currentIndex: function(val) {
+      FileManager.getPostContent(this.topic, this.items[val].title).then((res) => {
+        this.content = res.data
+      })
+    },
+    // 监听选中的主题变化
+    topic: function(val) {
+      FileManager.getPostContent(val, this.items[this.currentIndex].title).then((res) => {
+        this.content = res.data
+      })
+    }
   }
 };
 </script>

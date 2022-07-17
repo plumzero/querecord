@@ -5,6 +5,8 @@ npm install element-plus --save
 
 npm install --save axios vue-axios
 
+npm install marked -S
+
 ### 文件说明
 
 - components
