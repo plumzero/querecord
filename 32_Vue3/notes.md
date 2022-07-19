@@ -1,4 +1,10 @@
 
+### 快速查找
+
+- [mockjs示例](http://mockjs.com/examples.html#)
+- [关于Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob/Blob)
+
+
 ### 触发路由的两种方式
 
 - router-link
@@ -30,3 +36,7 @@
 [Vue warn]: Invalid prop: type check failed for prop "index". Expected String | Null, got Number with value 0.
 ```
 可以将 `:index="item.index"` 改为 `:index="item.index+''"` 来去除，不过也可以忽略这个警告。
+
+### 关于 package-lock.json
+
+这个文件建议在 '.gitignore' 中忽略掉。
