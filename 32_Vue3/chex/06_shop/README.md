@@ -25,6 +25,9 @@ npm install mockjs --save
             - Login.vue: 用来渲染用户登录页面
         - order
             - Order.vue: 订单页面
+        - goods
+            - Goods.vue: 商品页面
+            - AddGood.vue: 
 
 
 ### 说明
