@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <div id="title">
-      <h1>电商后台管理系统</h1>
+      <h1>某后台管理系统</h1>
     </div>
     <div class="input">
       <el-input v-model="name" prefix-icon="el-icon-user" placeholder="请输入用户名"></el-input>

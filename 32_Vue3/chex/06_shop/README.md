@@ -9,6 +9,8 @@ npm install element-plus --save
 
 npm install mockjs --save
 
+npm install wangeditor --save
+
 
 ### 文件说明
 
