@@ -11,6 +11,8 @@ npm install mockjs --save
 
 npm install wangeditor --save
 
+npm install echarts --save
+
 
 ### 文件说明
 

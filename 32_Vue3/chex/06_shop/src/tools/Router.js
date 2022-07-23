@@ -5,6 +5,9 @@ import Home from '../components/home/Home.vue'
 import Order from '../components/order/Order.vue'
 import Goods from '../components/goods/Goods.vue'
 import AddGood from '../components/goods/AddGood.vue'
+import ManagerList from '../components/manager/ManagerList.vue'
+import ManagerReqList from '../components/manager/ManagerReqList.vue'
+import ManagerOrder from '../components/manager/ManagerOrder.vue'
 import Store from '../tools/Storage.js'
 
 const Router = createRouter({
@@ -37,6 +40,21 @@ const Router = createRouter({
                 }
             ],
             redirect: '/home/order/0'   // 用户登录完成后，访问系统主页时，默认重定向到(普通)订单模块
+        },
+        {
+            path: 'ownerList',
+            component: ManagerList,
+            name: 'ManagerList'
+        },
+        {
+            path: 'ownerreq',
+            component: ManagerReqList,
+            name: 'ManagerReqList'
+        },
+        {
+            path: 'ownerorder',
+            component: ManagerOrder,
+            name: 'ManagerOrder'
         }
     ]
 })

@@ -40,6 +40,43 @@ const Mock = {
             }))
         }
         return array;
+    },
+
+    getManagerList() {
+        let array = [];
+        for (let i = 0; i < mockjs.Random.integer(5, 10); i++) {
+            array.push(mockjs.mock({
+                'people': mockjs.Random.csentence(),
+                'weixin': mockjs.Random.string(7, 10),
+                'state': mockjs.Random.boolean(),
+                'income': mockjs.Random.integer(0,500000) + '元',
+                'back': mockjs.Random.integer(0,1000) + '元',
+                'backPrice': mockjs.Random.integer(0,5000) + '元',
+                'source': '站内',
+                'customer': mockjs.Random.integer(0,50),
+                'time': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss'),
+            }));
+        }
+        return array
+    },
+
+    getChartsData() {
+        let array = [];
+        for (let i = 0; i < 6; i++) {
+            array.push(mockjs.Random.integer(0,100))
+        }
+        return array
+    },
+
+    getTradeData() {
+        return mockjs.mock({
+            'allTra': mockjs.Random.integer(10000,50000),
+            'speTra': mockjs.Random.integer(0,5000),
+            'norTra': mockjs.Random.integer(0,5000),
+            'userCount': mockjs.Random.integer(0,1000),
+            'managerCount': mockjs.Random.integer(0,100),
+            'time': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss')
+        })
     }
 }
 
