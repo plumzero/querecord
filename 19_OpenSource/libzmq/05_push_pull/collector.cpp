@@ -16,9 +16,6 @@ int main(int argc, char* argv[])
 
     socket.bind("tcp://*:5556");
 
-    // 收集结果
-    std::vector<std::string> colls;
-
     while (true) {
         zmq::message_t msg;
         socket.recv(msg);
