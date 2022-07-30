@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 2.8.0)
 
 project("ZMQ Test" C CXX)
 
-option(BUILD_1_FIRST_TEST     "Build 1-first program"    ON)
-option(BUILD_2_SECOND_TEST    "Build 2-second program"   ON)
-option(BUILD_3_THIRD_TEST     "Build 3-third program"    ON)
+option(BUILD_01_REQ_REP        "Build 01_req_rep program"   ON)
+option(BUILD_02_PUB_SUB        "Build 02_pub_sub program"   ON)
+option(BUILD_03_PUB_SUB        "Build 03_pub_sub program"   ON)
 
 #
 # if u wanna release, do like this `cmake -DCMAKE_BUILD_TYPE=Release`
@@ -48,16 +48,16 @@ endif()
 #
 # Test in Sub Directories
 #
-if(BUILD_1_FIRST_TEST)
-    add_subdirectory(1-first)
+if(BUILD_01_REQ_REP)
+    add_subdirectory(01_req_rep)
 endif()
 
-if(BUILD_2_SECOND_TEST)
-    add_subdirectory(2-second)
+if(BUILD_02_PUB_SUB)
+    add_subdirectory(02_pub_sub)
 endif()
 
-if(BUILD_3_THIRD_TEST)
-    add_subdirectory(3-third)
+if(BUILD_03_PUB_SUB)
+    add_subdirectory(03_pub_sub)
 endif()
 
 #

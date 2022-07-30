@@ -1,5 +1,5 @@
 
-find_path(zmqhpp_INCLUDE zmq.hpp HINTS ${PROJECT_SOURCE_DIR})
+find_path(zmqhpp_INCLUDE zmq.hpp HINTS ${PROJECT_SOURCE_DIR} NO_DEFAULT_PATH)
 
 if(zmqhpp_INCLUDE)
     set(ZMQHPP_FOUND TRUE)
