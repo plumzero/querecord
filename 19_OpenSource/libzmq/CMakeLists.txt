@@ -5,6 +5,8 @@ project("ZMQ Test" C CXX)
 option(BUILD_01_REQ_REP        "Build 01_req_rep program"   ON)
 option(BUILD_02_PUB_SUB        "Build 02_pub_sub program"   ON)
 option(BUILD_03_PUB_SUB        "Build 03_pub_sub program"   ON)
+option(BUILD_04_PUB_SUB        "Build 04_pub_sub program"   ON)
+option(BUILD_05_PUSH_PULL      "Build 05_push_pull program" ON)
 
 #
 # if u wanna release, do like this `cmake -DCMAKE_BUILD_TYPE=Release`
@@ -58,6 +60,14 @@ endif()
 
 if(BUILD_03_PUB_SUB)
     add_subdirectory(03_pub_sub)
+endif()
+
+if(BUILD_04_PUB_SUB)
+    add_subdirectory(04_pub_sub)
+endif()
+
+if(BUILD_05_PUSH_PULL)
+    add_subdirectory(05_push_pull)
 endif()
 
 #

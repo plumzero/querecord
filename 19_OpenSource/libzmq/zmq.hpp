@@ -30,9 +30,7 @@
 #if (defined(__cplusplus) && __cplusplus >= 201103L) || (defined(_MSC_VER) && _MSC_VER >= 1900)
     #define ZMQ_CPP11
 #endif
-#if (defined(__cplusplus) && __cplusplus >= 201402L) || \
-    (defined(_HAS_CXX14) && _HAS_CXX14 == 1) || \
-    (defined(_HAS_CXX17) && _HAS_CXX17 == 1) // _HAS_CXX14 might not be defined when using C++17 on MSVC
+#if (defined(__cplusplus) && __cplusplus >= 201402L) || (defined(_HAS_CXX14) && _HAS_CXX14 == 1)
     #define ZMQ_CPP14
 #endif
 #if (defined(__cplusplus) && __cplusplus >= 201703L) || (defined(_HAS_CXX17) && _HAS_CXX17 == 1)
@@ -87,23 +85,13 @@
 #include <memory>
 #endif
 #ifdef ZMQ_CPP17
-#ifdef __has_include
-#if __has_include(<optional>)
 #include <optional>
-#define ZMQ_HAS_OPTIONAL 1
-#endif
-#if __has_include(<string_view>)
-#include <string_view>
-#define ZMQ_HAS_STRING_VIEW 1
-#endif
-#endif
-
 #endif
 
 /*  Version macros for compile-time API version detection                     */
 #define CPPZMQ_VERSION_MAJOR 4
-#define CPPZMQ_VERSION_MINOR 5
-#define CPPZMQ_VERSION_PATCH 0
+#define CPPZMQ_VERSION_MINOR 3
+#define CPPZMQ_VERSION_PATCH 1
 
 #define CPPZMQ_VERSION                                                              \
     ZMQ_MAKE_VERSION(CPPZMQ_VERSION_MAJOR, CPPZMQ_VERSION_MINOR,                    \
@@ -132,24 +120,6 @@
 #define ZMQ_DELETED_FUNCTION
 #else
 #define ZMQ_DELETED_FUNCTION
-#endif
-
-#if defined(ZMQ_CPP11) && !defined(__llvm__) && !defined(__INTEL_COMPILER) \
-    && defined(__GNUC__) && __GNUC__ < 5
-#define ZMQ_CPP11_PARTIAL
-#elif defined(__GLIBCXX__) && __GLIBCXX__ < 20160805
-//the date here is the last date of gcc 4.9.4, which
-// effectively means libstdc++ from gcc 5.5 and higher won't trigger this branch
-#define ZMQ_CPP11_PARTIAL
-#endif
-
-#ifdef ZMQ_CPP11
-#ifdef ZMQ_CPP11_PARTIAL
-#define ZMQ_IS_TRIVIALLY_COPYABLE(T) __has_trivial_copy(T)
-#else
-#include <type_traits>
-#define ZMQ_IS_TRIVIALLY_COPYABLE(T) std::is_trivially_copyable<T>::value
-#endif
 #endif
 
 #if ZMQ_VERSION >= ZMQ_MAKE_VERSION(3, 3, 0)
@@ -357,11 +327,11 @@ class message_t
             throw error_t();
     }
 
-#if defined(ZMQ_CPP11) && !defined(ZMQ_CPP11_PARTIAL)
+#ifdef ZMQ_CPP11
     template<class Range,
              typename = typename std::enable_if<
                detail::is_range<Range>::value
-               && ZMQ_IS_TRIVIALLY_COPYABLE(detail::range_value_t<Range>)
+               && std::is_trivially_copyable<detail::range_value_t<Range>>::value
                && !std::is_same<Range, message_t>::value>::type>
     explicit message_t(const Range &rng) :
         message_t(detail::ranges::begin(rng), detail::ranges::end(rng))
@@ -574,7 +544,7 @@ class message_t
             while (size--) {
                 byte = *msg_data++;
 
-                is_ascii[1] = (byte >= 32 && byte < 127);
+                is_ascii[1] = (byte >= 33 && byte < 127);
                 if (is_ascii[1] != is_ascii[0])
                     os << " "; // Separate text/non text
 
@@ -715,7 +685,7 @@ struct recv_buffer_size
 namespace detail
 {
 
-#if defined(ZMQ_HAS_OPTIONAL) && (ZMQ_HAS_OPTIONAL > 0)
+#ifdef ZMQ_CPP17
 using send_result_t = std::optional<size_t>;
 using recv_result_t = std::optional<size_t>;
 using recv_buffer_result_t = std::optional<recv_buffer_size>;
@@ -978,7 +948,7 @@ template<class T> struct is_pod_like
     // trivially copyable OR standard layout.
     // Here we decide to be conservative and require both.
     static constexpr bool value =
-      ZMQ_IS_TRIVIALLY_COPYABLE(T) && std::is_standard_layout<T>::value;
+      std::is_trivially_copyable<T>::value && std::is_standard_layout<T>::value;
 };
 
 template<class C> constexpr auto seq_size(const C &c) noexcept -> decltype(c.size())
@@ -1112,7 +1082,7 @@ const_buffer buffer(const std::basic_string<T, Traits, Allocator> &data,
     return detail::buffer_contiguous_sequence(data, n_bytes);
 }
 
-#if defined(ZMQ_HAS_STRING_VIEW) && (ZMQ_HAS_STRING_VIEW > 0)
+#ifdef ZMQ_CPP17
 // std::basic_string_view
 template<class T, class Traits>
 const_buffer buffer(std::basic_string_view<T, Traits> data) noexcept
@@ -1125,40 +1095,6 @@ const_buffer buffer(std::basic_string_view<T, Traits> data, size_t n_bytes) noex
     return detail::buffer_contiguous_sequence(data, n_bytes);
 }
 #endif
-
-// Buffer for a string literal (null terminated)
-// where the buffer size excludes the terminating character.
-// Equivalent to zmq::buffer(std::string_view("...")).
-template<class Char, size_t N>
-constexpr const_buffer str_buffer(const Char (&data)[N]) noexcept
-{
-    static_assert(detail::is_pod_like<Char>::value, "Char must be POD");
-#ifdef ZMQ_CPP14
-    assert(data[N - 1] == Char{0});
-#endif
-    return const_buffer(static_cast<const Char*>(data),
-                        (N - 1) * sizeof(Char));
-}
-
-namespace literals
-{
-    constexpr const_buffer operator"" _zbuf(const char* str, size_t len) noexcept
-    {
-        return const_buffer(str, len * sizeof(char));
-    }
-    constexpr const_buffer operator"" _zbuf(const wchar_t* str, size_t len) noexcept
-    {
-        return const_buffer(str, len * sizeof(wchar_t));
-    }
-    constexpr const_buffer operator"" _zbuf(const char16_t* str, size_t len) noexcept
-    {
-        return const_buffer(str, len * sizeof(char16_t));
-    }
-    constexpr const_buffer operator"" _zbuf(const char32_t* str, size_t len) noexcept
-    {
-        return const_buffer(str, len * sizeof(char32_t));
-    }
-}
 
 #endif // ZMQ_CPP11
 
@@ -1263,19 +1199,10 @@ public:
         throw error_t();
     }
 
-    template<typename T>
-#ifdef ZMQ_CPP11
-    ZMQ_DEPRECATED("from 4.4.1, use send taking message_t or buffer (for contiguous ranges), and send_flags")
-#endif
-    bool send(T first, T last, int flags_ = 0)
+    template<typename T> bool send(T first, T last, int flags_ = 0)
     {
         zmq::message_t msg(first, last);
-        int nbytes = zmq_msg_send(msg.handle(), _handle, flags_);
-        if (nbytes >= 0)
-            return true;
-        if (zmq_errno() == EAGAIN)
-            return false;
-        throw error_t();
+        return send(msg, flags_);
     }
 
 #ifdef ZMQ_HAS_RVALUE_REFS
@@ -1337,7 +1264,11 @@ public:
 #ifdef ZMQ_CPP11
     ZMQ_DEPRECATED("from 4.3.1, use recv taking a reference to message_t and recv_flags")
 #endif
-    bool recv(message_t *msg_, int flags_ = 0)
+    bool recv(message_t *msg_, int flags_
+#ifndef ZMQ_CPP11
+              = 0
+#endif
+    )
     {
         int nbytes = zmq_msg_recv(msg_->handle(), _handle, flags_);
         if (nbytes >= 0)
@@ -1348,7 +1279,7 @@ public:
     }
 
 #ifdef ZMQ_CPP11
-    ZMQ_NODISCARD detail::recv_buffer_result_t recv(mutable_buffer buf,
+    detail::recv_buffer_result_t recv(mutable_buffer buf,
                                       recv_flags flags = recv_flags::none)
     {
         const int nbytes =
@@ -1362,7 +1293,7 @@ public:
         throw error_t();
     }
 
-    ZMQ_NODISCARD detail::recv_result_t recv(message_t &msg, recv_flags flags = recv_flags::none)
+    detail::recv_result_t recv(message_t &msg, recv_flags flags = recv_flags::none)
     {
         const int nbytes = zmq_msg_recv(msg.handle(), _handle, static_cast<int>(flags));
         if (nbytes >= 0) {

@@ -7,7 +7,7 @@
 #include "zmq.hpp"
 
 // PUB-SUB 模式
-// 在不同端口上监听订阅
+// 在不同端口上监听订阅，感受 ZMQ 的强大
 
 int main(int argc, char* argv[])
 {
@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
     zmq::socket_t socket(context, zmq::socket_type::pub);
 
     socket.connect("tcp://localhost:5555");
+    socket.connect("tcp://localhost:5556");
 
     // 为了测试: 与对端连接完成后再发送
     std::this_thread::sleep_for(std::chrono::seconds(5));
