@@ -52,14 +52,15 @@
 
 
 ### 测试
-   ```py
+
+```py
 	from selenium import webdriver
 	driver = webdriver.Firefox()
 	driver.get("http://cn.bing.com/")
 	driver.find_element_by_id("sb_form_q").send_keys("WebDriver")
 	driver.find_element_by_id("sb_form_go").click()
 	driver.quit()
-  ```
+```
 
 
 ### windows 下可能还需要安装的包
