@@ -1,5 +1,8 @@
 
 #include <stddef.h>
+#include <sys/mman.h>
+#include <memory.h>
+#include <iostream>
 
 template<typename _Tp>
 class hpallocator
@@ -28,24 +31,40 @@ public:
     ~hpallocator() throw() { }
 
     pointer
-    allocate(size_type __n, const void* p = 0)
+    allocate(size_type __n, const void* = 0)
     {
-        return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+        size_t s = __n * sizeof(_Tp);
+        void* p = mmap(nullptr, __n * sizeof(_Tp),
+                        PROT_READ | PROT_WRITE,
+                        MAP_PRIVATE | MAP_ANONYMOUS | MAP_HUGETLB, -1, 0);
+        if (p == MAP_FAILED)
+            throw(1);
+        memset(p, 0, s);
+
+        std::cout << "allocate: " << p << " size: " << s << std::endl;
+        return static_cast<_Tp*>(p);
     }
 
     void
-    deallocate(pointer __p, size_type)
+    deallocate(pointer __p, size_type __s)
     {
-        if (nullptr != __p)
-            ::operator delete(__p);
+        std::cout << "deallocate: " << __p << " size: " << __s << std::endl;
+        if (__p) munmap(__p, __s);
     }
 
     void 
     construct(pointer __p, const _Tp& __val)
-    { ::new((void *)__p) _Tp(__val); }  // 在地址 __p 处构造 _Tp，并将 _Tp 赋值为 __val
+    {
+        std::cout << "construct: " << __p << " val: " << __val << std::endl;
+        ::new((void *)__p) _Tp(__val);
+    }
 
     void 
-    destroy(pointer __p) { __p->~_Tp(); }
+    destroy(pointer __p)
+    {
+        std::cout << "destroy: " << __p << std::endl;
+        __p->~_Tp();
+    }
 
     size_type
     max_size() const noexcept
@@ -54,6 +73,7 @@ public:
     pointer
     address(reference __x) const noexcept
     {
+        std::cout << "address: " << &__x << std::endl;
         return reinterpret_cast<_Tp*>
             (&const_cast<char&>(reinterpret_cast<const volatile char&>(__x)));
     }
@@ -61,6 +81,7 @@ public:
     const_pointer
     address(const_reference __x) const noexcept
     {
+        std::cout << "address(const): " << &__x << std::endl;
         return reinterpret_cast<_Tp*>
             (&const_cast<char&>(reinterpret_cast<const volatile char&>(__x)));
     }
