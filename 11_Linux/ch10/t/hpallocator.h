@@ -20,7 +20,6 @@ public:
     struct rebind
     { typedef hpallocator<_Tp1> other; };
 
-
     hpallocator() throw() { }
 
     hpallocator(const hpallocator& __a) throw() { }
@@ -41,28 +40,28 @@ public:
             throw(1);
         memset(p, 0, s);
 
-        std::cout << "allocate: " << p << " size: " << s << std::endl;
+        std::cout << "allocate: " << (void*)p << " size: " << s << std::endl;
         return static_cast<_Tp*>(p);
     }
 
     void
     deallocate(pointer __p, size_type __s)
     {
-        std::cout << "deallocate: " << __p << " size: " << __s << std::endl;
+        std::cout << "deallocate: " << (void*)__p << " size: " << __s << std::endl;
         if (__p) munmap(__p, __s);
     }
 
     void 
     construct(pointer __p, const _Tp& __val)
     {
-        std::cout << "construct: " << __p << " val: " << __val << std::endl;
+        // std::cout << "construct: " << (void*)__p << " val: " << __val << std::endl;
         ::new((void *)__p) _Tp(__val);
     }
 
     void 
     destroy(pointer __p)
     {
-        std::cout << "destroy: " << __p << std::endl;
+        // std::cout << "destroy: " << (void*)__p << std::endl;
         __p->~_Tp();
     }
 
@@ -73,7 +72,7 @@ public:
     pointer
     address(reference __x) const noexcept
     {
-        std::cout << "address: " << &__x << std::endl;
+        // std::cout << "address: " << (void*)&__x << std::endl;
         return reinterpret_cast<_Tp*>
             (&const_cast<char&>(reinterpret_cast<const volatile char&>(__x)));
     }
@@ -81,7 +80,7 @@ public:
     const_pointer
     address(const_reference __x) const noexcept
     {
-        std::cout << "address(const): " << &__x << std::endl;
+        // std::cout << "address(const): " << (void*)&__x << std::endl;
         return reinterpret_cast<_Tp*>
             (&const_cast<char&>(reinterpret_cast<const volatile char&>(__x)));
     }

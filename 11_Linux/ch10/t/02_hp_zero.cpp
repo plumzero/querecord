@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 {
     int fd = -1;
 
-    fd = open("/dev/zero", O_CREAT | O_RDWR);
+    fd = open("/dev/zero", O_RDWR);
     if (fd == -1) {
         perror("open");
         return -1;

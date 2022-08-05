@@ -19,25 +19,20 @@ struct PrintElements
 
 int main()
 {
-    std::vector<int64_t> vec1;
-    vec1.reserve(8);
+    std::vector<int64_t, hpallocator<int64_t>> vec;
+    vec.reserve(2);
 
     getchar();
-
-    std::vector<int64_t, hpallocator<int64_t>> vec;
-    vec.reserve(8);
 
     vec.push_back(1);
     vec.push_back(2);
     vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
+
+    getchar();
 
     vec.pop_back();
 
     std::for_each(vec.begin(), vec.end(), PrintElements<int64_t>());
-
-    getchar();
 
     return 0;
 }
