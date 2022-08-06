@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* pages/home/index.wxss */
 
 .container {
   margin: 50rpx;
