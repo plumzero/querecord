@@ -22,8 +22,15 @@ option(BUILD_16_SIXTEENTH_TEST  "Build 16_sixteenth program"  		ON)
 #
 # if u wanna release, do like this `cmake -DCMAKE_BUILD_TYPE=Release`
 #
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
+message(STATUS "")    
+if (NOT CMAKE_BUILD_TYPE)
+  	if ("${CMAKE_BINARY_DIR}" MATCHES ".*(D|d)ebug$" OR  MI_DEBUG_FULL)
+		message(STATUS "No build type selected, default to: Debug")
+		set(CMAKE_BUILD_TYPE "Debug")
+  	else()
+		message(STATUS "No build type selected, default to: Release")
+		set(CMAKE_BUILD_TYPE "Release")
+  	endif()
 endif()
 
 include(CheckCXXCompilerFlag)
