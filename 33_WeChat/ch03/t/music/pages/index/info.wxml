@@ -1,0 +1,6 @@
+
+
+<scroll-view class="content-info" scroll-y>
+  <view style="background:#eee;height:1000px;"></view>
+  <view>已到达底部</view>
+</scroll-view>
