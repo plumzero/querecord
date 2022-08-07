@@ -57,3 +57,12 @@ InnerAudioContext 实例常用方法如下:
     audioCtx.play()
   },
 ```
+
+在小程序中，还有一种专门用于播放背景音频的 `wx.getBackgroundAudioManager()` 接口，其特点在于小程序切入后台时，如果音频处于播放状态，可以继续播放。
+
+为了实现这个效果，需要先在 app.json 中添加如下配置，添加后在开发版中会直接生效，正式版还需通过审核。
+```json
+  "requiredBackgroundModes": ["audio"],
+```
+
+[更多...](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/BackgroundAudioManager.html)

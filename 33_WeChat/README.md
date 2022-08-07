@@ -16,3 +16,11 @@
     - [逻辑层](ch02/02_逻辑层.md)
     - [配置](ch02/03_配置.md)
     - [交互](ch02/04_交互.md)
+- [组件使用](ch03)
+    - [swiper](ch03/01_swiper.md)
+    - [scroll-view](ch03/02_scroll_view.md)
+    - [image](ch03/03_image.md)
+    - [slider](ch03/04_slider.md)
+    - [音频API](ch03/05_音频API.md)
+- [组件使用](ch04)
+    - []
