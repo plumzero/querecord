@@ -23,4 +23,6 @@
     - [slider](ch03/04_slider.md)
     - [音频API](ch03/05_音频API.md)
 - [组件使用](ch04)
-    - []
+    - [tarBar](ch04/01_tarBar.md)
+    - [视频播放](ch04/02_视频播放.md)
+    - [WXS](ch04/03_WXS.md)
