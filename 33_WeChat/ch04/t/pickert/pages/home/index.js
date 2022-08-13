@@ -5,21 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    array: ['HTML', 'CSS', 'JavaScript', 'Photoshop'],
+    index: 1
   },
 
-  buttonTap: function() {
-    wx.getLocation({
-      type: 'gcj02',
-      success: function(res) {
-        console.log(res.latitude)
-        console.log(res.longitude)
-        wx.openLocation({
-          latitude: res.latitude,
-          longitude: res.longitude
-        })
-      }
-    })
+  pickerChange: function(e) {
+    console.log('用户选择的值为: ', e.detail.value)
+    this.setData({index: e.detail.value})
   },
 
   /**

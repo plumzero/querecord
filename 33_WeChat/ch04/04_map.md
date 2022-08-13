@@ -65,7 +65,7 @@ map 组件的常用属性如下:
   <map latitude="40.060148" longitude="116.343219" scale="18"></map>
 ```
 
-小程序提供了打开微信内置地图的 API 和定位用户位置的 API，需要用户授权才能使用，也就是会自动提示用户`是否同意获取您的位置 `，同意后即可获取。
+另外，小程序提供了打开微信内置地图的 API 和定位用户位置的 API，需要用户授权才能使用，也就是会自动提示用户`是否同意获取您的位置 `，同意后即可获取。
 
 使用微信内置地图需要在 `app.json` 文件中添加授权，具体配置如下:
 ```json
@@ -75,5 +75,26 @@ map 组件的常用属性如下:
     }
   }
 ```
+
+示例代码:
+```xml
+  <button bindtap="buttonTap">查看我的位置</button>
+```
+```js
+  buttonTap: function() {
+    wx.getLocation({
+      type: 'gcj02',
+      success: function(res) {
+        console.log(res.latitude)
+        console.log(res.longitude)
+        wx.openLocation({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+      }
+    })
+  },
+```
+`type` 属于用于设置返回的坐标信息，默认值为`wgs84`，表示返回 GPS 坐标，设为 `gcj02` 表示返回用于 `wx.openLocation()` 方法的坐标。
 
 [地图使用示例](t/mapt)

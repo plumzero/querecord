@@ -26,3 +26,9 @@
     - [tarBar](ch04/01_tarBar.md)
     - [视频播放](ch04/02_视频播放.md)
     - [WXS](ch04/03_WXS.md)
+    - [map](ch04/04_map.md)
+    - [picker](ch04/05_picker.md)
+    - [订阅消息](ch04/06_订阅消息.md)
+- [小程序开发案例](ch05)
+    - [用户登录](ch05)
+    

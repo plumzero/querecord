@@ -1,2 +1,2 @@
 <!--pages/map/map.wxml-->
-<!-- <map latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" bindmarkertap="markertap"></map> -->
+<map latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" bindmarkertap="markertap"></map>

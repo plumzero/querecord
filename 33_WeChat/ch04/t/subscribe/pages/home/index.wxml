@@ -1,0 +1,5 @@
+<!--pages/home/index.wxml-->
+<form bindsubmit="formSubmit">
+  <input name="name" placeholder="输入您的姓名" bindtap="allowSubscribe"/>
+  <button form-type="submit">提交</button>
+</form>
