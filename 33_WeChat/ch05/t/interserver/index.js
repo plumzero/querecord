@@ -2,6 +2,8 @@
 import express from 'express';
 import axios from 'axios';
 import process from 'process';
+import crypto from 'crypto';
+import WXBizDataCrypt from './WXBizDataCrypt.js';
 
 const app = express();
 
@@ -68,8 +70,29 @@ app.get('/credit', (req, res) => {
 app.get('/checkLogin', (req, res) => {
     let session = db.session[req.query.token];
     console.log('checklogin: ', session);
-    res.json({is_login: session !== undefined})
+    res.json({is_login: session !== undefined});
 });
+
+// 在服务端解密
+app.post('/userinfo', (req, res) => {
+    var session = db.session[req.query.token];
+    if (session) {
+        // 使用 appid 和 session_key 解密 encryptedData
+        let pc = new WXBizDataCrypt(wx.appid, session.session_key);
+        let data = pc.decryptData(req.body.encryptedData, req.body.iv);
+        console.log('解密后: ', data);
+        // 校验 rawData 是否正确
+        let sha1 = crypto.createHash('sha1');
+        sha1.update(req.body.rawData + session.session_key);
+        let signature2 = sha1.digest('hex');
+        console.log('calc: ', signature2);
+        console.log('recv: ', req.body.signature);
+        res.json({pass: signature2 === req.body.signature2});
+    } else {
+        res.json({err: '用户不存在，或未登录'});
+    }
+});
+
 
 const server = app.listen(3000, () => console.log('Server ready'))
 
