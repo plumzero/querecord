@@ -25,6 +25,7 @@ Page({
       desc: '展示用户信息',   // 声明获取用户个人信息后的用途
       success: res => {
         console.log(res.userInfo)
+        // console.log(res)
         wx.setStorage({key: 'userInfo', data: res.userInfo})
         this.setData({
           userInfo: res.userInfo,
@@ -34,10 +35,30 @@ Page({
     })
   },
 
+  sendUserInfo: function() {
+    var token = app.globalData.token
+    wx.getUserProfile({
+      desc: '将用户信息发给服务器',
+      success: res => {
+        wx.request({
+          url: 'http://192.168.2.102:3000/userinfo?token=' + token,
+          method: 'post',
+          data: {
+            rawData: res.rawData,
+            signature: res.signature,
+            encryptedData: res.encryptedData,
+            iv: res.iv
+          }
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // 注释掉下面的代码，尝试手动获取数据
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

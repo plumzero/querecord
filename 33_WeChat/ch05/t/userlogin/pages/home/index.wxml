@@ -24,3 +24,5 @@
     </block>
   </view>
 </view>
+
+<button bindtap="sendUserInfo">将用户信息发给服务器</button>
