@@ -1,7 +1,9 @@
 
-#include <stdio.h>
+// 关于在有序序列中查找，有固定的代码范式，它们可以不必思考，直接使用。
 
-// 有序二分定位代码片段
+// 比如这里对有序序列中某元素的定位代码
+
+#include <stdio.h>
 
 // 升序稳定定位
 void locate_point_asc(int* a, int len, int point) {
