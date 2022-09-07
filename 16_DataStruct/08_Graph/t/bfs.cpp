@@ -6,15 +6,39 @@
 #include <queue>
 #include <vector>
 
-//         1
-//     /    \   \
-//    2      3   4
-//    \     /   / \
-//     5 — 6   7 — 8
-//             \
-//              9
+void bfs1(Graph& graph)
+{
+    std::queue<VNode*> _queue;
+    std::vector<int> _visited(graph.vertex.size());
+    for (size_t i = 0; i < _visited.size(); i++) {
+        _visited[i] = 0;
+    }
 
-void bfs(Graph& graph)
+    std::vector<VNode*> vec = graph.vertex;
+
+    _queue.push(vec[0]);
+    _visited[0] = 1;
+    printf("%d ", vec[0]->val);
+
+    while (_queue.size() > 0) {
+        VNode* node = _queue.front();
+        _queue.pop();
+        int pos = locate(graph, node);
+        ArcNode* cur = node->firstarc;
+        while (cur != nullptr && _visited[cur->pos] == 1) {
+            cur = cur->nextarc;
+        }
+        while (cur && _visited[cur->pos] == 0) {
+            _queue.push(vec[cur->pos]);
+            _visited[cur->pos] = 1;
+            printf("%d ", vec[cur->pos]->val);
+            cur = cur->nextarc;
+        }
+    }
+    printf("\n");
+}
+
+void bfs2(Graph& graph)
 {
     std::queue<VNode*> _queue;
     std::vector<int> _visited(graph.vertex.size());
@@ -30,8 +54,10 @@ void bfs(Graph& graph)
         VNode* node = _queue.front();
         _queue.pop();
         int pos = locate(graph, node);
-        _visited[pos] = 1;
-        printf("%d ", node->val);
+        if (_visited[pos] == 0) {
+            _visited[pos] = 1;
+            printf("%d ", node->val);
+        }
         ArcNode* cur = node->firstarc;
         while (cur != nullptr && _visited[cur->pos] == 1) {
             cur = cur->nextarc;
@@ -43,6 +69,16 @@ void bfs(Graph& graph)
     }
     printf("\n");
 }
+
+
+
+//         1
+//     /    \   \
+//    2      3   4
+//    \     /   / \
+//     5 — 6   7 — 8
+//             \
+//              9
 
 int main()
 {
@@ -80,7 +116,8 @@ int main()
 
     display(G);
 
-    bfs(G);
+    bfs1(G);
+    bfs2(G);
 
     destroy(G);
 

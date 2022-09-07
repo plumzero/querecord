@@ -3,7 +3,7 @@
 
 // 邻接表实现
 
-// 无向图
+// 无向带权图
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,6 +21,7 @@ typedef struct VNode {
 // 边
 typedef struct ArcNode {
     int pos;                // 邻接顶点数组索引
+    int weight;             // 权
     ArcNode* nextarc;       // 下一个与该顶点邻接的顶点
 } ArcNode;
 
@@ -49,7 +50,7 @@ VNode* add_vertex(Graph& graph, int val)
     return node;
 }
 
-void add_arc(Graph& graph, VNode* node, VNode* adj)
+void _add_arc(Graph& graph, VNode* node, VNode* adj, int weight)
 {
     int pos = locate(graph, adj);
     if (pos == -1) {
@@ -57,6 +58,7 @@ void add_arc(Graph& graph, VNode* node, VNode* adj)
     }
     ArcNode* arc = new ArcNode();
     arc->pos = pos;
+    arc->weight = weight;
     arc->nextarc = nullptr;
     ArcNode* first = node->firstarc;
     if (first == nullptr) {
@@ -70,6 +72,26 @@ void add_arc(Graph& graph, VNode* node, VNode* adj)
     cur->nextarc = arc;
 
     return ;
+}
+
+void add_arc(Graph& graph, VNode* node, VNode* adj, int weight)
+{
+    _add_arc(graph, node, adj, weight);
+    _add_arc(graph, adj, node, weight);
+}
+
+// 获取一条边上的权
+int get_weight(Graph& graph, VNode* node, VNode* adj)
+{
+    std::vector<VNode*> vec = graph.vertex;
+    ArcNode* cur = node->firstarc;
+    while (cur) {
+        if (vec[cur->pos] == adj)
+            return cur->weight;
+        cur = cur->nextarc;
+    }
+
+    return -1;
 }
 
 void destroy(Graph& graph)
@@ -95,7 +117,7 @@ void display(Graph& graph)
         printf("%d: ", (*it)->val);
         ArcNode* cur = (*it)->firstarc;
         while (cur) {
-            printf("%d ", vec[cur->pos]->val);
+            printf("%d(%d) ", vec[cur->pos]->val, cur->weight);
             ArcNode* next = cur->nextarc;
             cur = next;
         }

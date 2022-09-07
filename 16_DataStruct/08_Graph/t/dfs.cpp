@@ -6,14 +6,6 @@
 #include <stack>
 #include <vector>
 
-//         1
-//     /    \   \
-//    2      3   4
-//    \     /   / \
-//     5 — 6   7 — 8
-//             \
-//              9
-
 // 从右侧的邻接点向左
 void dfs1(Graph& graph)
 {
@@ -105,6 +97,14 @@ void _dfs3(Graph& graph, std::vector<int>& visited, int pos)
         _dfs3(graph, visited, cur->pos);
     }
 }
+
+//         1
+//     /    \   \
+//    2      3   4
+//    \     /   / \
+//     5 — 6   7 — 8
+//             \
+//              9
 
 int main()
 {
