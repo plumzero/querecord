@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 
-#include "bin_tree_node.h"
+#include "btree.h"
 
 // 根据输入节点创建一棵二叉查找树
 void add(BinTreeNode** btree, int val)
