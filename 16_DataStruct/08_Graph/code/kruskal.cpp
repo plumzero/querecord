@@ -3,11 +3,6 @@
 #include <vector>
 #include <map>
 
-typedef struct {
-    std::string adjname;
-    VRType lowcost;
-} CloseEdge;
-
 /** 利用 Kruskal 算法构造无向网 G 的最小生成树 */
 void Kruskal(MGraph G)
 {
