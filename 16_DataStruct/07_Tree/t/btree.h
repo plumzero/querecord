@@ -135,3 +135,75 @@ void destroy_tree(BinTreeNode** root)
         *root = nullptr;
     }
 }
+
+#include <queue>
+
+void level_print(BinTreeNode* root)
+{
+    if (root != nullptr) {
+        std::queue<BinTreeNode*> _queue;
+        _queue.push(root);
+        
+        while (_queue.size() > 0) {
+            BinTreeNode* node = _queue.front();
+            _queue.pop();
+            printf("%d ", node->val);
+            if (node->left) {
+                _queue.push(node->left);
+            }
+            if (node->right) {
+                _queue.push(node->right);
+            }
+        }
+        printf("\n");
+    }
+}
+
+void tree_print(BinTreeNode* root)
+{
+    if (root != nullptr) {
+        std::queue<BinTreeNode*> _queue;
+        _queue.push(root);
+        int cur = 1;
+        int next = 0;
+        
+        while (_queue.size() > 0) {
+            BinTreeNode* node = _queue.front();
+            _queue.pop();
+            cur--;
+            printf("%d ", node->val);
+            if (node->left) {
+                _queue.push(node->left);
+                next++; 
+            }
+            if (node->right) {
+                _queue.push(node->right);
+                next++;
+            }
+            if (cur == 0) {
+                printf("\n");
+                cur = next;
+                next = 0;
+            }
+        }
+        printf("\n");
+    }
+}
+
+// 深度
+int tree_depth(BinTreeNode* root)
+{
+    if (root == nullptr)
+        return 0;
+    if (root->left == nullptr && root->right == nullptr)
+        return 1;
+
+    int left_depth = 0;
+    int right_depth = 0;
+    if (root->left)
+        left_depth = 1 + tree_depth(root->left);
+    if (root->right)
+        right_depth = 1 + tree_depth(root->right);
+
+    return std::max(left_depth, right_depth);
+}

@@ -1,6 +1,13 @@
 
 #include "btree.h"
 
+//     1
+//    / \
+//   2   3
+//  /   / \
+// 4   5   6
+//      \
+//       7
 int main()
 {
     BinTreeNode* node1 = create_node(1);
@@ -27,6 +34,14 @@ int main()
     postorder_print(node1);
     printf("\n");
     postorder_print2(node1);
+
+    level_print(node1);
+
+    tree_print(node1);
+
+    printf("%d\n", tree_depth(node1));
+
+    destroy_tree(&node1);
 
     return 0;
 }
