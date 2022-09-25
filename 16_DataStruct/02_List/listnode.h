@@ -64,6 +64,7 @@ void destroy_list(ListNode** head)
     while (pNode) {
         ListNode* pNext = pNode->next;
         delete pNode;
+        pNode = nullptr;
         pNode = pNext;
     }
 
