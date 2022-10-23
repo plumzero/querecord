@@ -14,3 +14,5 @@ add_executable(08_emplace_back_diff         08_emplace_back_diff.cpp)
 
 add_executable(08_emplace_back_vec          08_emplace_back_vec.cpp)
 add_executable(09_tuple                     09_tuple.cpp)
+
+add_executable(10_static_assert             10_static_assert.cpp)
