@@ -1,6 +1,8 @@
 
 cmake_minimum_required(VERSION 3.0.2)
 
+set(CMAKE_CXX_STANDARD 11)
+
 ## 检查元素的属性
 add_executable(05_01_all_of             05_01_all_of.cpp)
 add_executable(05_01_any_of             05_01_any_of.cpp)

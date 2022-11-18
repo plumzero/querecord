@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.0.2)
 
-add_executable(01_set_construct        01_set_construct.cpp)
-add_executable(02_set_insert           02_set_insert.cpp)
-add_executable(03_set_emplace          03_set_emplace.cpp)
-add_executable(04_set_erase            04_set_erase.cpp)
+set(CMAKE_CXX_STANDARD 11)
 
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+endforeach()

@@ -1,6 +1,8 @@
 
 cmake_minimum_required(VERSION 3.0.2)
 
+set(CMAKE_CXX_STANDARD 11)
+
 ## 排序
 add_executable(04_01_sort_object_1       04_01_sort_object_1.cpp)
 add_executable(04_01_sort_object_2       04_01_sort_object_2.cpp)

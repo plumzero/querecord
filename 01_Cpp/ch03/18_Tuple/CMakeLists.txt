@@ -1,8 +1,10 @@
 
 cmake_minimum_required(VERSION 3.0.2)
 
-add_executable(01_make_tuple                 01_make_tuple.cpp)
-add_executable(02_compare                    02_compare.cpp)
-add_executable(03_get                        03_get.cpp)
-add_executable(04_tie                        04_tie.cpp)
-add_executable(05_forward_as_tuple           05_forward_as_tuple.cpp)
+set(CMAKE_CXX_STANDARD 11)
+
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+endforeach()

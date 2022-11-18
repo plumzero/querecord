@@ -1,6 +1,8 @@
 
 cmake_minimum_required(VERSION 2.8)
 
+project("C++11 test" CXX)
+
 add_subdirectory(01_基础特性)
 add_subdirectory(02_右值引用与移动语义)
 add_subdirectory(03_类型推导)

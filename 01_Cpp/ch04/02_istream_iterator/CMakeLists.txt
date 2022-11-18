@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.0.2)
 
 file(COPY read.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(01_from_stdin        01_from_stdin.cpp)
-add_executable(02_read_int          02_read_int.cpp)
-add_executable(03_read_char         03_read_char.cpp)
+set(CMAKE_CXX_STANDARD 11)
+
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+endforeach()

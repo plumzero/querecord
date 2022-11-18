@@ -2,7 +2,7 @@
 #include <iostream>
 
 template<typename T, typename U>
-int bit_copy(T& a, U& b)
+void bit_copy(T& a, U& b)
 {
     static_assert(sizeof(a) == sizeof(b), "the parameters of bit_copy must have same width.");
 }

@@ -1,7 +1,10 @@
 
 cmake_minimum_required(VERSION 3.0.2)
 
-add_executable(01_map_initialize           01_map_initialize.cpp)
-add_executable(02_map_insert               02_map_insert.cpp)
-add_executable(03_map_emplace              03_map_emplace.cpp)
-add_executable(04_map_erase                04_map_erase.cpp)
+set(CMAKE_CXX_STANDARD 11)
+
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+endforeach()
