@@ -8,6 +8,7 @@ add_executable(05_constexpr                 05_constexpr.cpp)
 add_executable(06_enum_class                06_enum_class.cpp)
 add_executable(07_delegating_constructor    07_delegating_constructor.cpp)
 add_executable(07_inheritance_constructor   07_inheritance_constructor.cpp)
+add_executable(07_construct_template        07_construct_template.cpp)
 
 # 可以尝试对该程序使用 -fno-elide-constructors 选项，比较
 add_executable(08_emplace_back_diff         08_emplace_back_diff.cpp)
