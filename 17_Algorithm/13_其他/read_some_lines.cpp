@@ -41,7 +41,7 @@ std::vector<std::string> read_some_lines(const std::string& filename)
 
     ifs.close();
 
-    return selecteds;
+    return std::move(selecteds);
 }
 
 int main()
