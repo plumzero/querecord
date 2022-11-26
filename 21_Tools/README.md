@@ -33,4 +33,5 @@ Windows 下使用 POSIX 接口工具，需要使用 Cygwin 。
     * [readelf](ch04/03_readelf)
     * [hexdump](ch04/04_hexdump)
 * [其他工具](ch05)
-    * [DPDK](ch01/01_dpdk)
+    * [DPDK](ch05/01_dpdk)
+    * [wireshark](ch05/02_wireshark)
