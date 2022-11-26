@@ -33,3 +33,11 @@
 
 - [随机读取文件中某一行](read_certain_line.cpp)
 - [随机读取文件中某几行](read_some_lines.cpp)
+
+### 分区
+
+将一个数组中的元素按照一定的条件进行分区(分成左右两个区)，常见的比如快速排序中的分区。这里介绍三种。
+
+- [第一种](partition_1.cpp)
+- [第二种](partition_2.cpp)
+- [第三种](partition_3.cpp)

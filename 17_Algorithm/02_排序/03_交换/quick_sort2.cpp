@@ -11,7 +11,7 @@
 int partition(int a[], int low, int high)
 {
     int pivot = a[low];
-    int start = low;
+    int pivot_index = low;
     while (low < high) {
         while (low < high && pivot <= a[high])  // 也必须先从后开始
             high--;
@@ -23,9 +23,9 @@ int partition(int a[], int low, int high)
             a[high] = tmp;
         }
     }
-    if (start != low) {
-        int tmp = a[start];
-        a[start] = a[low];
+    if (pivot_index != low) {
+        int tmp = a[pivot_index];
+        a[pivot_index] = a[low];
         a[low] = tmp;
     }
 
