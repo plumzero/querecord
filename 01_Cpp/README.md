@@ -100,3 +100,8 @@
     * [时序模板](ch08/04_chrono.md)
     * [比特序列](ch08/05_bitset.md)
 * [补遗与杂记](ch10)
+    * [位域](ch10/01_位域.md)
+    * [匿名空间](ch10/02_匿名空间.md)
+    * [volatile的使用](ch10/03_volatile的使用.md)
+    * [重载new](ch10/04_重载new.md)
+
