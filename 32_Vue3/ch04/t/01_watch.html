@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>侦听测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
-    <div>
+    <div id="Application">
         <p>小宇今年{{age}}岁了</p>
         <button @click="age++">年龄+1</button>
     </div>
@@ -24,7 +25,7 @@
                 }
             }
         }
-        Vue.createApp(App).mount('div')
+        Vue.createApp(App).mount('#Application')
     </script>
 </body>
 </html>
