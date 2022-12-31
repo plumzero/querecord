@@ -13,7 +13,7 @@
             setup() {
                 // 定义响应式独立值
                 let myData = Vue.ref(0)
-                // myDaa 会自动包装对象，其中定义 value 属性为原始值
+                // myData 会自动包装对象，其中定义 value 属性为原始值
                 function click() {
                     myData.value += 1
                     console.log(myData.value)
