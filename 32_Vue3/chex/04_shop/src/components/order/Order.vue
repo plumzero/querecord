@@ -10,7 +10,7 @@
         <div class="input-field">
           <el-input v-model="queryParam.consignee"></el-input>
         </div>
-        <div class="input-tip">支持时间:</div>
+        <div class="input-tip">支付时间:</div>
         <div class="input-field">
           <el-date-picker
             type="daterange"
@@ -47,8 +47,8 @@
         <el-button type="primary" @click="requestData">筛选</el-button>
         <el-button type="danger" @click="clear">清空筛选</el-button>
         <el-button type="primary" @click="exportData">导出</el-button>
-        <el-button type="primary" @click="dispathGoods">批量发货</el-button>
-        <el-button type="primary" @click="exportDispathGoods">下载批量发货样单</el-button>
+        <el-button type="primary" @click="dispatchGoods">批量发货</el-button>
+        <el-button type="primary" @click="exportDispatchGoods">下载批量发货样单</el-button>
       </el-container>
     </div>
     <!-- list -->
@@ -89,6 +89,11 @@
             <el-button size="small" type="primary" @click="callUser(scope.row)">联系客户</el-button>
           </template>
         </el-table-column>
+        <el-table-column label="支付方式" width="100">
+          <template #default="scope">
+            <el-tag size="default">{{scope.row.payType ? '微信' : '支付宝'}}</el-tag>
+          </template>
+        </el-table-column>
         <el-table-column label="来源" width="200" prop="source"></el-table-column>
       </el-table>
     </div>
@@ -96,8 +101,8 @@
 </template>
 
 <script>
-import Mock from '../../mock/Mock.js'
-import Tools from '../../tools/Tools.js'
+import Mock from '../../mock/Mock'
+import Tools from '../../tools/Tools'
 
 export default {
   data() {
@@ -117,6 +122,13 @@ export default {
       multipleSelection: []
     }
   },
+  mounted() {
+    this.orderList = Mock.getOrder(this.$route.params.type);
+  },
+  // 路由更新时刷新数据
+  beforeRouteUpdate(to) {
+    this.orderList = Mock.getOrder(to.params.type);
+  },
   methods: {
     // 模拟请求数据
     requestData() {
@@ -132,6 +144,7 @@ export default {
         type: 'success',
         message: '切换tab刷新数据: ' + tab.props.label
       })
+      this.orderList = Mock.getOrder(this.$route.params.type);
     },
     // 清空筛选项
     clear() {
@@ -143,22 +156,22 @@ export default {
         payTime: '',
         sendTime: ''
       }
-      this.orderList = Mock.getOrder(this.$route.params.type)
+      this.orderList = Mock.getOrder(this.$route.params.type);
     },
     // 导出订单
     exportData() {
-      Tools.exportJson('订单.json', JSON.stringify(this.orderList))
+      Tools.exportJson('订单.json', JSON.stringify(this.orderList));
     },
     // 导出选中的发货单
-    exportDispathGoods() {
-      Tools.exportJson('发货单.json', JSON.stringify(this.multipleSelection))
+    exportDispatchGoods() {
+      Tools.exportJson('发货单.json', JSON.stringify(this.multipleSelection));
     },
     // 处理多选
     handleSelectionChange(val) {
-      this.multipleSelection = val
+      this.multipleSelection = val;
     },
     // 进行发货
-    dispathGoods() {
+    dispatchGoods() {
       this.$message({
         type: 'success',
         message: '发货商品: ' + JSON.stringify(this.multipleSelection)

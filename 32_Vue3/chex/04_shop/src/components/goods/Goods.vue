@@ -61,7 +61,7 @@
         <el-table-column label="价格" width="100" prop="price"></el-table-column>
         <el-table-column label="销量" width="100" prop="sellCount"></el-table-column>
         <el-table-column label="库存" width="100" prop="count"></el-table-column>
-        <el-table-column label="退款" width="100" prop="back"></el-table-column>
+        <el-table-column label="退款数量" width="100" prop="back"></el-table-column>
         <el-table-column label="退款金额" width="100" prop="backPrice"></el-table-column>
         <el-table-column label="操作" width="100" prop="name">
           <template #default="scope">

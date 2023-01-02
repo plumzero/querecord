@@ -18,7 +18,7 @@
         <el-radio-button label="流水"></el-radio-button>
       </el-radio-group>
     </el-container>
-    <charts id="charts" :xData="xData" :data="chartsDat"></charts>
+    <charts id="charts" :xData="xData" :data="chartsData"></charts>
     <div class="realTime">
       <div class="info">
         实时数据-更新时间:{{data.time}}

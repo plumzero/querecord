@@ -71,6 +71,7 @@ export default {
         maketPrice: 0,
         showPrice: 0,
         coin: 0,
+        price: 0,
         limit: 0,
         count: 0,
         sellCount: 0,
@@ -80,7 +81,7 @@ export default {
   },
   methods: {
     cancel() {
-      this.$router.go(-1)
+      this.$router.go(-1);
     },
     submit() {
       this.$message({

@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     contentChange(content) {
-      this.content = content
+      this.content = content;
     },
     cancel() {
       this.$router.go(-1)

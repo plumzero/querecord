@@ -9,7 +9,7 @@
 
 在 shell 会话中执行如下命令:
 ```sh
-    sysctl fs.inotify.max_user_watches=524288
+    sudo sysctl fs.inotify.max_user_watches=524288
 ```
 
 ### P2
@@ -53,3 +53,9 @@ npm ERR!     /root/.npm/_logs/2022-07-19T02_20_26_731Z-debug.log
 ```
 这个错误和 vue 版本无关，是因为没有 node_modules 依赖目录。执行 `npm install` 就可以了。
 
+### P4
+
+点击某个按钮没有反应，这种问题的排查思路一般如下:
+1. 首先看一下控制台打印是否有错误输出
+2. 确认是否为按钮添加了触发事件
+3. 确认事件函数是否正确的执行

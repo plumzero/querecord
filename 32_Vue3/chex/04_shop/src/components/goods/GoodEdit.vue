@@ -1,11 +1,13 @@
 
 <template>
   <div id="wangeditor">
-    <div ref="editorElem" style="text-align:left"></div>
+    <div ref="editorElem" style="text-align:left;"></div>
   </div>
 </template>
 
 <script>
+import E from "wangeditor";
+
 export default {
   name: 'Editor',
   data() {
@@ -15,9 +17,9 @@ export default {
     }
   },
   mounted() {
-    this.editor = new E(this.$refs.editorElem)
+    this.editor = new E(this.$refs.editorElem);
     // 编辑器的事件，每次改变会获取其 HTML 内容
-    this.editor.config.onchange = this.contentChange
+    this.editor.config.onchange = this.contentChange;
     this.editor.config.menus = [
       // 菜单配置
       'head',           // 标题
@@ -39,13 +41,13 @@ export default {
       'code',           // 插入代码
       'undo',           // 撤销
       'redo'            // 重复
-    ]
-    this.editor.create()    // 创建富文本实例
+    ];
+    this.editor.create();    // 创建富文本实例
   },
   methods: {
     contentChange(html) {
-      this.editorContent = html
-      this.$emit('contentChange', this.editorContent)
+      this.editorContent = html;
+      this.$emit('contentChange', this.editorContent);
     }
   }
 }

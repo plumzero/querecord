@@ -41,13 +41,13 @@
         </el-select>
       </div>
       <div style="margin-top:6px">
-        <el-button type="primary" size="small" round>添加分类</el-button>
+        <el-button type="primary" size="small" round @click="addCategory">添加分类</el-button>
       </div>
     </el-container>
     <el-container class="content-row">
       <el-button type="success" plain @click="submit">提交</el-button>
       <div style="margin-left:40px"></div>
-      <el-button type="warnging" plain @click="cancel">取消</el-button>
+      <el-button type="warning" plain @click="cancel">取消</el-button>
     </el-container>
   </div>
 </template>
@@ -73,6 +73,9 @@ export default {
         type: 'success',
         message: '设置商品基本属性: ' + JSON.stringify(this.queryParams)
       })
+    },
+    addCategory() {
+      this.$router.push({name: 'GoodCategory'})
     }
   }
 }

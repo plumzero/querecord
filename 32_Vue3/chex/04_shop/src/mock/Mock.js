@@ -19,7 +19,24 @@ const Mock = {
                 'phone': mockjs.mock(/\d{11}/) 
             }))
         }
-        return array
+        return array;
+    },
+    getManagerOrder() {
+        let array = [];
+        for (let i = 0; i < mockjs.Random.integer(5, 10); i++) {
+            array.push(mockjs.mock({
+                'state': '店长订单',
+                'name': mockjs.Random.csentence(),
+                'id': mockjs.Random.string(11),
+                'manager': mockjs.Random.cname(),
+                'count': mockjs.Random.integer(20,500),
+                'price': mockjs.Random.integer(20000,50000000) + '元',
+                'coin': mockjs.Random.integer(2000,50000) + '元',
+                'payTime': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss'),
+                'sendTime': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss')
+            }))
+        }
+        return array;
     },
     // 模拟获取商品数据
     // type: 商品类型 0 普通订单 1 秒杀订单 2 今日推荐
@@ -58,6 +75,46 @@ const Mock = {
             }));
         }
         return array
+    },
+
+    getManagerReqList() {
+        let array = [];
+        for (let i = 0; i < mockjs.Random.integer(5,10); i++) {
+            array.push(mockjs.mock({
+                'people': mockjs.Random.csentence(),
+                'state': mockjs.Random.boolean(),
+                'reqTime': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss'),
+                'time': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss'),
+            }))
+        }
+        return array;
+    },
+
+    getTradeInfo() {
+        let array = [];
+        for (let i = 0; i < mockjs.Random.integer(5,10); i++) {
+            array.push(mockjs.mock({
+                'name': mockjs.Random.csentence(),
+                'id': mockjs.Random.string(11),
+                'user': mockjs.Random.cname(),
+                'payType': mockjs.Random.boolean() ? '网络支付' : '线下支付',
+                'time': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss')
+            }))
+        }
+        return array;
+    },
+
+    getTradeList() {
+        let array = [];
+        for (let i = 0; i < mockjs.Random.integer(5,10); i++) {
+            array.push(mockjs.mock({
+                'info': mockjs.Random.csentence(),
+                'income': mockjs.Random.integer(0,5000) + '元',
+                'expend': mockjs.Random.integer(0,5000) + '元',
+                'time': mockjs.Random.datetime('yyyy-MM-dd A HH:mm:ss'),
+            }))
+        }
+        return array;
     },
 
     getChartsData() {

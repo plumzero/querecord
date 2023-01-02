@@ -16,13 +16,13 @@ const Store = createStore({
     mutations: {
         // 注销
         clearUserInfo(state) {
-            state.userName = ''
-            state.userPassword = ''
+            state.userName = '';
+            state.userPassword = '';
         },
         // 登录
         registUserInfo(state, {name, password}) {
-            state.userName = name
-            state.password = password
+            state.userName = name;
+            state.password = password;
         }
     }
 })

@@ -5,10 +5,10 @@
       <el-button type="primary" @click="addCategory">添加分类</el-button>
     </el-container>
     <div>
-      <el-table :data="categoryList" tooltip-effect="dark" style="width:100%">
+      <el-table :data="categoryList" tooltip-effect="dark" style="width: 100%">
         <el-table-column label="分类ID" width="100" prop="id"></el-table-column>
         <el-table-column label="分类名称" width="100" prop="name"></el-table-column>
-        <el-table-column label="分类负责人" width="500" prop="manger"></el-table-column>
+        <el-table-column label="分类负责人" width="500" prop="manager"></el-table-column>
         <el-table-column label="操作" width="200" prop="time">
           <template #default="scope">
             <el-button size="small" @click="deleteCategory(scope.$index)">删除</el-button>

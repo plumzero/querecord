@@ -5,10 +5,14 @@ import Home from '../components/home/Home.vue'
 import Order from '../components/order/Order.vue'
 import Goods from '../components/goods/Goods.vue'
 import AddGood from '../components/goods/AddGood.vue'
+import GoodCategory from '../components/goods/GoodCategory.vue'
 import ManagerList from '../components/manager/ManagerList.vue'
-import ManagerReqList from '../components/manager/ManagerReqList.vue'
 import ManagerOrder from '../components/manager/ManagerOrder.vue'
-import Store from '../tools/Storage.js'
+import ManagerReqList from '../components/manager/ManagerReqList.vue'
+import TradeInfo from '../components/financial/TradeInfo.vue'
+import TradeList from '../components/financial/TradeList.vue'
+import DataCom from '../components/financial/DataCom.vue'
+import Store from '../tools/Storage'
 
 const Router = createRouter({
     history: createWebHashHistory(),
@@ -37,24 +41,44 @@ const Router = createRouter({
                     path: 'addGood/:type',      // 0 普通商品 1 秒杀商品 2 今日推荐
                     component: AddGood,
                     name: 'AddGood'
+                },
+                {
+                    path: 'category',
+                    component: GoodCategory,
+                    name: 'GoodCategory'
+                },
+                {
+                    path: 'ownerlist',
+                    component: ManagerList,
+                    name: 'ManagerList'
+                },
+                {
+                    path: 'ownerreq',
+                    component: ManagerReqList,
+                    name: 'ManagerReqList'
+                },
+                {
+                    path: 'ownerorder',
+                    component: ManagerOrder,
+                    name: 'ManagerOrder'
+                },
+                {
+                    path: 'tradeinfo',
+                    component: TradeInfo,
+                    name: 'TradeInfo'
+                },
+                {
+                    path: 'tradelist',
+                    component: TradeList,
+                    name: 'TradeList'
+                },
+                {
+                    path: 'data',
+                    component: DataCom,
+                    name: 'DataCom'
                 }
             ],
             redirect: '/home/order/0'   // 用户登录完成后，访问系统主页时，默认重定向到(普通)订单模块
-        },
-        {
-            path: 'ownerList',
-            component: ManagerList,
-            name: 'ManagerList'
-        },
-        {
-            path: 'ownerreq',
-            component: ManagerReqList,
-            name: 'ManagerReqList'
-        },
-        {
-            path: 'ownerorder',
-            component: ManagerOrder,
-            name: 'ManagerOrder'
         }
     ]
 })

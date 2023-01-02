@@ -4,6 +4,10 @@
       <el-container class="content-row">
         <div class="input-tip">店长手机:</div>
         <div class="input-field">
+          <el-input v-model="queryParams.phone"></el-input>
+        </div>
+        <div class="input-tip">店长昵称</div>
+        <div class="input-field">
           <el-input v-model="queryParams.name"></el-input>
         </div>
         <div class="input-tip">店长状态:</div>
