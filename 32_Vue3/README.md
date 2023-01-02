@@ -1,7 +1,12 @@
 
 恍恍惚惚蒸汽波
 
-版本 3.x
+### 说明
+
+- 版本 3.x
+- 使用 vscode 进行开发时，最好安装一些插件，如 `Live Server` 和 `Vuter`。
+
+### 文档
 
 - [参考](https://v3.cn.vuejs.org/guide/introduction.html)
 - [API](https://v3.cn.vuejs.org/api/)

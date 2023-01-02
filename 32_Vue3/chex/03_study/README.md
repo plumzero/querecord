@@ -1,11 +1,12 @@
 
 ### 依赖
 
-npm install element-plus --save
+- npm install element-plus --save
+- npm install --save axios vue-axios
+- npm install marked -S
 
-npm install --save axios vue-axios
-
-npm install marked -S
+或者
+- npm install
 
 ### 文件说明
 

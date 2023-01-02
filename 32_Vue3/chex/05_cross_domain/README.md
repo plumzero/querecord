@@ -2,11 +2,11 @@
 ### Steps
 
 ```
-vue create vue-axios-test
+vue create 05_cross_domain
 ```
 
 ```
-cd vue-axios-test
+cd 05_cross_domain
 npm install axios vue-axios --save
 ```
 

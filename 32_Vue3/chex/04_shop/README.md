@@ -1,18 +1,15 @@
 
 ### 依赖
 
-npm install vue-router@4 --save
+- npm install vue-router@4 --save
+- npm install vuex@next --save
+- npm install element-plus --save
+- npm install mockjs --save
+- npm install wangeditor --save
+- npm install echarts --save
 
-npm install vuex@next --save
-
-npm install element-plus --save
-
-npm install mockjs --save
-
-npm install wangeditor --save
-
-npm install echarts --save
-
+或者
+- npm install
 
 ### 文件说明
 
