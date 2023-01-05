@@ -46,7 +46,7 @@ int main()
     std::vector<std::thread> vec;
     int i;
     for (i = 0; i < 20; i++) {
-        std::thread th = add, std::ref(num), std::ref(sum));
+        std::thread th = std::thread(add, std::ref(num), std::ref(sum));
         vec.emplace_back(std::move(th));
     }
     

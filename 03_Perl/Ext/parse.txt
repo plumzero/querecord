@@ -1,0 +1,972 @@
+.
+├── [4.0K]  040820_5
+│   ├── [   0]  2022-11-03-04-08-20
+│   │   ├── [3.1G]  2022-11-03-04-08-20.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [2.7G]  adp_cdp.pcap
+│   │   ├── [235M]  AlgData.rosbag
+│   │   └── [457K]  PBOX_AebCommand.txt
+│   ├── [2.0M]  A-VCANData.csv
+│   ├── [876M]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.3G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [827M]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.4G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [392M]  CameraData_Front1M.264
+│   ├── [ 37K]  CameraData_Front1M.txt
+│   ├── [417M]  CameraData_Left1M.264
+│   ├── [ 26K]  CameraData_Left1M.txt
+│   ├── [1.2G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [404M]  CameraData_Rear1M.264
+│   ├── [ 39K]  CameraData_Rear1M.txt
+│   ├── [415M]  CameraData_Right1M.264
+│   ├── [ 30K]  CameraData_Right1M.txt
+│   ├── [930M]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.1G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [156K]  MobileyeData_TruthData.csv
+│   ├── [382K]  RadarData_FL.csv
+│   ├── [362K]  RadarData_FR.csv
+│   ├── [3.4M]  RadarData_Front.csv
+│   ├── [431K]  RadarData_RL.csv
+│   ├── [455K]  RadarData_RR.csv
+│   └── [ 130]  Tag.csv
+├── [4.0K]  041320_5
+│   ├── [   0]  2022-11-03-04-13-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [1.9G]  adp_cdp.pcap
+│   │   ├── [296M]  AlgData.rosbag
+│   │   └── [633K]  PBOX_AebCommand.txt
+│   ├── [2.2M]  A-VCANData.csv
+│   ├── [635M]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [828M]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [845M]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [850M]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [385M]  CameraData_Front1M.264
+│   ├── [ 30K]  CameraData_Front1M.txt
+│   ├── [385M]  CameraData_Left1M.264
+│   ├── [ 23K]  CameraData_Left1M.txt
+│   ├── [1.0G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [353M]  CameraData_Rear1M.264
+│   ├── [ 33K]  CameraData_Rear1M.txt
+│   ├── [384M]  CameraData_Right1M.264
+│   ├── [ 25K]  CameraData_Right1M.txt
+│   ├── [645M]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [981M]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [200K]  MobileyeData_TruthData.csv
+│   ├── [394K]  RadarData_FL.csv
+│   ├── [359K]  RadarData_FR.csv
+│   ├── [3.8M]  RadarData_Front.csv
+│   ├── [421K]  RadarData_RL.csv
+│   ├── [415K]  RadarData_RR.csv
+│   └── [ 120]  Tag.csv
+├── [4.0K]  041820_5
+│   ├── [   0]  2022-11-03-04-18-22
+│   │   ├── [1.6G]  2022-11-03-04-18-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [1.7G]  adp_cdp.pcap
+│   │   ├── [112M]  AlgData.rosbag
+│   │   └── [195K]  PBOX_AebCommand.txt
+│   ├── [1.8M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.5G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.4G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.5G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [489M]  CameraData_Front1M.264
+│   ├── [ 40K]  CameraData_Front1M.txt
+│   ├── [505M]  CameraData_Left1M.264
+│   ├── [ 28K]  CameraData_Left1M.txt
+│   ├── [1.8G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [484M]  CameraData_Rear1M.264
+│   ├── [ 41K]  CameraData_Rear1M.txt
+│   ├── [504M]  CameraData_Right1M.264
+│   ├── [ 30K]  CameraData_Right1M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.7G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [142K]  MobileyeData_TruthData.csv
+│   ├── [286K]  RadarData_FL.csv
+│   ├── [248K]  RadarData_FR.csv
+│   ├── [3.0M]  RadarData_Front.csv
+│   ├── [280K]  RadarData_RL.csv
+│   ├── [310K]  RadarData_RR.csv
+│   └── [  41]  Tag.csv
+├── [4.0K]  042320_5
+│   ├── [   0]  2022-11-03-04-23-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [743M]  adp_cdp.pcap
+│   │   ├── [ 20M]  AlgData.rosbag
+│   │   └── [ 69K]  PBOX_AebCommand.txt
+│   ├── [4.9M]  A-VCANData.csv
+│   ├── [1.9G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.1G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.4G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.0G]  CameraData_FR8M.264
+│   ├── [228K]  CameraData_FR8M.txt
+│   ├── [545M]  CameraData_Front1M.264
+│   ├── [ 34K]  CameraData_Front1M.txt
+│   ├── [551M]  CameraData_Left1M.264
+│   ├── [ 24K]  CameraData_Left1M.txt
+│   ├── [2.6G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [531M]  CameraData_Rear1M.264
+│   ├── [ 35K]  CameraData_Rear1M.txt
+│   ├── [553M]  CameraData_Right1M.264
+│   ├── [ 31K]  CameraData_Right1M.txt
+│   ├── [2.0G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.8G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [693K]  MobileyeData_TruthData.csv
+│   ├── [946K]  RadarData_FL.csv
+│   ├── [930K]  RadarData_FR.csv
+│   ├── [8.1M]  RadarData_Front.csv
+│   ├── [1.2M]  RadarData_RL.csv
+│   ├── [1.1M]  RadarData_RR.csv
+│   └── [ 169]  Tag.csv
+├── [4.0K]  042820_5
+│   ├── [   0]  2022-11-03-04-28-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [472M]  adp_cdp.pcap
+│   │   ├── [ 28M]  AlgData.rosbag
+│   │   └── [ 65K]  PBOX_AebCommand.txt
+│   ├── [9.2M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.9G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.8G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [557M]  CameraData_Front1M.264
+│   ├── [ 36K]  CameraData_Front1M.txt
+│   ├── [564M]  CameraData_Left1M.264
+│   ├── [ 27K]  CameraData_Left1M.txt
+│   ├── [542M]  CameraData_Rear1M.264
+│   ├── [ 37K]  CameraData_Rear1M.txt
+│   ├── [565M]  CameraData_Right1M.264
+│   ├── [ 30K]  CameraData_Right1M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [2.0G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [383K]  MobileyeData_TruthData.csv
+│   ├── [2.4M]  RadarData_FL.csv
+│   ├── [2.4M]  RadarData_FR.csv
+│   ├── [ 14M]  RadarData_Front.csv
+│   ├── [2.6M]  RadarData_RL.csv
+│   ├── [2.6M]  RadarData_RR.csv
+│   └── [ 139]  Tag.csv
+├── [4.0K]  043320_5
+│   ├── [   0]  2022-11-03-04-33-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [721M]  adp_cdp.pcap
+│   │   ├── [ 27M]  AlgData.rosbag
+│   │   └── [ 35K]  PBOX_AebCommand.txt
+│   ├── [1.8M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.5G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [411M]  CameraData_Front1M.264
+│   ├── [ 25K]  CameraData_Front1M.txt
+│   ├── [416M]  CameraData_Left1M.264
+│   ├── [ 20K]  CameraData_Left1M.txt
+│   ├── [1.9G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [388M]  CameraData_Rear1M.264
+│   ├── [ 25K]  CameraData_Rear1M.txt
+│   ├── [416M]  CameraData_Right1M.264
+│   ├── [ 20K]  CameraData_Right1M.txt
+│   ├── [1.5G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [138K]  MobileyeData_TruthData.csv
+│   ├── [292K]  RadarData_FL.csv
+│   ├── [275K]  RadarData_FR.csv
+│   ├── [3.0M]  RadarData_Front.csv
+│   ├── [346K]  RadarData_RL.csv
+│   ├── [295K]  RadarData_RR.csv
+│   └── [ 196]  Tag.csv
+├── [4.0K]  043820_5
+│   ├── [   0]  2022-11-03-04-38-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [1.1G]  adp_cdp.pcap
+│   │   ├── [ 28M]  AlgData.rosbag
+│   │   └── [ 58K]  PBOX_AebCommand.txt
+│   ├── [1.4M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.8G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [ 14M]  CameraData_Left1M.264
+│   ├── [ 743]  CameraData_Left1M.txt
+│   ├── [2.1G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [6.8M]  CameraData_Right1M.264
+│   ├── [ 311]  CameraData_Right1M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [2.1G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 44K]  MobileyeData_TruthData.csv
+│   ├── [185K]  RadarData_FL.csv
+│   ├── [161K]  RadarData_FR.csv
+│   ├── [2.1M]  RadarData_Front.csv
+│   ├── [175K]  RadarData_RL.csv
+│   ├── [217K]  RadarData_RR.csv
+│   └── [  43]  Tag.csv
+├── [4.0K]  044320_5
+│   ├── [   0]  2022-11-03-04-43-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [   0]  AlgData
+│   │   ├── [872M]  adp_cdp.pcap
+│   │   ├── [ 45M]  AlgData.rosbag
+│   │   └── [177K]  PBOX_AebCommand.txt
+│   ├── [4.2M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.8G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.1G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.0G]  CameraData_FR8M.264
+│   ├── [228K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 503]  CameraData_Left1M.txt
+│   ├── [2.3G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.5G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 69K]  MobileyeData_TruthData.csv
+│   ├── [1.0M]  RadarData_FL.csv
+│   ├── [1.0M]  RadarData_FR.csv
+│   ├── [6.5M]  RadarData_Front.csv
+│   ├── [1.1M]  RadarData_RL.csv
+│   ├── [1.1M]  RadarData_RR.csv
+│   └── [ 159]  Tag.csv
+├── [4.0K]  044820_5
+│   ├── [   0]  2022-11-03-04-48-22
+│   │   ├── [1.1G]  2022-11-03-04-48-22.bag
+│   │   └── [ 253]  record_config.yaml
+│   ├── [8.8M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.1G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.1G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 455]  CameraData_Left1M.txt
+│   ├── [2.2G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.2G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 77K]  MobileyeData_TruthData.csv
+│   ├── [2.4M]  RadarData_FL.csv
+│   ├── [2.4M]  RadarData_FR.csv
+│   ├── [ 14M]  RadarData_Front.csv
+│   ├── [2.6M]  RadarData_RL.csv
+│   ├── [2.6M]  RadarData_RR.csv
+│   └── [ 205]  Tag.csv
+├── [4.0K]  045320_5
+│   ├── [   0]  2022-11-03-04-53-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [7.3M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.4G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.0G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 482]  CameraData_Left1M.txt
+│   ├── [2.7G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.7G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [146K]  MobileyeData_TruthData.csv
+│   ├── [1.9M]  RadarData_FL.csv
+│   ├── [1.9M]  RadarData_FR.csv
+│   ├── [ 11M]  RadarData_Front.csv
+│   ├── [2.1M]  RadarData_RL.csv
+│   ├── [2.0M]  RadarData_RR.csv
+│   └── [ 183]  Tag.csv
+├── [4.0K]  045820_5
+│   ├── [   0]  2022-11-03-04-58-22
+│   │   ├── [1.4G]  2022-11-03-04-58-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [ 11M]  A-VCANData.csv
+│   ├── [1.6G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.7G]  CameraData_FR8M.264
+│   ├── [228K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 549]  CameraData_Left1M.txt
+│   ├── [1.6G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.9G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [135K]  MobileyeData_TruthData.csv
+│   ├── [3.1M]  RadarData_FL.csv
+│   ├── [3.1M]  RadarData_FR.csv
+│   ├── [ 17M]  RadarData_Front.csv
+│   ├── [3.3M]  RadarData_RL.csv
+│   ├── [3.3M]  RadarData_RR.csv
+│   └── [ 240]  Tag.csv
+├── [4.0K]  050320_5
+│   ├── [   0]  2022-11-03-05-03-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [4.2M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [3.0G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 675]  CameraData_Left1M.txt
+│   ├── [2.7G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.9G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [165K]  MobileyeData_TruthData.csv
+│   ├── [1017K]  RadarData_FL.csv
+│   ├── [988K]  RadarData_FR.csv
+│   ├── [6.8M]  RadarData_Front.csv
+│   ├── [1.1M]  RadarData_RL.csv
+│   ├── [1.1M]  RadarData_RR.csv
+│   └── [ 370]  Tag.csv
+├── [4.0K]  050820_5
+│   ├── [   0]  2022-11-03-05-08-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [1.2M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.5G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.4G]  CameraData_FR8M.264
+│   ├── [228K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 585]  CameraData_Left1M.txt
+│   ├── [1.8G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.5G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 73K]  MobileyeData_TruthData.csv
+│   ├── [171K]  RadarData_FL.csv
+│   ├── [144K]  RadarData_FR.csv
+│   ├── [2.1M]  RadarData_Front.csv
+│   ├── [194K]  RadarData_RL.csv
+│   ├── [180K]  RadarData_RR.csv
+│   └── [ 188]  Tag.csv
+├── [4.0K]  051320_5
+│   ├── [   0]  2022-11-03-05-13-22
+│   │   ├── [2.0G]  2022-11-03-05-13-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [1.6M]  A-VCANData.csv
+│   ├── [1.1G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.4G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.1G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.7G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 621]  CameraData_Left1M.txt
+│   ├── [1.7G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.2G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.6G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 85K]  MobileyeData_TruthData.csv
+│   ├── [217K]  RadarData_FL.csv
+│   ├── [193K]  RadarData_FR.csv
+│   ├── [2.2M]  RadarData_Front.csv
+│   ├── [239K]  RadarData_RL.csv
+│   ├── [215K]  RadarData_RR.csv
+│   └── [ 169]  Tag.csv
+├── [4.0K]  051820_5
+│   ├── [   0]  2022-11-03-05-18-22
+│   │   ├── [2.5G]  2022-11-03-05-18-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [9.3M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.9G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.4G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.7G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 639]  CameraData_Left1M.txt
+│   ├── [2.4G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.5G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.7G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [152K]  MobileyeData_TruthData.csv
+│   ├── [2.6M]  RadarData_FL.csv
+│   ├── [2.5M]  RadarData_FR.csv
+│   ├── [ 15M]  RadarData_Front.csv
+│   ├── [2.7M]  RadarData_RL.csv
+│   ├── [2.7M]  RadarData_RR.csv
+│   └── [ 119]  Tag.csv
+├── [4.0K]  052320_5
+│   ├── [   0]  2022-11-03-05-23-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [5.0M]  A-VCANData.csv
+│   ├── [1.6G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.9G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.1G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 621]  CameraData_Left1M.txt
+│   ├── [1.4G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.9G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [647K]  MobileyeData_TruthData.csv
+│   ├── [1.0M]  RadarData_FL.csv
+│   ├── [955K]  RadarData_FR.csv
+│   ├── [8.2M]  RadarData_Front.csv
+│   ├── [1.0M]  RadarData_RL.csv
+│   ├── [1.1M]  RadarData_RR.csv
+│   └── [ 111]  Tag.csv
+├── [4.0K]  052820_5
+│   ├── [   0]  2022-11-03-05-28-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [ 18M]  A-VCANData.csv
+│   ├── [1.2G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.0G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.6G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.8G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 567]  CameraData_Left1M.txt
+│   ├── [2.7G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.2G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [2.0G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [466K]  MobileyeData_TruthData.csv
+│   ├── [5.1M]  RadarData_FL.csv
+│   ├── [5.1M]  RadarData_FR.csv
+│   ├── [ 28M]  RadarData_Front.csv
+│   ├── [5.5M]  RadarData_RL.csv
+│   ├── [5.4M]  RadarData_RR.csv
+│   └── [  74]  Tag.csv
+├── [4.0K]  053320_5
+│   ├── [   0]  2022-11-03-05-33-22
+│   │   ├── [1.1G]  2022-11-03-05-33-22.bag
+│   │   └── [ 253]  record_config.yaml
+│   ├── [4.5M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.2G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 531]  CameraData_Left1M.txt
+│   ├── [2.4G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.5G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [2.0G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [712K]  MobileyeData_TruthData.csv
+│   ├── [905K]  RadarData_FL.csv
+│   ├── [837K]  RadarData_FR.csv
+│   ├── [7.0M]  RadarData_Front.csv
+│   ├── [922K]  RadarData_RL.csv
+│   ├── [1004K]  RadarData_RR.csv
+│   └── [  68]  Tag.csv
+├── [4.0K]  053820_5
+│   ├── [   0]  2022-11-03-05-38-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [2.2M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.2G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 657]  CameraData_Left1M.txt
+│   ├── [1.9G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.2G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [166K]  MobileyeData_TruthData.csv
+│   ├── [392K]  RadarData_FL.csv
+│   ├── [358K]  RadarData_FR.csv
+│   ├── [3.6M]  RadarData_Front.csv
+│   ├── [432K]  RadarData_RL.csv
+│   ├── [451K]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  054320_5
+│   ├── [   0]  2022-11-03-05-43-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [2.1M]  A-VCANData.csv
+│   ├── [1.4G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.5G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.4G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.8G]  CameraData_FR8M.264
+│   ├── [228K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 657]  CameraData_Left1M.txt
+│   ├── [2.1G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.4G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.3G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [151K]  MobileyeData_TruthData.csv
+│   ├── [346K]  RadarData_FL.csv
+│   ├── [322K]  RadarData_FR.csv
+│   ├── [3.5M]  RadarData_Front.csv
+│   ├── [388K]  RadarData_RL.csv
+│   ├── [373K]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  054820_5
+│   ├── [   0]  2022-11-03-05-48-22
+│   │   ├── [1.8G]  2022-11-03-05-48-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [1.8M]  A-VCANData.csv
+│   ├── [1.1G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.1G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.2G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.0G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 567]  CameraData_Left1M.txt
+│   ├── [1.1G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.8G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [103K]  MobileyeData_TruthData.csv
+│   ├── [270K]  RadarData_FL.csv
+│   ├── [238K]  RadarData_FR.csv
+│   ├── [2.7M]  RadarData_Front.csv
+│   ├── [288K]  RadarData_RL.csv
+│   ├── [288K]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  055320_5
+│   ├── [   0]  2022-11-03-05-53-22
+│   │   ├── [2.0G]  2022-11-03-05-53-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [1.5M]  A-VCANData.csv
+│   ├── [762M]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.1G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [1.1G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.4G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 603]  CameraData_Left1M.txt
+│   ├── [1.9G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [753M]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.6G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 88K]  MobileyeData_TruthData.csv
+│   ├── [235K]  RadarData_FL.csv
+│   ├── [204K]  RadarData_FR.csv
+│   ├── [2.4M]  RadarData_Front.csv
+│   ├── [289K]  RadarData_RL.csv
+│   ├── [247K]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  055820_5
+│   ├── [   0]  2022-11-03-05-58-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [ 17M]  A-VCANData.csv
+│   ├── [1019M]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [781M]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.2G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [781M]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 729]  CameraData_Left1M.txt
+│   ├── [898M]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.1G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.0G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 32K]  MobileyeData_TruthData.csv
+│   ├── [4.9M]  RadarData_FL.csv
+│   ├── [4.9M]  RadarData_FR.csv
+│   ├── [ 27M]  RadarData_Front.csv
+│   ├── [5.2M]  RadarData_RL.csv
+│   ├── [5.2M]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  060320_5
+│   ├── [   0]  2022-11-03-06-03-22
+│   │   ├── [3.3G]  2022-11-03-06-03-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [3.7M]  A-VCANData.csv
+│   ├── [1.2G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.6G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1024M]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.5G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 675]  CameraData_Left1M.txt
+│   ├── [1.5G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.2G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.4G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [455K]  MobileyeData_TruthData.csv
+│   ├── [646K]  RadarData_FL.csv
+│   ├── [617K]  RadarData_FR.csv
+│   ├── [6.1M]  RadarData_Front.csv
+│   ├── [732K]  RadarData_RL.csv
+│   ├── [693K]  RadarData_RR.csv
+│   └── [  78]  Tag.csv
+├── [4.0K]  060820_5
+│   ├── [   0]  2022-11-03-06-08-22
+│   │   ├── [3.3G]  2022-11-03-06-08-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [5.4M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.9G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.4G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.8G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 675]  CameraData_Left1M.txt
+│   ├── [1.8G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.3G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [806K]  MobileyeData_TruthData.csv
+│   ├── [1.1M]  RadarData_FL.csv
+│   ├── [1.1M]  RadarData_FR.csv
+│   ├── [9.1M]  RadarData_Front.csv
+│   ├── [1.2M]  RadarData_RL.csv
+│   ├── [1.3M]  RadarData_RR.csv
+│   └── [  46]  Tag.csv
+├── [4.0K]  061320_5
+│   ├── [   0]  2022-11-03-06-13-22
+│   │   ├── [1.3G]  2022-11-03-06-13-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [1.9M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.2G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.2G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 675]  CameraData_Left1M.txt
+│   ├── [2.4G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.8G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [134K]  MobileyeData_TruthData.csv
+│   ├── [321K]  RadarData_FL.csv
+│   ├── [284K]  RadarData_FR.csv
+│   ├── [2.9M]  RadarData_Front.csv
+│   ├── [311K]  RadarData_RL.csv
+│   ├── [326K]  RadarData_RR.csv
+│   └── [  71]  Tag.csv
+├── [4.0K]  061820_5
+│   ├── [   0]  2022-11-03-06-18-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [1.7M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.7G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.6G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 693]  CameraData_Left1M.txt
+│   ├── [2.3G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.2G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.8G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [133K]  MobileyeData_TruthData.csv
+│   ├── [280K]  RadarData_FL.csv
+│   ├── [242K]  RadarData_FR.csv
+│   ├── [2.6M]  RadarData_Front.csv
+│   ├── [257K]  RadarData_RL.csv
+│   ├── [278K]  RadarData_RR.csv
+│   └── [  76]  Tag.csv
+├── [4.0K]  062320_5
+│   ├── [   0]  2022-11-03-06-23-22
+│   │   ├── [1.4G]  2022-11-03-06-23-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [2.0M]  A-VCANData.csv
+│   ├── [926M]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.2G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [985M]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [1.7G]  CameraData_FR8M.264
+│   ├── [228K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 557]  CameraData_Left1M.txt
+│   ├── [1.9G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.1G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.4G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [109K]  MobileyeData_TruthData.csv
+│   ├── [314K]  RadarData_FL.csv
+│   ├── [289K]  RadarData_FR.csv
+│   ├── [3.3M]  RadarData_Front.csv
+│   ├── [335K]  RadarData_RL.csv
+│   ├── [346K]  RadarData_RR.csv
+│   └── [ 109]  Tag.csv
+├── [4.0K]  062820_5
+│   ├── [   0]  2022-11-03-06-28-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [8.1M]  A-VCANData.csv
+│   ├── [1.6G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.0G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.3G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.1G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 630]  CameraData_Left1M.txt
+│   ├── [2.4G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.6G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.5G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 85K]  MobileyeData_TruthData.csv
+│   ├── [2.3M]  RadarData_FL.csv
+│   ├── [2.2M]  RadarData_FR.csv
+│   ├── [ 13M]  RadarData_Front.csv
+│   ├── [2.4M]  RadarData_RL.csv
+│   ├── [2.4M]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  063320_5
+│   ├── [   0]  2022-11-03-06-33-22
+│   │   ├── [1.7G]  2022-11-03-06-33-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [1.2M]  A-VCANData.csv
+│   ├── [1.6G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.4G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.4G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 654]  CameraData_Left1M.txt
+│   ├── [1.5G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 62K]  MobileyeData_TruthData.csv
+│   ├── [189K]  RadarData_FL.csv
+│   ├── [163K]  RadarData_FR.csv
+│   ├── [2.0M]  RadarData_Front.csv
+│   ├── [174K]  RadarData_RL.csv
+│   ├── [187K]  RadarData_RR.csv
+│   └── [  49]  Tag.csv
+├── [4.0K]  063820_5
+│   ├── [   0]  2022-11-03-06-38-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [9.3M]  A-VCANData.csv
+│   ├── [1.3G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.1G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.2G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 620]  CameraData_Left1M.txt
+│   ├── [2.5G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.6G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.7G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [472K]  MobileyeData_TruthData.csv
+│   ├── [2.4M]  RadarData_FL.csv
+│   ├── [2.4M]  RadarData_FR.csv
+│   ├── [ 15M]  RadarData_Front.csv
+│   ├── [2.6M]  RadarData_RL.csv
+│   ├── [2.6M]  RadarData_RR.csv
+│   └── [  18]  Tag.csv
+├── [4.0K]  064320_5
+│   ├── [   0]  2022-11-03-06-43-22
+│   │   └── [ 251]  record_config.yaml
+│   ├── [7.6M]  A-VCANData.csv
+│   ├── [1.0G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [1.8G]  CameraData_FL8M.264
+│   ├── [228K]  CameraData_FL8M.txt
+│   ├── [1.1G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.1G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 645]  CameraData_Left1M.txt
+│   ├── [1.6G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.3G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.5G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [841K]  MobileyeData_TruthData.csv
+│   ├── [1.8M]  RadarData_FL.csv
+│   ├── [1.8M]  RadarData_FR.csv
+│   ├── [ 12M]  RadarData_Front.csv
+│   ├── [2.0M]  RadarData_RL.csv
+│   ├── [2.0M]  RadarData_RR.csv
+│   └── [  73]  Tag.csv
+├── [4.0K]  064820_5
+│   ├── [   0]  2022-11-03-06-48-22
+│   │   ├── [3.2G]  2022-11-03-06-48-22.bag
+│   │   └── [ 254]  record_config.yaml
+│   ├── [1.2M]  A-VCANData.csv
+│   ├── [1.2G]  CameraData_FL2M.264
+│   ├── [227K]  CameraData_FL2M.txt
+│   ├── [2.3G]  CameraData_FL8M.264
+│   ├── [227K]  CameraData_FL8M.txt
+│   ├── [1.5G]  CameraData_FR2M.264
+│   ├── [227K]  CameraData_FR2M.txt
+│   ├── [2.1G]  CameraData_FR8M.264
+│   ├── [227K]  CameraData_FR8M.txt
+│   ├── [ 12M]  CameraData_Left1M.264
+│   ├── [ 729]  CameraData_Left1M.txt
+│   ├── [2.0G]  CameraData_R8M.264
+│   ├── [227K]  CameraData_R8M.txt
+│   ├── [1.1G]  CameraData_RL2M.264
+│   ├── [227K]  CameraData_RL2M.txt
+│   ├── [1.7G]  CameraData_RR2M.264
+│   ├── [227K]  CameraData_RR2M.txt
+│   ├── [ 58K]  MobileyeData_TruthData.csv
+│   ├── [174K]  RadarData_FL.csv
+│   ├── [150K]  RadarData_FR.csv
+│   ├── [1.8M]  RadarData_Front.csv
+│   ├── [167K]  RadarData_RL.csv
+│   ├── [176K]  RadarData_RR.csv
+│   └── [  45]  Tag.csv
+└── [4.0K]  065320_5
+    ├── [   0]  2022-11-03-06-53-22
+    │   └── [ 251]  record_config.yaml
+    ├── [1.7M]  A-VCANData.csv
+    ├── [627M]  CameraData_FL8M.264
+    ├── [ 79K]  CameraData_FL8M.txt
+    ├── [159M]  CameraData_FR2M.264
+    ├── [ 25K]  CameraData_FR2M.txt
+    ├── [1.2G]  CameraData_FR8M.264
+    ├── [113K]  CameraData_FR8M.txt
+    ├── [5.1M]  CameraData_Left1M.264
+    ├── [ 171]  CameraData_Left1M.txt
+    ├── [637M]  CameraData_R8M.264
+    ├── [ 77K]  CameraData_R8M.txt
+    ├── [975M]  CameraData_RL2M.264
+    ├── [193K]  CameraData_RL2M.txt
+    ├── [923M]  CameraData_RR2M.264
+    ├── [126K]  CameraData_RR2M.txt
+    ├── [128K]  MobileyeData_TruthData.csv
+    ├── [252K]  RadarData_FL.csv
+    ├── [229K]  RadarData_FR.csv
+    ├── [2.6M]  RadarData_Front.csv
+    ├── [261K]  RadarData_RL.csv
+    ├── [281K]  RadarData_RR.csv
+    └── [  18]  Tag.csv
+
+76 directories, 893 files

@@ -17,15 +17,14 @@ int main()
 	pid_t pid;
 	var = 88;
 
-	if ((pid = fork()) < 0)
-	{
+	if ((pid = fork()) < 0) {
 		perror("fork error");
 	} else if (pid == 0) {
-		printf("child process id = %d, pareant process id = %d\n", getpid(), getppid());
+		printf("child process id = %d, parent process id = %d\n", getpid(), getppid());
 		glob++;
 		var++;
 	} else {
-		printf("pareant process id = %d\n", getpid());
+		printf("parent process id = %d\n", getpid());
 		sleep(2);
 	}
 	

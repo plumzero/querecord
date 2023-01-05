@@ -1,14 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 #include <limits.h>
 #include <errno.h>
 #include <sys/stat.h>
 
-/**
- * 使用 C 语言实现，检测内核模块。
- * 
- * 参考：
- *  dpdk/lib/librte_eal\linuxapp\eal\eal.c
- */
 
 int main(int argc, char *argv[])
 {

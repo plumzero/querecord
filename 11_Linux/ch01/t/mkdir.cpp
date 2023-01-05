@@ -2,9 +2,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <limits.h>
 #include <unistd.h>
 #include <errno.h>
+#include <sys/stat.h>
+#include <string>
+
+bool create_dir(const std::string& path) {
+	int i = 0;
+  	int size = path.size();
+
+	int mode = S_IRWXU | S_IRWXG | S_IRWXO;
+
+  	for (; i < size - 1; ++i) {
+    	if ('/' == path[i]) {
+      		mkdir(path.substr(0, i + 1).data(), mode);
+    	}
+  	}
+
+  	return 0 == mkdir(path.substr(0, size).data(), mode);
+}
 
 /**
  * getcwd    获取当前路径
@@ -21,7 +39,7 @@ int main(int argc, char *argv[])
 	int ret;
 	
 	if (argc < 2) {
-		fprintf(stderr, "USAGE: ./%s <directory name>\n", argv[0]);
+		fprintf(stderr, "USAGE: %s <directory name>\n", argv[0]);
 		return -1;
 	}
 	
