@@ -26,6 +26,7 @@ int main()
 {
     std::unordered_map<std::string, int, std::hash<const std::string>> hash_map;
     hash_map.rehash(86413);
+    std::cout << "hash_map.bucket_count: " << hash_map.bucket_count() << std::endl;
     
     int tick = 0;
     char buf[8] = { 0 };   // 分配内存长度必须要大于 6

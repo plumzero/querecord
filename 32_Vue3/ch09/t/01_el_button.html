@@ -5,7 +5,16 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
     <link rel="stylesheet" href="https:////unpkg.com/element-plus/dist/index.css">
-    <script src="https://unpkg.com/element-plus"></script>
+    <script src="https://unpkg.com/element-plus@2.2.28" lang="js" setup>
+        import {
+          Check,
+          Delete,
+          Edit,
+          Message,
+          Search,
+          Star,
+        } from '@element-plus/icons-vue'
+    </script>
     <style>
         .border {
             border: 2px solid #efefef;
@@ -13,42 +22,88 @@
         span {
             float: left;
         }
+        .desc {
+            width: 200px;
+        }
     </style>
 </head>
 <body>
     <div id="Application" style="text-align: center;">
-        <div class="border">
-            <span>尺寸(size)</span>
+        <el-row class="border">
+            <span class="desc">尺寸(size)</span>
             <el-button>默认按钮</el-button>
             <el-button size="large">大型按钮</el-button>
             <el-button size="small">小型按钮</el-button>
-        </div>
-        <div class="border">
-            <span>类型(type)</span>
+        </el-row>
+        <el-row class="border">
+            <span class="desc">类型(type)</span>
             <el-button>默认按钮</el-button>
             <el-button type="primary">常规按钮</el-button>
             <el-button type="success">成功按钮</el-button>
             <el-button type="info">信息按钮</el-button>
             <el-button type="warning">警告按钮</el-button>
             <el-button type="danger">危险按钮</el-button>
-        </div>
-        <div class="border">
-            <span>风格</span>
-            <el-button :plain="true">描边</el-button>
-            <el-button :round="true">圆角</el-button>
-            <el-button :circle="true">圆形</el-button>
-            <el-button :disabled="true">禁用</el-button>
-            <el-button :loading="true">加载</el-button>
-        </div>
-        <div class="border">
-            <span>图标</span>
-            <el-button icon="Search">搜索</el-button>
+        </el-row>
+        <el-row class="border">
+            <span class="desc">风格(描边,plain)</span>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary" plain>常规按钮</el-button>
+            <el-button type="success" plain>成功按钮</el-button>
+            <el-button type="info" plain>信息按钮</el-button>
+            <el-button type="warning" plain>警告按钮</el-button>
+            <el-button type="danger" plain>危险按钮</el-button>
+        </el-row>
+        <el-row class="border">
+            <span class="desc">风格(圆角,round)</span>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary" round>常规按钮</el-button>
+            <el-button type="success" round>成功按钮</el-button>
+            <el-button type="info" round>信息按钮</el-button>
+            <el-button type="warning" round>警告按钮</el-button>
+            <el-button type="danger" round>危险按钮</el-button>
+        </el-row>
+        <el-row class="border">
+            <span class="desc">风格(圆形,circle)</span>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary" circle>常规按钮</el-button>
+            <el-button type="success" circle>成功按钮</el-button>
+            <el-button type="info" circle>信息按钮</el-button>
+            <el-button type="warning" circle>警告按钮</el-button>
+            <el-button type="danger" circle>危险按钮</el-button>
+        </el-row>
+        <el-row class="border">
+            <span class="desc">风格(禁用,disabled)</span>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary" disabled>常规按钮</el-button>
+            <el-button type="success" disabled>成功按钮</el-button>
+            <el-button type="info" disabled>信息按钮</el-button>
+            <el-button type="warning" disabled>警告按钮</el-button>
+            <el-button type="danger" disabled>危险按钮</el-button>
+        </el-row>
+        <el-row class="border">
+            <span class="desc">风格(加载,loading)</span>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary" loading>常规按钮</el-button>
+            <el-button type="success" loading>成功按钮</el-button>
+            <el-button type="info" loading>信息按钮</el-button>
+            <el-button type="warning" loading>警告按钮</el-button>
+            <el-button type="danger" loading>危险按钮</el-button>
+        </el-row>
+        <el-row class="border">
+            <!-- <span class="desc">图标</span>
+            <el-button icon="Search" circle/>
             <el-button icon="Edit">编辑</el-button>
             <el-button icon="Check">校验</el-button>
             <el-button icon="Message">消息</el-button>
             <el-button icon="Star">标星</el-button>
-            <el-button icon="Delete">删除</el-button>
-        </div>
+            <el-button icon="Delete">删除</el-button> -->
+            <el-button :icon="Search" circle />
+            <el-button type="primary" :icon="Edit" circle />
+            <el-button type="success" :icon="Check" circle />
+            <el-button type="info" :icon="Message" circle />
+            <el-button type="warning" :icon="Star" circle />
+            <el-button type="danger" :icon="Delete" circle />
+        </el-row>
     </div>
     <script>
         let instance = Vue.createApp({})
