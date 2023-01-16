@@ -73,6 +73,7 @@ public:
         _container[_curr].pop_front();
     }
     const_reference Front() const {
-
+        std::lock_guard<std::mutex> locker(_mutex);
+        return _container[_curr].front();
     }
 };

@@ -7,16 +7,44 @@ int main()
 
     std::cout << std::boolalpha << "empty: " << cvec.empty() << std::endl;
 
-    SwitchContainer<int, std::list> s;
-    s.Print();
-    s.Switch();
-    s.Print();
-    s.Switch();
-    s.Print();
-    s.PushBack(1);
-    s.PushBack(2);
-    s.PushBack(3);
-    s.Print();
+    {
+        SwitchContainer<int, std::list> s;
+        s.Print();
+        s.Switch();
+        s.Print();
+        s.Switch();
+        s.Print();
+        s.PushBack(1);
+        s.PushBack(2);
+        s.PushBack(3);
+        s.Print();
+    }
+
+    {
+        SwitchContainer<int, std::vector> s;
+        s.Print();
+        s.Switch();
+        s.Print();
+        s.Switch();
+        s.Print();
+        s.PushBack(1);
+        s.PushBack(2);
+        s.PushBack(3);
+        s.Print();
+    }
+
+    {
+        SwitchContainer<int, std::deque> s;
+        s.Print();
+        s.Switch();
+        s.Print();
+        s.Switch();
+        s.Print();
+        s.PushBack(1);
+        s.PushBack(2);
+        s.PushBack(3);
+        s.Print();
+    }
 
     return 0;
 }
