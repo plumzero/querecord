@@ -1,6 +1,6 @@
 
 
-## set 的用法
+### set 的用法
 - 示例:
     + `set +e`  指令传回值虽不等于0，不退出shell，继续向下执行
     + `set -e`  若指令传回值不等于0，则立即退出shell
@@ -10,21 +10,21 @@
     + `set -euo pipefail`   执行大型脚本必须带上这个
 
 ----
-## dirname 的用法
+### dirname 的用法
 - 功能:
     + 去除一个文件名的非目录部分
 - 示例：
     + `cd /home/lb/public; dirname $PWD`    打印显示 /home/lb
 
 ----
-## alias 的用法
+### alias 的用法
 - 示例:
     + `alias la='ls -al'`       设置别名，注意=两边不能有空格
     + `alias`                   查询所有别名
     + `unalias la`              取消别名
 
 ----
-## seq 的用法
+### seq 的用法
 - 功能:
     + 序列化输出数字
 - 示例:

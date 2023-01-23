@@ -1,24 +1,22 @@
 
+### 说明
 
+- 使用 2.6.26-2-686 内核版本进行测试
+- 本文件中出现的 磁盘、设备、device 同义
+- 使用 GRUB 0.97 (Grub Legacy)进行测试
 
-Tab 补全
+### 搜索可用磁盘分区
 
-
-## 说明
-- 使用 2.6.26-2-686 内核版本进行测试；
-- 本文件中出现的 磁盘、设备、device 同义；
-- 使用 GRUB 0.97 (Grub Legacy)进行测试；
-
-## 搜索可用磁盘分区
 - grub> root (hd0,
    Possible partions are:
      Partition num: 0, Filesystem type is ext2fs, partition type 0x83
      Partition num: 4, Filesystem type unknown, partion type 0x82
-## 查看 stage1 文件的磁盘位置
+
+### 查看 stage1 文件的磁盘位置
 - grub> find /boot/grub/stage
    (hd0,0)
 
-## grub 命令行引导
+### grub 命令行引导
 - 事先已经将内核镜像和 initrd 文件放置在 (hd0,0) 磁盘分区下
         grub> root (hd0,0)
          Filesystem type is ext2fs, partition type 0x83
@@ -48,7 +46,7 @@ Tab 补全
 - 启动
         grub> boot
 
-## 设备命名规则
+### 设备命名规则
 - 命名规则及注意
         (fd0)
     + 以 ( 和 ) 进行包裹， fd 表示一个软盘，0 表示驱动号，驱动号从 0 开始；
@@ -67,7 +65,7 @@ GRUB 无法区分 IDE 和 SCSI 盘，一般 IDE 盘号比 SCSI 盘号要小，�
             grub> (hd0,0)/boot/vmlinuz
     <TAB> 补全显示对应文件
 
-## 引导装载的两种方法
+### 引导装载的两种方法
 - 直接引导: 支持 Linux, FreeBSD, NetBSD, OpenBSD，步骤如下:
     1. 设置 GRUB 的根设备(启动盘)
         grub> root (hd0,0)
@@ -88,11 +86,11 @@ GRUB 无法区分 IDE 和 SCSI 盘，一般 IDE 盘号比 SCSI 盘号要小，�
     4. 运行
         grub> boot
 
-## 回退系统
+### 回退系统
 - Booting fallback systems
     https://www.gnu.org/software/grub/manual/legacy/Booting-fallback-systems.html#Booting-fallback-systems
 
-## grub-install
+### grub-install
         mke2fs /dev/fd0
         mount -t ext2 /dev/fd0 /mnt
         grub-install --root-directory=/mnt fd0

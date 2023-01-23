@@ -1,6 +1,8 @@
 
 利用 mongo-driver 访问 mongo 测试。
 
+[bson和json区别](https://blog.csdn.net/cristianoxm/article/details/126632549)
+
 ```go
 // D is an ordered representation of a BSON document. This type should be used when the order of the elements matters,
 // such as MongoDB command documents. If the order of the elements does not matter, an M should be used instead.
