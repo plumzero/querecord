@@ -15,10 +15,6 @@ public:
         if (_stop_flag) {
             return ;
         }
-        if (full()) {
-            std::cout << "queue is full" << std::endl;
-            return ;
-        }
         _queue[_tail] = x;
         _tail = (_tail + 1) % _cap;
         _not_empty.notify_one();
@@ -27,10 +23,6 @@ public:
         std::unique_lock<std::mutex> locker(_mutex);
         _not_empty.wait(locker, [this]() { return _stop_flag || ! empty(); });
         if (_stop_flag) {
-            return ;
-        }
-        if (empty()) {
-            std::cout << "queue is empty" << std::endl;
             return ;
         }
         t = _queue[_head];

@@ -29,7 +29,7 @@ int main(void)
 		exit(1);
 	}
 	
-	ret = pthread_join(thread_id, &thread_result);	// ¹ÒÆðÖ÷Ïß³Ì£¬µÈ´ý×ÓÏß³ÌÖ´ÐÐÍê±Ï
+	ret = pthread_join(thread_id, &thread_result);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ß³ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (ret != 0) {
 		printf("Thread join error!\n");
 		exit(1);

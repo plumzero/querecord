@@ -6,10 +6,6 @@
 char message[] = "Hello World!";
 int thread_finished = 0;
 
-/**
- * 设置将要创建的线程的属性。需要在线程创建之前设置。
- */
-
 void* thread_function(void *arg)
 {
 	printf("New thread is running, argument is %s\n", (char*)arg);
@@ -31,7 +27,7 @@ int main()
 		exit(1);
 	}
 	
-	ret = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);		// 创建分离线程
+	ret = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);		// 锟斤拷锟斤拷锟斤拷锟斤拷锟竭筹拷
 	if (ret != 0)
 	{
 		printf("Setting detached attribute error!\n");

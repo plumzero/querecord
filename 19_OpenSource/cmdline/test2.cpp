@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
   a.add<int>("port", 'p', "port number", false, 80, cmdline::range(1, 65535));
   a.add<string>("type", 't', "protocol type", false, "http", cmdline::oneof<string>("http", "https", "ssh", "ftp"));
   a.add("help", 0, "print this message");
-  a.footer("filename ...");
+  a.footer("filename xxx");
   a.set_program_name("test");
 
   bool ok=a.parse(argc, argv);

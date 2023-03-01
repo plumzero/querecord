@@ -2,6 +2,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
  
 /**
  * 通过线程发送信号，模拟条件脉冲
