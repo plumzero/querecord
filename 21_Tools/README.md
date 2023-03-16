@@ -35,3 +35,4 @@ Windows 下使用 POSIX 接口工具，需要使用 Cygwin 。
 * [其他工具](ch05)
     * [DPDK](ch05/01_dpdk)
     * [wireshark](ch05/02_wireshark)
+    * [fcitx](ch05/03_fcitx)
