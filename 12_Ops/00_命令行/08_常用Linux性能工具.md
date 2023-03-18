@@ -22,7 +22,7 @@ top 可以实时监控系统状态，输出系统整体资源占用状况以及�
 top 命令的输出被一行空行分为两部分，空行以上的信息为服务器状态的整体统计信息，空行以下部分为各个进程的状态信息。
 
 上部分内容:
-```sh
+```s
     top - 09:03:36 up  1:24,  4 users,  load average: 0.02, 0.04, 0.05
     Tasks: 112 total,   1 running, 111 sleeping,   0 stopped,   0 zombie
     %Cpu(s):  0.0 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
