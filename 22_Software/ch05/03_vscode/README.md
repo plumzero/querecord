@@ -1,4 +1,11 @@
 
+### C++
+
+- C/C++
+- C/C++ Extension Pack
+- C/C++ Themes
+
+
 ### Remote-SSH
 
 远程连接 Linux 机器
