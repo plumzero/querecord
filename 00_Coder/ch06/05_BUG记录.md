@@ -1,0 +1,62 @@
+
+### 对异常的捕获
+
+以对文件句柄的处理为例，如下代码:
+```cpp
+  if (is_writing && file.isOpen()) {
+    file.write(...);
+  }
+```
+
+可以改成类似下面的这样:
+```cpp
+  if (is_writing) {
+    try {
+      file.isOpen() && file.write(...) >= 0;
+    } catch(...) {
+      ...
+    }
+  }
+```
+
+### 接口的完善
+
+在一个线程里面调用如下的代码:
+```cpp
+  while (ptr->is_writing) {
+    std::function<bool(const std::shared_ptr<Object>&)> callable;
+    ptr->queue.Take(callable);
+    callable(ptr);
+  }
+```
+而对 Take 函数的定义是像下面这样的:
+```cpp
+  void Take(T& t) {
+    std::unique_lock<std::mutex> locker(_mutex);
+    _not_empty.wait(locker, [this]() { return _stop_flag || !empty(); });
+    if (_stop_flag) {
+      return;
+    }
+    ...
+  }
+```
+
+如果在另一个线程中将 ptr->is_writing, 使用者的期望是能够退出上面的循环，但是如果 is_writing 在被设置为 false 之前的一段时间里，已经在调用 Take 函数的地方阻塞住了，结果并不符合使用者的预期。
+
+上面的代码可以这样修改:
+```cpp
+  bool Take(T& t, std::chrono::seconds timeout) {
+    std::unique_lock<std::mutex> locker(_mutex);
+    if (! _not_empty.wait_for(locker, timeout, [this]() { return _stop_flag || !empty(); })) {
+      return false;
+    }
+    if (_stop_flag) {
+      return false;
+    }
+    t = _queue[_head];
+    _head = (_head + 1) % _cap;
+    _not_full.notify_one();
+    return true;
+  }
+```
+在拿到值的时候返回 true，在超时或停止的时候返回 false 。
