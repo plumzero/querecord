@@ -1,6 +1,4 @@
 
-### 一些高级使用
-
 双向认证调试(-v)
 ```s
   curl -v https://192.168.10.130:445 --cacert sm2.ca.crt.pem --cert sm2.client.crt.pem --key sm2.client.pvk.pem
