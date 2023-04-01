@@ -6,6 +6,12 @@
 - 版本 3.x
 - 使用 vscode 进行开发时，最好安装一些插件，如 `Live Server` 和 `Vuter`。
 
+### 选型
+
+- Vue2/3 + Vue-router + Vuex(Pina) + TS
+- 组件库: Ant-Design Arco-Design Element-UI Vant
+- Less Sass css modules
+
 ### 文档
 
 - [参考](https://v3.cn.vuejs.org/guide/introduction.html)
