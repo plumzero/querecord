@@ -27,7 +27,7 @@ std::async 是基于任务而非线程的。相比于直接创建创建(std::thr
 
 - `policy` 位掩码值，指示启动策略
   - std::launch::async    启动一个新线程来调用 fn;
-  - std::launch::deferred 延迟调用 fn 直到 std::future 返回的 shared state 可以访问(通过 wait 或 get)。调用返回时，std::future 返回的 shared state 被设置为 ready 。该策略提供了一种弹性机制，当新线程创建失败时，允许延迟到主调线程中去执行任务。
+  - std::launch::deferred 延迟调用 fn 直到 std::future 返回的 shared state 可以(通过 wait 族或 get)访问。(说明: 调用返回时，std::future 返回的 shared state 被设置为 ready)。该策略提供了一种弹性机制，当新线程创建失败时(std::launch::aync 策略不生效时)，允许延迟(std::launch::deferred 生效)到主调线程中以同步方式去执行任务(执行时机为调用 wait 族或 get 方法时)。
   - std::launch::async|std::launch::deferred  fn 会自动选择执行策略。
 - `fn` 可以是函数指针、成员函数指针或者可调用函数对象
   - fn 使用的是 args 的一份退化拷贝(decay copy)。

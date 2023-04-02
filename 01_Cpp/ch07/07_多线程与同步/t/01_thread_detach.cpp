@@ -1,12 +1,3 @@
-/**
- * g++ -std=c++11 -g std_detach.cpp -o std_detach -lpthread
- *
- * 分离线程表示线程对象从主调线程(一般是main)中脱离，允许其独立执行。
- * 分离的线程与主调线程异步执行，不再阻塞。资源在线程执行完毕之后各自释放。
- * 此方法被调用后，线程对象成为 non-joinable 的，并且可以被安全地销毁。
- *
- * 我想，应该是一个较不常用的方法。
- */
 
 #include <iostream>
 #include <thread>
