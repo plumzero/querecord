@@ -104,6 +104,7 @@
   - [匿名空间](ch10/02_匿名空间.md)
   - [volatile的使用](ch10/03_volatile的使用.md)
   - [重载new](ch10/04_重载new.md)
+  - [与C语言](ch10/05_与C语言.md)
 - [代码记录](ch11)
   - [信号锁](ch11/01_nolocker)
   - [环形队列](ch11/02_ring)
