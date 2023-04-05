@@ -1,17 +1,19 @@
 
-## 迭代器模式
-- 迭代器模式有些绕。先从最坏的实现开始做起，循序渐进。
-- 自始至终不变的元素类：
-  ```c++
-    class Book
-    {
-    public:
-        Book(std::string n) : name(n) {}
-        std::string getName() { return name; }
-    private:
-        std::string name;
-    };
-  ```
+### 迭代器模式
+
+迭代器模式有些绕。先从最坏的实现开始做起，循序渐进。
+
+自始至终不变的元素类:
+```c++
+  class Book
+  {
+  public:
+    Book(std::string n) : name(n) {}
+    std::string getName() { return name; }
+  private:
+    std::string name;
+  };
+```
 
 ## bad - 一般的实现
 - 对于一个对象的集合，如果想要遍历该集合中的每个元素(可能的话还会做一些操作)，可以为

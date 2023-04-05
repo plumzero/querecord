@@ -1,9 +1,8 @@
 
 ### 源与版本
 
-[JSON-2.90](https://metacpan.org/release/JSON)
-
-[参考](https://metacpan.org/pod/JSON)
+- [JSON-2.90](https://metacpan.org/release/JSON)
+- [参考](https://metacpan.org/pod/JSON)
 
 
 ### 选择 JSON 模块的 backend
