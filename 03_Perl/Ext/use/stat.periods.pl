@@ -20,8 +20,8 @@ my $stat_file = "./stat.txt";
 my @periods = Util::get_periods "185519_5", "190519_5";
 
 my $is_header = 1;
-my $dir_path = "/path/to/121/";
-my $stat_file = "./stat.txt";
+# my $dir_path = "/path/to/121/";
+# my $stat_file = "./stat.txt";
 foreach (@periods) {
   StatUtil::stat_period $dir_path . $_, $stat_file, $is_header;
   $is_header = 0;
