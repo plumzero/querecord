@@ -8,7 +8,7 @@ use Util;
 
 $args_cnt = @ARGV;
 if ($args_cnt != 1) {
-  print "param error: ./exe <file-path>";
+  print "param error: ./exe <file-path>\n";
   return ;
 }
 

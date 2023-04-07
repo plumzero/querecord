@@ -15,7 +15,7 @@ sub stat_period
   my $dir_path = $_[0];
 
   my $bag_file = $dir_path . "/AlgData/AlgData.rosbag";
-  my $bag_cmd = "/path/to/bag_info";
+  my $bag_cmd = "/hdm/nullmax/data_collection/bag_info";
 
   my $front1m_txt = $dir_path . "/CameraData_Front1M.txt";
   my $left1m_txt = $dir_path . "/CameraData_Left1M.txt";
@@ -31,6 +31,11 @@ sub stat_period
 
   my $last_pos = rindex($dir_path, "/");
   $stat->set_period_name(substr($dir_path, $last_pos + 1));
+
+  ## total
+  if (`du -sh $dir_path` =~ /([0-9KMG\.]+)/) {
+    $stat->set_total_size($1);
+  }
 
   ## rosbag
   if (-e $bag_file) {
@@ -68,6 +73,7 @@ sub stat_period
   ## composition
   my $content = Util::join_fields(
     $stat->get_period_name(),
+    $stat->get_total_size(),
     $stat->get_bag_size(),
     $stat->get_bag_duration(),
     $stat->get_bag_topics(),
@@ -80,7 +86,7 @@ sub stat_period
   # write to file
   open(DATA, ">>$_[1]") or die "open $_[1] failed: $!\n";
   if ($_[2]) {
-    my $header = "|周期名称|bag大小|bag时长|topic数目|topic数量|包损坏|1M大小(前左后右)|1M帧数(前左后右)|";
+    my $header = "|周期名称|目录总大小|bag大小|bag时长|topic数目|topic数量|包损坏|1M大小(前左后右)|1M帧数(前左后右)|";
     print DATA $header, "\n";
     print DATA Util::join_sperators($header), "\n";
   }

@@ -9,6 +9,8 @@ sub new
   my $self = {
     period_name => shift,
 
+    total_size => shift,
+
     bag_duration => shift,
     bag_start => shift,
     bag_end => shift,
@@ -44,6 +46,18 @@ sub get_period_name
 {
   my ($self) = @_;
   return $self->{period_name};
+}
+
+sub set_total_size
+{
+  my ($self, $val) = @_;
+  $self->{total_size} = $val if defined($val);
+}
+
+sub get_total_size
+{
+  my ($self) = @_;
+  return $self->{total_size};
 }
 
 sub set_bag_duration

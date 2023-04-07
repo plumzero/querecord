@@ -13,7 +13,7 @@ begin_iter=1
 end_iter=2
 count=200
 
-function get_picture()
+function get_pictures()
 {
 	# 下载
 	local cnt=0;
@@ -47,10 +47,8 @@ do
 	tarname=${suffix}-A-${x}
 	echo ==================== ${tarname} ====================
 	
-	get_picture ${secondurl} ${count} ${tarname}
+	get_pictures ${secondurl} ${count} ${tarname}
 	
 done
 
 echo "完成"
-
-
