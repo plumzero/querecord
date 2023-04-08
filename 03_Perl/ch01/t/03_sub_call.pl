@@ -4,8 +4,8 @@
 $n = 0;
 
 sub marine {
-    $n += 1;
-    print "Hello, sailor number $n\n";
+  $n += 1;
+  print "Hello, sailor number $n\n";
 }
 
 &marine;
