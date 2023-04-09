@@ -62,4 +62,7 @@ Perl 这种完整的语言提供了 POSIX 级别的接口，理论上在系统 A
 
 ### 示例
 
-- [Sample](Ext)
+- [简单的使用示例](U/exp)
+- [package的使用](U/pm)
+- [即用的脚本](U/beau)
+

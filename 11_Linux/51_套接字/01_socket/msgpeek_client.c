@@ -12,8 +12,6 @@
 #include <time.h>
 #include <sys/time.h>
 
-#include "abc.h"
-
 struct TestHeader
 {
 	uint16_t 	ver;
@@ -40,7 +38,7 @@ int main(int argc, char *argv[])
 	ssize_t nbytes;
 	
 	if (argc != 3) {
-		ECHO(ERRO, "Usage: %s [ip] [port]", argv[0]);
+		fprintf(stderr, "Usage: %s [ip] [port]", argv[0]);
 		return -1;
 	}
 	
@@ -48,7 +46,7 @@ int main(int argc, char *argv[])
 	
 	cfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (cfd == -1) {
-		ECHO(ERRO, "socket: %s", strerror(errno));
+		fprintf(stderr, "socket: %s", strerror(errno));
 		return -1;
 	}
 
@@ -58,7 +56,7 @@ int main(int argc, char *argv[])
 	ssai.sin_family = AF_INET;
 	
 	if (connect(cfd, (const struct sockaddr*)&ssai, sizeof(struct sockaddr_in)) == -1) {
-		ECHO(ERRO, "connect: %s", strerror(errno));
+		fprintf(stderr, "connect: %s", strerror(errno));
 		close(cfd);
 		return -1;
 	}
@@ -66,11 +64,11 @@ int main(int argc, char *argv[])
 	len = sizeof(struct sockaddr_in);
 	ret = getsockname(cfd, (struct sockaddr *)&csai, &len);
 	if (ret != 0) {
-		ECHO(ERRO, "getsockname: %s", strerror(errno));
+		fprintf(stderr, "getsockname: %s", strerror(errno));
 		close(cfd);
 		return -1;
 	}
-	ECHO(INFO, "clinet(%s:%d)", inet_ntoa(csai.sin_addr), ntohs(csai.sin_port));
+	fprintf(stdout, "clinet(%s:%d)", inet_ntoa(csai.sin_addr), ntohs(csai.sin_port));
 	
 	int circle = TOTAL;
 	int count = 0;
@@ -83,7 +81,7 @@ int main(int argc, char *argv[])
 		char tbuf[1024];
 		int n = snprintf(tbuf, 1024, "========== hello world from client %d ==========", circle);
 		if (n < 0 || n >= 1024) {
-			ECHO(ERRO, "snprintf: %s", strerror(errno));
+			fprintf(stderr, "snprintf: %s", strerror(errno));
 			continue;
 		}
 		/** fill header */
@@ -98,13 +96,13 @@ int main(int argc, char *argv[])
 		
 		nbytes = send(cfd, dbuf, n + sizeof(th), 0);
 		if (nbytes != n + (int)sizeof(th)) {
-			ECHO(ERRO, "send: %s", strerror(errno));
+			fprintf(stderr, "send: %s", strerror(errno));
 			continue;
 		}
 		++count;
 		if (count == TOTAL) {
 			time_t etime = time(NULL);
-			ECHO(INFO, "cost time %ld seconds", etime - btime);
+			fprintf(stdout, "cost time %ld seconds", etime - btime);
 		}
 	}
 	
