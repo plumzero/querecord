@@ -18,34 +18,34 @@ Hugepagesize:       2048 kB
 
 编写测试代码:
 ```c++
-    std::vector<int64_t, hpallocator<int64_t>> vec;
-    vec.reserve(2);
+  std::vector<int64_t, hpallocator<int64_t>> vec;
+  vec.reserve(2);
 ```
 上面的示例代码中，会调用分配器的 `allocate` 函数，分配一个大页。这个时候大页内存环境如下:
 ```sh
-    AnonHugePages:         0 kB
-    HugePages_Total:     512
-    HugePages_Free:      511
-    HugePages_Rsvd:        0
-    HugePages_Surp:        0
-    Hugepagesize:       2048 kB
+  AnonHugePages:         0 kB
+  HugePages_Total:     512
+  HugePages_Free:      511
+  HugePages_Rsvd:        0
+  HugePages_Surp:        0
+  Hugepagesize:       2048 kB
 ```
 可以看到使用了 1 个大页，还剩下 511 个大页。
 
 继续执行如下代码:
 ```c++
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
+  vec.push_back(1);
+  vec.push_back(2);
+  vec.push_back(3);
 ```
 在执行完上述代码的前两句之后，大页内存环境没有变化，在执行完第三句时，大页环境变化了，如下:
 ```sh
-    AnonHugePages:         0 kB
-    HugePages_Total:     512
-    HugePages_Free:      510
-    HugePages_Rsvd:        0
-    HugePages_Surp:        0
-    Hugepagesize:       2048 kB
+  AnonHugePages:         0 kB
+  HugePages_Total:     512
+  HugePages_Free:      510
+  HugePages_Rsvd:        0
+  HugePages_Surp:        0
+  Hugepagesize:       2048 kB
 ```
 可以看到，又使用了 1 个大页，还剩下 510 个大页。原因是 push_back 的调用超出了预先分配的容量，进行了内存的重新分配。而系统在分配内存时，总是会从一个新的页开始。
 
@@ -57,5 +57,5 @@ Hugepagesize:       2048 kB
 
 > 经过后面的测试发现，并不如我们预期的那样。也就是说 vector 好像并没有及时回收那些旧内存。
 
-这是上面的[示例代码](t/03_simple.cpp)，在关键函数地方也添加了一些打印，这可以让使用者看到一些更细节的东西。
+这是上面的[示例代码](t/05_02_simple.cpp)，在关键函数地方也添加了一些打印，这可以让使用者看到一些更细节的东西。
 

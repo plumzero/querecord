@@ -1,5 +1,13 @@
 
-cmake_minimum_required(VERSION 2.8.0)
+cmake_minimum_required(VERSION 2.8)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -Wall -Wextra -W")
+
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/04_*.c")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+endforeach()
 
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
@@ -31,36 +39,33 @@ link_directories(${protobuf_LIBRARY_PATH})
 include_directories(.)
 
 #
-# 使用
+# 简单使用
 #
-add_executable(02_hp_anon      02_hp_anon.cpp)
-target_link_libraries(02_hp_anon rt)
-
-add_executable(02_hp_fd      02_hp_fd.cpp)
-target_link_libraries(02_hp_fd rt)
-
-add_executable(02_hp_shared_anon      02_hp_shared_anon.cpp)
-target_link_libraries(02_hp_shared_anon rt)
-
-add_executable(02_hp_shared_fd      02_hp_shared_fd.cpp)
-target_link_libraries(02_hp_shared_fd rt)
-
-add_executable(02_hp_zero      02_hp_zero.cpp)
-target_link_libraries(02_hp_zero rt)
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/05_01*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+    target_link_libraries(${name} rt)
+endforeach()
 
 #
-# 向量
+# 数组测试
 #
-add_executable(03_simple      03_simple.cpp)
-target_link_libraries(03_simple rt)
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/05_02*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file})
+    target_link_libraries(${name} rt)
+endforeach()
 
 #
 # 测试
 #
 # protoc --cpp_out=. struct.proto
 #
-add_executable(04_try_pod      04_try_pod.cpp)
-target_link_libraries(04_try_pod rt)
-
-add_executable(04_try_proto      04_try_proto.cpp  struct.pb.cc)
-target_link_libraries(04_try_proto rt ${protobuf_LIBRARY_NAME} pthread)
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/05_03*.cpp")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME_WE)
+    add_executable(${name} ${file} struct.pb.cc)
+    target_link_libraries(${name} rt pthread)
+endforeach()
