@@ -27,7 +27,7 @@ int main()
 		exit(1);
 	}
 	
-	ret = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);		// ���������߳�
+	ret = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 	if (ret != 0)
 	{
 		printf("Setting detached attribute error!\n");

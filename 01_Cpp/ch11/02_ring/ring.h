@@ -21,6 +21,20 @@ public:
         _tail = (_tail + 1) % _cap;
         _not_empty.notify_one();
     }
+    bool WaitTake(T& t, std::chrono::seconds timeout) {
+        std::unique_lock<std::mutex> locker(_mutex);
+        if (!_not_empty.wait_for(locker, timeout,
+                        [this]() { return _stop_flag || !empty(); })) {
+            return false;
+        }
+        if (_stop_flag) {
+            return false;
+        }
+        t = _queue[_head];
+        _head = (_head + 1) % _cap;
+        _not_full.notify_one();
+        return true;
+    }
     void Take(T& t) {
         std::unique_lock<std::mutex> locker(_mutex);
         _not_empty.wait(locker, [this]() { return _stop_flag || ! empty(); });

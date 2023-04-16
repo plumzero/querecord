@@ -2,14 +2,14 @@
 进程创建 exec 函数
 
 ```c
-    #include <unistd.h>
+  #include <unistd.h>
 
-    int execl(const char *path, const char *arg, ...);
-    int execlp(const char *file, const char *arg, ...);
-    int execle(const char *path, const char *arg, ..., char *const envp[]);
-    int execv(const char *path, char *const argv[]);
-    int execvp(const char *file, char *const argv[]);
-    int execve(const char *path, char *const argv[], char *const envp[]); // 一参：可执行程序完整路径 二参：传递的命令行参数 三参：传递的环境变量
+  int execl(const char *path, const char *arg, ...);
+  int execlp(const char *file, const char *arg, ...);
+  int execle(const char *path, const char *arg, ..., char *const envp[]);
+  int execv(const char *path, char *const argv[]);
+  int execvp(const char *file, char *const argv[]);
+  int execve(const char *path, char *const argv[], char *const envp[]); // 一参：可执行程序完整路径 二参：传递的命令行参数 三参：传递的环境变量
 ```
 6个函数返回值相同，若成功无返回值，若出错返回-1。
 
@@ -31,11 +31,13 @@
 - 函数名中带有 v 的，使用一个字符串数组指针 argv 指向参数列表，该字符串数组和含有字母 l 的函数中的参数列表完全相同，也同样以 NULL 结束。
 - 函数名中带有 p 的，可自动在环境变量 path 指定的路径中搜索要执行的程序，一参 file 表示可执行文件名。
 - 函数名中带有 e 的，相比其它我一个envp，此字符串数组指针用于指定环境变量。
-- 调用 exec 函数族最常见的错误：
-    - 找不到文件或路径，此时 errno 被设置为 ENOENT
+- 调用 exec 函数族最常见的错误:
+  - 找不到文件或路径，此时 errno 被设置为 ENOENT
 	- 数组 argv 和 envp 忘记使用 NULL 结束，此时 errno 被设置为 EFAULT
 	- 没有对要执行文件的运行权限，此时 errno 被设置为 EACCES
 
 建议优先不使用 execlp 和 execvp 函数。
 
 通常使用 execv 函数就可以了，需要环境变量的话可以使用 execve 。
+
+[使用示例](t/exec.cc)
