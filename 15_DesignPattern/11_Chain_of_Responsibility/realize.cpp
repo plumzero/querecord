@@ -6,91 +6,92 @@
 class Trouble
 {
 public:
-    Trouble(int n) : number(n) {}
-    int getNumber() { return number; }
-    std::string toString() { return "[Trouble " + std::to_string(number) + "]"; }
+  Trouble(int n) : number(n) {}
+  int getNumber() { return number; }
+  std::string toString() { return "[Trouble " + std::to_string(number) + "]"; }
 private:
-    int number;
+  int number;
 };
 
 /** 责任链 - 基类 */
 class Support
 {
 public:
-    Support(std::string n) : name(n) {}
-    Support* setNext(Support* next) { /** 设置要推卸给的对象 */
-        this->next = next;
-        return next;
+  Support(std::string n) : name(n) {}
+  Support* setNext(Support* next) { /** 设置要推卸给的对象 */
+    this->next = next;
+    return next;
+  }
+  void support(Trouble trouble) {
+    if (resolve(trouble)) {
+      done(trouble);
+    } else if (next != nullptr) {
+      next->support(trouble);
+    } else {
+      fail(trouble);
     }
-    void support(Trouble trouble) {
-        if (resolve(trouble)) {
-            done(trouble);
-        } else if (next != nullptr) {
-            next->support(trouble);
-        } else {
-            fail(trouble);
-        }
-    }
-    std::string toString() { return "[" + name + "]"; }
-    virtual bool resolve(Trouble trouble) = 0;
-    void done(Trouble trouble) {
-        std::cout << trouble.toString() << " is resolved by " + toString() + "." << std::endl;
-    }
-    void fail(Trouble trouble) {
-        std::cout << trouble.toString() << " cannot be resolved." << std::endl;
-    }
-    
+  }
+  std::string toString() { return "[" + name + "]"; }
+  virtual bool resolve(Trouble trouble) = 0;
+  void done(Trouble trouble) {
+    std::cout << trouble.toString() << " is resolved by " + toString() + "." << std::endl;
+  }
+  void fail(Trouble trouble) {
+    std::cout << trouble.toString() << " cannot be resolved." << std::endl;
+  }
+  
 private:
-    std::string name;
-    Support* next;
+  std::string name;
+  Support* next;
 };
 
 /** 责任链 - 子类 */
 class NoSupport : public Support
 {
 public:
-    NoSupport(std::string name) : Support(name) {}
-    virtual bool resolve(Trouble trouble) override { return false; } /** 不作处理 */
+  NoSupport(std::string name) : Support(name) {}
+  virtual bool resolve(Trouble trouble) override { return false; } /** 不作处理 */
 };
 class LimitSupport : public Support
 {
 public:
-    LimitSupport(std::string name, int l) : Support(name), limit(l) {}
-    virtual bool resolve(Trouble trouble) override {    /** 解决受限问题 */
-        if (trouble.getNumber() < limit) {
-            return true;
-        } else {
-            return false;
-        }
+  LimitSupport(std::string name, int l) : Support(name), limit(l) {}
+  virtual bool resolve(Trouble trouble) override {    /** 解决受限问题 */
+    if (trouble.getNumber() < limit) {
+      return true;
+    } else {
+      return false;
     }
+  }
 private:
-    int limit;
+  int limit;
 };
 class OddSupport : public Support
 {
 public:
-    OddSupport(std::string name) : Support(name) {}
-    virtual bool resolve(Trouble trouble) override {
-        if (trouble.getNumber() % 2) {
-            return true;
-        } else {
-            return false;
-        }
+  OddSupport(std::string name) : Support(name) {}
+  virtual bool resolve(Trouble trouble) override {
+    if (trouble.getNumber() % 2) {
+      return true;
+    } else {
+      return false;
     }
+  }
 };
+
 class SpecialSupport : public Support
 {
 public:
-    SpecialSupport(std::string name, int n) : Support(name), number(n) {}
-    virtual bool resolve(Trouble trouble) override {
-        if (trouble.getNumber() == number) {
-            return true;
-        } else {
-            return false;
-        }
+  SpecialSupport(std::string name, int n) : Support(name), number(n) {}
+  virtual bool resolve(Trouble trouble) override {
+    if (trouble.getNumber() == number) {
+      return true;
+    } else {
+      return false;
     }
+  }
 private:
-    int number;
+  int number;
 };
 
 int main()
@@ -105,7 +106,7 @@ int main()
     alice->setNext(bob)->setNext(charlie)->setNext(diana)->setNext(elmo)->setNext(fred);
     /** 制造各种问题 */
     for (int i = 0; i < 500; i += 33) {
-        alice->support(Trouble(i));
+      alice->support(Trouble(i));
     }
     
     return 0;

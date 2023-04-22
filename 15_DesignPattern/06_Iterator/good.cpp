@@ -3,35 +3,35 @@
 
 bool BookShelfIterator::hasNext()
 {
-    if (index < bs.size()) {
-        return true;
-    } else {
-        return false;
-    }
+  if (index < bs.size()) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 Book& BookShelfIterator::next() {
-    return bs.at(index++);
+  return bs.at(index++);
 }
 
 Iterator* BookShelf::iterator() {
-    return new BookShelfIterator(*this);
+  return new BookShelfIterator(*this);
 }
 
 int main()
 {
-    BookShelf bookShelf;
-    bookShelf.append(Book("Around the World in 80 Days"));
-    bookShelf.append(Book("Bible"));
-    bookShelf.append(Book("Cinderella"));
-    bookShelf.append(Book("Daddy-Long-Legs"));
-        
-    Iterator* it = bookShelf.iterator();
-    
-    while (it->hasNext()) {
-        Book book = it->next();
-        std::cout << book.getName() << std::endl;
-    }
-    
-    return 0;
+  BookShelf bookShelf;
+  bookShelf.append(Book("Around the World in 80 Days"));
+  bookShelf.append(Book("Bible"));
+  bookShelf.append(Book("Cinderella"));
+  bookShelf.append(Book("Daddy-Long-Legs"));
+      
+  Iterator* it = bookShelf.iterator();
+  
+  while (it->hasNext()) {
+    Book book = it->next();
+    std::cout << book.getName() << std::endl;
+  }
+  
+  return 0;
 }
