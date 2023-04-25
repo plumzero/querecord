@@ -258,4 +258,5 @@ C++11 中还没有为 unique_ptr 提供 make_unique 方法。这里通过 C++11 
 
 unique_ptr 指针可以作为对资源管理的一个句柄使用。
 
-[示例程序](t/01_up_resource.cpp)
+- [示例程序](t/01_up_resource.cpp)
+- [删除器应用于io函数](t/01_up_popen.cpp)
