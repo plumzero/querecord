@@ -23,8 +23,8 @@ type Cells struct {
 }
 
 func NewCells(name string,
-    cellscb func(interface{}, interface{}) (interface{}, error),
-    userdata interface{}) *Cells {
+              cellscb func(interface{}, interface{}) (interface{}, error),
+              userdata interface{}) *Cells {
 
     return &Cells{
         name:     name,
@@ -36,21 +36,23 @@ func NewCells(name string,
     }
 }
 
-func (cells *Cells) Name() string {
-    return cells.name
+func (this *Cells) Name() string {
+    return this.name
 }
 
 // login to cells
-func (cells *Cells) login(agent string, slist []string) (ch chan interface{}, err error) {
-    cells.mtx.Lock()
-    defer cells.mtx.Unlock()
-    // already logined, return an error message
-    if _, ok := cells.channels[agent]; ok {
-        return nil, errors.New(agent + " had been created")
+func (this *Cells) login(agent *Agent, slist []string) (ch chan interface{}, err error) {
+    this.mtx.Lock()
+    defer this.mtx.Unlock()
+
+    agentname := agent.Name()
+    // already logined, return the channel
+    if _, ok := this.channels[agentname]; ok {
+        return this.channels[agentname], nil
     }
     // create a channel, and then return it to agent
     x := make(chan interface{}, 8192)
-    cells.wg.Add(1)
+    this.wg.Add(1)
     // create a timeout
     timeout := make(chan bool, 1)
     go func() {
@@ -61,81 +63,77 @@ func (cells *Cells) login(agent string, slist []string) (ch chan interface{}, er
     }()
 
     // save the login information
-    cells.channels[agent] = x
+    this.channels[agentname] = x
     if len(slist) != 0 {
-        cells.linktabs[agent] = slist
+        this.linktabs[agentname] = slist
     }
-    cells.signals[agent] = make(chan os.Signal, 1)
-    signal.Notify(cells.signals[agent], syscall.SIGTERM, syscall.SIGINT)
+    this.signals[agentname] = make(chan os.Signal, 1)
+    signal.Notify(this.signals[agentname], syscall.SIGTERM, syscall.SIGINT)
 
     // go routine: to receive the data sent by agent
     go func() {
         time.Sleep(100 * time.Millisecond)
-        fmt.Printf("Go routine for [%s] starting...\n", agent)
-        defer cells.wg.Done()
-        last := time.Now()
-        now := time.Now()
+        fmt.Printf("Go routine for [%s] starting...\n", agentname)
+        defer this.wg.Done()
+        agent.SetNow()
         for {
             select {
-            case sig := <-cells.signals[agent]:
-                fmt.Printf("[%s] triggered signal %d and would exit\n", agent, sig)
+            case sig := <-this.signals[agentname]:
+                fmt.Printf("[%s] triggered signal %d and would exit\n", agentname, sig)
                 goto End
             case <-timeout:
-                elapsed := now.Sub(last)
+                now := time.Now()
+                elapsed := now.Sub(agent.LastUse())
                 var ticks int64 = elapsed.Milliseconds()
-                if ticks > 3000 {
-                    fmt.Printf("[%s] time out %d seconds\n", agent, ticks/1000)
+                if ticks > 30000 {
+                    fmt.Printf("[%s] time out %d seconds\n", agentname, ticks / 1000)
+                    agent.SetNow()
                 }
             case data := <-ch:
-                ss, havelist := cells.linktabs[agent]
-                if havelist {
-                    newdata, err := cells.cellscb(data, cells.userdata)
+                if this.cellscb != nil {
+                    ss, _ := this.linktabs[agentname]
+                    newdata, err := this.cellscb(data, this.userdata)
                     if newdata != nil && err == nil {
                         for _, ele := range ss {
-                            if _, havechannel := cells.channels[ele]; havechannel {
-                                cells.channels[ele] <- newdata
-                                fmt.Printf("[%s](ch=%p) forward data to [%s](ch=%p)\n", agent, ch, ele, cells.channels[ele])
+                            if _, havechannel := this.channels[ele]; havechannel {
+                                this.channels[ele] <- newdata
+                                fmt.Printf("[%s] forward data to [%s]\n", agentname, ele)
                             } else {
-                                fmt.Printf("[%s](ch=%p) found no channel about [%s] to send\n", agent, ch, ele)
+                                fmt.Printf("[%s] found no channel about [%s] to send\n", agentname, ele)
                             }
                         }
                     }
-                } else {
-                    fmt.Printf("[%s](ch=%p) found no target to send\n", agent, ch)
                 }
-                last = now
-                now = time.Now()
             }
         }
     End:
-        fmt.Printf("[%s] logout\n", agent)
+        agent.Logout(this)
     }()
-
-    fmt.Printf("[%s](ch=%p) login success\n", agent, x)
 
     return x, nil
 }
 
-// logout the cells
-func (cells *Cells) logout(agent string) error {
-    cells.mtx.Lock()
-    defer cells.mtx.Unlock()
+func (this *Cells) logout(agent *Agent) error {
+    this.mtx.Lock()
+    defer this.mtx.Unlock()
 
-    if _, ok := cells.channels[agent]; ok {
-        if _, musthave := cells.signals[agent]; musthave {
+    agentname := agent.Name()
+
+    if _, ok := this.channels[agentname]; ok {
+        if _, musthave := this.signals[agentname]; musthave {
             // clear
-            cells.signals[agent] <- syscall.SIGTERM
+            this.signals[agentname] <- syscall.SIGTERM
             time.Sleep(100 * time.Millisecond) // wait for the signal be finished
 
-            close(cells.signals[agent])
-            delete(cells.signals, agent)
-            delete(cells.channels, agent)
-            if _, orhave := cells.linktabs[agent]; orhave {
-                delete(cells.linktabs, agent)
+            close(this.signals[agentname])
+            delete(this.signals, agentname)
+            delete(this.channels, agentname)
+            if _, orhave := this.linktabs[agentname]; orhave {
+                delete(this.linktabs, agentname)
             } else {
-                for _, ss := range cells.linktabs {
+                for _, ss := range this.linktabs {
                     for i, ele := range ss {
-                        if ele == agent {
+                        if ele == agentname {
                             if len(ss) == 1 {
                                 ss = make([]string, 0)
                             } else if i == len(ss)-1 {
@@ -153,16 +151,16 @@ func (cells *Cells) logout(agent string) error {
             return nil
         } else {
             // It should not been here
-            return errors.New("agent " + agent + " logout failed")
+            return errors.New("agent " + agentname + " logout failed")
         }
     }
-
-    return errors.New("agent " + agent + " not found")
+    
+    return nil
 }
 
 // wait to exit
-func (cells *Cells) Wait() {
-    fmt.Printf("[%s] wait to serve...\n", cells.name)
-    cells.wg.Wait()
-    fmt.Printf("[%s] exit success\n", cells.name)
+func (this *Cells) Wait() {
+    fmt.Printf("[%s] wait to serve...\n", this.name)
+    this.wg.Wait()
+    fmt.Printf("[%s] exit success\n", this.name)
 }
